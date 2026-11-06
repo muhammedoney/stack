@@ -80,7 +80,7 @@ Sonuç: `Bekliyor`, `Geçti`, `Kaldı`, `Kısmen`; kanıt `test/` altındaki rap
 | DOG-071 | SYS-072 | G | Pervanesiz arm’lı, %30 gaz; kumanda kapatılır, ≤ 1.5 s’de motorlar durur | Kart | test-muhendisi | Bekliyor | |
 | DOG-072 | SYS-073 | M | ESC sinyal girişinde tanımlı seviye (çekme direnci veya MCU iç çekmesi + Bluejay giriş ayarı) | Ü-öncesi | guc-elektronigi | Bekliyor | |
 | DOG-073 | SYS-073 | T | Kablo çıkarılmış ESC 6S’e takılı, 10 dk, 30 cm yakında çalışan motor/VTX gürültüsü; motor dönmez | Kart | test-muhendisi | Bekliyor | |
-| DOG-074 | SYS-074 | M | FMU ters kutup elemanı V_DS/V_GS sınıfı ≥ 26.1 V + pay; ESC kararı SOR-010’a göre ipek baskı/not | Ü-öncesi | guc-elektronigi | Bekliyor | |
+| DOG-074 | SYS-074 | M | FMU ters kutup elemanı V_DS/V_GS sınıfı ≥ 26.1 V + pay; ESC: koruma yok, + / − ipek baskı ve kutu uyarısı var mı (SOR-010) | Ü-öncesi | guc-elektronigi | Bekliyor | |
 | DOG-075 | SYS-074 | T | FMU VBAT’a −26.1 V, 10 s (akım sınırlı kaynak); sonra normal çalışma | Kart | test-muhendisi | Bekliyor | |
 | DOG-076 | SYS-075 | M | USB ve dış pedlerde ESD elemanı / seri direnç; ESD akım yolu kısa | Ü-öncesi | dogrulama-kalite | Bekliyor | |
 | DOG-077 | SYS-075 | T | ESD tabancasıyla (erişilebilirse) USB ±4 kV temas / ±8 kV hava, diğer pedler ±2 kV temas, 10 darbe; işlev bozulmaz | Kart | test-muhendisi | Bekliyor | |

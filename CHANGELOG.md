@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-11-06 — Kapı 1 onayı
+
+- Müşteri gereksinimleri onayladı: SYS-001…094, MUS, PRJ `Onaylı`. DT-001: maliyet hedefi 15 $ → ≤ 28 $/stack (100 set, tüm özellikler). SOR-010: ESC’de ters kutup koruması yok, + / − ipek baskı ve uyarı. SOR-011: kutuda 8 pin kablo, düşük ESR kondansatör, M3 tampon/vida. SOR-012: analog OSD kesin (SYS-034 zorunlu).
+- İş paketleri İP-01…11 açıldı.
+
 ## 2026-11-06 — Kapı 1 taslağı ve maliyet çalışması
 
 - `docs/gereksinimler/`: 5" stack için SYS-001…094 (56 madde), DOG-001…090 (53 Ü-öncesi, 37 Kart), RSK-006…013, İP-01…11 (öneri), SOR-010…012; izlenebilirlikte yetim MUS ve DOG’suz SYS yok. Yeni bulgular: fmu’da 3.3 V regülatörü yok (SYS-042), FMU beslemesi tek SH pininden (SYS-062).

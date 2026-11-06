@@ -4,13 +4,13 @@
 
 | ID | Gereksinim | Kaynak | Öncelik | Durum |
 |---|---|---|---|---|
-| PRJ-001 | Tasarım KiCad 10’da; tüm belgeler Türkçe ve repoda; dosya düzeni fiber/gofret projeleriyle aynı | Müşteri, 2026-11-06 | Z | Taslak |
-| PRJ-002 | Hobi ürünü: sertifika (CE/FCC vb.) hedeflenmez | MUS-003 | Z | Taslak |
-| PRJ-003 | Hedef satış fiyatı ≤ 70 $/stack (pazar: bütçe markalar 70–100 $, AliExpress 45–57 $) | SOR-005, `docs/pazar-analizi.md` §6 | Ö | Taslak (müşteri uygun buldu, 2026-11-06) |
-| PRJ-004 | Stack (FMU + 55 A ESC) toplam maliyeti ≤ 15 $, 100 set kademesinde: komponent + PCB + dizgi dahil, gümrük ve kargo hariç (SOR-009). Her parça seçiminde maliyet etkisi yazılır | SOR-005 | Z | Taslak |
-| PRJ-005 | İlk prototip: en kısa sürede 5 set | SOR-008, 2026-11-06 | Z | Taslak |
-| PRJ-007 | Prototip doğrulandıktan sonra 100 set üretim | SOR-008 | Z | Taslak |
-| PRJ-006 | Yazılım: FMU’da hazır Betaflight, ESC’de Bluejay; yalnız hedef/düzen tanımı ve yükleme yolu bizden | SOR-006, KRR-003 | Z | Taslak |
+| PRJ-001 | Tasarım KiCad 10’da; tüm belgeler Türkçe ve repoda; dosya düzeni fiber/gofret projeleriyle aynı | Müşteri, 2026-11-06 | Z | Onaylı |
+| PRJ-002 | Hobi ürünü: sertifika (CE/FCC vb.) hedeflenmez | MUS-003 | Z | Onaylı |
+| PRJ-003 | Hedef satış fiyatı ≤ 70 $/stack (pazar: bütçe markalar 70–100 $, AliExpress 45–57 $) | SOR-005, `docs/pazar-analizi.md` §6 | Ö | Onaylı |
+| PRJ-004 | Stack (FMU + 55 A ESC) toplam maliyeti ≤ 28 $ (DT-001; eski hedef 15 $), 100 set kademesinde, tüm özellikler kalır (`docs/bom-maliyet.md` S1b 27.4 $): komponent + PCB + dizgi dahil, gümrük ve kargo hariç (SOR-009). Her parça seçiminde maliyet etkisi yazılır | SOR-005 | Z | Onaylı |
+| PRJ-005 | İlk prototip: en kısa sürede 5 set | SOR-008, 2026-11-06 | Z | Onaylı |
+| PRJ-007 | Prototip doğrulandıktan sonra 100 set üretim | SOR-008 | Z | Onaylı |
+| PRJ-006 | Yazılım: FMU’da hazır Betaflight, ESC’de Bluejay; yalnız hedef/düzen tanımı ve yükleme yolu bizden | SOR-006, KRR-003 | Z | Onaylı |
 
 ## Riskler (RSK)
 
@@ -19,7 +19,7 @@
 | RSK-001 | esc55a akım ölçümü ≈ 32 A’da doyuyor, shunt 100 A’da ≈ 5 W (inceleme E1, E2) | Yüksek | Akım okuması ve shunt ısısı | Akım sınıfı netleşince yeniden boyutlandırma | Açık |
 | RSK-002 | Güç parçalarının (ME7170, JW5026) veri sayfası yok; 55 A sınıfı doğrulanamıyor (E5) | Orta | Yeniden parça seçimi | `bom-tedarik` veri sayfalarını bulur | Açık |
 | RSK-003 | esc65a için yalnız fotoğraf var | Yüksek | Takvim | esc55a tabanlı varyant değerlendirmesi (SOR-003) | Açık |
-| RSK-004 | 15 $/stack maliyet hedefi agresif: ESC’de 24 MOSFET + 4 MCU + 4 sürücü, FMU’da F405 + IMU + OSD; AliExpress perakende 45–57 $ (tahmin, BOM fiyatlanmadı) | Yüksek | Kâr / parça kalitesi | `bom-tedarik` 100 set BOM fiyatı; gereksiz parça ayıklama; PCB + dizgi hedefe dahil (SOR-009) | Açık |
+| RSK-004 | ≤ 28 $/stack hedefinde pay az: S1b 27.4 $ (sadeleştirmeler henüz incelenmedi), PCB fiyatı tahmin, Economic dizgi ek ücreti +0.48 $/kart belirsiz (`docs/bom-maliyet.md` §7) | Orta | Kâr | S1b seçeneklerinin incelemesi, JLC gerçek teklifi; 15 $ yalnız 1000 set + kesinti ile mümkün (DT-001) | Açık |
 | RSK-005 | 100 set ilk parti tasarım doğrulanmadan üretilirse toplu hata riski | Orta | 100 set hurda | Önce 5 set prototip (PRJ-005); Ü-öncesi DOG’lar ve prototip testleri kapanmadan 100 set yok (PRJ-007) | Azaltıldı |
 | RSK-006 | FMU tüm beslemesini 8 pin SH konnektörün tek VBAT pininden alıyor: BEC tam yükte 3S’te ≈ 3.1 A (tahmin), SH pin sınıfı ≈ 1 A (tahmin) → pin/kablo ısınması, gerilim düşümü (SYS-062) | Yüksek | Kart/kablo hasarı, FMU sıfırlanması | `sistem-mimari`: pin sayısı, ayrı besleme pedi veya BEC akım hedefinin düşürülmesi; konnektör veri sayfası (`bom-tedarik`) | Açık (2026-11-06) |
 | RSK-007 | 4 × 55 A eşzamanlı sürekli + 220 A pil yolu, 41 × 48 mm, iç katman 0.5 oz kartta ısıl olarak tutmayabilir; hava akışı varsayımı (5 m/s) kullanıcı kurulumuna bağlı (SYS-010, SYS-012) | Orta | 55 A iddiası düşer, MOSFET/shunt yanması | DOG-004/008 erken analiz; gerekirse iç katman kalınlığı, MOSFET veya “55 A” tanımının (eşzamanlı kanal sayısı) DT ile güncellenmesi | Açık (2026-11-06) |
@@ -34,21 +34,22 @@
 
 | ID | Talep | Etkilenen | Durum |
 |---|---|---|---|
+| DT-001 | Maliyet hedefi 15 $ → ≤ 28 $/stack (100 set), tüm özellikler kalır. Gerekçe: bom-maliyet S1 31.9 $, S1b 27.4 $; özellikler kesilse bile 19.5 $ | PRJ-004, RSK-004, İP-02, İP-05 (S1b sadeleştirmeleri `guc-elektronigi`/`gomulu-yazilim` incelemesiyle) | Onaylı (müşteri, 2026-11-06) |
 
 ## İş paketleri (İP)
 
-> 2026-11-06: Kapı 1 için `gereksinim-muhendisi` önerisi; yönetici onayında açılır. Parantezde pakette kapanacak DOG. Kart DOG’ları prototip gelince ayrı paket (İP-11).
+> 2026-11-06: Kapı 1 onaylandı; paketler açıldı. Parantezde pakette kapanacak DOG. Kart DOG’ları prototip gelince ayrı paket (İP-11).
 
 | ID | Paket | Sahip | SYS | Durum |
 |---|---|---|---|---|
-| İP-01 | Mimari: `docs/pin-haritasi.md` (8 pin dizilimi KRR-004, FMU MCU pin/zamanlayıcı/DMA, UART), güç/ısı bütçesi (220 A pil yolu, 4 × 55 A, BEC, VBAT pini), geçici gerilim stratejisi, 65 A varyant uyumu | sistem-mimari | SYS-003, 010, 012, 014, 035, 037, 044, 060, 062 (DOG-003, -030, -034, -059, -062) | Öneri |
-| İP-02 | Tedarik: eksik veri sayfaları (ME7170, JW5026, INA199, AMS1117, SMDJ28CA, SH konnektör — RSK-002), LCSC kodlama, 100 set BOM ve maliyet | bom-tedarik | SYS-002, 083, 091 (DOG-002, -082, -087); veri girdisi SYS-010…016, 062 | Öneri |
-| İP-03 | Ü-öncesi güç analizleri: kayıp/ısı, akım ölçümü yeniden boyutlandırma, TVS/kondansatör, BEC, BEMF, failsafe donanımı | guc-elektronigi | SYS-010, 011, 013…016, 020, 021, 040…045, 070, 073, 074, 083 (DOG-004, -006, -009, -011, -013, -015, -017, -019, -037, -039, -041, -043, -045, -047, -067, -072, -074, -083) | Öneri (İP-02 veri sayfalarına bağlı) |
-| İP-04 | KiCad taşıma: esc55a şematik + PCB, fmu şematik; ortak `lib/`, çift referanslar (E6, F2), Altium kuralları (E9, E10) | sematik-muhendisi, pcb-muhendisi | SYS-001, 030, 032, 090 (DOG-001, -023, -026) | Öneri |
-| İP-05 | Şematik Rev B: akım ölçümü (E1, E2), TVS/kondansatör (E3, E4), FMU 3.3 V regülatörü ve giriş koruması (F4), 8 pin dizilimi, C2/SWD/test pedleri, ESC giriş çekmesi, ters kutup | sematik-muhendisi | SYS-014, 020, 036, 042, 044, 054, 055, 060, 070, 073, 074, 075, 093 | Öneri (İP-01, İP-03’e bağlı) |
-| İP-06 | PCB: esc55a Rev B yerleşim/yol (pil yolu bakırı), fmu PCB sıfırdan (F1), test noktaları, ipek baskı, JLC kuralları | pcb-muhendisi | SYS-012, 063, 064, 065, 080, 081, 082, 084, 090, 092, 093 (DOG-008, -079, -080, -084, -086, -088) | Öneri (İP-05’e bağlı) |
-| İP-07 | Yazılım: Betaflight config (HSE 24 MHz, F3), Bluejay düzen eşlemesi (§2.4), failsafe varsayılanları; derleme gereken yer “derleyicide doğrulanacak” | gomulu-yazilim | SYS-031, 050, 051, 052, 053, 055, 071, 072 (DOG-024, -049, -051, -070) | Öneri (İP-01’e bağlı) |
-| İP-08 | Doğrulama planı: Ü-öncesi hesap betikleri (DOG-021), tezgâh ve pervaneli test prosedürleri, teçhizat listesi (RSK-011), üretim sonu test prosedürü | test-muhendisi | SYS-022, 094 ve tüm Kart DOG’larının prosedürü | Öneri |
-| İP-09 | Kalite kapısı: her paket sonunda `guc-elektronigi` + `dogrulama-kalite` incelemesi; dogrulama-kalite Ü-öncesi M DOG’ları (DOG-001, -023, -026, -027, -028, -032, -036, -055, -057, -061, -064, -065, -066, -076, -078, -089) | dogrulama-kalite, guc-elektronigi | SYS-001, 030, 032…034, 036, 038, 054, 055, 061, 063…065, 075, 080, 093 | Öneri |
-| İP-10 | Pazar girdisi: rakip kütle/ölçü/set içeriği, SpeedyBee/GEPRC 8 pin ve DJI dizilim kılavuzlarının toplanması | pazar-analisti | SYS-060, 061, 065, 081, 082 | Öneri |
-| İP-11 | Prototip (5 set) Kart DOG’ları: 37 madde (DOG-005, -007, -010, …, -090) | test-muhendisi | Tüm SYS (Kart DOG’u olanlar) | Öneri (prototip gelince) |
+| İP-01 | Mimari: `docs/pin-haritasi.md` (8 pin dizilimi KRR-004, FMU MCU pin/zamanlayıcı/DMA, UART), güç/ısı bütçesi (220 A pil yolu, 4 × 55 A, BEC, VBAT pini), geçici gerilim stratejisi, 65 A varyant uyumu | sistem-mimari | SYS-003, 010, 012, 014, 035, 037, 044, 060, 062 (DOG-003, -030, -034, -059, -062) | Açık |
+| İP-02 | Tedarik: eksik veri sayfaları (ME7170, JW5026, INA199, AMS1117, SMDJ28CA, SH konnektör — RSK-002), LCSC kodlama, 100 set BOM ve maliyet | bom-tedarik | SYS-002, 083, 091 (DOG-002, -082, -087); veri girdisi SYS-010…016, 062 | Açık |
+| İP-03 | Ü-öncesi güç analizleri: kayıp/ısı, akım ölçümü yeniden boyutlandırma, TVS/kondansatör, BEC, BEMF, failsafe donanımı | guc-elektronigi | SYS-010, 011, 013…016, 020, 021, 040…045, 070, 073, 074, 083 (DOG-004, -006, -009, -011, -013, -015, -017, -019, -037, -039, -041, -043, -045, -047, -067, -072, -074, -083) | Açık (İP-02 veri sayfalarına bağlı) |
+| İP-04 | KiCad taşıma: esc55a şematik + PCB, fmu şematik; ortak `lib/`, çift referanslar (E6, F2), Altium kuralları (E9, E10) | sematik-muhendisi, pcb-muhendisi | SYS-001, 030, 032, 090 (DOG-001, -023, -026) | Açık |
+| İP-05 | Şematik Rev B: akım ölçümü (E1, E2), TVS/kondansatör (E3, E4), FMU 3.3 V regülatörü ve giriş koruması (F4), 8 pin dizilimi, C2/SWD/test pedleri, ESC giriş çekmesi, ters kutup | sematik-muhendisi | SYS-014, 020, 036, 042, 044, 054, 055, 060, 070, 073, 074, 075, 093 | Açık (İP-01, İP-03’e bağlı) |
+| İP-06 | PCB: esc55a Rev B yerleşim/yol (pil yolu bakırı), fmu PCB sıfırdan (F1), test noktaları, ipek baskı, JLC kuralları | pcb-muhendisi | SYS-012, 063, 064, 065, 080, 081, 082, 084, 090, 092, 093 (DOG-008, -079, -080, -084, -086, -088) | Açık (İP-05’e bağlı) |
+| İP-07 | Yazılım: Betaflight config (HSE 24 MHz, F3), Bluejay düzen eşlemesi (§2.4), failsafe varsayılanları; derleme gereken yer “derleyicide doğrulanacak” | gomulu-yazilim | SYS-031, 050, 051, 052, 053, 055, 071, 072 (DOG-024, -049, -051, -070) | Açık (İP-01’e bağlı) |
+| İP-08 | Doğrulama planı: Ü-öncesi hesap betikleri (DOG-021), tezgâh ve pervaneli test prosedürleri, teçhizat listesi (RSK-011), üretim sonu test prosedürü | test-muhendisi | SYS-022, 094 ve tüm Kart DOG’larının prosedürü | Açık |
+| İP-09 | Kalite kapısı: her paket sonunda `guc-elektronigi` + `dogrulama-kalite` incelemesi; dogrulama-kalite Ü-öncesi M DOG’ları (DOG-001, -023, -026, -027, -028, -032, -036, -055, -057, -061, -064, -065, -066, -076, -078, -089) | dogrulama-kalite, guc-elektronigi | SYS-001, 030, 032…034, 036, 038, 054, 055, 061, 063…065, 075, 080, 093 | Açık |
+| İP-10 | Pazar girdisi: rakip kütle/ölçü/set içeriği, SpeedyBee/GEPRC 8 pin ve DJI dizilim kılavuzlarının toplanması | pazar-analisti | SYS-060, 061, 065, 081, 082 | Açık |
+| İP-11 | Prototip (5 set) Kart DOG’ları: 37 madde (DOG-005, -007, -010, …, -090) | test-muhendisi | Tüm SYS (Kart DOG’u olanlar) | Açık (prototip gelince) |
