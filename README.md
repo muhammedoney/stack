@@ -16,7 +16,7 @@
 | esc65a — 4’ü 1 arada 65 A | drawio | yok (16 fotoğraf, 2 parça etiketi) | yok | — |
 | [fmu](boards/fmu/README.md) — F405 uçuş kontrol | Altium | 1 sayfa, 143 parça | yok | Betaflight hedefi yazılacak |
 
-Altium projeleri `boards/*/altium/` altında olduğu gibi duruyor; KiCad’e taşınmadı. Bulgular ve önerilen sıra: [docs/inceleme.md](docs/inceleme.md). Gereksinimler henüz yok (kapı 1 bekleniyor).
+Altium projeleri `boards/*/altium/` altında olduğu gibi duruyor; KiCad’e taşınmadı. Bulgular ve önerilen sıra: [docs/inceleme.md](docs/inceleme.md). Gereksinimler: 5" stack için 56 SYS, 90 DOG (53 Ü-öncesi) taslak; kapı 1 onayı bekleniyor ([docs/gereksinimler](docs/gereksinimler/README.md)).
 
 ## Belgeler
 
@@ -24,6 +24,7 @@ Altium projeleri `boards/*/altium/` altında olduğu gibi duruyor; KiCad’e ta�
 |---|---|
 | [İlk inceleme](docs/inceleme.md) | Kopyalanan dosyalar, mimari, hesaplar, bulgular (E1–E12, F1–F7), önerilen sıra |
 | [Pazar analizi](docs/pazar-analizi.md) | Rakip stack’ler, özellikler, fiyatlar, hedef değer önerisi; ham veri `docs/pazar/rakipler.csv` |
+| [BOM ve maliyet](docs/bom-maliyet.md) | 5" stack 5 / 100 / 1000 set maliyeti, muadiller, maliyet azaltma seçenekleri; ham BOM `boards/*/bom-maliyet.csv` |
 | [Gereksinimler](docs/gereksinimler/README.md) | MUS/SYS/PRJ/DOG kaydı, açık sorular |
 | `docs/esc55a.drawio`, `docs/esc65a.drawio` | ESC tersine mühendislik çizimleri |
 | `docs/fmu-diatone-f405mk2.drawio`, `docs/fmu-geprc-f405-hd-v3.drawio` | FMU referans kart çizimleri; görseller `docs/reference/fmu/` |

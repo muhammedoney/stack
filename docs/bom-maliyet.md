@@ -1,0 +1,256 @@
+# BOM maliyeti ve tedarik durumu — 5" stack (fmu + esc55a)
+
+> **Tarih:** 2026-11-06. Sahibi `bom-tedarik`. **Fiyat ve stok kaynağı:** JLCPCB parça arama arayüzü (`jlcpcb.com/api/overseas-pcb-order/v1/shoppingCart/smtGood/selectSmtComponentList`, JLC dizgi fiyatı, basic/extended bilgisi). Parametreler LCSC ürün arayüzünden (`wmsc.lcsc.com/ftps/wm/product/detail`). İkisi de 2026-11-06'da okundu. Fiyatlar USD, KDV/kargo/gümrük hariç. Dizgi ücretleri [JLCPCB PCBA fiyat sayfası](https://jlcpcb.com/help/article/pcb-assembly-price) ve [PCBA SSS](https://jlcpcb.com/help/article/pcb-assembly-faqs) sayfalarından (2026-11-06). **PCB fiyatları tahmindir**: JLC fiyat hesaplayıcısına erişilemedi (§3).
+> **Parça listesi:** `tools/altium_sch_dump.py` ile `boards/esc55a/altium/{main,mcu,mcu2}.SchDoc` ve `boards/fmu/altium/fmu.SchDoc` dosyalarından çıkarıldı. Pedler (`X PADS/PADR/PAD.ESC/PAD.PWR`) ve `LOGO` BOM dışı. Ham tablolar: [`boards/esc55a/bom-maliyet.csv`](../boards/esc55a/bom-maliyet.csv), [`boards/fmu/bom-maliyet.csv`](../boards/fmu/bom-maliyet.csv). CSV'de taban kod ve S1b önerisi yan yana.
+> **Hedef (PRJ-004 / SYS-002):** 100 set kademesinde stack başına toplam ≤ 15 $ (komponent + PCB + dizgi).
+> **Kademe kuralı:** "100 set" = 100 × karttaki adet. Birim fiyat bu toplam adetin JLC kademesinden alınır; örneğin 24 MOSFET için 2400 adet. CSV'de ayrıca 100 adet kademesi birim fiyatı da var. JLC'nin fire için eklediği fazla parça hesaba katılmadı (pasiflerde küçük).
+
+## 1. Özet
+
+| Senaryo (stack = fmu + esc55a) | 5 set $/stack | 100 set $/stack | 1000 set $/stack | 15 $'a göre (100 set) |
+|---|---|---|---|---|
+| **S0** Şematik olduğu gibi | 108.89 | 57.03 (**üretilemez**: ME7170 stoğu yetmez) | 52.40 | +42.0 |
+| **S1** Stoklu muadiller, gereksinim değişmez, risk düşük | 80.20 | **31.93** | 27.39 | **+16.9** |
+| **S1b** S1 + ekip kararıyla tasarım değişiklikleri (§5-A) | 73.61 | **27.38** | 22.97 | **+12.4** |
+| **S2a** S1b + APM32F405 + BMI270 (**müşteri kararı**, özellikler kalır) | 70.73 | 24.84 | 19.77 | +9.8 |
+| **S2** S2a + OSD, baro, flash, akım ölçümü çıkar + bulk 8 adet (**müşteri kararı**) | 60.64 | 19.53 | 15.17 | +4.5 |
+
+**PRJ-004 durumu: karşılanmıyor.** JLC'de 100 sette en iyi gerçekçi değer S1b ile **~27 $**, bütün özellikler kesilse bile **~19.5 $**. 15 $'a ancak 1000 set kademesinde ve S2 kesintileriyle yaklaşılıyor (15.2 $). RSK-004 doğrulandı. Öneri ve müşteri soruları §6'da.
+
+### 1.1 Kart başına kırılım ($/kart)
+
+| | Komponent | PCB (tahmin) | Dizgi | **Toplam** |
+|---|---|---|---|---|
+| **S1, 100 set** — esc55a | 13.54 | 0.80 | 2.13 | **16.47** |
+| **S1, 100 set** — fmu | 13.88 | 0.25 | 1.33 | **15.46** |
+| **S1, 100 set — stack** | **27.42** | **1.05** | **3.46** | **31.93** |
+| **S1b, 100 set** — esc55a | 10.13 | 0.80 | 2.08 | **13.01** |
+| **S1b, 100 set** — fmu | 12.77 | 0.25 | 1.35 | **14.37** |
+| **S1b, 100 set — stack** | **22.90** | **1.05** | **3.43** | **27.38** |
+| **S1, 5 set** — esc55a | 18.82 | 6.00 | 19.70 | 44.52 |
+| **S1, 5 set** — fmu | 20.45 | 0.40 | 14.82 | 35.67 |
+| **S1, 5 set — stack** | **39.27** | **6.40** | **34.52** | **80.20** |
+| **S1b, 5 set — stack** | 32.43 | 6.40 | 34.79 | **73.61** |
+
+5 sette dizgi, kurulum ücretleri yüzünden (ESC çift yüz 51 $ + 16 $ şablon) en büyük kalemdir. Prototip bütçesi (S1, 5 set, kargo hariç): yaklaşık **400 $**.
+
+### 1.2 En büyük kalemler (S1, 100 set, stack başına)
+
+| # | Kart | LCSC | Parça | Adet | Birim $ | $/stack |
+|---|---|---|---|---|---|---|
+| 1 | fmu | C15742 | STM32F405RGT6 (ST) | 1 | 4.957 | 4.96 |
+| 2 | esc | C6119969 | 22 µF 35 V X5R 1206 (HRE) | 29 | 0.135 | 3.91 |
+| 3 | esc | C404363 | AON6354 MOSFET (AOS), ME7170 yerine | 24 | 0.149 | 3.58 |
+| 4 | esc | C80713 | EFM8BB21F16G-C-QFN20R | 4 | 0.794 | 3.18 |
+| 5 | fmu | C54308212 | ICM-42688-P (Tokmas); TDK orijinali C1850418 **18.99 $** | 1 | 2.118 | 2.12 |
+| 6 | fmu | C82351 | AT7456E | 1 | 1.899 | 1.90 |
+| 7 | fmu | C97521 | W25Q128JVSIQ (basic) | 1 | 1.588 | 1.59 |
+| 8 | esc | C19077370 | JSM6288Q (FD6288Q muadili) | 4 | 0.273 | 1.09 |
+| 9 | fmu | C54582187 | BMP388 (Tokmas); Bosch C779278 4.91 $ | 1 | 0.968 | 0.97 |
+| 10 | esc | C2155860 | INA199C1DCKR | 1 | 0.532 | 0.53 |
+
+İlk dört kalem S1 komponentinin %57'si. Dizgi 3.46 $/stack, PCB ~1.05 $/stack (tahmin).
+
+## 2. BOM ve kodlar
+
+### 2.1 Kurulan tek BOM (varsayımlar)
+
+| Konu | Varsayım |
+|---|---|
+| fmu U0 ×2 | Aynı STM32F405 sembolünün iki parçası (çok parçalı sembol). **1 adet** |
+| fmu J1 ×2 | USB-C ve SM08B ayrı parçalar. İkisi de var (SM08B'ye `J1b` dendi) |
+| fmu U6 BMP388 / BMP280 | Yalnız BMP388 takılı, BMP280 DNP. Bosch BMP280 stokta yok (C83291, 0 adet) |
+| fmu U2 MAX7456 | AT7456E (C82351) ile. MAX7456 stokta yok (C5346361, 0 adet). Pin uyumu §2.3 |
+| fmu C60 ×2, C61 ×2 | 4 ayrı 100 nF varsayıldı (tutucu). Kopya çıkarsa 2 adet eksilir (−0.02 $) |
+| fmu C? ×3 (10 µF 0805), R? ×2 (5.1 k 0805) | Ayrı parçalar sayıldı, numaralanacak |
+| fmu 3.3 V regülatörü | **Şematikte yok** (SYS-042). Varsayım olarak U8 ME6211C33M5G-N (C82942, 500 mA, 5 V'tan) + 2 × 1 µF eklendi: +0.06 $ |
+| esc R? ×8 (3 k / 1 k, E6) | Takılı sayıldı (+0.01 $) |
+| Sayım | esc55a: **200 parça / 26 satır / 750 lehim noktası**. fmu: **98 parça (tekilleştirilmiş şematikten 95 + varsayım 3) / 44 satır / 389 lehim noktası** (pin sayısından) |
+
+### 2.2 esc55a — taban kodlar (100 set birim fiyatı, 100 set için gereken adetin kademesinde)
+
+| Ref | Adet | Parça | LCSC | JLC | Stok | 100 ad. $ | 100 set birim $ | Not |
+|---|---|---|---|---|---|---|---|---|
+| M1aH…M4cL | 24 | ME7170 30 V 110 A 2.6 mΩ (MATSUKI) | C2841360 | ext | **168** | 0.299 | 0.220 | **100 sete yetmez** (2400 lazım). 5 sete yeter (120) |
+| U11…U41 | 4 | EFM8BB21F16G-C-QFN20R | C80713 | ext | 59 440 | 0.794 | 0.794 | Tüpteki QFN20 C1339974 stokta yok |
+| U12…U42 | 4 | FD6288Q → **JSM6288Q** | C19077370 | ext | 10 630 | 0.273 | 0.273 | FD6288Q'nun bütün kodları stokta yok (C328453, C97677, C7466367) |
+| U1 | 1 | JW5026SOTB#TRPBF | C185109 | ext | 7 208 | 0.267 | 0.267 | |
+| U2 | 1 | INA199C1DCKR | C2155860 | ext | 3 003 | 0.532 | 0.532 | |
+| U0 | 1 | AMS1117-3.3S SOT-89 (UMW) | C347256 | ext | 418 674 | 0.037 | 0.037 | Basic AMS1117 yalnız SOT-223 |
+| D00 | 1 | SMDJ28CA (Brightking) | C310121 | ext | 1 660 | 0.239 | 0.239 | Littelfuse C224072: 191 stok |
+| J0 | 1 | SM08B-SRSS-TB (JST) | C160407 | ext | 181 481 | 0.259 | 0.259 | |
+| D13…D45 | 12 | 1N4148WT SOD-523 | C27748 | ext | 67 879 | 0.016 | 0.013 | |
+| L00 | 1 | 6.8 µH 1210 NLCV32T-6R8M-EF | C250230 | ext | 11 606 | 0.049 | 0.049 | Akım değeri `guc-elektronigi` |
+| R00, R000 | 2 | 1 mΩ 2512 RLM25FEER001 | C316227 | ext | 4 854 | 0.053 | 0.053 | E2: güç sınırı |
+| C1…C60 | 29 | 22 µF 35 V X5R 1206 | C6119969 | ext | 14 347 | 0.197 | 0.135 | E4 |
+| C00, C01 | 2 | 100 nF 50 V 0402 | C307331 | basic | | 0.009 | 0.009 | |
+| C02 | 1 | 4.7 µF 35 V 0603 | C307467 | ext | | 0.033 | 0.033 | |
+| C03 | 1 | 10 µF 10 V 0402 | C315248 | ext | | 0.030 | 0.030 | |
+| C04, C11… | 9 | 100 nF 16 V 0402 | C1525 | basic | | 0.003 | 0.003 | |
+| C05 | 1 | 1 nF 50 V 0402 | C1523 | basic | | 0.004 | 0.004 | |
+| C13…C45 | 12 | 1 µF 0402 (25 V) | C52923 | basic | | 0.004 | 0.004 | |
+| R0, R02 | 2 | 90.9 k 0402 | C26989 | ext | | 0.001 | 0.001 | |
+| 10 k / 22 Ω / 220 Ω / 3.3 k / 1 k | 29 / 26 / 4 / 12 / 16 | 0402 | C25744 / C25092 / C25091 / C25890 / C11702 | basic | | ≤ 0.003 | | |
+| R? (3 k) | 4 | 3 k 0402 | C25784 | ext | | 0.001 | | E6 |
+
+Toplam: 26 satır, 25 farklı kod, **16 extended**.
+
+### 2.3 fmu — taban kodlar
+
+| Ref | Adet | Parça | LCSC | JLC | Stok | 100 ad. $ | Not |
+|---|---|---|---|---|---|---|---|
+| U0 | 1 | STM32F405RGT6 (ST) | C15742 | ext | **526** | 4.957 | 100 sete yeter, 1000 sete yetmez |
+| U7 | 1 | ICM-42688-P (TDK) | C1850418 | ext | 766 | **18.99** | Kıtlık fiyatı. §4 |
+| U6 | 1 | BMP388 (Bosch) | C779278 | ext | 15 531 | 4.911 | |
+| U2 | 1 | AT7456E HTSSOP-28-EP | C82351 | ext | 22 439 | 1.899 | MAX7456 ile pin uyumlu (`lib/datasheet/MAX7456_AT7456E.pdf`). Şematikte TSSOP28: alt ped (EP) ayak izine eklenmeli |
+| U5 | 1 | W25Q128JVSIQ | C97521 | **basic** | 69 118 | 1.588 | |
+| U3, U4 | 2 | TPS54202DDCR | C191884 | ext | 23 466 | 0.113 | Şematikte "TPS54202H" yazıyor; JLC'de yalnız TPS54202DDCR var, ikisi farklı parça mı, `guc-elektronigi` |
+| U8 | 1 | ME6211C33M5G-N [varsayım] | C82942 | ext | 356 218 | 0.051 | Şematikte yok |
+| U1 | 1 | NUF2042XV6T1G | C90707 | ext | 4 784 | 0.246 | |
+| J1 | 1 | USB-C GCT USB4110-GF-A | C5143397 | ext | 2 791 | 0.825 | |
+| J0, J1b | 2 | SM08B-SRSS-TB (JST) | C160407 | ext | 181 481 | 0.227 | |
+| J2, J4, J5 | 3 | SM04B-SRSS-TB (JST) | C160404 | ext | 57 943 | 0.154 | |
+| J3 | 1 | SM06B-SRSS-TB (JST) | C160405 | ext | 19 571 | 0.585 | |
+| J | 1 | SM03B-SRSS-TB → **ZX-SH1.0-3PWT** (Megastar) | C7430445 | ext | 94 490 | 0.048 | JST SM03B (C160403) stokta yok. SH 1.0 yatay, ayak izi aynı sınıf, kontrol `pcb-muhendisi` |
+| Y0 | 1 | 24 MHz XRCGB24M000F3A00R0 (Murata) | C194420 | ext | 11 757 | 0.347 | |
+| Y2 | 1 | 27 MHz X322527MSB4SI (YXC) | C9008 | ext | 101 312 | 0.088 | |
+| U9 / Q10 | 1 / 1 | AO3401A / AO3400A | C15127 / C20917 | basic | | 0.066 / 0.072 | |
+| D9 | 1 | MM3Z10VT1G (onsemi) | C39057 | ext | 1 068 | 0.039 | |
+| F9 | 1 | CFS12V3T5R0 PTC 1206 | C163128 | ext | 24 264 | 0.032 | |
+| SW80 | 1 | TS-1010-S26 (JXTCONN) | C42420270 | ext | 31 696 | 0.025 | Şematikteki kod. MPN alanı TL3330AF260QG yazıyor, kod başka üreticinin parçası: MPN düzeltilmeli |
+| L32, L42 | 2 | 10 µH SWPA4030S100MT 4×4 | C38117 | ext | 48 027 | 0.049 | 5 V 2 A için doyma akımı yetmeyebilir, `guc-elektronigi` (fark < 0.1 $) |
+| LED×4 | 4 | KT-0603R | C2286 | basic | | 0.008 | |
+| Pasifler | 68 | 0402/0603/0805/1206 | CSV | 22 satır: 16 basic, 6 ext | | | 47 µF 0805 C16780 6.3 V: hangi rayda olduğu kontrol edilmeli |
+
+Toplam: 44 satır, **24 extended**.
+
+## 3. PCB (JLCPCB, **tahmin**)
+
+JLC fiyat hesaplayıcısı (sipariş arayüzü) bu oturumda yanıt vermedi. Değerler yayımlanmış verilere dayanan **tahmindir**: JLC 4 katman 50 × 50 mm 5 adet kampanyası 2 $, yalnız 1 oz ([JLC blog](https://jlcpcb.com/blog/free-assembly-for-1-6-layer-pcbs-and-discounts-on-8-20-layer-pcba)). JLC örneği 100 × 100 mm, 100 adet, 4 katman 1 oz için 70.6 $ verir (2024). Bir forum teklifinde 4 katman 2 oz ≈ 1 oz × 2 ([PicBasic forum](https://www.picbasic.co.uk/forum/showthread.php/26823-Voltage-regulation-circuit-12V-to-5V-in-5A-range?p=156711)). Atlas PCB 2 oz için +%15–25 diyor ([Atlas PCB](https://atlaspcb.com/blog/multilayer-pcb-cost-2026-pricing-analysis)). 2 oz dış katman 4 katmanda belirli dizilimlerle sunuluyor ([JLC bakır kalınlığı](https://jlcpcb.com/help/article/jlcpcb-copper-weight)).
+
+| Kart | Özellik | 5 adet (sipariş) | 100 adet (sipariş) | $/kart 5 / 100 | Aralık (100) |
+|---|---|---|---|---|---|
+| esc55a | 41.25 × 47.75 mm, 4 katman, dış 2 oz / iç 0.5 oz, 1.6 mm, HASL kurşunsuz, yeşil | ~30 $ | ~80 $ | 6.00 / **0.80** | 0.60–1.10 |
+| fmu | 36 × 36 mm [varsayım], 4 katman 1 oz, 1.6 mm, HASL | 2 $ (kampanya) | ~25 $ | 0.40 / **0.25** | 0.20–0.40 |
+
+Notlar:
+- esc55a'da via deliği 0.2 mm (E9). JLC'de 0.3 mm altı via ek ücretlidir (tahmin): taşımada **0.3 mm** önerilir (`pcb-muhendisi`).
+- fmu'da LGA IMU/baro için ENIG düşünülürse +~0.1–0.2 $/kart (tahmin).
+- 1000 set için tahmin: esc 0.45 $/kart, fmu 0.12 $/kart.
+- Panelleme JLC'de PCB fiyatını alan üzerinden belirgin düşürmez (cezeri notu: "maliyet avantajı olmadı"). fmu'nun 100 sette Economic dizgiye girebilmesi için gerekir (§4).
+
+## 4. Dizgi (JLCPCB PCBA, 2026-11-06)
+
+| Ücret | Economic | Standard |
+|---|---|---|
+| Kurulum | 8.18 $ | 25.56 $ tek yüz / **51.12 $ çift yüz** |
+| Şablon (stencil) | 1.53 $ | 8.21 $ / 16.42 $ |
+| Extended parça yükleme | 3.07 $/tür (preferred muaf) | 1.53 $/tür |
+| Lehim noktası (SMT) | 0.0016 $ | 0.0016 $ (≤ 50 000), 0.0013 $ (50–100 k) |
+| Paketleme | ücretsiz | ~0.50 $ |
+| Sınır | tek yüz; 2–50 adet; 30 adet üstünde fare ısırığı paneli zorunlu | sınırsız, çift yüz |
+
+Kaynak: [JLC PCBA fiyat](https://jlcpcb.com/help/article/pcb-assembly-price), [PCBA SSS](https://jlcpcb.com/help/article/pcb-assembly-faqs). Economic'in 2 oz bakırı kabul edip etmediği yazmıyor; esc55a için Standard varsayıldı. Standard'da basic parça yükleme ücreti olup olmadığı sayfada açık değil; yalnız extended türler için hesaplandı. Sayfadaki "single board assembly surcharge 0.48 $/kart" kalemi hesaba **katılmadı**: hangi siparişte uygulandığı belirsiz, panelle kalkıyor olabilir. Dahil olursa +0.48 $/kart.
+
+| Kart | Taraf | Tür | 5 set (sipariş → $/kart) | 100 set (sipariş → $/kart) |
+|---|---|---|---|---|
+| esc55a | **Çift yüz zorunlu**: PCB'de 162 parça üstte, 62 parça altta (12 yüksek taraf MOSFET, 29 bulk C, buck, LDO, shunt, TVS) | Standard | 51.12 + 16.42 + 16 × 1.53 + 750 × 5 × 0.0016 + 0.5 = **98.5 $ → 19.70** | **212.5 $ → 2.13** (lehim noktası 1.20 $/kart) |
+| fmu | Tek yüz [varsayım: PCB yok] | 5: Economic; 100: Economic, 2'li panel × 50 | 8.18 + 1.53 + 24 × 3.07 + 389 × 5 × 0.0016 = **74.1 $ → 14.82** | **133.2 $ → 1.33** |
+
+Dizgi notları:
+- Delikli (THT) parça yok. Motor/pil pedleri ve kablolar kullanıcıya bırakılır, el lehimi ücreti yok.
+- ESC'yi tek yüze toplamak 25.56 + 8.21 = 33.8 $/sipariş kazandırır: 100 sette 0.34 $/set, 5 sette 6.8 $/set. Ama 62 parça 41 × 48 mm'de üst yüze sığmaz (tahmin; `pcb-muhendisi`). 100 set için değmez.
+- fmu çift yüz çıkarsa (Mamba F405 MK2 çift yüzlü): Standard, 100 sette ~+0.6 $/set, 5 sette ~+11 $/set (tahmin).
+
+## 5. Maliyet azaltma seçenekleri (100 set, S1'e göre $/stack, etkiye göre)
+
+### A. Ekip kararı: gereksinim değişmez (S1b'ye dahil olanlar ✓)
+
+| # | Seçenek | Tasarruf 100 set (5 set) | Risk / kim inceler |
+|---|---|---|---|
+| A1 ✓ | ESC bulk 22 µF 1206: 29 → 15 adet | **−1.83** (−2.80) | Bulk/dalgalanma, SYS-014 geçici sınırı. **guc-elektronigi incelemeli** |
+| A2 ✓ | MOSFET AON6354 (AOS) → **AON6354-HXY** C22367225 (30 V, 2.6 mΩ, 120 A, Qg 24 nC@15 V; ME7170 ile aynı 2.6 mΩ) | **−0.84** (−1.32) | DFN5×6 standart pin dizilimi (S-S-S-G / D). Klon marka. Stok 4 455 / 2 400 lazım (1.9×). **guc-elektronigi incelemeli** |
+| A3 ✓ | EFM8BB21 → **EFM8BB51F16G-C-QFN20R** C6547511 (0.598 $) | **−0.79** (−0.99) | QFN20 pin dizilimi BB21 ile aynı değil: yerleşim ve Bluejay hedefi değişir. `gomulu-yazilim` (Bluejay BB51 desteği doğrulanmalı) + `sematik-muhendisi` |
+| A4 ✓ | W25Q128JVSIQ → GD25Q128ESIGR C2928891 | −0.61 (−0.63) | Basic → extended. Betaflight JEDEC ID desteği `gomulu-yazilim` doğrulasın |
+| A5 ✓ | Baro Tokmas BMP388 → Goertek **SPA06-003** C30589048 (0.485 $, 67 740 stok) | −0.48 (−0.84) | Ayak izi LGA-8 2 × 2.5 (BMP388 LGA-10 değil). Betaflight sürücüsü (SPL06 ailesi) `gomulu-yazilim` doğrulasın; doğrulanmazsa Tokmas BMP388 kalır |
+| A6 | 9 V BEC'i (U3 + bobin + R/C) çıkar, 9 V'u 5 V BEC'ten değil doğrudan VBAT pedinden ver | −0.37 | **SYS-041 değişir → müşteri kararı** (B grubuna bakın) |
+| A7 | FMU 4 → 2 katman | ~−0.15 (tahmin) | LQFP64 + IMU + 2 buck + USB 36 mm'de; IMU gürültüsü/EMI riski yüksek, kazanç küçük. **Önerilmez** |
+| A8 | ESC dizgisini tek yüze topla | −0.34 | Sığmaz (tahmin), ısı yayılımı kötüleşir. **Önerilmez** |
+| A9 | Pasifleri basic'e çek (kalan ext pasifler: 90.9 k, 3 k, 7.15 k, 13.7 k, 75 Ω, 4 pF, 4.7 µF 35 V, 10 µF 10 V, 2.2 µF 25 V) | ~−0.10 (yükleme ücreti, 100 sette); 5 sette ~−2 $ | Değer yakın basic'e kaydırma (ör. 90.9 k → 91 k basic yoksa E24); FB dirençlerinde çıkış gerilimi değişir, `guc-elektronigi` |
+| A10 | Panelleme (ESC 2'li) | ~0 | JLC PCB alana göre fiyatlıyor; yalnız 0.48 $/kart "tek kart" ücreti uygulanırsa onu kaldırır |
+
+S1'in kendisi de ekip kararıdır (A0): ME7170 → AON6354 AOS (stok), JST → XYECONN SH 1.0 klonları (C54582896 / C51940130 / C56123098), USB-C → TYPE-C-31-M-12 C165948 (ayak izi değişir), 24 MHz Murata → YXC X201624MKB4SI C2682776, NUF2042 → USBLC6-2SC6 C2827654 (SOT-23-6, ayak izi değişir; NUF2042'deki EMI filtresi kalkar), ICM-42688-P TDK → Tokmas, BMP388 Bosch → Tokmas. S0 → S1: −25.1 $/stack. Bunun 16.9 $'ı IMU.
+
+### B. **Müşteri kararı gerekir** (gereksinim değişir)
+
+| # | Seçenek | Tasarruf 100 set (5 set) | Etkilenen gereksinim / risk |
+|---|---|---|---|
+| B1 | Bulk 29 → 8 adet + kutuda düşük ESR pil kondansatörü (SOR-011 seçenek 1) | −2.84 (−3.72) (A1 yerine, ondan −1.0 fazla) | SOR-011 yanıtı, SYS-014. **guc-elektronigi incelemeli** |
+| B2 | **Analog OSD'yi çıkar** (AT7456E + 27 MHz + 2 × 75 Ω) | **−2.10** (−4.82) | SYS-034, **SOR-012 açık**. Analog kullanıcıları kaybedilir |
+| B3 | **STM32F405 → APM32F405RGT6** (Geehy) C5290473 | **−1.76** (−2.53) | SYS-030 "resmî STM32F405". Pin uyumlu klon; Betaflight'ta APM32F405 hedefi var (≥ 4.5), USB/DFU ve hedef `gomulu-yazilim` doğrulamalı. Stok 1 779 |
+| B4 | Blackbox flash'ı çıkar | −1.60 (−2.33) | SYS-033 (Ö) |
+| B5 | Baro'yu çıkar | −1.00 (−1.90); A5 sonrası −0.48 | SYS-032 (Ö) |
+| B6 | ICM-42688-P (Tokmas) → **BMI270** (Bosch orijinal) C2836813 1.33 $ | −0.79 (−0.35) | SYS-031: Betaflight'ta BMI270 3.2 kHz, 8 kHz yok. Pin dizilimi farklı. Avantajı orijinal marka (Tokmas riski kalkar) |
+| B7 | Akım ölçümünü çıkar (INA199 + 2 shunt) | −0.68 (−1.58) | Akım/mAh okuması kalkar. Pazarda fark yaratma maddesi (pazar §6), E1/E2 de zaten yeniden tasarım ister |
+| B8 | 9 V BEC'i çıkar (A6) | −0.37 | SYS-041 (dijital VTX beslemesi) |
+| B9 | TVS'yi çıkar | −0.26 | SYS-014 geçici koruma. **Önerilmez** |
+| B10 | **Hedefi yeniden tanımla:** PRJ-004'ü S1b ile **≤ 28 $** (özellikler tam) ya da S2a ile **≤ 25 $** (APM32 + BMI270) yap, 15 $ hedefini 1000 set kademesine taşı | — | PRJ-004, MUS-007. 70 $ satışta S1b ile maliyet/fiyat ≈ %39 |
+
+Hepsi birden (S2: A1–A5 + B1–B7): **19.53 $/stack** (100 set). 15 $ yine tutmuyor. Farkın yapısı: ESC'de kanal başına MCU + sürücü + 6 MOSFET (4 × ~1.6 $ ≈ 6.4 $), FMU'da MCU (≥ 2.8 $), dizgi (~3.2 $), PCB (~1 $). Bunlar özellik kesilerek düşmez.
+
+## 6. Tedarik riskleri
+
+| Parça | Durum | Risk | Öneri |
+|---|---|---|---|
+| **ME7170** C2841360 / C709757 | Stok 168 / 10; 100 set için 2 400 lazım | **Yüksek**: 100 set üretilemez | AON6354 (AOS, 8 899) ya da AON6354-HXY (4 455). **guc-elektronigi incelemeli**: 30 V V_DS, 6S LiHV 26.1 V ve geçici tepe 35 V (sistem.md varsayımı) için **yetersiz pay**. 40 V seçenek: JSMSEMI **SHYG015N04LS1C2** C49206918 (40 V, 1.1 mΩ@10 V, Qg 87 nC, 0.286 $@500, stok 4 697) ya da HUAYI HYG015N04LS1C2 C2874970 (0.317 $, 11 288). Maliyet etkisi HXY'ye göre **+4.1 $/stack**. Ucuz 40 V KNY3404D C7465103 (0.088 $) 5.2 mΩ ile kayıp ×2 |
+| **FD6288Q** | Bütün kodlar stok 0 | Yüksek (orijinal) | **JSM6288Q** C19077370 (veri sayfası repoda; pin uyumu `guc-elektronigi` + `sematik-muhendisi` teyit). Alternatif JSM6288Q1 C52196409 (11 783) |
+| **ICM-42688-P** TDK C1850418 | 18.99 $, stok 766 | **Fiyat**: tek başına hedefi aşıyor | Tokmas klonu C54308212 (2.12 $, 2 255): kalite/kimlik riski. 5 set prototipte TDK ile karşılaştırma testi. Ya da BMI270 (B6). JLC global sourcing ile dağıtımcıdan TDK orijinal fiyatı sorulmalı (doğrulanmadı) |
+| STM32F405RGT6 C15742 | Stok 526, 4.96 $ | Orta: 100 sete yeter, 1000'e yetmez | APM32F405 (B3); GD32F405 C99031 Betaflight'ta desteklenmez |
+| BMP280 (Bosch) | Stok 0 | Yedek parça kullanılamaz | U6 BMP280 alternatifi şematikten kaldırılsın ya da SPA06-003 olsun |
+| MAX7456 | Stok 0 | | AT7456E (pin uyumlu, EP'li kılıf) |
+| JST SM03B-SRSS-TB | Stok 0 | | ZX-SH1.0-3PWT C7430445 |
+| SMDJ28CA | Brightking 1 660 / Littelfuse 191 | Düşük–orta | Yeter (100 lazım). Gerilim seçimi E4, `guc-elektronigi` |
+| INA199C1DCKR | 3 003, tek kaynak (TI) | Orta | Yeter (100). E1 yeniden boyutlandırmada INA199A1 vb. ayrıca fiyatlanır |
+| XY-SM08B-SRSS-TB C54582896 | 2 000 | Düşük (300 lazım) | Alternatif JST C160407 (181 481) |
+| MM3Z10VT1G (onsemi) C39057 | 1 068 | Düşük | TECH PUBLIC C42370498 (5 861) |
+| Tokmas / HXY / XYECONN / Megastar | Yerli muadil markalar | Kalite tutarlılığı | Prototipte gelen kart kontrolü; seri üretimde tek parti alım |
+
+Kullanımdan kalkma (EOL) bilgisi JLC/LCSC arayüzünde yok. Hiçbir parçada "discontinued" işareti görülmedi.
+
+## 7. Şematiğe işlenecek LCSC alanları (`sematik-muhendisi`, KiCad'e taşımada)
+
+Önerilen (S1 + S1b) kodları CSV'nin `lcsc_oneri` sütunundadır. Özet:
+
+| Kart | Ref | Değişiklik |
+|---|---|---|
+| esc | M1aH…M4cL | LCSC **C22367225** (AON6354-HXY) ya da **C404363** (AON6354). 40 V kararı çıkarsa **C49206918**. `guc-elektronigi` kararı beklenir |
+| esc | U12…U42 | MPN JSM6288Q, LCSC **C19077370** |
+| esc | U11…U41 | LCSC **C80713** (BB21) ya da A3 kabul edilirse **C6547511** (BB51, yeni sembol/ayak izi) |
+| esc | U1 / U2 / U0 / D00 / J0 / L00 | C185109 / C2155860 / C347256 / C310121 / C54582896 (ya da C160407) / C250230 |
+| esc | R00, R000 | C316227 |
+| esc | C1…C60 | C6119969 (adet A1/B1 kararına göre) |
+| esc | pasifler | CSV'deki kodlar (basic: C1525, C307331, C52923, C1523, C25744, C25092, C25091, C25890, C11702) |
+| esc | R? ×8 | Numaralanacak (E6); 3 k C25784, 1 k C11702 |
+| fmu | U0 | Tek parça; C15742 (ya da B3 ile C5290473) |
+| fmu | U7 | C54308212 (Tokmas) ya da C1850418 (TDK); B6 ile C2836813 |
+| fmu | U6 | Tek parça: C30589048 (SPA06-003, yeni ayak izi) ya da C54582187; BMP280 kaldır |
+| fmu | U2 | MPN AT7456E, LCSC **C82351**, HTSSOP-28-EP ayak izi |
+| fmu | U5 | C97521 (ya da C2928891) |
+| fmu | U8 (yeni) | **3.3 V regülatörü eklenmeli** (SYS-042), öneri ME6211C33M5G-N C82942 |
+| fmu | J1 (USB-C) | C165948 TYPE-C-31-M-12 (ayak izi değişir) ya da C5143397 |
+| fmu | J1 (SM08B) | Yeni ref (ör. J6); C54582896 |
+| fmu | J2/J4/J5, J3, J | C51940130, C56123098, C7430445 |
+| fmu | Y0 / Y2 | C2682776 (ya da C194420) / C9008 |
+| fmu | U1 | C2827654 (USBLC6-2SC6, SOT-23-6) ya da C90707 |
+| fmu | SW80 | MPN alanı TS-1010-S26 olarak düzeltilsin (LCSC C42420270) |
+| fmu | C60/C61 ×2, C? ×3, R? ×2 | Numaralanacak |
+| fmu | Bütün Digi-Key kodları (F6) | LCSC koduyla değiştirilsin (CSV) |
+
+## 8. Açık noktalar
+
+1. **PCB fiyatı tahmin.** JLC hesaplayıcısından gerçek teklif alınmalı: esc 2 oz 4 katman (5 ve 100 adet), fmu 1 oz.
+2. JLC Economic dizginin 2 oz ve 4 katmanı kabul edip etmediği; Standard'da basic yükleme ücreti; 0.48 $/kart "tek kart" ücreti.
+3. MOSFET gerilim sınıfı (30 V ↔ 40 V): `guc-elektronigi`. +4 $/stack etkisi olabilir.
+4. Tokmas ICM-42688-P / BMP388 kimlik ve Betaflight uyumu: prototipte test (`test-muhendisi`).
+5. fmu PCB'si yok: tek/çift yüz ve ölçü (36 × 36 mm) varsayım; dizgi ±0.6 $/set oynayabilir.
+6. Müşteri soruları (yönetici üzerinden): PRJ-004 hedefinin yeniden tanımı (B10), SOR-012 (OSD), SOR-011 (kutuda kondansatör), SYS-030 (APM32), SYS-031 (BMI270).

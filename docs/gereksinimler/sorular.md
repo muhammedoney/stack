@@ -1,6 +1,6 @@
 # Açık sorular (SOR)
 
-Cevaplanan (2026-11-06): SOR-001…004; SOR-003 ve SOR-007 müşteri yetkisiyle ekip kararı. Cevaplanan: SOR-005, SOR-006, SOR-008, SOR-009. Açık soru yok.
+Cevaplanan (2026-11-06): SOR-001…004; SOR-003 ve SOR-007 müşteri yetkisiyle ekip kararı. Cevaplanan: SOR-005, SOR-006, SOR-008, SOR-009. **Açık (kapı 1 için, 2026-11-06): SOR-010…012** — sıra: SOR-010, SOR-011, SOR-012.
 
 | ID | Soru | Neden önemli / etkilediği | Seçenekler | Cevap | Tarih |
 |---|---|---|---|---|---|
@@ -13,3 +13,6 @@ Cevaplanan (2026-11-06): SOR-001…004; SOR-003 ve SOR-007 müşteri yetkisiyle 
 | SOR-007 | ESC’den FMU’ya telemetri (motor devri, akım, sıcaklık) gerekli mi? | J0.2 bugün NC (E7), yazılım seçimi | 1) **[öneri]** Çift yönlü DShot ile devir (ek donanım yok) 2) Ayrı telemetri hattı (KISS/BLHeli_32 tarzı) 3) Gerekmez | **Ekip kararı (müşteri yetkisiyle, KRR-003):** 1, Bluejay çift yönlü DShot | 2026-11-06 |
 | SOR-008 | İlk prototip ne zaman, kaç set? | Takvim, iş paketi sırası | Tarih + adet | **En kısa sürede; ilk prototip 5 set, sonra 100 set** (PRJ-005, PRJ-007) | 2026-11-06 |
 | SOR-009 | 15 $ toplam maliyete PCB ve dizgi (montaj) dahil mi, yalnız komponentler mi? Kargo/gümrük? | PRJ-004; 4 katman 2 oz PCB + dizgi set başına birkaç $ tutar, dahilse hedef çok zorlaşır (RSK-004) | 1) **[öneri]** Komponent + PCB + dizgi, 100 set kademesinde; kargo/gümrük hariç 2) Yalnız komponentler 3) Her şey dahil | **1.** Gümrük ve kargo hariç; komponent + PCB + dizgi dahil | 2026-11-06 |
+| SOR-010 | Pil ters takılırsa ESC’nin yanmasını kabul ediyor musunuz? Piyasadaki 4’ü 1 arada ESC’lerin çoğunda koruma yok | SYS-074; 220 A yolda koruma kayıp ve maliyet getirir (SYS-002, SYS-010), yoksa kullanıcı hatası iade olur | 1) **[öneri]** Koruma yok; + / − ipek baskı ve kutuda uyarı (pazar gibi). FMU yine korunur 2) ESC’de ters kutup koruması (maliyet + ~1–2 $ tahmin, ısı artar) | | |
+| SOR-011 | Kutuda kartların yanında ne olsun? | SYS-061, SYS-063, SYS-014 (set kondansatörü geçici sınırının parçası), maliyet (PRJ-004) | 1) **[öneri]** 8 pin FMU↔ESC kablosu + düşük ESR pil kondansatörü + M3 silikon tampon/vida seti; XT60 kablosu yok (rakiplerdeki gibi) 2) 1 + XT60 kablosu 3) Yalnız kartlar ve 8 pin kablo | | |
+| SOR-012 | Analog FPV (analog kamera/VTX, ekran yazısı) kullanıcılarını desteklemek gerekiyor mu, yoksa yalnız dijital sistemler (DJI, Walksnail, HDZero) yeterli mi? | SYS-034; analog OSD çipi + kristal ~1–1.5 $ (tahmin), 15 $ hedefinde (RSK-004) belirgin pay | 1) **[öneri]** Analog OSD var (pazardaki bütçe stack’ler hâlâ içeriyor, analog kullanıcı tabanı büyük) 2) Yalnız dijital; analog OSD çıkarılır 3) İki sürüm (analog’lu / analog’suz) | | |

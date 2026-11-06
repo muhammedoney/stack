@@ -29,4 +29,15 @@ Müşteri ihtiyacından doğrulamaya kadar izlenebilir gereksinim kaydı. Sahibi
 
 ## Durum (2026-11-06)
 
-Henüz MUS/SYS yok. İlk sorular `sorular.md`’de; cevaplarla kapı 1 hazırlanacak.
+Kapı 1’e hazır taslak (5" stack: fmu + esc55a). Hepsi `Taslak`, müşteri onayı bekliyor.
+
+| | Durum |
+|---|---|
+| MUS | MUS-001…009 (9) |
+| SYS | SYS-001…094 (56; Z 40, Ö 15, İ 1) — `sistem.md` |
+| DOG | DOG-001…090 (90; Ü-öncesi 53, Kart 37) — `dogrulama.md` |
+| PRJ / KRR | PRJ-001…007; KRR-001…004 |
+| RSK | RSK-001…013 (RSK-006…013 yeni) |
+| İP | İP-01…11 (Öneri) — `proje.md` |
+| Açık soru | SOR-010 (ESC ters kutup), SOR-011 (kutu içeriği), SOR-012 (analog OSD) |
+| Mevcut tasarımın karşılamadığı | SYS-012, SYS-014, SYS-020 (kritik, E1), SYS-042, SYS-044, SYS-062, SYS-091 — `izlenebilirlik.md` kapsam özeti |
