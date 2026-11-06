@@ -1,0 +1,5 @@
+firmware/** text eol=lf
+*.SchDoc binary
+*.PcbDoc binary
+*.OutJob binary
+*.drawio -diff

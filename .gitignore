@@ -1,0 +1,52 @@
+# KiCad local / autosave
+*-backups/
+boards/*/checkpoints/
+*_bak
+*.kicad_pcb-bak
+*.kicad_sch-bak
+*-save.kicad_pcb
+*-save.kicad_sch
+fp-info-cache
+*.lck
+*.kicad_prl
+.history/
+~$*
+
+# OS / editor
+.DS_Store
+Thumbs.db
+Desktop.ini
+.vscode/
+.idea/
+.claude/*
+!.claude/agents/
+*.swp
+*.tmp
+
+# Python / local tools
+.venv/
+__pycache__/
+*.pyc
+
+# Optional local KiBot / Docker clutter
+*.log
+
+# Generated manufacturing / docs (policy: release artifact only — do not commit)
+boards/*/Manufacturing/
+boards/*/Schematic/
+boards/*/Variants/
+boards/*/HTML/
+boards/*/Report/
+boards/*/KiRI/
+
+# Firmware build output
+firmware/**/build/
+firmware/**/obj/
+
+# Altium local
+*.$*.bkp
+.$*
+boards/*/altium/History/
+boards/*/altium/Project Logs*/
+boards/*/altium/Project Outputs*/
+__Previews/

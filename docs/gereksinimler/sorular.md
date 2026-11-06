@@ -1,0 +1,15 @@
+# Açık sorular (SOR)
+
+Cevaplanan (2026-11-06): SOR-001…004; SOR-003 ve SOR-007 müşteri yetkisiyle ekip kararı. Cevaplanan: SOR-005, SOR-006, SOR-008. Açık: SOR-009.
+
+| ID | Soru | Neden önemli / etkilediği | Seçenekler | Cevap | Tarih |
+|---|---|---|---|---|---|
+| SOR-001 | Ürün öncelikle kimin için? | Sıcaklık, dayanıklılık, sertifika, maliyet sınırı | 1) **[öneri]** Hobi FPV, ileride ticari 2) Ticari / profesyonel 3) Savunma / kamu | **Hobi FPV.** Sertifika gerekmez (PRJ-002) | 2026-11-06 |
+| SOR-002 | Hangi dron sınıfı hedef (pervane boyu, pil hücre sayısı)? | Akım sınıfı, MOSFET gerilim payı, TVS, BEC, INA199 sınırı (E1–E4, F4) | 1) **[öneri]** 5" freestyle/yarış, 4S–6S 2) 7–10" uzun menzil / taşıyıcı, 6S 3) İkisi de (6S tavan) | **5", 7", 10"; daha büyükler ileride.** Önce 5"; akım pazar araştırmasına göre (KRR-002: 55 A, 3–6S) | 2026-11-06 |
+| SOR-003 | 55 A ve 65 A iki ayrı ürün mü, yoksa tek kartın iki varyantı mı? | esc65a için tasarım yolu (RSK-003), parça ve takvim | 1) **[öneri]** Tek kart, iki varyant (MOSFET/bakır farkı) 2) İki ayrı kart 3) Önce yalnız 55 A | **Kararı ekibe bıraktı.** KRR-002: önce esc55a (5", 3–6S); esc65a sonra 7"/10" için 3–8S varyantı (gerilim sınıfı farklı olduğu için ayrı kart olabilir, sistem-mimari değerlendirir) | 2026-11-06 |
+| SOR-004 | FMU ve ESC yalnız birlikte mi satılacak, yoksa piyasadaki diğer FMU/ESC’lerle de takılabilmeli mi? | 8 pin konnektör dizilimi, montaj deseni (E8) | 1) **[öneri]** Piyasayla uyumlu (yaygın dizilim, 30.5 mm) 2) Yalnız kendi setimiz | **Bazı sistemlerle uyumlu yeter**; hepsi mümkün değil. KRR-004: SpeedyBee F405 V4 / GEPRC Taker dizilimi, 30.5 mm | 2026-11-06 |
+| SOR-005 | Hedef satış fiyatı / parça maliyeti ve ilk yıl adet? | PRJ maliyet, parça seçimi | Fiyat + adet | **Satış ≤ 70 $/stack uygun; toplam maliyet ≤ 15 $/stack** (PRJ-003, PRJ-004). Adet: ilk parti 100 set (SOR-008). “Toplam” = komponent + PCB + dizgi varsayıldı (SOR-009) | 2026-11-06 |
+| SOR-006 | Yazılım: hazır açık kaynak (Betaflight, Bluejay) yeterli mi, yoksa kendi yazılımımız mı olmalı? | `firmware/` kapsamı, lisans (GPL) | 1) **[öneri]** Açık kaynak, yalnız hedef/düzen tanımı 2) Açık kaynak + kendi değişikliklerimiz 3) Kendi yazılımımız | **Hazır Betaflight yeterli** (FMU); ESC Bluejay (KRR-003). Yalnız hedef/düzen tanımı yazılır | 2026-11-06 |
+| SOR-007 | ESC’den FMU’ya telemetri (motor devri, akım, sıcaklık) gerekli mi? | J0.2 bugün NC (E7), yazılım seçimi | 1) **[öneri]** Çift yönlü DShot ile devir (ek donanım yok) 2) Ayrı telemetri hattı (KISS/BLHeli_32 tarzı) 3) Gerekmez | **Ekip kararı (müşteri yetkisiyle, KRR-003):** 1, Bluejay çift yönlü DShot | 2026-11-06 |
+| SOR-008 | İlk prototip ne zaman, kaç set? | Takvim, iş paketi sırası | Tarih + adet | **En kısa sürede, 100 set** (PRJ-005) | 2026-11-06 |
+| SOR-009 | 15 $ toplam maliyete PCB ve dizgi (montaj) dahil mi, yalnız komponentler mi? Kargo/gümrük? | PRJ-004; 4 katman 2 oz PCB + dizgi set başına birkaç $ tutar, dahilse hedef çok zorlaşır (RSK-004) | 1) **[öneri]** Komponent + PCB + dizgi, 100 set kademesinde; kargo/gümrük hariç 2) Yalnız komponentler 3) Her şey dahil | | |

@@ -1,0 +1,17 @@
+urun,uretici,segment,fc_mcu,imu,esc_surekli_A,esc_anlik_A,hucre,esc_yazilim,montaj_mm,fiyat_usd,satici,erisim_tarihi,not
+SpeedyBee F405 V4 BLS 55A,SpeedyBee,5in,STM32F405,ICM42688P,55,70 (10 s),3-6S,BLHeli_S 8 bit,30.5,69.99-86.49,Pyrodrone / Wrekd,2026-11-06,BEC 5V+9V toplam 3A; Bluetooth; akim olcegi 400; ESC 23.5 g
+SpeedyBee F405 V5 OX32 55A,SpeedyBee,5in,STM32F405,ICM42688P,55,70,3-6S,OX32 (32 bit),30.5,115-119.99,NextFPV / RaceDayQuads,2026-11-06,8 motor cikisi; stack 19.1 g; Deluxe 199.99 (baro+OSD)
+GEPRC Taker F405 BLS 60A V2,GEPRC,5in,STM32F405,ICM42688P,60,-,3-6S,BLHeli_S,30.5,71.99-99,Defiance RC / rcdrone.top,2026-11-06,FC GEP-F405-HD V3; BMP280; 16 MB blackbox; 14.9 g; DJI tak-calistir
+iFlight BLITZ F7 E55,iFlight,5in,STM32F722,-,55,-,2-6S,BLHeli_32,30.5,109.99-149.49,iFlight / RobotShop,2026-11-06,7-10 inc icin ek kondansator onerisi
+Diatone Mamba MK4 F722 APP F55_128K,Diatone,5in,STM32F722,-,55,-,3-6S,BLHeli_32 128K,30.5,109.99,RaceDayQuads,2026-11-06,yakinda / stok yok
+Diatone Mamba MK4 H743 V2 F55A,Diatone,5in,STM32H743,2x ICM42688P,55,-,3-6S,BLHeli_32 128K,30.5,118.99,Pyrodrone,2026-11-06,
+Diatone Mamba MK2 F405 F50 BLS,Diatone,5in,STM32F405,-,50,-,3-6S,BLHeli_S,30.5,87.99,GetFPV,2026-11-06,fmu referansimiz; eski urun
+Holybro Kakute H7 + Tekko32 F4 Metal 65A,Holybro,5-7in,STM32H743,MPU6000,65,75,4-6S,AM32,30.5,139-209.99,rcdrone.top / Epic FPV,2026-11-06,BMP280; premium
+HobbyWing XRotor G2 65A + F7,HobbyWing,5-7in,F7,-,65,80,3-6S,BLHeli_32,30.5,158.99,RMRC / HobbyWing,2026-11-06,
+GEPRC Taker F722 BLS 65A V2,GEPRC,7in,STM32F722,-,65,70 (5 s),3-8S,BLHeli_S,30.5,84.97-123,Dronkart,2026-11-06,cift BEC; ureticinin 7 inc onerisi
+T-Motor Velox F7 SE + V70A SE 8S,T-Motor,7-10in,F7,-,70,-,3-8S,BLHeli_32,30.5,85.90-129.99,T-Hobby / fpvstorerc,2026-11-06,FC 38x38 mm 8 g; ESC 44.4x41 mm 12.3 g
+GEPRC Taker F722 BLS 80A V2,GEPRC,7-10in,STM32F722,-,80,85 (5 s),3-6S,BLHeli_S,30.5,84.97-123,Dronkart,2026-11-06,
+ZeniRace F722 80A,ZeniRace,7-10in,STM32F722,-,80,100,6-8S,-,30.5,79.99,ZeniRace,2026-11-06,70A 6S surumu 64.99
+T-Motor F55A Pro III (yalniz ESC),T-Motor,5-7in,-,-,55,-,3-8S,BLHeli_32 / AM32,30.5,109.90-139.99,KiwiQuads / 3DXR,2026-11-06,
+HAKRC F405 V2 + 60A/65A,HAKRC,5in,STM32F405,-,60-65,-,3-6S,belirtilmemis,30.5,44.29-49.19,AliExpress,2026-11-06,cift BEC; liste fiyati ~70
+HGLRC Specter F460 60A,HGLRC,5in,STM32F405,ICM42688P,60,-,2-6S,BLHeli_S,30.5,56.79,AliExpress,2026-11-06,
