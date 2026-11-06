@@ -8,6 +8,6 @@
 | MUS-004 | 5", 7" ve 10" dronlarda kullanılacak; daha büyükler ileride | Ürün ailesi | SOR-002, 2026-11-06 | Z | Taslak |
 | MUS-005 | Önce 5" için; akım sınıfı pazara göre belirlenecek | Öncelik | SOR-002, 2026-11-06 | Z | Taslak |
 | MUS-006 | Piyasadaki bazı FMU/ESC’lerle takılabilmeli (hepsiyle değil) | Kullanıcı mevcut parçasını kullanabilsin | SOR-004, 2026-11-06 | Ö | Taslak |
-| MUS-007 | Satış ~70 $/stack; toplam maliyet ≤ 15 $ olursa kâr edilir | Kârlılık | SOR-005, 2026-11-06 | Z | Taslak |
+| MUS-007 | Satış ~70 $/stack; toplam maliyet ≤ 15 $ olursa kâr edilir | Kârlılık; gümrük ve kargo hariç (SOR-009) | SOR-005, 2026-11-06 | Z | Taslak |
 | MUS-008 | Hazır Betaflight yeterli | Yazılım emeği yok | SOR-006, 2026-11-06 | Ö | Taslak |
-| MUS-009 | İlk prototip/üretim en kısa sürede, 100 set | Pazara çıkış | SOR-008, 2026-11-06 | Z | Taslak |
+| MUS-009 | İlk prototip en kısa sürede 5 set, sonra 100 set | Pazara çıkış | SOR-008, 2026-11-06 | Z | Taslak |

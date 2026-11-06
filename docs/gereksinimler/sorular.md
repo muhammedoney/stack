@@ -1,6 +1,6 @@
 # Açık sorular (SOR)
 
-Cevaplanan (2026-11-06): SOR-001…004; SOR-003 ve SOR-007 müşteri yetkisiyle ekip kararı. Cevaplanan: SOR-005, SOR-006, SOR-008. Açık: SOR-009.
+Cevaplanan (2026-11-06): SOR-001…004; SOR-003 ve SOR-007 müşteri yetkisiyle ekip kararı. Cevaplanan: SOR-005, SOR-006, SOR-008, SOR-009. Açık soru yok.
 
 | ID | Soru | Neden önemli / etkilediği | Seçenekler | Cevap | Tarih |
 |---|---|---|---|---|---|
@@ -11,5 +11,5 @@ Cevaplanan (2026-11-06): SOR-001…004; SOR-003 ve SOR-007 müşteri yetkisiyle 
 | SOR-005 | Hedef satış fiyatı / parça maliyeti ve ilk yıl adet? | PRJ maliyet, parça seçimi | Fiyat + adet | **Satış ≤ 70 $/stack uygun; toplam maliyet ≤ 15 $/stack** (PRJ-003, PRJ-004). Adet: ilk parti 100 set (SOR-008). “Toplam” = komponent + PCB + dizgi varsayıldı (SOR-009) | 2026-11-06 |
 | SOR-006 | Yazılım: hazır açık kaynak (Betaflight, Bluejay) yeterli mi, yoksa kendi yazılımımız mı olmalı? | `firmware/` kapsamı, lisans (GPL) | 1) **[öneri]** Açık kaynak, yalnız hedef/düzen tanımı 2) Açık kaynak + kendi değişikliklerimiz 3) Kendi yazılımımız | **Hazır Betaflight yeterli** (FMU); ESC Bluejay (KRR-003). Yalnız hedef/düzen tanımı yazılır | 2026-11-06 |
 | SOR-007 | ESC’den FMU’ya telemetri (motor devri, akım, sıcaklık) gerekli mi? | J0.2 bugün NC (E7), yazılım seçimi | 1) **[öneri]** Çift yönlü DShot ile devir (ek donanım yok) 2) Ayrı telemetri hattı (KISS/BLHeli_32 tarzı) 3) Gerekmez | **Ekip kararı (müşteri yetkisiyle, KRR-003):** 1, Bluejay çift yönlü DShot | 2026-11-06 |
-| SOR-008 | İlk prototip ne zaman, kaç set? | Takvim, iş paketi sırası | Tarih + adet | **En kısa sürede, 100 set** (PRJ-005) | 2026-11-06 |
-| SOR-009 | 15 $ toplam maliyete PCB ve dizgi (montaj) dahil mi, yalnız komponentler mi? Kargo/gümrük? | PRJ-004; 4 katman 2 oz PCB + dizgi set başına birkaç $ tutar, dahilse hedef çok zorlaşır (RSK-004) | 1) **[öneri]** Komponent + PCB + dizgi, 100 set kademesinde; kargo/gümrük hariç 2) Yalnız komponentler 3) Her şey dahil | | |
+| SOR-008 | İlk prototip ne zaman, kaç set? | Takvim, iş paketi sırası | Tarih + adet | **En kısa sürede; ilk prototip 5 set, sonra 100 set** (PRJ-005, PRJ-007) | 2026-11-06 |
+| SOR-009 | 15 $ toplam maliyete PCB ve dizgi (montaj) dahil mi, yalnız komponentler mi? Kargo/gümrük? | PRJ-004; 4 katman 2 oz PCB + dizgi set başına birkaç $ tutar, dahilse hedef çok zorlaşır (RSK-004) | 1) **[öneri]** Komponent + PCB + dizgi, 100 set kademesinde; kargo/gümrük hariç 2) Yalnız komponentler 3) Her şey dahil | **1.** Gümrük ve kargo hariç; komponent + PCB + dizgi dahil | 2026-11-06 |

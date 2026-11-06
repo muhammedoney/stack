@@ -12,4 +12,4 @@ MUS → SYS → DOG → tasarım öğesi. SYS türetildikçe doldurulur.
 | MUS-006 | — | — | KRR-004 | SYS bekliyor |
 | MUS-007 | — | — | PRJ-003, PRJ-004 | SYS bekliyor |
 | MUS-008 | — | — | PRJ-006, KRR-003 | SYS bekliyor |
-| MUS-009 | — | — | PRJ-005 | SYS bekliyor |
+| MUS-009 | — | — | PRJ-005, PRJ-007 | SYS bekliyor |
