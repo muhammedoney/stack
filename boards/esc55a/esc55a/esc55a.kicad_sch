@@ -1,0 +1,174 @@
+(kicad_sch
+	(version 20260306)
+	(generator "eeschema")
+	(generator_version "10.0")
+	(uuid "78885a65-daf6-56b0-984c-eb1fc04dfd40")
+	(paper "A4")
+	(title_block
+		(title "esc55a - 4in1 55 A ESC")
+		(comment 1 "Altium esc55a.PrjPcb -> KiCad 10 (tools/esc55a_sch.py)")
+	)
+	(lib_symbols)
+	(sheet
+		(at 30.48 50.8)
+		(size 50.8 25.4)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "37409c1c-c9c8-5bac-b93e-9d69cb61ece5")
+		(property "Sheetname" "main"
+			(at 30.48 50.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "main.kicad_sch"
+			(at 30.48 76.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "esc55a"
+				(path "/78885a65-daf6-56b0-984c-eb1fc04dfd40"
+					(page "2")
+				)
+			)
+		)
+	)
+	(text "Güç, MOSFET'ler, J0"
+		(exclude_from_sim no)
+		(at 30.48 82.2 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "29c42a10-498e-5147-9a82-f754199d3393")
+	)
+	(sheet
+		(at 106.68 50.8)
+		(size 50.8 25.4)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "723633c2-b7e3-5a0f-9161-76fbfcd2babb")
+		(property "Sheetname" "mcu2"
+			(at 106.68 50.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "mcu2.kicad_sch"
+			(at 106.68 76.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "esc55a"
+				(path "/78885a65-daf6-56b0-984c-eb1fc04dfd40"
+					(page "3")
+				)
+			)
+		)
+	)
+	(text "Kanal 1-2 (EFM8BB21 + FD6288Q)"
+		(exclude_from_sim no)
+		(at 106.68 82.2 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "87a14f38-b15a-5158-9f1e-984fc12347df")
+	)
+	(sheet
+		(at 182.88 50.8)
+		(size 50.8 25.4)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "7d31e051-c5e6-58a8-a82c-929d9b209b78")
+		(property "Sheetname" "mcu"
+			(at 182.88 50.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "mcu.kicad_sch"
+			(at 182.88 76.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "esc55a"
+				(path "/78885a65-daf6-56b0-984c-eb1fc04dfd40"
+					(page "4")
+				)
+			)
+		)
+	)
+	(text "Kanal 3-4 (EFM8BB21 + FD6288Q)"
+		(exclude_from_sim no)
+		(at 182.88 82.2 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "868aba7a-aeeb-5530-b8c2-be389b876b46")
+	)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
+	(embedded_fonts no)
+)

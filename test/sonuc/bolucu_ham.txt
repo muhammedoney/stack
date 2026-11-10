@@ -1,0 +1,169 @@
+bolucu.py — Stack Ü-öncesi bölücü hesapları (test-muhendisi)
+================================================================================================
+1. FMU VBAT bölücüsü — DOG-021 / SYS-022
+   Ölçüt: 9–26.1 V'ta |hata| ≤ %1 × V + 0.1 V; tam ölçek ≥ 30 V; ADC pini ≤ VDDA
+   Kaynak: [ALT] R95 100k / R92 10k (fmu.SchDoc); [BOM] 0603WAF %1; [STM32] ET ±5 LSB,
+   Ilkg ±1 µA, RAIN < 10 kΩ; LQFP64'te VREF+ = VDDA (ayrı VREF+ pini yok)
+   VREFINT telafisi kalan hata = 0.30 % (TCoeff 50 ppm/K × 40 K + kuantalama)
+------------------------------------------------------------------------------------------------
+MEVCUT 100k/10k %1, ref=LDO
+   K = 11.0000  Betaflight vbat_scale = 110 (K_bf 11.0, kuantalama 0.000 %)
+   Thevenin 9.09 kΩ (≤ RAIN < 10 kΩ); kaçak ±1 µA → pinde ±9.1 mV → VBAT'ta ±100 mV
+   Tam ölçek (en kötü düşük) 34.9 V; 26.1 V'ta bölücü akımı 0.24 mA, güç 6.2 mW; 35 V geçicide pin 3.18 V
+         V     sınır   en kötü       RSS   pay(ek)  durum
+       9.0     0.190     0.559     0.247    -0.369  KALDI
+      16.8     0.268     0.916     0.428    -0.648  KALDI
+      25.2     0.352     1.300     0.630    -0.948  KALDI
+      26.1     0.361     1.341     0.652    -0.980  KALDI
+   → tam ölçek GEÇTİ; doğruluk KALDI
+------------------------------------------------------------------------------------------------
+100k/10k %1, VREFINT telafili
+   K = 11.0000  Betaflight vbat_scale = 110 (K_bf 11.0, kuantalama 0.000 %)
+   Thevenin 9.09 kΩ (≤ RAIN < 10 kΩ); kaçak ±1 µA → pinde ±9.1 mV → VBAT'ta ±100 mV
+   Tam ölçek (en kötü düşük) 34.9 V; 26.1 V'ta bölücü akımı 0.24 mA, güç 6.2 mW; 35 V geçicide pin 3.18 V
+         V     sınır   en kötü       RSS   pay(ek)  durum
+       9.0     0.190     0.398     0.171    -0.208  RSS'te geçer
+      16.8     0.268     0.615     0.269    -0.347  KALDI
+      25.2     0.352     0.850     0.385    -0.498  KALDI
+      26.1     0.361     0.875     0.398    -0.514  KALDI
+   → tam ölçek GEÇTİ; doğruluk KALDI
+------------------------------------------------------------------------------------------------
+100k/10k %0.5 25ppm, VREFINT
+   K = 11.0000  Betaflight vbat_scale = 110 (K_bf 11.0, kuantalama 0.000 %)
+   Thevenin 9.09 kΩ (≤ RAIN < 10 kΩ); kaçak ±1 µA → pinde ±9.1 mV → VBAT'ta ±100 mV
+   Tam ölçek (en kötü düşük) 35.2 V; 26.1 V'ta bölücü akımı 0.24 mA, güç 6.2 mW; 35 V geçicide pin 3.18 V
+         V     sınır   en kötü       RSS   pay(ek)  durum
+       9.0     0.190     0.270     0.127    -0.080  RSS'te geçer
+      16.8     0.268     0.377     0.164    -0.109  RSS'te geçer
+      25.2     0.352     0.493     0.213    -0.141  RSS'te geçer
+      26.1     0.361     0.505     0.219    -0.144  RSS'te geçer
+   → tam ölçek GEÇTİ; doğruluk KISMEN (en kötüde kalır, RSS'te geçer)
+------------------------------------------------------------------------------------------------
+100k/10k %0.1 25ppm, VREFINT
+   K = 11.0000  Betaflight vbat_scale = 110 (K_bf 11.0, kuantalama 0.000 %)
+   Thevenin 9.09 kΩ (≤ RAIN < 10 kΩ); kaçak ±1 µA → pinde ±9.1 mV → VBAT'ta ±100 mV
+   Tam ölçek (en kötü düşük) 35.5 V; 26.1 V'ta bölücü akımı 0.24 mA, güç 6.2 mW; 35 V geçicide pin 3.18 V
+         V     sınır   en kötü       RSS   pay(ek)  durum
+       9.0     0.190     0.204     0.114    -0.014  RSS'te geçer
+      16.8     0.268     0.254     0.125    +0.014  GEÇTİ
+      25.2     0.352     0.308     0.143    +0.044  GEÇTİ
+      26.1     0.361     0.313     0.145    +0.048  GEÇTİ
+   → tam ölçek GEÇTİ; doğruluk KISMEN (en kötüde kalır, RSS'te geçer)
+------------------------------------------------------------------------------------------------
+20k/2k %0.5 25ppm, VREFINT
+   K = 11.0000  Betaflight vbat_scale = 110 (K_bf 11.0, kuantalama 0.000 %)
+   Thevenin 1.82 kΩ (≤ RAIN < 10 kΩ); kaçak ±1 µA → pinde ±1.8 mV → VBAT'ta ±20 mV
+   Tam ölçek (en kötü düşük) 35.2 V; 26.1 V'ta bölücü akımı 1.19 mA, güç 31.0 mW; 35 V geçicide pin 3.18 V
+         V     sınır   en kötü       RSS   pay(ek)  durum
+       9.0     0.190     0.189     0.082    +0.001  GEÇTİ
+      16.8     0.268     0.297     0.131    -0.029  RSS'te geçer
+      25.2     0.352     0.412     0.190    -0.060  RSS'te geçer
+      26.1     0.361     0.425     0.196    -0.064  RSS'te geçer
+   → tam ölçek GEÇTİ; doğruluk KISMEN (en kötüde kalır, RSS'te geçer)
+------------------------------------------------------------------------------------------------
+20k/2k %0.1 25ppm, VREFINT
+   K = 11.0000  Betaflight vbat_scale = 110 (K_bf 11.0, kuantalama 0.000 %)
+   Thevenin 1.82 kΩ (≤ RAIN < 10 kΩ); kaçak ±1 µA → pinde ±1.8 mV → VBAT'ta ±20 mV
+   Tam ölçek (en kötü düşük) 35.5 V; 26.1 V'ta bölücü akımı 1.19 mA, güç 31.0 mW; 35 V geçicide pin 3.18 V
+         V     sınır   en kötü       RSS   pay(ek)  durum
+       9.0     0.190     0.123     0.059    +0.067  GEÇTİ
+      16.8     0.268     0.173     0.078    +0.095  GEÇTİ
+      25.2     0.352     0.227     0.104    +0.125  GEÇTİ
+      26.1     0.361     0.233     0.107    +0.128  GEÇTİ
+   → tam ölçek GEÇTİ; doğruluk GEÇTİ
+------------------------------------------------------------------------------------------------
+20k/2k %0.1 25ppm, ref=LDO ±%0.5
+   K = 11.0000  Betaflight vbat_scale = 110 (K_bf 11.0, kuantalama 0.000 %)
+   Thevenin 1.82 kΩ (≤ RAIN < 10 kΩ); kaçak ±1 µA → pinde ±1.8 mV → VBAT'ta ±20 mV
+   Tam ölçek (en kötü düşük) 36.0 V; 26.1 V'ta bölücü akımı 1.19 mA, güç 31.0 mW; 35 V geçicide pin 3.18 V
+         V     sınır   en kötü       RSS   pay(ek)  durum
+       9.0     0.190     0.141     0.069    +0.049  GEÇTİ
+      16.8     0.268     0.207     0.103    +0.061  GEÇTİ
+      25.2     0.352     0.278     0.145    +0.074  GEÇTİ
+      26.1     0.361     0.285     0.149    +0.076  GEÇTİ
+   → tam ölçek GEÇTİ; doğruluk GEÇTİ
+------------------------------------------------------------------------------------------------
+20k/2k %0.5 25ppm, ref=LDO
+   K = 11.0000  Betaflight vbat_scale = 110 (K_bf 11.0, kuantalama 0.000 %)
+   Thevenin 1.82 kΩ (≤ RAIN < 10 kΩ); kaçak ±1 µA → pinde ±1.8 mV → VBAT'ta ±20 mV
+   Tam ölçek (en kötü düşük) 35.2 V; 26.1 V'ta bölücü akımı 1.19 mA, güç 31.0 mW; 35 V geçicide pin 3.18 V
+         V     sınır   en kötü       RSS   pay(ek)  durum
+       9.0     0.190     0.347     0.196    -0.157  KALDI
+      16.8     0.268     0.592     0.357    -0.324  KALDI
+      25.2     0.352     0.855     0.533    -0.503  KALDI
+      26.1     0.361     0.883     0.552    -0.522  KALDI
+   → tam ölçek GEÇTİ; doğruluk KALDI
+------------------------------------------------------------------------------------------------
+================================================================================================
+2. ESC BEMF bölücü + sanal nötr — DOG-013 / SYS-015 (sorumlu guc-elektronigi; hesap katkısı)
+   Ağ: faz → 10 k → muxN; muxN → 1 k → GND; muxN → 3.3 k → com_all  [ALT]
+   Ölçüt: mux ≤ 3.3 V (DOG-013); EFM8 karşılaştırıcı giriş aralığı ≤ 3.55 V, mutlak ≤ 5.8 V [EFM8]
+   Not: inceleme §2.2 'com'u GND sayıp 25.2 V → 1.8 V buldu; burada com düğümü çözülüyor.
+------------------------------------------------------------------------------------------------
+   Durum                                   VBAT    muxA    muxB    muxC     com  en büyük
+   A=B=C=VBAT+Vd (en kötü statik)           8.4   0.827   0.827   0.827   0.827  0.827 
+   A=VBAT, B=0, C=VBAT+Vd (demag.)          8.4   0.713   0.115   0.763   0.530  0.763 
+   A=B=C=VBAT+Vd (en kötü statik)           9.0   0.882   0.882   0.882   0.882  0.882 
+   A=VBAT, B=0, C=VBAT+Vd (demag.)          9.0   0.764   0.122   0.814   0.567  0.814 
+   A=B=C=VBAT+Vd (en kötü statik)          16.8   1.591   1.591   1.591   1.591  1.591 
+   A=VBAT, B=0, C=VBAT+Vd (demag.)         16.8   1.422   0.224   1.472   1.039  1.472 
+   A=B=C=VBAT+Vd (en kötü statik)          25.2   2.355   2.355   2.355   2.355  2.355 
+   A=VBAT, B=0, C=VBAT+Vd (demag.)         25.2   2.131   0.334   2.180   1.548  2.180 
+   A=B=C=VBAT+Vd (en kötü statik)          26.1   2.436   2.436   2.436   2.436  2.436 
+   A=VBAT, B=0, C=VBAT+Vd (demag.)         26.1   2.206   0.346   2.256   1.603  2.256 
+   A=B=C=VBAT+Vd (en kötü statik)          35.0   3.245   3.245   3.245   3.245  3.245 
+   A=VBAT, B=0, C=VBAT+Vd (demag.)         35.0   2.957   0.463   3.007   2.142  3.007 
+------------------------------------------------------------------------------------------------
+   Sıfır geçişte (A=V, B=0, C=V/2) muxC − com = 0.0000 V (ideal 0)
+   Karşılaştırıcı farkı kazancı d(muxC−com)/dVC = 0.0475 V/V
+   EFM8 Voff ±10 mV → faza yansıyan ±210 mV; histerezis ±20 mV seçilirse ±421 mV
+   1750 KV: faz-nötr BEMF tepe 5 × Voff_faz olduğunda rpm ≈ 3190 (tahmin; boşta rpm ≫ bu ise pay var)
+   1960 KV: faz-nötr BEMF tepe 5 × Voff_faz olduğunda rpm ≈ 3572 (tahmin; boşta rpm ≫ bu ise pay var)
+   2400 KV: faz-nötr BEMF tepe 5 × Voff_faz olduğunda rpm ≈ 4374 (tahmin; boşta rpm ≫ bu ise pay var)
+   2750 KV: faz-nötr BEMF tepe 5 × Voff_faz olduğunda rpm ≈ 5012 (tahmin; boşta rpm ≫ bu ise pay var)
+   → 26.1 V + Vd'de en büyük mux 2.436 V: GEÇTİ (26.1 V'a kadar); 35 V geçicide 3.245 V (≤ 3.3 V)
+   Açık: E6 '????' dirençleri (mcu/mcu2 R? 3k/1k) ağın parçasıysa sonuç değişir.
+================================================================================================
+3. ESC PVDD — JW5026, R02 90.9 k / R01 10 k — DOG-015 / SYS-016 (sorumlu guc-elektronigi; katkı)
+   [VAR] JW5026 VFB 0.8 V ±2 % (veri sayfası yok, E5). [FD] VCC önerilen 5–20 V, mutlak 25 V,
+   VCCUV+ maks 5.0 V; VBSUV+ maks 5.0 V. Bootstrap 1N4148WT Vf ≈ 0.7–1.0 V (tahmin).
+------------------------------------------------------------------------------------------------
+   PVDD                       VFB 0.800 V ±2.0 %,  90.90k/ 10.00k ±1 % → nominal 8.072 V, en kötü 7.769…8.383 V
+   PVDD penceresi FD6288Q VCC 5–20 V içinde: GEÇTİ
+   UVLO payı (PVDD_min − VCCUV+maks) = 2.77 V (ölçüt ≥ 1 V): GEÇTİ
+   VBS = PVDD − Vf(1.0) = 6.77 V; VBSUV+ maks 5.0 V payı 1.77 V
+   VIN 8.4 V, D_maks 90 % [VAR] → PVDD ≈ 7.46 V (düşüm bölgesi), UVLO payı 2.46 V, VBS ≈ 6.46 V
+   VIN 8.4 V, D_maks 95 % [VAR] → PVDD ≈ 7.88 V (düşüm bölgesi), UVLO payı 2.88 V, VBS ≈ 6.88 V
+   VIN 9.0 V, D_maks 90 % [VAR] → PVDD ≈ 8.00 V (düşüm bölgesi), UVLO payı 3.00 V, VBS ≈ 7.00 V
+   VIN 9.0 V, D_maks 95 % [VAR] → PVDD ≈ 8.07 V (düşüm bölgesi), UVLO payı 3.07 V, VBS ≈ 7.07 V
+   AMS1117: 3V3 yükü ≈ 45.5 mA (4 × 10.1 mA EFM8 @49 MHz [EFM8] + INA + 5 mA [VAR]); kayıp (8.38 − 3.3) × I = 231 mW
+   Açık: JW5026 VIN maks (26.1 V + geçici 35 V?), D_maks, VFB toleransı — veri sayfası (İP-02).
+================================================================================================
+4. FMU BEC — TPS54202 — DOG-037 (5 V, R42 100k / R43 13.7k), DOG-039 (9 V, R32 100k / R33 7.15k)
+   [ALT] fmu.SchDoc; VFB 0.596 V [boards/fmu/README.md]; VFB toleransı ±2 % [VAR — TPS54202 DS yok]
+------------------------------------------------------------------------------------------------
+   5 V BEC                    VFB 0.596 V ±2.0 %, 100.00k/ 13.70k ±1 % → nominal 4.946 V, en kötü 4.763…5.135 V
+                              hedef 5.00 V: nominal sapma -1.07 %, en kötü -4.74 / +2.70 %; pencere 4.75…5.25 → GEÇTİ
+   9 V BEC                    VFB 0.596 V ±2.0 %, 100.00k/  7.15k ±1 % → nominal 8.932 V, en kötü 8.591…9.282 V
+                              hedef 9.00 V: nominal sapma -0.76 %, en kötü -4.54 / +3.13 %; pencere 8.55…9.45 → GEÇTİ
+   9 V nominal −0.8 % merkez dışı. E96 alternatif R33:
+     R33 = 6.98k              VFB 0.596 V ±2.0 %, 100.00k/  6.98k ±1 % → nominal 9.135 V, en kötü 8.786…9.493 V
+                              hedef 9.00 V: nominal sapma +1.50 %, en kötü -2.37 / +5.48 %; pencere 8.55…9.45 → KALDI
+     R33 = 7.06k              VFB 0.596 V ±2.0 %, 100.00k/  7.06k ±1 % → nominal 9.038 V, en kötü 8.693…9.393 V
+                              hedef 9.00 V: nominal sapma +0.42 %, en kötü -3.41 / +4.36 %; pencere 8.55…9.45 → GEÇTİ
+     R33 = 7.15k              VFB 0.596 V ±2.0 %, 100.00k/  7.15k ±1 % → nominal 8.932 V, en kötü 8.591…9.282 V
+                              hedef 9.00 V: nominal sapma -0.76 %, en kötü -4.54 / +3.13 %; pencere 8.55…9.45 → GEÇTİ
+   Not: 9 V BEC şematik notu 'VIN 10–28 V'; 3S (9.0 V) girişte düşüm bölgesi — DOG-039/040 ayrı.
+================================================================================================
+ÖZET
+  DOG-021 MEVCUT 100k/10k %1, ref=LDO        KALDI
+  DOG-021 100k/10k %1, VREFINT telafili      KALDI
+  DOG-021 100k/10k %0.5 25ppm, VREFINT       KISMEN (en kötüde kalır, RSS'te geçer)
+  DOG-021 100k/10k %0.1 25ppm, VREFINT       KISMEN (en kötüde kalır, RSS'te geçer)
+  DOG-021 20k/2k %0.5 25ppm, VREFINT         KISMEN (en kötüde kalır, RSS'te geçer)
+  DOG-021 20k/2k %0.1 25ppm, VREFINT         GEÇTİ
+  DOG-021 20k/2k %0.1 25ppm, ref=LDO ±%0.5   GEÇTİ
+  DOG-021 20k/2k %0.5 25ppm, ref=LDO         KALDI
+  DOG-013 BEMF mux en büyük (≤26.1 V+Vd) 2.436 V, 35 V geçici 3.245 V, ZC kazancı 0.0475
+  DOG-037 5 V BEC en kötü 4.763…5.135 V → GEÇTİ
+  DOG-039 9 V BEC en kötü 8.591…9.282 V → GEÇTİ

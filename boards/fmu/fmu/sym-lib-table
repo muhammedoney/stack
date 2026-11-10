@@ -1,0 +1,8 @@
+(sym_lib_table
+	(version 7)
+	(lib (name "CONN")(type "KiCad")(uri "${KIPRJMOD}/../../../lib/CONN.kicad_sym")(options "")(descr "Stack CONN symbols"))
+	(lib (name "IC")(type "KiCad")(uri "${KIPRJMOD}/../../../lib/IC.kicad_sym")(options "")(descr "Stack IC symbols"))
+	(lib (name "MOS")(type "KiCad")(uri "${KIPRJMOD}/../../../lib/MOS.kicad_sym")(options "")(descr "Stack MOS symbols"))
+	(lib (name "RLC")(type "KiCad")(uri "${KIPRJMOD}/../../../lib/RLC.kicad_sym")(options "")(descr "Stack RLC symbols"))
+	(lib (name "stack")(type "KiCad")(uri "${KIPRJMOD}/../../../lib/stack.kicad_sym")(options "")(descr "Stack stack symbols"))
+)

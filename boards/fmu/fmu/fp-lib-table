@@ -1,0 +1,7 @@
+(fp_lib_table
+	(version 7)
+	(lib (name "CONN")(type "KiCad")(uri "${KIPRJMOD}/../../../lib/CONN.pretty")(options "")(descr "Stack CONN footprints"))
+	(lib (name "IC")(type "KiCad")(uri "${KIPRJMOD}/../../../lib/IC.pretty")(options "")(descr "Stack IC footprints"))
+	(lib (name "MOS")(type "KiCad")(uri "${KIPRJMOD}/../../../lib/MOS.pretty")(options "")(descr "Stack MOS footprints"))
+	(lib (name "RLC")(type "KiCad")(uri "${KIPRJMOD}/../../../lib/RLC.pretty")(options "")(descr "Stack RLC footprints"))
+)

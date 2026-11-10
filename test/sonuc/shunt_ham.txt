@@ -1,0 +1,180 @@
+shunt.py — Stack akım ölçümü (DOG-017, DOG-019, DOG-008 eleman gücü)
+Ölçüt: tam ölçek ≥ 280 A (en kötü); eleman gücü 220 A ve 280 A'da ≤ sınıfın %70'i;
+       10–200 A ±%5, < 10 A ±1 A (tip ölçek, VREFINT telafili ADC varsayımı; 'LDO ref ile' sütunu telafisiz)
+Varsayım: shunt öz ısınması 60 K, ortam −10…+50 °C, Kelvin bağlantı (PCB bakırı ölçüm yolunda değil)
+================================================================================================
+MEVCUT 2×1mΩ 2512 + INA199C1
+   R = 0.500 mΩ (2 × 1.000 mΩ), INA199C1 kazanç 200 → 100.00 mV/A; Betaflight ibata_scale 1000 (kuantalama +0.00 %)
+   Tam ölçek: nominal 31 A, en kötü (R+tol+TCR, G+hata, tavan 3.05 V) 29 A → ≥ 280 A KALDI
+   Eleman gücü: 220 A'da 12.10 W, 280 A'da 19.60 W; sınıf 2.0 W × %70 = 1.40 W → KALDI
+   Toplam shunt kaybı 220 A'da 24.2 W, 280 A'da 39.2 W
+   V_CM maks 26 V: 26.1 V KALDI, 35 V geçici KALDI; CUR tavanı = yükselteç beslemesi (ESC 3.3 V) → CUR ≤ 3.3 V koşullu*
+   Doğruluk (VOS 150 µV → 0.30 A; ADC 5 LSB → 0.04 A; TCR 0.64 %):
+     I (A)   sınır   en kötü     RSS  LDO ref ile  durum
+         1    1.00      0.37    0.30         0.39  GEÇTİ
+         5    1.00      0.51    0.32         0.60  GEÇTİ
+        10    0.50      0.68    0.36         0.85  RSS'te geçer
+        30    1.50      1.37    0.65         1.88  GEÇTİ
+        60    3.00      2.40    1.20         3.42  GEÇTİ
+       100    5.00      3.78    1.96         5.48  GEÇTİ
+       200   10.00      7.22    3.88        10.62  GEÇTİ
+------------------------------------------------------------------------------------------------
+2×1mΩ + INA199A1
+   R = 0.500 mΩ (2 × 1.000 mΩ), INA199A1 kazanç 50 → 25.00 mV/A; Betaflight ibata_scale 250 (kuantalama +0.00 %)
+   Tam ölçek: nominal 124 A, en kötü (R+tol+TCR, G+hata, tavan 3.05 V) 118 A → ≥ 280 A KALDI
+   Eleman gücü: 220 A'da 12.10 W, 280 A'da 19.60 W; sınıf 2.0 W × %70 = 1.40 W → KALDI
+   Toplam shunt kaybı 220 A'da 24.2 W, 280 A'da 39.2 W
+   V_CM maks 26 V: 26.1 V KALDI, 35 V geçici KALDI; CUR tavanı = yükselteç beslemesi (ESC 3.3 V) → CUR ≤ 3.3 V koşullu*
+   Doğruluk (VOS 150 µV → 0.30 A; ADC 5 LSB → 0.16 A; TCR 0.64 %):
+     I (A)   sınır   en kötü     RSS  LDO ref ile  durum
+         1    1.00      0.50    0.34         0.51  GEÇTİ
+         5    1.00      0.63    0.35         0.72  GEÇTİ
+        10    0.50      0.80    0.39         0.97  RSS'te geçer
+        30    1.50      1.49    0.67         2.00  GEÇTİ
+        60    3.00      2.52    1.21         3.54  GEÇTİ
+       100    5.00      3.90    1.97         5.60  GEÇTİ
+       200   10.00      7.34    3.89        10.74  GEÇTİ
+------------------------------------------------------------------------------------------------
+2×0.5mΩ (0.25) + INA199A1 [E1 önerisi]
+   R = 0.250 mΩ (2 × 0.500 mΩ), INA199A1 kazanç 50 → 12.50 mV/A; Betaflight ibata_scale 125 (kuantalama +0.00 %)
+   Tam ölçek: nominal 248 A, en kötü (R+tol+TCR, G+hata, tavan 3.05 V) 236 A → ≥ 280 A KALDI
+   Eleman gücü: 220 A'da 6.05 W, 280 A'da 9.80 W; sınıf 3.0 W × %70 = 2.10 W → KALDI
+   Toplam shunt kaybı 220 A'da 12.1 W, 280 A'da 19.6 W
+   V_CM maks 26 V: 26.1 V KALDI, 35 V geçici KALDI; CUR tavanı = yükselteç beslemesi (ESC 3.3 V) → CUR ≤ 3.3 V koşullu*
+   Doğruluk (VOS 150 µV → 0.60 A; ADC 5 LSB → 0.32 A; TCR 0.64 %):
+     I (A)   sınır   en kötü     RSS  LDO ref ile  durum
+         1    1.00      0.96    0.68         0.97  GEÇTİ
+         5    1.00      1.09    0.69         1.18  RSS'te geçer
+        10    0.50      1.27    0.71         1.44  KALDI
+        30    1.50      1.95    0.90         2.46  RSS'te geçer
+        60    3.00      2.98    1.35         4.00  GEÇTİ
+       100    5.00      4.36    2.05         6.06  GEÇTİ
+       200   10.00      7.80    3.93        11.20  GEÇTİ
+------------------------------------------------------------------------------------------------
+2×0.3mΩ (0.15) + INA199A1
+   R = 0.150 mΩ (2 × 0.300 mΩ), INA199A1 kazanç 50 → 7.50 mV/A; Betaflight ibata_scale 75 (kuantalama +0.00 %)
+   Tam ölçek: nominal 413 A, en kötü (R+tol+TCR, G+hata, tavan 3.05 V) 393 A → ≥ 280 A GEÇTİ
+   Eleman gücü: 220 A'da 3.63 W, 280 A'da 5.88 W; sınıf 3.0 W × %70 = 2.10 W → KALDI
+   Toplam shunt kaybı 220 A'da 7.3 W, 280 A'da 11.8 W
+   V_CM maks 26 V: 26.1 V KALDI, 35 V geçici KALDI; CUR tavanı = yükselteç beslemesi (ESC 3.3 V) → CUR ≤ 3.3 V koşullu*
+   Doğruluk (VOS 150 µV → 1.00 A; ADC 5 LSB → 0.54 A; TCR 0.64 %):
+     I (A)   sınır   en kötü     RSS  LDO ref ile  durum
+         1    1.00      1.57    1.14         1.59  KALDI
+         5    1.00      1.71    1.14         1.79  KALDI
+        10    0.50      1.88    1.15         2.05  KALDI
+        30    1.50      2.57    1.28         3.08  RSS'te geçer
+        60    3.00      3.60    1.62         4.62  RSS'te geçer
+       100    5.00      4.97    2.24         6.67  GEÇTİ
+       200   10.00      8.41    4.03        11.81  GEÇTİ
+------------------------------------------------------------------------------------------------
+2×0.2mΩ (0.10) + INA199B1
+   R = 0.100 mΩ (2 × 0.200 mΩ), INA199B1 kazanç 100 → 10.00 mV/A; Betaflight ibata_scale 100 (kuantalama +0.00 %)
+   Tam ölçek: nominal 310 A, en kötü (R+tol+TCR, G+hata, tavan 3.05 V) 294 A → ≥ 280 A GEÇTİ
+   Eleman gücü: 220 A'da 2.42 W, 280 A'da 3.92 W; sınıf 3.0 W × %70 = 2.10 W → KALDI
+   Toplam shunt kaybı 220 A'da 4.8 W, 280 A'da 7.8 W
+   V_CM maks 26 V: 26.1 V KALDI, 35 V geçici KALDI; CUR tavanı = yükselteç beslemesi (ESC 3.3 V) → CUR ≤ 3.3 V koşullu*
+   Doğruluk (VOS 150 µV → 1.50 A; ADC 5 LSB → 0.40 A; TCR 0.64 %):
+     I (A)   sınır   en kötü     RSS  LDO ref ile  durum
+         1    1.00      1.94    1.55         1.95  KALDI
+         5    1.00      2.07    1.56         2.16  KALDI
+        10    0.50      2.25    1.57         2.42  KALDI
+        30    1.50      2.93    1.66         3.44  KALDI
+        60    3.00      3.97    1.94         4.99  RSS'te geçer
+       100    5.00      5.34    2.48         7.04  RSS'te geçer
+       200   10.00      8.78    4.17        12.18  GEÇTİ
+------------------------------------------------------------------------------------------------
+4×0.4mΩ (0.10) + INA199B1
+   R = 0.100 mΩ (4 × 0.400 mΩ), INA199B1 kazanç 100 → 10.00 mV/A; Betaflight ibata_scale 100 (kuantalama +0.00 %)
+   Tam ölçek: nominal 310 A, en kötü (R+tol+TCR, G+hata, tavan 3.05 V) 294 A → ≥ 280 A GEÇTİ
+   Eleman gücü: 220 A'da 1.21 W, 280 A'da 1.96 W; sınıf 3.0 W × %70 = 2.10 W → GEÇTİ
+   Toplam shunt kaybı 220 A'da 4.8 W, 280 A'da 7.8 W
+   V_CM maks 26 V: 26.1 V KALDI, 35 V geçici KALDI; CUR tavanı = yükselteç beslemesi (ESC 3.3 V) → CUR ≤ 3.3 V koşullu*
+   Doğruluk (VOS 150 µV → 1.50 A; ADC 5 LSB → 0.40 A; TCR 0.64 %):
+     I (A)   sınır   en kötü     RSS  LDO ref ile  durum
+         1    1.00      1.94    1.55         1.95  KALDI
+         5    1.00      2.07    1.56         2.16  KALDI
+        10    0.50      2.25    1.57         2.42  KALDI
+        30    1.50      2.93    1.66         3.44  KALDI
+        60    3.00      3.97    1.94         4.99  RSS'te geçer
+       100    5.00      5.34    2.48         7.04  RSS'te geçer
+       200   10.00      8.78    4.17        12.18  GEÇTİ
+------------------------------------------------------------------------------------------------
+2×0.3mΩ (0.15) + INA240A2
+   R = 0.150 mΩ (2 × 0.300 mΩ), INA240A2 kazanç 50 → 7.50 mV/A; Betaflight ibata_scale 75 (kuantalama +0.00 %)
+   Tam ölçek: nominal 433 A, en kötü (R+tol+TCR, G+hata, tavan 3.20 V) 419 A → ≥ 280 A GEÇTİ
+   Eleman gücü: 220 A'da 3.63 W, 280 A'da 5.88 W; sınıf 3.0 W × %70 = 2.10 W → KALDI
+   Toplam shunt kaybı 220 A'da 7.3 W, 280 A'da 11.8 W
+   V_CM maks 80 V: 26.1 V GEÇTİ, 35 V geçici GEÇTİ; CUR tavanı = yükselteç beslemesi (ESC 3.3 V) → CUR ≤ 3.3 V koşullu*
+   Doğruluk (VOS 25 µV → 0.17 A; ADC 5 LSB → 0.54 A; TCR 0.64 %):
+     I (A)   sınır   en kötü     RSS  LDO ref ile  durum
+         1    1.00      0.73    0.56         0.74  GEÇTİ
+         5    1.00      0.81    0.57         0.90  GEÇTİ
+        10    0.50      0.92    0.58         1.09  KALDI
+        30    1.50      1.35    0.67         1.86  GEÇTİ
+        60    3.00      1.99    0.93         3.01  GEÇTİ
+       100    5.00      2.84    1.36         4.54  GEÇTİ
+       200   10.00      4.98    2.54         8.38  GEÇTİ
+------------------------------------------------------------------------------------------------
+2×0.2mΩ (0.10) + INA240A3
+   R = 0.100 mΩ (2 × 0.200 mΩ), INA240A3 kazanç 100 → 10.00 mV/A; Betaflight ibata_scale 100 (kuantalama +0.00 %)
+   Tam ölçek: nominal 325 A, en kötü (R+tol+TCR, G+hata, tavan 3.20 V) 314 A → ≥ 280 A GEÇTİ
+   Eleman gücü: 220 A'da 2.42 W, 280 A'da 3.92 W; sınıf 3.0 W × %70 = 2.10 W → KALDI
+   Toplam shunt kaybı 220 A'da 4.8 W, 280 A'da 7.8 W
+   V_CM maks 80 V: 26.1 V GEÇTİ, 35 V geçici GEÇTİ; CUR tavanı = yükselteç beslemesi (ESC 3.3 V) → CUR ≤ 3.3 V koşullu*
+   Doğruluk (VOS 25 µV → 0.25 A; ADC 5 LSB → 0.40 A; TCR 0.64 %):
+     I (A)   sınır   en kötü     RSS  LDO ref ile  durum
+         1    1.00      0.67    0.47         0.69  GEÇTİ
+         5    1.00      0.76    0.48         0.84  GEÇTİ
+        10    0.50      0.87    0.49         1.04  RSS'te geçer
+        30    1.50      1.29    0.60         1.80  GEÇTİ
+        60    3.00      1.94    0.88         2.96  GEÇTİ
+       100    5.00      2.79    1.33         4.49  GEÇTİ
+       200   10.00      4.93    2.52         8.33  GEÇTİ
+------------------------------------------------------------------------------------------------
+4×0.4mΩ (0.10) + INA240A3
+   R = 0.100 mΩ (4 × 0.400 mΩ), INA240A3 kazanç 100 → 10.00 mV/A; Betaflight ibata_scale 100 (kuantalama +0.00 %)
+   Tam ölçek: nominal 325 A, en kötü (R+tol+TCR, G+hata, tavan 3.20 V) 314 A → ≥ 280 A GEÇTİ
+   Eleman gücü: 220 A'da 1.21 W, 280 A'da 1.96 W; sınıf 3.0 W × %70 = 2.10 W → GEÇTİ
+   Toplam shunt kaybı 220 A'da 4.8 W, 280 A'da 7.8 W
+   V_CM maks 80 V: 26.1 V GEÇTİ, 35 V geçici GEÇTİ; CUR tavanı = yükselteç beslemesi (ESC 3.3 V) → CUR ≤ 3.3 V koşullu*
+   Doğruluk (VOS 25 µV → 0.25 A; ADC 5 LSB → 0.40 A; TCR 0.64 %):
+     I (A)   sınır   en kötü     RSS  LDO ref ile  durum
+         1    1.00      0.67    0.47         0.69  GEÇTİ
+         5    1.00      0.76    0.48         0.84  GEÇTİ
+        10    0.50      0.87    0.49         1.04  RSS'te geçer
+        30    1.50      1.29    0.60         1.80  GEÇTİ
+        60    3.00      1.94    0.88         2.96  GEÇTİ
+       100    5.00      2.79    1.33         4.49  GEÇTİ
+       200   10.00      4.93    2.52         8.33  GEÇTİ
+------------------------------------------------------------------------------------------------
+4×0.5mΩ (0.125) + INA240A3
+   R = 0.125 mΩ (4 × 0.500 mΩ), INA240A3 kazanç 100 → 12.50 mV/A; Betaflight ibata_scale 125 (kuantalama +0.00 %)
+   Tam ölçek: nominal 260 A, en kötü (R+tol+TCR, G+hata, tavan 3.20 V) 251 A → ≥ 280 A KALDI
+   Eleman gücü: 220 A'da 1.51 W, 280 A'da 2.45 W; sınıf 3.0 W × %70 = 2.10 W → KALDI (10 s darbede sınıf içinde)
+   Toplam shunt kaybı 220 A'da 6.0 W, 280 A'da 9.8 W
+   V_CM maks 80 V: 26.1 V GEÇTİ, 35 V geçici GEÇTİ; CUR tavanı = yükselteç beslemesi (ESC 3.3 V) → CUR ≤ 3.3 V koşullu*
+   Doğruluk (VOS 25 µV → 0.20 A; ADC 5 LSB → 0.32 A; TCR 0.64 %):
+     I (A)   sınır   en kötü     RSS  LDO ref ile  durum
+         1    1.00      0.54    0.38         0.56  GEÇTİ
+         5    1.00      0.63    0.38         0.71  GEÇTİ
+        10    0.50      0.74    0.40         0.91  RSS'te geçer
+        30    1.50      1.16    0.53         1.67  GEÇTİ
+        60    3.00      1.80    0.83         2.82  GEÇTİ
+       100    5.00      2.66    1.30         4.36  GEÇTİ
+       200   10.00      4.80    2.51         8.20  GEÇTİ
+------------------------------------------------------------------------------------------------
+ÖZET  (FS = en kötü tam ölçek)
+Aday                                        FS (A)     FS     güç  VCM26   VCM35  DOG019  019-alt
+MEVCUT 2×1mΩ 2512 + INA199C1                    29  KALDI   KALDI  KALDI   KALDI   KALDI       ok
+2×1mΩ + INA199A1                               118  KALDI   KALDI  KALDI   KALDI   KALDI       ok
+2×0.5mΩ (0.25) + INA199A1 [E1 önerisi]         236  KALDI   KALDI  KALDI   KALDI   KALDI    KALDI
+2×0.3mΩ (0.15) + INA199A1                      393     ok   KALDI  KALDI   KALDI   KALDI    KALDI
+2×0.2mΩ (0.10) + INA199B1                      294     ok   KALDI  KALDI   KALDI   KALDI    KALDI
+4×0.4mΩ (0.10) + INA199B1                      294     ok      ok  KALDI   KALDI   KALDI    KALDI
+2×0.3mΩ (0.15) + INA240A2                      419     ok   KALDI     ok      ok   KALDI       ok
+2×0.2mΩ (0.10) + INA240A3                      314     ok   KALDI     ok      ok   KALDI       ok
+4×0.4mΩ (0.10) + INA240A3                      314     ok      ok     ok      ok   KALDI       ok
+4×0.5mΩ (0.125) + INA240A3                     251  KALDI   KALDI     ok      ok   KALDI       ok
+019-alt: ölçüt max(%5 × I, 1 A) ile (SYS-021 metninde 10 A'da 1 A → 0.5 A süreksizliği var; öneri).
+* CUR, yükselteç beslemesini (ESC 3.3 V) aşamaz; ESC 3.3 V > FMU VDDA ise fark kadar (≤ ~0.1 V) ADC pinine
+  enjeksiyon olur — FMU tarafında CUR hattına seri 1 k (enjeksiyon < 0.1 mA) önerilir.

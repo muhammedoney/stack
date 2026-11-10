@@ -49,13 +49,13 @@ Her kanal: EFM8BB21F16G (QFN20) → FD6288Q (QFN24) → 3 × (yüksek + alçak) 
 | PVDD | JW5026 FB, R02 90.9 k / R01 10 k; V_FB 0.8 V varsayıldı (JW5026 veri sayfası yok) | 0.8 × (1 + 9.09) = **8.07 V** — FD6288Q VCC 5–20 V içinde ✓ |
 | 3V3 | AMS1117 8.07 → 3.3 V, yük tahmini 4 × ~10 mA MCU + INA | (8.07 − 3.3) × 0.05 A ≈ 0.24 W ✓ |
 | BEMF bölücü | faz → 10 k / (1 k ‖ 3.3 k sanal nötr) | 25.2 V fazda mux ≈ 25.2 × 0.77/10.77 ≈ 1.8 V < 3.3 V ✓ (nötr katkısı ihmal) |
-| Akım ölçümü | shunt 1 mΩ ‖ 1 mΩ = 0.5 mΩ; INA199C1 kazanç 200 → 0.1 V/A | Tam ölçek (≈ 3.2 V) ≈ **32 A toplam** |
+| Akım ölçümü | shunt 1 mΩ ‖ 1 mΩ = 0.5 mΩ; INA199C1 kazanç **50** (C1 = 50 V/V; 2026-11-10 düzeltme, ilk sürümde yanlışlıkla 200 yazılmıştı) → 25 mV/A | Tam ölçek ≈ **124 A toplam** (`docs/rapor/guc-ip03.md`) |
 
 ### 2.3 Bulgular
 
 | # | Önem | Konu | Bulgu | Öneri / sahibi |
 |---|---|---|---|---|
-| E1 | Kritik | Akım ölçümü aralığı | 0.5 mΩ × 200 → ≈ 32 A’da doyuyor; 4 × 55 A = 220 A sınıfı kart için toplam akımın 1/7’si | Shunt/kazanç yeniden seçilmeli (ör. INA199A1 ×50 ile 0.25 mΩ → 256 A tam ölçek). `guc-elektronigi`, `sistem-mimari` |
+| E1 | Kritik | Akım ölçümü aralığı | 0.5 mΩ × 50 → ≈ 124 A’da doyuyor (düzeltme 2026-11-10; ilk sürümde kazanç 200 alınıp 32 A yazılmıştı); 4 × 55 A = 220 A için yetersiz | Shunt/kazanç yeniden seçilmeli (ör. INA199A1 ×50 ile 0.25 mΩ → 256 A tam ölçek). `guc-elektronigi`, `sistem-mimari` |
 | E2 | Kritik | Shunt gücü | Batarya akımı tümüyle iki 2512 dirençten geçiyor: 100 A’da 0.5 mΩ × 100² = **5 W**, 2512 tipik 1–2 W (×2 = 2–4 W) | Düşük direnç/daha çok paralel shunt veya farklı ölçüm (manganin şerit, faz tabanlı). `guc-elektronigi` |
 | E3 | Önemli | INA199 ortak mod | INA199 V_CM en çok 26 V; 6S dolu 25.2 V ve TVS kıstırma (SMDJ28CA ≈ 45 V) üstünde kalıyor | Hücre sınırı netleşince (SOR) koruma/parça değişimi. `guc-elektronigi` |
 | E4 | Önemli | TVS ↔ kondansatör | Bulk 22 µF **35 V** X5R; SMDJ28CA kıstırma ≈ 45 V; şematik notu “22 µF 50 V low ESR” ile çelişiyor. 25 V öngerilimde 1206 22 µF etkin kapasite tahminen 3–5 µF | 50 V sınıfı ve/veya elektrolitik bulk; TVS seçimi hücre sayısına göre. `guc-elektronigi` |
@@ -91,7 +91,7 @@ Yalnızca tersine mühendislik başlangıcı: 16 fotoğraf, FD6288Q ve QN3109 (N
 | Koruma | U9 AO3401A ters kutup (P-MOS), D9 10 V zener, F9 PTC, U1 NUF2042 USB ESD | |
 | Kullanıcı | USB-C (R10/R11 5.1 k CC), SW80 boot, 4 LED, buzzer (Q10 AO3400A), LED şerit | |
 | Konnektörler | J0/J1 SM08B (ESC 1 ve 2 → 8 motor: chN_in0/in1), J SM03B, J2/J4/J5 SM04B (ELRS, GPS…), J3 SM06B (DJI), VTX, kamera, SBUS pedleri | UART1…6, I2C, SPI1 pedleri |
-| VBAT ölçümü | R95 100 k / R92 10 k → 11:1 | 3.3 V ADC’de 36 V tam ölçek ✓ (6S + pay) |
+| VBAT ölçümü | Netlistten (2026-11-10): 10 k + 7.15 k / 2.2 k | Tam ölçek ≈ 29 V < SYS-022 (≥ 30 V). İlk sürümdeki “100 k / 10 k → 36 V” değer tahminiydi, yanlış |
 
 ### 4.2 Bulgular
 
