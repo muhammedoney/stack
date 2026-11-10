@@ -25,3 +25,26 @@ Her karar: bağlam, seçenekler, seçilen ve gerekçe, etkilediği SYS/dosyalar.
 **Seçenekler:** 1) En çok satan bütçe ailesinin dizilimi (SpeedyBee F405 V4, GEPRC Taker) 2) Kendi dizilimimiz + çevirici kablo 3) Mamba (fmu referansı) dizilimi.
 **Karar:** 1, dizilimler üretici kılavuzlarından doğrulandıktan sonra (iki aile farklıysa SpeedyBee önce). Montaj 30.5 × 30.5 mm M3. **Gerekçe:** en büyük kullanıcı tabanı; GEPRC F405 HD V3 elimizde çizim olarak var.
 **Etki:** `docs/pin-haritasi.md` (sistem-mimari), esc55a J0 ve fmu J0/J1 dizilimi değişebilir (inceleme E8).
+
+## KRR-005 — FMU MCU pin ataması Betaflight `SPEEDYBEEF405V4` tabanlı (2026-11-10)
+**Durum:** Öneri / müşteri onayı bekliyor (DT-002; SYS-050 Onaylı maddeyi değiştirir).
+**Bağlam:** KRR-004 SpeedyBee F405 V4 ailesiyle uyumu seçti; F405 LQFP64’te 8 DShot + LED + 6 UART + 3 SPI ancak DMA’sı dikkatle dağıtılırsa sığar (FeroFly V1.0 “motor 3 DMA” revizyonu). Cezeri Altium şeması (Mamba F405 MK2 tersine mühendisliği) müşterinin kendi şeması sayılmıyor (`docs/mimari-fmu.md`).
+**Seçenekler:** 1) `SPEEDYBEEF405V4` (BF) + `speedybeef4v4` (AP) pinleri, belgelenmiş farklarla 2) Altium (Mamba) pinleri 3) Sıfırdan kendi ataması 4) GEPRC F405 pinleri.
+**Karar:** 1. Farklar yalnız `docs/pin-haritasi.md` §1.4: SPI3’te flash (CS PC14), UART5 TX PC12, `ADC1_DMA_OPT 1`, PC5 = CUR2, baro parçası, VBAT 15:1. HSE 8 MHz.
+**Gerekçe:** BF ve AP’de resmî, uçan hedef → hazır yazılımla çalışır (DOG-099), ArduPilot hwdef türevi kolay (SYS-056); 8 motor DMA çakışmasız (analiz, DOG-034); pazar lideriyle aynı pinler uyumluluk iddiasını güçlendirir. GEPRC MCU pinleri farklı, ikisi birlikte tutulamaz (8 pin ESC dizilimi KRR-004 ayrı konu).
+**Etki:** SYS-035, 037, 050, 056; DOG-034, -049, -094, -099, -100; fmu şematiği (İP-05), `firmware/` config ve hwdef (İP-07). Boş GPIO kalmıyor (RSK-015).
+
+## KRR-006 — Referans tasarım kullanım kuralı (2026-11-10)
+**Durum:** Öneri (ekip kuralı) / müşteri onayı bekliyor; SOR-014 cevabı “açık kaynak” olursa yeniden değerlendirilir.
+**Bağlam:** `docs/mimari-fmu.md` §1: açık F405 referansları farklı lisanslarda — CERN-OHL-P (FeroFly), -W (Mini-Air), -S (KURC), CC-BY-SA (Pixhawk), CC-BY-NC-SA (Revolution, Sparky2, Acci); ticari kartlar yalnız GPL-3 config/hwdef. Hukuki görüş değildir.
+**Seçenekler:** 1) Hiçbir referanstan dosya kopyalanmaz; yalnız fikir ve yayımlanmış pin atamaları (işlevsel bilgi) kullanılır 2) İzin verici (P/W) kaynaklardan dosya alınır, bildirim korunur 3) Serbest kullanım.
+**Karar:** 1. Tasarım veri sayfaları + `guc-ip03` hesapları + kendi `lib/` kütüphanemizle sıfırdan çizilir. Sembol, ayak izi, şema sayfası, yerleşim **kopyalanmaz**. NC lisanslı kaynaklar (CC-BY-NC-SA) **yalnız okunur**; -S ve CC-BY-SA kaynaklardan da dosya alınmaz. İleride P/W kaynaklı bir dosya gerçekten alınırsa önce bu KRR değişir, kaynak + lisans belgeye ve `CHANGELOG.md`’ye yazılır.
+**Gerekçe:** Hiçbir lisans yükümlülüğü ürüne geçmez; kapalı/açık yayımlama kararı (SOR-014) serbest kalır; kopyalamanın kazancı küçük (parça seti zaten veri sayfasından). Kendi BF config ve AP hwdef’imiz o depolara girdiği için GPL-3’tür (SYS-050/056), bu ayrı.
+**Etki:** Tüm tasarım ajanları (sematik, pcb, gomulu); `dogrulama-kalite` incelemesinde kaynak sorusu. SYS etkisi yok (kural, gereksinim değil).
+
+## KRR-007 — FMU 8S stratejisi (2026-11-10)
+**Durum:** Öneri / müşteri onayı bekliyor (SOR-013).
+**Bağlam:** M3 8S FMU ister (MUS-012). 8S LiHV dolu 34.8 V; SYS-014 kuralıyla (geçici + 5 V) VIN parçaları mutlak ≥ 45 V. M1 BOM’undaki SY8303 (40 V), AO3401A (−30 V), sigorta (32 V DC), SMBJ24CA 8S’e uymaz (`docs/mimari-fmu.md` §4.4). Onaylı SYS-003 “FMU iki ESC sınıfında değişmeden” diyordu.
+**Seçenekler:** 1) M1 BOM 3–6S; PCB 8S BOM varyantına yer bırakır; M3’te yalnız BOM (gerekirse küçük revizyon) 2) M1 baştan 8S dayanıklı, tek BOM (tahmini +1–2 $/kart, `bom-tedarik` doğrulayacak) 3) M3’te ayrı FMU PCB’si.
+**Karar (öneri):** 1. **Gerekçe:** M1 maliyeti zaten hedefin üstünde (SOR-016); 5" kullanıcısı 8S dayanımına para ödemez; 8S’in ayak izi riski (60 V buck kılıfı) yerleşim payıyla küçülür, M3 takvimi (2027 Q3) öncesi doğrulanır.
+**Etki:** SYS-003, 022, 044, 046; DOG-003, -045, -097, -098; FMU şematik/PCB (İP-05/06), `bom-tedarik` 8S BOM listesi. Seçenek 2 seçilirse SYS-046 İptal, SYS-044’te M1 için ≥ 45 V, SYS-002’ye +1–2 $.

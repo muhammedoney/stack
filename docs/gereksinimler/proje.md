@@ -29,12 +29,65 @@
 | RSK-011 | Kart DOG’ları için tezgâh yok: 4 × 70 A yük, ≥ 100 A akım referansı, ısıl kamera, ESD tabancası (DOG-005, -007, -018, -020, -077) | Orta | Kart doğrulaması eksik kalır | `test-muhendisi` teçhizat listesi ve alternatif (motor + pervane tezgâhı, pil, pens ampermetre); erişilemeyen ölçütler “Kısmen” | Açık (2026-11-06) |
 | RSK-012 | FMU şematiğinde 3.3 V regülatörü yok (SYS-042); taşımada eksik besleme fark edilmezse kart çalışmaz | Orta | Prototip hurdası | İP-05’te eklenir, DOG-041 | Açık (2026-11-06) |
 | RSK-013 | 100 sette 400 EFM8BB21 C2 ile tek tek yüklenecek; ped/fikstür yoksa süre ve hata (SYS-054) | Düşük | Üretim süresi | C2 pedleri + yaylı pim fikstürü (DOG-055/056) | Açık (2026-11-06) |
+| RSK-014 | F405’te 8 kanal çift yönlü DShot + 8 kHz gyro CPU’yu doyurabilir; DMA tablosu yalnız analiz (SYS-037) | Orta | Dual SKU’da RPM filtresi kısıtlı ya da DShot300/PID 4 kHz zorunlu | DOG-094/095 ilk prototipte; sınır ayar kılavuza; gerekirse M5–M8 çift yönlü kapalı (ArduPilot zaten M1–M4) | Açık (2026-11-10) |
+| RSK-015 | SpeedyBee V4 uyumlu pin haritası LQFP64’ün 51 G/Ç’sinin tamamını kullanıyor; sonradan özellik (2. LED, ek UART) eklenemez (KRR-005) | Orta | M1 revizyonunda özellik kısıtı | Yeni özellik M4/M5 (LQFP100) ailesinde; gerekirse PB15 (servo) veya PC5 (CUR2) feda edilir, DT ile | Açık (2026-11-10) |
+| RSK-016 | 8S BOM varyantının (60–65 V buck, P-MOS, sigorta) M1 ayak izlerine sığmaması; M1 SY8303 40 V tam 35 + 5 V sınırında (SYS-044, 046) | Orta | M3’te FMU PCB revizyonu, takvim | DOG-097 M1 PCB öncesi; ortak ayak izli aday aranır (`bom-tedarik`, `guc-elektronigi`); SOR-013 | Açık (2026-11-10) |
 
 ## Değişiklik talepleri (DT)
 
 | ID | Talep | Etkilenen | Durum |
 |---|---|---|---|
 | DT-001 | Maliyet hedefi 15 $ → ≤ 28 $/stack (100 set), tüm özellikler kalır. Gerekçe: bom-maliyet S1 31.9 $, S1b 27.4 $; özellikler kesilse bile 19.5 $ | PRJ-004, RSK-004, İP-02, İP-05 (S1b sadeleştirmeleri `guc-elektronigi`/`gomulu-yazilim` incelemesiyle) | Onaylı (müşteri, 2026-11-06) |
+| DT-002 | FMU (M1 F405) gereksinimlerinin hedef ürün ailesine (M3 8S FMU, M4a Dual-ESC, M4/M5 F7/H7, ArduPilot) göre güncellenmesi. Müşteri: “F405 için gereksinimleri hedef ürünü göz önüne alarak yap” (2026-11-10) | SYS-002, 003, 022, 035, 037, 042, 044, 050, 055, 062 (Değişti); SYS-004, 023, 046, 056, 057 (yeni); MUS-010…013; KRR-005…007; DOG-002, -003, -021, -022, -030, -031, -034, -041, -045, -049, -057, -062, -063 (değişti), DOG-091…103 (yeni); RSK-014…016; SOR-013…017. Etki analizi aşağıda | **Müşteri onayı bekliyor** |
+
+### DT-002 etki analizi (2026-11-10, `gereksinim-muhendisi`; girdi `sistem-mimari` `docs/mimari-fmu.md`, `docs/pin-haritasi.md`)
+
+**Değişen onaylı SYS (10):**
+
+| SYS | Değişiklik (özet) | Neden (km taşı) |
+|---|---|---|
+| SYS-002 | Maliyet ölçütü PRJ-004’e bağlandı (15 $ metni DT-001 artığıydı); SKU varyant farkları ayrı | Tutarlılık, M4a/M3 varyantları |
+| SYS-003 | FMU M1/M3/M4a’da aynı PCB, farklar BOM varyantı | M3, M4a |
+| SYS-022 | VBAT aralığı ≥ 45 V | M3 8S |
+| SYS-035 | ≥ 6 tam UART + SBUS donanım çevirici | M3 (GPS + pusula), KRR-005 |
+| SYS-037 | 8 motor zorunlu, 2. konnektör Dual SKU’da takılı, her çıkış ayrı DMA, CPU yükü ölçütü | M4a (K10) |
+| SYS-042 | 3.3 V regülatör açık, IMU ayrı süzgeçli dal | guc-ip03 G9, referans dersleri D4 |
+| SYS-044 | VIN parçaları ≥ 40 V (M1), 8S varyantta ≥ 45 V | M3 |
+| SYS-050 | `SPEEDYBEEF405V4` uyumlu pin ataması, HSE 8 MHz | KRR-004/005, ArduPilot |
+| SYS-055 | SWD SYS-057’ye ayrıldı | ArduPilot önyükleyicisi |
+| SYS-062 | Ayrı BAT pedleri zorunlu, J_ESC2 VBAT bağlı değil | guc-ip03 G16/G17, M4a |
+
+**Yeni SYS (5, Taslak):** SYS-004 (M4/M5 dış ölçü/konnektör sürekliliği, İ), SYS-023 (ESC2 akım ölçümü PC5, Ö), SYS-046 (8S BOM varyantı hazırlığı, Ö, SOR-013), SYS-056 (ArduPilot F405 kısıtlı donanım hazırlığı, Ö), SYS-057 (SWD pedleri, Ö). Referans kullanım kuralı SYS değil, KRR-006.
+
+**Değişmeyen ama ilgili:** SYS-001 (M1 stack tanımı; Dual-ESC stack M4a gereksinimlerinde yazılacak), SYS-031/032/033 (ICM-42688-P, tek baro, 16 MB flash ArduPilot’ta da destekli), SYS-060 (8 pin dizilimi İP-10’da), SYS-074 (8S ters kutup −34.8 V SYS-046’da), PRJ-006 (resmî BF/AP kaydı kapsam dışı; hwdef `gomulu-yazilim` ek işi).
+
+**Etkilenen DOG:** değişen 13 (DOG-002, -003, -021, -022, -030, -031, -034, -041, -045, -049, -057, -062, -063), yeni 13 (DOG-091…103; Ü-öncesi 6, Kart 7). Toplam 103.
+
+**Tasarım öğeleri:**
+
+| Öğe | Etki | Sahip / İP |
+|---|---|---|
+| `boards/fmu/` şematik | Altium’dan taşıma yerine `docs/mimari-fmu.md` §4 mimarisiyle: HSE 8 MHz, flash SPI3, VBAT 15:1 PC0, CUR2 PC5 + SJ1, J_ESC2 (VBAT NC), SBUS çevirici, UART5 TX, SWD pedleri, BAT pedleri U9 öncesi, AMS1117 + IMU süzgeci, SY8303 × 2, U9 yönü (G8) | sematik-muhendisi / İP-05 |
+| `boards/fmu/` PCB | 36 × 36 mm, 8S yerleşim payı (VIN ağı), J_ESC2 ve M5–M8 pedleri, SWD/test pedleri, BEC’ler MCU/IMU’dan uzak; konnektör konumları M4/M5 için belgelenir | pcb-muhendisi / İP-06 |
+| `firmware/` | BF config (`SPEEDYBEEF405V4` türevi, §1.4 farkları), ArduPilot hwdef (`speedybeef4v4` türevi); derleyicide doğrulanacak | gomulu-yazilim / İP-07 |
+| BOM | Standart / Dual SKU / 8S varyant BOM’ları; 8 MHz kristal; 8S aday parçalar | bom-tedarik / İP-02 |
+| `test/` | DOG-093, -095, -098, -099, -101, -103 prosedürleri; 8 motor (iki ESC) pervanesiz tezgâh | test-muhendisi / İP-08, İP-11 |
+
+**Maliyet etkisi (100 set, $/kart, S1b FMU’ya göre, tahmin — `bom-tedarik` doğrulayacak; guc-ip03 G7–G10 +0.6 $ DT-002’ye dahil değil):**
+
+| Kalem | Standart SKU | Dual SKU | Not |
+|---|---|---|---|
+| 24 MHz kristal (0.347 $) → 8 MHz | ≈ −0.25 | ≈ −0.25 | tahmin |
+| 2. SM08B (J_ESC2) DNP | ≈ −0.24 | 0 | S1b’de 2 adet vardı |
+| 2. ESC kablosu (kutu) | 0 | ≈ +0.2–0.3 | tahmin |
+| SBUS çevirici, CUR2 süzgeci + SJ, VBAT %0.5 dirençler | ≈ +0.05 | ≈ +0.05 | |
+| SWD, BAT pedleri, 8S yerleşim payı | 0 | 0 | PCB alanı 36 × 36 içinde |
+| **Toplam M1** | **≈ −0.45** | **≈ −0.2 + kablo** | |
+| SOR-013 seçenek 2 (baştan 8S) | +1–2 | +1–2 | ≤ 32 $ hedefini aşar |
+
+**İP etkisi:** onaylanırsa İP-05/06/07’ye SYS-023, 046, 056, 057 eklenir; İP-01 (pin haritası) KRR-005 ile kapanmaya aday; İP-10 8 pin dizilimi değişmeden açık.
+
+**Karar bekleyen:** DT-002 onayı, SOR-013…017 (`sorular.md`), KRR-005…007.
 
 ## İş paketleri (İP)
 

@@ -2,7 +2,8 @@
 
 > **Tarih:** 2026-11-06. Sahibi `bom-tedarik`. **Fiyat ve stok kaynağı:** JLCPCB parça arama arayüzü (`jlcpcb.com/api/overseas-pcb-order/v1/shoppingCart/smtGood/selectSmtComponentList`, JLC dizgi fiyatı, basic/extended bilgisi). Parametreler LCSC ürün arayüzünden (`wmsc.lcsc.com/ftps/wm/product/detail`). İkisi de 2026-11-06'da okundu. Fiyatlar USD, KDV/kargo/gümrük hariç. Dizgi ücretleri [JLCPCB PCBA fiyat sayfası](https://jlcpcb.com/help/article/pcb-assembly-price) ve [PCBA SSS](https://jlcpcb.com/help/article/pcb-assembly-faqs) sayfalarından (2026-11-06). **PCB fiyatları tahmindir**: JLC fiyat hesaplayıcısına erişilemedi (§3).
 > **Parça listesi:** `tools/altium_sch_dump.py` ile `boards/esc55a/altium/{main,mcu,mcu2}.SchDoc` ve `boards/fmu/altium/fmu.SchDoc` dosyalarından çıkarıldı. Pedler (`X PADS/PADR/PAD.ESC/PAD.PWR`) ve `LOGO` BOM dışı. Ham tablolar: [`boards/esc55a/bom-maliyet.csv`](../boards/esc55a/bom-maliyet.csv), [`boards/fmu/bom-maliyet.csv`](../boards/fmu/bom-maliyet.csv). CSV'de taban kod ve S1b önerisi yan yana.
-> **Hedef (PRJ-004 / SYS-002):** 100 set kademesinde stack başına toplam ≤ 15 $ (komponent + PCB + dizgi).
+> **Hedef (PRJ-004 / SYS-002):** 100 set kademesinde stack başına toplam ≤ 15 $ (komponent + PCB + dizgi). **2026-11-06 DT-001 ile ≤ 28 $** (tüm özellikler kalır).
+> **2026-11-10 güncellemesi:** esc55a **Rev B** (İP-03 güç önerileri işlenmiş) maliyeti **§9**'da, BOM [`boards/esc55a/bom-revb.csv`](../boards/esc55a/bom-revb.csv). §1–§8 S0/S1/S1b değerleri (2026-11-06) değiştirilmedi.
 > **Kademe kuralı:** "100 set" = 100 × karttaki adet. Birim fiyat bu toplam adetin JLC kademesinden alınır; örneğin 24 MOSFET için 2400 adet. CSV'de ayrıca 100 adet kademesi birim fiyatı da var. JLC'nin fire için eklediği fazla parça hesaba katılmadı (pasiflerde küçük).
 
 ## 1. Özet
@@ -254,3 +255,124 @@ Kullanımdan kalkma (EOL) bilgisi JLC/LCSC arayüzünde yok. Hiçbir parçada "d
 4. Tokmas ICM-42688-P / BMP388 kimlik ve Betaflight uyumu: prototipte test (`test-muhendisi`).
 5. fmu PCB'si yok: tek/çift yüz ve ölçü (36 × 36 mm) varsayım; dizgi ±0.6 $/set oynayabilir.
 6. Müşteri soruları (yönetici üzerinden): PRJ-004 hedefinin yeniden tanımı (B10), SOR-012 (OSD), SOR-011 (kutuda kondansatör), SYS-030 (APM32), SYS-031 (BMI270).
+
+## 9. Rev B (ESC)
+
+> **Tarih:** 2026-11-10. **Kaynak:** fiyat, stok, basic/extended JLCPCB parça arayüzü (`selectSmtComponentList`), 2026-11-10'da okundu. Veri sayfası bağlantıları LCSC ürün arayüzünden (`wmsc.lcsc.com/ftps/wm/product/detail`), aynı gün. Dizgi ve PCB kuralları §3–§4 ile aynı: Standard, çift yüz, lehim noktası düz 0.0016 $. Bu tutucu bir varsayım; JLC'nin 50 k nokta üstü kademesi (0.0013 $) 1000 sette ESC'yi ~0.2 $/kart düşürür. PCB değerleri tahmin.
+> **Girdi:** `docs/rapor/guc-ip03.md` §0, §10, §11 (G1–G14, G20). Şematik henüz işlenmedi (`sematik-muhendisi` paralel çalışıyor). Bu yüzden BOM, önerilen parça listesine göre kuruldu. Satır satır döküm: [`boards/esc55a/bom-revb.csv`](../boards/esc55a/bom-revb.csv). S1b ile karşılaştırma için S1b ESC listesi aynı gün yeniden fiyatlandı: 12.95 $/kart (2026-11-06'da 13.01 $).
+> **MCU varsayımı:** Rev B'de **EFM8BB21 (C80713)** kullanıldı. Bu, şematikte olan ve SYS-051'in istediği parça. S1b'deki A3 (BB51) `gomulu-yazilim` tarafından doğrulanmadı. BB51 ayrı satırda gösterildi. `guc-ip03` §10'daki 31.2 $ hesabı BB51 varsayıyor.
+
+### 9.1 Rev B ESC BOM özeti (S1b'ye göre değişenler)
+
+| Ref | Adet | Rev B parça | LCSC | JLC | Stok (11-10) | 100 set birim $ | S1b'den | Kart Δ $ (100 set) |
+|---|---|---|---|---|---|---|---|---|
+| M1aH…M4cL | 24 | BLP016N04LC-Q (Belling) 40 V | C49328363 | ext | **3 953** | 0.1823 (2400 ad.) | AON6354-HXY | **+1.64** |
+| U11…U41 | 4 | EFM8BB21F16G-C-QFN20R | C80713 | ext | 60 000 | 0.7658 | BB51 (A3 onaysız) | +0.67 |
+| U12…U42 | 4 | **JSM6288Q1** | C52196409 | ext | 11 948 | 0.3486 | JSM6288Q | +0.30 |
+| U2 | 1 | **INA240A3DR** (SOIC-8) | C2060584 | ext | 1 511 | 1.7901 | INA199C1 | +1.21 |
+| R00 | 1 | 0.1 mΩ 3920 10 W HoLRS3920 (Milliohm) | C55113241 | ext | 3 845 | 0.2947 | 2 × 1 mΩ 2512 (R00, R000) | +0.19 |
+| D00 | 1 | SMDJ24CA (DOWO) | C284061 | ext | 2 444 | 0.2018 | SMDJ28CA | −0.04 |
+| C1…C60 | 15 | 10 µF 50 V X7R 1206 CL31B106KBHNNNE | C89632 | ext | 551 138 | 0.1205 | 15 × 22 µF 35 V | −0.27 |
+| C02 | 1 | 4.7 µF 50 V 0805 | C98192 | ext | 176 733 | 0.0360 | 4.7 µF 35 V 0603 | +0.00 |
+| C03 + C_LDO (yeni) | 2 | 10 µF 16 V 0603 (FH) | C70225 | ext | 131 539 | 0.0570 | C03 10 µF 10 V 0402 | +0.08 |
+| L00 | 1 | 10 µH SWPA3015S100MT (Sunlord) | C45403 | ext | 16 256 | 0.0385 | NLCV32T-6R8M | −0.01 |
+| sürücü VCC (yeni) | +4 | 1 µF 25 V 0402 | C52923 | **basic** | 11 M | 0.0044 | (12 → 16 adet) | +0.02 |
+| R_G | 24 | 10 Ω 0402 | C25077 | **basic** | 3.2 M | 0.0008 | 22 Ω (C25092) | −0.01 |
+| R99…R106 | 8 | DNP (E6, G20) | — | — | — | — | 3 k / 1 k | −0.01 |
+| Değişmeyen | | JW5026, AMS1117 SOT-89, J0 XY-SM08B, 1N4148WT ×12, 100 nF / 1 nF / 90.9 k / 10 k / 220 Ω / 22 Ω ×2 / 3.3 k / 1 k | | | | | | 0 |
+| **Komponent** | **182 parça / 25 kod** | | | **15 ext** | | | S1b 186 parça, 16 ext | **+3.79 → 13.86 $** |
+
+### 9.2 ESC kart maliyeti ($/kart)
+
+| ESC Rev B | Komponent | PCB (tahmin) | Dizgi | **Toplam** | S1b'ye göre (aynı gün fiyatı) |
+|---|---|---|---|---|---|
+| **5 set** | 19.02 | 6.00 | 19.34 | **44.36** | +5.04 (S1b 39.32) |
+| **100 set** | 13.86 | 0.80 | 2.06 | **16.72** | **+3.77** (S1b 12.95; belgedeki 13.01'e göre +3.71) |
+| **1000 set** | 12.09 | 0.45 | 1.24 | **13.77** | +3.31 (S1b 10.46). **BLP016 stoğu 1000 sete yetmez**, NTMFS ile **15.34** |
+| 100 set, MOSFET yedek NTMFS5C430NLT1G (C194661) | 14.83 | 0.80 | 2.06 | 17.68 | +4.73 |
+| 100 set, MCU BB51 (A3) | 13.19 | 0.80 | 2.06 | 16.04 | +3.09 |
+
+**Dizgi (Standard, çift yüz):** Extended tür sayısı **16 → 15**. Türlerin çoğu yer değiştiriyor; 3 k (C25784) DNP olduğu için tür olarak düşüyor. 10 Ω basic. Lehim noktası 722 → 716: shunt −2, INA240 +2, 4 × 1 µF +8, LDO kondansatörü +2, DNP −16. Sipariş başına −1.53 $ (100 sette −0.015 $/kart, 5 sette −0.31 $/kart). **Kart çift yüzlü kalıyor.** 12 yüksek taraf MOSFET ve 15 bulk alt yüzde. Yeni 3920 shunt (10 × 5 mm) ile SOIC-8 INA240'ın yerleşimi `pcb-muhendisi`'nde. Tek yüze toplama yine önerilmez (§4). SYS-091'in "extended ≤ 10/kart" önerisi karşılanmıyor (15). §9.7'deki seçeneklerle 11'e iner.
+
+### 9.3 Stack toplamı (fmu S1b + esc55a Rev B)
+
+| $/stack | 5 set | **100 set** | 1000 set |
+|---|---|---|---|
+| esc55a Rev B (BLP016, BB21) | 44.36 | **16.72** | 13.77 (stok yetmez; NTMFS ile 15.34) |
+| fmu S1b (§1; 5 ve 1000 set türetilmiş*) | ~34.24 | 14.37 | ~12.51 |
+| **Stack, FMU S1b ile** | **~78.6** | **31.09** | ~26.3 (NTMFS ile ~27.9) |
+| FMU İP-03 değişiklikleri G7–G10 (2 × SY8303A, bobinler, 3.3 V LDO): `guc-ip03` §10 tahmini, **ayrı satır** | ~+0.6 | **+0.6** | ~+0.6 |
+| **Stack, FMU İP-03 dahil** | **~79.2** | **31.69** | ~26.9 (NTMFS ile ~28.5) |
+| Değişken: MCU BB51 (A3) | | 31.01 | |
+| Değişken: MOSFET NTMFS (yedek) | | 32.65 | |
+
+\* fmu 5 set ≈ 73.61 − S1b ESC (5 set, A1–A3 çıkarılarak) ≈ 34.24. fmu 1000 set ≈ 22.97 − S1b ESC 1000 (bu gün hesaplanan 10.46). İkisi de ±0.5 $. fmu 1000 sette STM32F405 stoğu (526) zaten yetmez (§6).
+
+### 9.4 Hedeflere göre durum (100 set)
+
+| Hedef | Rev B (BLP016, BB21) + FMU İP-03 = **31.69 $** | Durum |
+|---|---|---|
+| **PRJ-004 / DT-001 ≤ 28 $** | **+3.69 $** | **Karşılanmıyor.** Gereksinim değişikliği olmadan ulaşılamaz. ESC tarafındaki güvenli tasarruflar (§9.7) en çok ~−0.9 $ getirir (BB51 ile ~−1.5 $). 28 $ ancak müşteri kararlarıyla tutar: B3 APM32F405 −1.76, B6 BMI270 −0.79, INA186A3 −1.22. Hepsiyle ≈ 26.4 $ |
+| **≤ 32 $ alternatifi** | **−0.31 $ pay** | **Karşılanıyor, pay çok dar.** MOSFET'ler NTMFS'e geçerse 32.65 $ ile aşılır. PCB iç katmanı 1 oz'a çıkarsa (G19, tahmin +0.1–0.2 $/kart) ya da JLC "tek kart" ücreti uygulanırsa (+0.48 $/kart) da aşılır. §9.7'deki güvenli seçeneklerle ≈ 30.8 $ |
+| RSK-004 | | Güncellenmeli: SYS-014 uyumlu tasarım ≤ 28 $'ı tutmuyor (`guc-ip03` §0 ile tutarlı) |
+
+### 9.5 Stok ve tedarik riskleri (SYS-091: stok ≥ 2 × 100 set ihtiyacı)
+
+| Parça | 100 set ihtiyaç / 2× | Stok 2026-11-10 | SYS-091 | Not |
+|---|---|---|---|---|
+| **BLP016N04LC-Q** C49328363 | 2 400 / 4 800 | **3 953** (ön satış 3 876) | **✗** | 100 sete yeter, 2× kuralı ve 1000 set tutmaz. Tek kaynak (Belling). Öneri: 5 set prototipte **hem BLP016 hem NTMFS5C430NL** ile kart yapıp ikisini nitelendirmek (ör. 3 + 2 set). 100 set kararı verilince BLP016'dan **2 500 adet** JLC parça stoğuna önceden alınır: stoğu ayırır ve 2 500 kademesi (0.1666 $) 2 400 × 0.1823'ten ucuzdur, kart başına −0.21 $ ve 100 yedek. Aksi halde NTMFS (stok 173 493): +0.97 $/kart |
+| NTMFS5C430NLT1G C194661 | 2 400 / 4 800 | 173 493 | ✓ | Yedek. 100 sette 0.2226 $ (1500+ kademesi; daha alt kademe yok) |
+| INA240A3DR C2060584 | 100 / 200 | 1 511 | ✓ | 1000 sette 2× kuralı tutmaz. Tek kaynak (TI) |
+| INA199C1DCKR C2155860 | — | **424** (11-06'da 3 003) | (çıkarılıyor) | Hızlı tükeniyor. Rev B'de kullanılmıyor, bütçe seçeneği INA186A3 (C2058245, stok 4 051) |
+| HoLRS3920 shunt C55113241 | 100 / 200 | 3 845 | ✓ | Tek kaynak (Milliohm). Veri sayfası repoda |
+| SMDJ24CA C284061 | 100 / 200 | 2 444 | ✓ | DOWO. Yedek 5.0SMDJ24CA C284111 (4 253, 0.32 $) |
+| JSM6288Q1 C52196409 | 400 / 800 | 11 948 | ✓ | |
+| XY-SM08B C54582896 | 100 / 200 | 2 000 | ✓ | JST C160407 yedek |
+| JW5026 C185109 | 100 / 200 | 4 308 | ✓ | 11-06'da 7 208: düşüyor, izlenmeli |
+| Diğerleri | | ≥ 60 000 | ✓ | |
+
+**Veri sayfası notu (`guc-elektronigi`'ne):** Sunlord SWPA serisi veri sayfasında (LCSC kopyası, 2014 sürümü) SWPA3015S100MT için **I_sat 0.72 A, I_rms 0.77 A, DCR 0.25 Ω** yazıyor. `guc-ip03` G11'de I_sat 0.92 A kullanılmış (dağıtımcı verisi). 0.47 A tepe akımla yine %65'te, sorun yok ama belgede düzeltilmeli.
+
+### 9.6 İndirilen veri sayfaları (`lib/datasheet/`, hepsi `file` ile PDF olarak doğrulandı)
+
+| Dosya | Kaynak | Sayfa |
+|---|---|---|
+| `Belling-BLP016N04LC-Q_C49328363.pdf` | datasheet.lcsc.com/…/60e9b7bb6d64f081d184b353ffc14825.pdf | 11 |
+| `onsemi-NTMFS5C430NLT1G_C194661.pdf` | datasheet.lcsc.com/…/2a2a6d89c0f0698c54cd937bf00b2745.pdf | 7 |
+| `JSMSEMI-JSM6288Q1_C52196409.pdf` | datasheet.lcsc.com/…/8e66a7cf2679ad9374949075990da53d.pdf (görüntü PDF) | 15 |
+| `TI-INA240A3DR_C2060584.pdf` | ti.com/lit/ds/symlink/ina240.pdf (SBOS662C). LCSC'deki PDF yalnız seçim kılavuzu, alınmadı | 39 |
+| `DOWO-SMDJ24CA_C284061.pdf` | datasheet.lcsc.com/…/f3a866763da2bf38848a6c16e1beeff3.pdf | 4 |
+| `Milliohm-HoLRS3920-10W-0.1mR_C55113241.pdf` | datasheet.lcsc.com/…/f0d59f0eaa1bba956e553f01ceae8df7.pdf (Çince) | 7 |
+| `Sunlord-SWPA-series_SWPA3015S100MT_C45403.pdf` | atta.szlcsc.com/upload/public/pdf/source/20140723/1457707156433.pdf (LCSC'nin Çin sitesi; C45403 için LCSC ürün arayüzü PDF vermedi) | 20 |
+
+`guc-ip03` §1'deki diğer PDF'ler (ME7170, JW5026, INA199, AMS1117, SY8303A …) bu görevde indirilmedi. RSK-002 için ayrıca eklenmeli.
+
+### 9.7 ESC'de ek maliyet azaltma (Rev B'ye göre, 100 set $/kart; 5 set parantezde)
+
+| # | Seçenek | Tasarruf | Güvenlik / kim inceler |
+|---|---|---|---|
+| R1 | C03 + LDO çıkışı: C70225 (10 µF **16 V**, ext) → **CL10A106MA8NRNC 10 µF 25 V X5R 0603 C96446 (basic)** | **−0.08** (−0.38) | Aynı kılıf ve dielektrik, gerilim sınıfı daha yüksek (8 V'ta DC öngerilim kaybı daha az). Güvenliği bozmaz, yalnız `sematik-muhendisi` kodu girer |
+| R2 | BLP016'yı 2 500 adet olarak önceden al (2 500 kademesi) | **−0.21** | Parça aynı. Stok ayırma da sağlar (§9.5) |
+| R3 | Bulk 15 × X7R C89632 → 15 × **X5R 10 µF 50 V 1206 C13585 (basic)** | **−0.49** (−0.87) | X5R +85 °C; kart 95 °C'ye çıkabilir. `guc-ip03` §6.3: yalnız ölçümde kart ≤ 85 °C çıkarsa. **guc-elektronigi incelemeli** (prototip ısıl ölçümüne bağlı) |
+| R4 | Bulk 15 → 12 adet | −0.36 | Dalgalanma akımı adet başına ~1 → 1.25 A_rms, set kondansatörüne bağlılık artar. **guc-elektronigi incelemeli**. Önceliği düşük |
+| R5 | Bootstrap 1N4148WT SOD-523 (ext) → **1N4148WS SOD-323 C2128 (basic)** | −0.06 (−0.33) | Aynı diyot sınıfı (100 V, t_rr 4 ns), ayak izi büyür (12 adet). **guc-elektronigi incelemeli** + `pcb-muhendisi` yer |
+| R6 | R0/R02 90.9 k (ext): R0 (EN çekme) → 100 k C25741 basic, R02/R01 (FB) basic çifte | −0.02 (−0.31) | FB oranı PVDD'yi değiştirir (100 k/10 k → 8.8 V). **guc-elektronigi incelemeli** |
+| R7 | Pasif birleştirme (100 nF 50 V C307331 ile 100 nF 16 V C1525 tek kod vb.) | ≈ 0 | İkisi de basic, yükleme ücreti yok, fiyat farkı < 0.01 $. Değmez |
+| R8 | MCU EFM8BB51 (A3) | −0.67 (−0.87) | Güvenlik etkisi yok. SYS-051 değişir (DT). `gomulu-yazilim` Bluejay BB51 doğrulaması + yeni sembol/ayak izi |
+| R9 | INA240A3 → INA186A3IDCKR C2058245 | −1.22 | **Müşteri kararı**: SYS-021 doğruluğu gevşer (`guc-ip03` §5.2) |
+| — | AMS1117 SOT-89 (ext) → SOT-223 C6186 (basic) | +0.10 | Basic parça daha pahalı. Önerilmez |
+
+- **Güvenli ve hemen uygulanabilir (R1 + R2):** −0.29 $ → stack **31.40 $**.
+- **guc-elektronigi onayıyla (R3 + R5 + R6 eklenince):** toplam −0.86 $ → **30.83 $**. Extended tür 15 → 12 (R1, R3, R5, R6 ile 11).
+- R8 de eklenirse **30.16 $**, R9 de eklenirse **28.94 $**. Hâlâ 28 $'ın üstünde. Kalan fark FMU tarafında: B3 APM32F405 ile 27.2 $, B6 BMI270 ile de 26.4 $ (müşteri kararları).
+
+### 9.8 Şematiğe işlenecek LCSC alanları (Rev B ESC, `sematik-muhendisi`)
+
+M1aH…M4cL **C49328363**, U12…U42 **C52196409**, U2 **C2060584**, R00 **C55113241** (R000 sil), D00 **C284061**, C1…C60 15 adet **C89632**, C02 **C98192**, C03 ve yeni LDO çıkış kondansatörü **C70225** (R1 kabul edilirse **C96446**), L00 **C45403**, 4 yeni sürücü VCC kondansatörü **C52923**, 24 kapı direnci **C25077** (10 Ω), R99–R106 DNP, U11…U41 **C80713**. Değişmeyen kodlar §7'deki gibi.
+
+### 9.9 Açık noktalar (Rev B)
+
+1. BLP016 stoğu 2× kuralını karşılamıyor. 100 set öncesi MOSFET kararı ve önceden alım gerekiyor (§9.5).
+2. PCB iç katman 1 oz (G19) için JLC teklifi alınmadı. Maliyet etkisi tahmini +0.1–0.2 $/kart, tabloya katılmadı.
+3. JLC "tek kart" ücreti (+0.48 $/kart) belirsizliği sürüyor. Uygulanırsa 32 $ payı kalmaz.
+4. A3 (BB51) ve INA186A3 kararları açık. 28 $ hedefi için müşteri kararları (B3, B6, R9) gerekiyor.

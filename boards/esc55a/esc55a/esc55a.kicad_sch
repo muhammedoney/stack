@@ -6,7 +6,9 @@
 	(paper "A4")
 	(title_block
 		(title "esc55a - 4in1 55 A ESC")
+		(rev "B")
 		(comment 1 "Altium esc55a.PrjPcb -> KiCad 10 (tools/esc55a_sch.py)")
+		(comment 2 "Rev B şematik: tools/esc55a_revb.py (guc-ip03 G1, G3-G6, G11-G14, E6)")
 	)
 	(lib_symbols)
 	(sheet
@@ -102,7 +104,7 @@
 			)
 		)
 	)
-	(text "Kanal 1-2 (EFM8BB21 + FD6288Q)"
+	(text "Kanal 1-2 (EFM8BB21 + JSM6288Q1)"
 		(exclude_from_sim no)
 		(at 106.68 82.2 0)
 		(effects
@@ -154,7 +156,7 @@
 			)
 		)
 	)
-	(text "Kanal 3-4 (EFM8BB21 + FD6288Q)"
+	(text "Kanal 3-4 (EFM8BB21 + JSM6288Q1)"
 		(exclude_from_sim no)
 		(at 182.88 82.2 0)
 		(effects

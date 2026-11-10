@@ -734,524 +734,6 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "MOS:IC MOSDRV FD6288Q 24QFN"
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(in_pos_files yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Description" "High and low sides MOSFET 1.8A 8V~20V 1.5A QFN-24 Gate Drivers ROHS"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_fp_filters" "*QFN-24(4x4)*"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(symbol "IC MOSDRV FD6288Q 24QFN_1_0"
-				(rectangle
-					(start 20.32 20.32)
-					(end -20.32 -17.78)
-					(stroke
-						(width 0)
-						(type solid)
-						(color 133 32 12 1)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(pin passive line
-					(at -25.4 15.24 0)
-					(length 5.08)
-					(name "LIN1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -25.4 12.7 0)
-					(length 5.08)
-					(name "LIN2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -25.4 10.16 0)
-					(length 5.08)
-					(name "LIN3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -25.4 7.62 0)
-					(length 5.08)
-					(name "VCC"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -25.4 5.08 0)
-					(length 5.08)
-					(name "NC"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "5"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -25.4 2.54 0)
-					(length 5.08)
-					(name "COM"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "6"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -25.4 0 0)
-					(length 5.08)
-					(name "NC"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "7"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -25.4 -2.54 0)
-					(length 5.08)
-					(name "NC"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "8"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -25.4 -5.08 0)
-					(length 5.08)
-					(name "LO3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "9"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -25.4 -7.62 0)
-					(length 5.08)
-					(name "LO2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "10"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -25.4 -10.16 0)
-					(length 5.08)
-					(name "LO1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "11"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -25.4 -12.7 0)
-					(length 5.08)
-					(name "VS3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "12"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 25.4 -12.7 180)
-					(length 5.08)
-					(name "HO3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "13"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 25.4 -10.16 180)
-					(length 5.08)
-					(name "VB3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "14"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 25.4 -7.62 180)
-					(length 5.08)
-					(name "VS2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "15"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 25.4 -5.08 180)
-					(length 5.08)
-					(name "HO2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "16"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 25.4 -2.54 180)
-					(length 5.08)
-					(name "VB2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "17"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 25.4 0 180)
-					(length 5.08)
-					(name "VS1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "18"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 25.4 2.54 180)
-					(length 5.08)
-					(name "HO1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "19"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 25.4 5.08 180)
-					(length 5.08)
-					(name "VB1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "20"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 25.4 7.62 180)
-					(length 5.08)
-					(name "NC"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "21"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 25.4 10.16 180)
-					(length 5.08)
-					(name "HIN1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "22"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 25.4 12.7 180)
-					(length 5.08)
-					(name "HIN2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "23"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 25.4 15.24 180)
-					(length 5.08)
-					(name "HIN3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "24"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
 		(symbol "RLC:CAP0402_0u1_16V_X7R"
 			(pin_numbers
 				(hide yes)
@@ -1356,8 +838,8 @@
 					)
 				)
 				(rectangle
-					(start 2.032 2.032)
-					(end -2.032 1.524)
+					(start 2.032 1.524)
+					(end -2.032 2.032)
 					(stroke
 						(width 0)
 						(type solid)
@@ -1368,174 +850,8 @@
 					)
 				)
 				(rectangle
-					(start 2.032 1.016)
-					(end -2.032 0.508)
-					(stroke
-						(width 0)
-						(type solid)
-						(color 128 0 0 1)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(pin passive line
-					(at 0 5.08 270)
-					(length 2.54)
-					(name "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "P$1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -2.54 90)
-					(length 2.54)
-					(name "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "P$2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "RLC:CAP0402_1u_16V_X5R"
-			(pin_numbers
-				(hide yes)
-			)
-			(pin_names
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(in_pos_files yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Description" "X5R 1uF 16V ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_fp_filters" "*0402-CAP*"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(symbol "CAP0402_1u_16V_X5R_1_0"
-				(polyline
-					(pts
-						(xy 0 2.032) (xy 0 2.54)
-					)
-					(stroke
-						(width 0)
-						(type solid)
-						(color 128 0 0 1)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 0.508) (xy 0 0)
-					)
-					(stroke
-						(width 0)
-						(type solid)
-						(color 128 0 0 1)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start 2.032 2.032)
-					(end -2.032 1.524)
-					(stroke
-						(width 0)
-						(type solid)
-						(color 128 0 0 1)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(rectangle
-					(start 2.032 1.016)
-					(end -2.032 0.508)
+					(start 2.032 0.508)
+					(end -2.032 1.016)
 					(stroke
 						(width 0)
 						(type solid)
@@ -2231,472 +1547,6 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "RLC:RES0402_1k_????"
-			(pin_numbers
-				(hide yes)
-			)
-			(pin_names
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(in_pos_files yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Description" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_fp_filters" "*0402-RES*"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(symbol "RES0402_1k_????_1_0"
-				(polyline
-					(pts
-						(xy -2.159 1.016) (xy -2.54 0)
-					)
-					(stroke
-						(width 0)
-						(type solid)
-						(color 128 0 0 1)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.524 -1.016) (xy -2.159 1.016)
-					)
-					(stroke
-						(width 0)
-						(type solid)
-						(color 128 0 0 1)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -0.889 1.016) (xy -1.524 -1.016)
-					)
-					(stroke
-						(width 0)
-						(type solid)
-						(color 128 0 0 1)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -0.254 -1.016) (xy -0.889 1.016)
-					)
-					(stroke
-						(width 0)
-						(type solid)
-						(color 128 0 0 1)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.381 1.016) (xy -0.254 -1.016)
-					)
-					(stroke
-						(width 0)
-						(type solid)
-						(color 128 0 0 1)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 1.016 -1.016) (xy 0.381 1.016)
-					)
-					(stroke
-						(width 0)
-						(type solid)
-						(color 128 0 0 1)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 1.651 1.016) (xy 1.016 -1.016)
-					)
-					(stroke
-						(width 0)
-						(type solid)
-						(color 128 0 0 1)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 2.286 -1.016) (xy 1.651 1.016)
-					)
-					(stroke
-						(width 0)
-						(type solid)
-						(color 128 0 0 1)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 2.54 0) (xy 2.286 -1.016)
-					)
-					(stroke
-						(width 0)
-						(type solid)
-						(color 128 0 0 1)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(pin passive line
-					(at -5.08 0 0)
-					(length 2.54)
-					(name "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "P$1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 5.08 0 180)
-					(length 2.54)
-					(name "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "P$2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "RLC:RES0402_22"
-			(pin_numbers
-				(hide yes)
-			)
-			(pin_names
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(in_pos_files yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Description" "62.5mW Thick Film Resistors 50V ±1% ±100ppm/℃ 22Ω 0402 Chip Resistor - Surface Mount ROHS"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_fp_filters" "*0402-RES*"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(symbol "RES0402_22_1_0"
-				(polyline
-					(pts
-						(xy -2.159 1.016) (xy -2.54 0)
-					)
-					(stroke
-						(width 0)
-						(type solid)
-						(color 128 0 0 1)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.524 -1.016) (xy -2.159 1.016)
-					)
-					(stroke
-						(width 0)
-						(type solid)
-						(color 128 0 0 1)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -0.889 1.016) (xy -1.524 -1.016)
-					)
-					(stroke
-						(width 0)
-						(type solid)
-						(color 128 0 0 1)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -0.254 -1.016) (xy -0.889 1.016)
-					)
-					(stroke
-						(width 0)
-						(type solid)
-						(color 128 0 0 1)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.381 1.016) (xy -0.254 -1.016)
-					)
-					(stroke
-						(width 0)
-						(type solid)
-						(color 128 0 0 1)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 1.016 -1.016) (xy 0.381 1.016)
-					)
-					(stroke
-						(width 0)
-						(type solid)
-						(color 128 0 0 1)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 1.651 1.016) (xy 1.016 -1.016)
-					)
-					(stroke
-						(width 0)
-						(type solid)
-						(color 128 0 0 1)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 2.286 -1.016) (xy 1.651 1.016)
-					)
-					(stroke
-						(width 0)
-						(type solid)
-						(color 128 0 0 1)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 2.54 0) (xy 2.286 -1.016)
-					)
-					(stroke
-						(width 0)
-						(type solid)
-						(color 128 0 0 1)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(pin passive line
-					(at -5.08 0 0)
-					(length 2.54)
-					(name "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "P$1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 5.08 0 180)
-					(length 2.54)
-					(name "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "P$2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
 		(symbol "RLC:RES0402_3k3"
 			(pin_numbers
 				(hide yes)
@@ -2774,239 +1624,6 @@
 				)
 			)
 			(symbol "RES0402_3k3_1_0"
-				(polyline
-					(pts
-						(xy -2.159 1.016) (xy -2.54 0)
-					)
-					(stroke
-						(width 0)
-						(type solid)
-						(color 128 0 0 1)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.524 -1.016) (xy -2.159 1.016)
-					)
-					(stroke
-						(width 0)
-						(type solid)
-						(color 128 0 0 1)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -0.889 1.016) (xy -1.524 -1.016)
-					)
-					(stroke
-						(width 0)
-						(type solid)
-						(color 128 0 0 1)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -0.254 -1.016) (xy -0.889 1.016)
-					)
-					(stroke
-						(width 0)
-						(type solid)
-						(color 128 0 0 1)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.381 1.016) (xy -0.254 -1.016)
-					)
-					(stroke
-						(width 0)
-						(type solid)
-						(color 128 0 0 1)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 1.016 -1.016) (xy 0.381 1.016)
-					)
-					(stroke
-						(width 0)
-						(type solid)
-						(color 128 0 0 1)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 1.651 1.016) (xy 1.016 -1.016)
-					)
-					(stroke
-						(width 0)
-						(type solid)
-						(color 128 0 0 1)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 2.286 -1.016) (xy 1.651 1.016)
-					)
-					(stroke
-						(width 0)
-						(type solid)
-						(color 128 0 0 1)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 2.54 0) (xy 2.286 -1.016)
-					)
-					(stroke
-						(width 0)
-						(type solid)
-						(color 128 0 0 1)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(pin passive line
-					(at -5.08 0 0)
-					(length 2.54)
-					(name "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "P$1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 5.08 0 180)
-					(length 2.54)
-					(name "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "P$2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "RLC:RES0402_3k_????"
-			(pin_numbers
-				(hide yes)
-			)
-			(pin_names
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(in_pos_files yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Description" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_fp_filters" "*0402-RES*"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(symbol "RES0402_3k_????_1_0"
 				(polyline
 					(pts
 						(xy -2.159 1.016) (xy -2.54 0)
@@ -3675,6 +2292,1156 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "RLC:CAP0402_1u_25V_X5R"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "CAP0402_1u_25V_X5R"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "RLC:0402-CAP"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "1 µF ±%10 25 V X5R 0402"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "*0402-CAP*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "CAP0402_1u_25V_X5R_1_0"
+				(polyline
+					(pts
+						(xy 0 2.032) (xy 0 2.54)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+						(color 128 0 0 1)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 0.508) (xy 0 0)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+						(color 128 0 0 1)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start 2.032 2.032)
+					(end -2.032 1.524)
+					(stroke
+						(width 0)
+						(type solid)
+						(color 128 0 0 1)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(rectangle
+					(start 2.032 1.016)
+					(end -2.032 0.508)
+					(stroke
+						(width 0)
+						(type solid)
+						(color 128 0 0 1)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(pin passive line
+					(at 0 5.08 270)
+					(length 2.54)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "P$1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -2.54 90)
+					(length 2.54)
+					(name "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "P$2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "RLC:RES0402_10"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "RES0402_10"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "RLC:0402-RES"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "10 Ω ±%5 0402, kapı direnci; G14"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "*0402-RES*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "RES0402_10_1_0"
+				(polyline
+					(pts
+						(xy -2.159 1.016) (xy -2.54 0)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+						(color 128 0 0 1)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.524 -1.016) (xy -2.159 1.016)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+						(color 128 0 0 1)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -0.889 1.016) (xy -1.524 -1.016)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+						(color 128 0 0 1)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -0.254 -1.016) (xy -0.889 1.016)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+						(color 128 0 0 1)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0.381 1.016) (xy -0.254 -1.016)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+						(color 128 0 0 1)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.016 -1.016) (xy 0.381 1.016)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+						(color 128 0 0 1)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.651 1.016) (xy 1.016 -1.016)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+						(color 128 0 0 1)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.286 -1.016) (xy 1.651 1.016)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+						(color 128 0 0 1)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.54 0) (xy 2.286 -1.016)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+						(color 128 0 0 1)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin passive line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "P$1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 0 180)
+					(length 2.54)
+					(name "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "P$2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "RLC:RES0402_3k"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "RES0402_3k"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "RLC:0402-RES"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "3 kΩ ±%1 0402 - DNP (E6/G20): +VD boşta, PCB'de yok"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "*0402-RES*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "RES0402_3k_1_0"
+				(polyline
+					(pts
+						(xy -2.159 1.016) (xy -2.54 0)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+						(color 128 0 0 1)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.524 -1.016) (xy -2.159 1.016)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+						(color 128 0 0 1)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -0.889 1.016) (xy -1.524 -1.016)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+						(color 128 0 0 1)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -0.254 -1.016) (xy -0.889 1.016)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+						(color 128 0 0 1)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0.381 1.016) (xy -0.254 -1.016)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+						(color 128 0 0 1)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.016 -1.016) (xy 0.381 1.016)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+						(color 128 0 0 1)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.651 1.016) (xy 1.016 -1.016)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+						(color 128 0 0 1)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.286 -1.016) (xy 1.651 1.016)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+						(color 128 0 0 1)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.54 0) (xy 2.286 -1.016)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+						(color 128 0 0 1)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin passive line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "P$1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 0 180)
+					(length 2.54)
+					(name "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "P$2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "MOS:IC MOSDRV JSM6288Q1 24QFN"
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "IC MOSDRV JSM6288Q1 24QFN"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "MOS:QFN-24(4x4)"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "3 faz kapı sürücü, VCC 5-20 V, UVLO 4.5 V, ölü zaman 200 ns, QFN-24 4x4 (FD6288Q pin uyumlu); G3, SYS-016"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "*QFN-24(4x4)*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "IC MOSDRV JSM6288Q1 24QFN_1_0"
+				(rectangle
+					(start 20.32 20.32)
+					(end -20.32 -17.78)
+					(stroke
+						(width 0)
+						(type solid)
+						(color 133 32 12 1)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin passive line
+					(at -25.4 15.24 0)
+					(length 5.08)
+					(name "LIN1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -25.4 12.7 0)
+					(length 5.08)
+					(name "LIN2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -25.4 10.16 0)
+					(length 5.08)
+					(name "LIN3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -25.4 7.62 0)
+					(length 5.08)
+					(name "VCC"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -25.4 5.08 0)
+					(length 5.08)
+					(name "NC"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -25.4 2.54 0)
+					(length 5.08)
+					(name "COM"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -25.4 0 0)
+					(length 5.08)
+					(name "NC"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "7"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -25.4 -2.54 0)
+					(length 5.08)
+					(name "NC"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "8"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -25.4 -5.08 0)
+					(length 5.08)
+					(name "LO3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "9"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -25.4 -7.62 0)
+					(length 5.08)
+					(name "LO2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "10"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -25.4 -10.16 0)
+					(length 5.08)
+					(name "LO1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "11"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -25.4 -12.7 0)
+					(length 5.08)
+					(name "VS3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "12"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 25.4 -12.7 180)
+					(length 5.08)
+					(name "HO3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "13"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 25.4 -10.16 180)
+					(length 5.08)
+					(name "VB3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "14"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 25.4 -7.62 180)
+					(length 5.08)
+					(name "VS2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "15"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 25.4 -5.08 180)
+					(length 5.08)
+					(name "HO2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "16"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 25.4 -2.54 180)
+					(length 5.08)
+					(name "VB2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "17"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 25.4 0 180)
+					(length 5.08)
+					(name "VS1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "18"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 25.4 2.54 180)
+					(length 5.08)
+					(name "HO1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "19"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 25.4 5.08 180)
+					(length 5.08)
+					(name "VB1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "20"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 25.4 7.62 180)
+					(length 5.08)
+					(name "NC"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "21"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 25.4 10.16 180)
+					(length 5.08)
+					(name "HIN1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "22"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 25.4 12.7 180)
+					(length 5.08)
+					(name "HIN2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "23"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 25.4 15.24 180)
+					(length 5.08)
+					(name "HIN3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "24"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 	)
 	(text "NC"
 		(exclude_from_sim no)
@@ -3687,7 +3454,7 @@
 		)
 		(uuid "05e33aed-e666-4353-8d22-12b91d6f9db4")
 	)
-	(text "Bu direnclere anlam veremedim"
+	(text "DNP (E6/G20): +VD boşta, PCB'de yok"
 		(exclude_from_sim no)
 		(at 127 26.67 0)
 		(effects
@@ -3709,7 +3476,7 @@
 		)
 		(uuid "211b50bd-8bb8-458c-9f8e-e4a7675d3366")
 	)
-	(text "5-20V ile beslenebiliyor"
+	(text "JSM6288Q1: VCC 5-20 V, UVLO 4.5 V (G3)"
 		(exclude_from_sim no)
 		(at 177.8 120.65 0)
 		(effects
@@ -3720,7 +3487,7 @@
 		)
 		(uuid "4b2280b3-8071-4c38-a335-f6ecdb1d1f60")
 	)
-	(text "5-20V ile beslenebiliyor"
+	(text "JSM6288Q1: VCC 5-20 V, UVLO 4.5 V (G3)"
 		(exclude_from_sim no)
 		(at 48.26 120.65 0)
 		(effects
@@ -3753,7 +3520,7 @@
 		)
 		(uuid "98335a5e-c33b-4008-a697-631a1e3cd1a8")
 	)
-	(text "Bu direnclere anlam veremedim"
+	(text "DNP (E6/G20): +VD boşta, PCB'de yok"
 		(exclude_from_sim no)
 		(at 10.16 26.67 0)
 		(effects
@@ -3811,22 +3578,10 @@
 		(uuid "235e15db-7bac-4e7a-8139-d476e234e819")
 	)
 	(junction
-		(at 20.32 90.17)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "370a0ce7-c126-4bf7-ade6-dee3598a9a9c")
-	)
-	(junction
 		(at 220.98 46.99)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "433542cc-e4a5-40b6-b687-a20c9b84ea81")
-	)
-	(junction
-		(at 149.86 90.17)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "5083388a-1101-47d5-b59f-5b4d04d2bd81")
 	)
 	(junction
 		(at 38.1 186.69)
@@ -3839,18 +3594,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "5452dc06-819c-4c44-b31b-7f9e8211bb6e")
-	)
-	(junction
-		(at 226.06 46.99)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "5b9a6e87-d7db-478e-9a70-20a914a08e94")
-	)
-	(junction
-		(at 20.32 97.79)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "607ba94c-70b0-4dee-9025-214a4b7edb52")
 	)
 	(junction
 		(at 73.66 44.45)
@@ -3871,18 +3614,6 @@
 		(uuid "931ed13d-ac5e-4811-97d1-c24042056af0")
 	)
 	(junction
-		(at 96.52 46.99)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "96ecf4ee-0fcd-434c-954d-ca27e9feb1bc")
-	)
-	(junction
-		(at 208.28 36.83)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "9b4367aa-c422-4006-8b51-bb55480c8c96")
-	)
-	(junction
 		(at 17.78 186.69)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -3895,22 +3626,10 @@
 		(uuid "9f219a0a-0fca-4c51-8b9b-a7508bc03adb")
 	)
 	(junction
-		(at 208.28 44.45)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "ad1ce820-fda2-4dfe-bf4b-0b456dffa806")
-	)
-	(junction
 		(at 147.32 186.69)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "bf8e83a9-6e42-4fed-8341-298635a10f9c")
-	)
-	(junction
-		(at 78.74 44.45)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "c8773c43-7d19-404c-b9f3-c214cb1dff70")
 	)
 	(junction
 		(at 27.94 34.29)
@@ -3925,22 +3644,10 @@
 		(uuid "ce68b0ef-a09e-4516-9931-9e7a162c1d3e")
 	)
 	(junction
-		(at 78.74 36.83)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "e5d177e0-5448-4439-bd38-b5db04b7332f")
-	)
-	(junction
 		(at 147.32 41.91)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "ef9ee398-a834-4d6c-9c39-6db3306dced8")
-	)
-	(junction
-		(at 149.86 97.79)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "f093b061-4662-4aaa-b371-ac00b8fd877e")
 	)
 	(wire
 		(pts
@@ -3961,16 +3668,6 @@
 			(type default)
 		)
 		(uuid "012704a0-cfbd-4f1c-a872-95c9a5867950")
-	)
-	(wire
-		(pts
-			(xy 99.06 46.99) (xy 96.52 46.99)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "025b88d1-21b0-4e89-a690-1cca446cb29e")
 	)
 	(wire
 		(pts
@@ -5311,16 +5008,6 @@
 			(type default)
 		)
 		(uuid "f8d20149-f06b-4be7-a4e8-8526596d6ba9")
-	)
-	(wire
-		(pts
-			(xy 228.6 46.99) (xy 226.06 46.99)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f97a85e7-99d1-4e90-9898-c787e9b5a97c")
 	)
 	(wire
 		(pts
@@ -6991,7 +6678,7 @@
 		)
 	)
 	(symbol
-		(lib_id "RLC:CAP0402_1u_16V_X5R")
+		(lib_id "RLC:CAP0402_1u_25V_X5R")
 		(at 106.68 153.67 0)
 		(unit 1)
 		(body_style 1)
@@ -7012,7 +6699,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Value" "CAP0402_1u_16V_X5R"
+		(property "Value" "CAP0402_1u_25V_X5R"
 			(at 101.6 151.13 0)
 			(hide yes)
 			(show_name no)
@@ -7035,7 +6722,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/02336ea48ea44ca18c72517dd3cb7b47.pdf"
 			(at 106.68 153.67 0)
 			(hide yes)
 			(show_name no)
@@ -7046,7 +6733,7 @@
 				)
 			)
 		)
-		(property "Description" "X5R 1uF 16V ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+		(property "Description" "1 µF ±%10 25 V X5R 0402"
 			(at 106.68 153.67 0)
 			(hide yes)
 			(show_name no)
@@ -7057,8 +6744,8 @@
 				)
 			)
 		)
-		(property "MANUFACTURER PRODUCT NUMBER" "CL05A105KO5NNNC"
-			(at 101.6 159.258 0)
+		(property "MPN" "CL05A105KA5NQNC"
+			(at 106.68 153.67 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7066,11 +6753,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "DIGIKEY PART NUMBER" "1276-1067-1-ND"
-			(at 101.6 159.258 0)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 106.68 153.67 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7078,11 +6764,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "LSCS PART NUMBER" "C29266"
-			(at 101.6 159.258 0)
+		(property "LCSC" "C52923"
+			(at 106.68 153.67 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7090,42 +6775,6 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
-			)
-		)
-		(property "PACKAGE" "0402"
-			(at 101.6 159.258 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "VOLTAGE RATING" "16V"
-			(at 101.6 159.258 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "ALTIUM_VALUE" "1u"
-			(at 106.68 156.21 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
 			)
 		)
 		(pin "P$1"
@@ -7261,7 +6910,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf"
 			(at 147.32 191.77 0)
 			(hide yes)
 			(show_name no)
@@ -7272,7 +6921,7 @@
 				)
 			)
 		)
-		(property "Description" "62.5mW Thick Film Resistors 50V ±100ppm/℃ ±1% 1kΩ 0402 Chip Resistor - Surface Mount ROHS"
+		(property "Description" "1 kΩ ±%1 0402"
 			(at 147.32 191.77 0)
 			(hide yes)
 			(show_name no)
@@ -7283,8 +6932,8 @@
 				)
 			)
 		)
-		(property "MANUFACTURER PRODUCT NUMBER" "RC0402JR-071KL"
-			(at 146.05 186.182 90)
+		(property "MPN" "0402WGF1001TCE"
+			(at 147.32 191.77 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7292,11 +6941,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right bottom)
 			)
 		)
-		(property "ALTIUM_VALUE" "1k"
-			(at 146.05 186.182 90)
+		(property "Manufacturer" "UNI-ROYAL"
+			(at 147.32 191.77 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7304,11 +6952,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right bottom)
 			)
 		)
-		(property "PACKAGE" "0402"
-			(at 146.05 186.182 90)
+		(property "LCSC" "C11702"
+			(at 147.32 191.77 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7316,31 +6963,6 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right bottom)
-			)
-		)
-		(property "DIGIKEY PART NUMBER" "311-1.0KJRCT-ND"
-			(at 144.526 195.58 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right bottom)
-			)
-		)
-		(property "LSCS PART NUMBER" "C105637"
-			(at 141.732 197.866 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right bottom)
 			)
 		)
 		(pin "P$2"
@@ -7402,7 +7024,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf"
 			(at 38.1 191.77 0)
 			(hide yes)
 			(show_name no)
@@ -7413,7 +7035,7 @@
 				)
 			)
 		)
-		(property "Description" "62.5mW Thick Film Resistors 50V ±100ppm/℃ ±1% 1kΩ 0402 Chip Resistor - Surface Mount ROHS"
+		(property "Description" "1 kΩ ±%1 0402"
 			(at 38.1 191.77 0)
 			(hide yes)
 			(show_name no)
@@ -7424,8 +7046,8 @@
 				)
 			)
 		)
-		(property "MANUFACTURER PRODUCT NUMBER" "RC0402JR-071KL"
-			(at 36.83 186.182 90)
+		(property "MPN" "0402WGF1001TCE"
+			(at 38.1 191.77 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7433,11 +7055,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right bottom)
 			)
 		)
-		(property "ALTIUM_VALUE" "1k"
-			(at 36.83 186.182 90)
+		(property "Manufacturer" "UNI-ROYAL"
+			(at 38.1 191.77 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7445,11 +7066,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right bottom)
 			)
 		)
-		(property "PACKAGE" "0402"
-			(at 36.83 186.182 90)
+		(property "LCSC" "C11702"
+			(at 38.1 191.77 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7457,31 +7077,6 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right bottom)
-			)
-		)
-		(property "DIGIKEY PART NUMBER" "311-1.0KJRCT-ND"
-			(at 35.306 195.58 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right bottom)
-			)
-		)
-		(property "LSCS PART NUMBER" "C105637"
-			(at 32.512 197.866 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right bottom)
 			)
 		)
 		(pin "P$2"
@@ -7543,7 +7138,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf"
 			(at 220.98 41.91 0)
 			(hide yes)
 			(show_name no)
@@ -7554,7 +7149,7 @@
 				)
 			)
 		)
-		(property "Description" "50V Thick Film Resistors 62.5mW 110kΩ ±1% ±100ppm/℃ 0402 Chip Resistor - Surface Mount ROHS"
+		(property "Description" "10 kΩ ±%1 0402"
 			(at 220.98 41.91 0)
 			(hide yes)
 			(show_name no)
@@ -7565,8 +7160,8 @@
 				)
 			)
 		)
-		(property "MANUFACTURER PRODUCT NUMBER" "RC0402FR-0710KL"
-			(at 219.71 36.322 90)
+		(property "MPN" "0402WGF1002TCE"
+			(at 220.98 41.91 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7574,11 +7169,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right bottom)
 			)
 		)
-		(property "ALTIUM_VALUE" "10k"
-			(at 219.71 36.322 90)
+		(property "Manufacturer" "UNI-ROYAL"
+			(at 220.98 41.91 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7586,11 +7180,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right bottom)
 			)
 		)
-		(property "PACKAGE" "0402"
-			(at 219.71 36.322 90)
+		(property "LCSC" "C25744"
+			(at 220.98 41.91 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7598,31 +7191,6 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right bottom)
-			)
-		)
-		(property "DIGIKEY PART NUMBER" "311-10.0KLRCT-ND"
-			(at 218.186 45.72 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right bottom)
-			)
-		)
-		(property "LSCS PART NUMBER" "C60490"
-			(at 215.392 48.006 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right bottom)
 			)
 		)
 		(pin "P$2"
@@ -7684,7 +7252,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf"
 			(at 167.64 191.77 0)
 			(hide yes)
 			(show_name no)
@@ -7695,7 +7263,7 @@
 				)
 			)
 		)
-		(property "Description" "62.5mW Thick Film Resistors 50V ±100ppm/℃ ±1% 1kΩ 0402 Chip Resistor - Surface Mount ROHS"
+		(property "Description" "1 kΩ ±%1 0402"
 			(at 167.64 191.77 0)
 			(hide yes)
 			(show_name no)
@@ -7706,8 +7274,8 @@
 				)
 			)
 		)
-		(property "MANUFACTURER PRODUCT NUMBER" "RC0402JR-071KL"
-			(at 166.37 186.182 90)
+		(property "MPN" "0402WGF1001TCE"
+			(at 167.64 191.77 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7715,11 +7283,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right bottom)
 			)
 		)
-		(property "ALTIUM_VALUE" "1k"
-			(at 166.37 186.182 90)
+		(property "Manufacturer" "UNI-ROYAL"
+			(at 167.64 191.77 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7727,11 +7294,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right bottom)
 			)
 		)
-		(property "PACKAGE" "0402"
-			(at 166.37 186.182 90)
+		(property "LCSC" "C11702"
+			(at 167.64 191.77 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7739,31 +7305,6 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right bottom)
-			)
-		)
-		(property "DIGIKEY PART NUMBER" "311-1.0KJRCT-ND"
-			(at 164.846 195.58 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right bottom)
-			)
-		)
-		(property "LSCS PART NUMBER" "C105637"
-			(at 162.052 197.866 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right bottom)
 			)
 		)
 		(pin "P$2"
@@ -8004,7 +7545,7 @@
 		)
 	)
 	(symbol
-		(lib_id "RLC:RES0402_22")
+		(lib_id "RLC:RES0402_10")
 		(at 63.5 138.43 270)
 		(unit 1)
 		(body_style 1)
@@ -8025,7 +7566,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Value" "RES0402_22"
+		(property "Value" "RES0402_10"
 			(at 59.944 134.874 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8047,7 +7588,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf"
 			(at 63.5 138.43 0)
 			(hide yes)
 			(show_name no)
@@ -8058,7 +7599,7 @@
 				)
 			)
 		)
-		(property "Description" "62.5mW Thick Film Resistors 50V ±1% ±100ppm/℃ 22Ω 0402 Chip Resistor - Surface Mount ROHS"
+		(property "Description" "10 Ω ±%5 0402, kapı direnci; G14"
 			(at 63.5 138.43 0)
 			(hide yes)
 			(show_name no)
@@ -8069,8 +7610,8 @@
 				)
 			)
 		)
-		(property "MANUFACTURER PRODUCT NUMBER" "RC0402FR-0722RL"
-			(at 62.23 132.842 90)
+		(property "MPN" "0402WGF100JTCE"
+			(at 63.5 138.43 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8078,11 +7619,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "ALTIUM_VALUE" "22"
-			(at 62.23 132.842 90)
+		(property "Manufacturer" "UNI-ROYAL"
+			(at 63.5 138.43 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8090,11 +7630,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "PACKAGE" "0402"
-			(at 62.23 132.842 90)
+		(property "LCSC" "C25077"
+			(at 63.5 138.43 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8102,31 +7641,6 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
-			)
-		)
-		(property "DIGIKEY PART NUMBER" "311-22.0LRCT-ND"
-			(at 60.706 142.24 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "LSCS PART NUMBER" "C114765"
-			(at 57.912 144.526 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
 			)
 		)
 		(pin "P$2"
@@ -8145,7 +7659,7 @@
 		)
 	)
 	(symbol
-		(lib_id "RLC:RES0402_22")
+		(lib_id "RLC:RES0402_10")
 		(at 12.7 138.43 270)
 		(unit 1)
 		(body_style 1)
@@ -8166,7 +7680,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Value" "RES0402_22"
+		(property "Value" "RES0402_10"
 			(at 9.144 134.874 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8188,7 +7702,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf"
 			(at 12.7 138.43 0)
 			(hide yes)
 			(show_name no)
@@ -8199,7 +7713,7 @@
 				)
 			)
 		)
-		(property "Description" "62.5mW Thick Film Resistors 50V ±1% ±100ppm/℃ 22Ω 0402 Chip Resistor - Surface Mount ROHS"
+		(property "Description" "10 Ω ±%5 0402, kapı direnci; G14"
 			(at 12.7 138.43 0)
 			(hide yes)
 			(show_name no)
@@ -8210,8 +7724,8 @@
 				)
 			)
 		)
-		(property "MANUFACTURER PRODUCT NUMBER" "RC0402FR-0722RL"
-			(at 11.43 132.842 90)
+		(property "MPN" "0402WGF100JTCE"
+			(at 12.7 138.43 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8219,11 +7733,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "ALTIUM_VALUE" "22"
-			(at 11.43 132.842 90)
+		(property "Manufacturer" "UNI-ROYAL"
+			(at 12.7 138.43 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8231,11 +7744,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "PACKAGE" "0402"
-			(at 11.43 132.842 90)
+		(property "LCSC" "C25077"
+			(at 12.7 138.43 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8243,31 +7755,6 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
-			)
-		)
-		(property "DIGIKEY PART NUMBER" "311-22.0LRCT-ND"
-			(at 9.906 142.24 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "LSCS PART NUMBER" "C114765"
-			(at 7.112 144.526 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
 			)
 		)
 		(pin "P$2"
@@ -8365,9 +7852,9 @@
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(in_pos_files yes)
+		(in_pos_files no)
 		(dnp no)
 		(uuid "2f64c2de-6045-4780-8b34-b419190f0421")
 		(property "Reference" "CD1"
@@ -8414,7 +7901,40 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "PCB pedi (dizgi yok)"
+			(at 147.32 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "—"
+			(at 147.32 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "—"
+			(at 147.32 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "—"
 			(at 147.32 49.53 0)
 			(hide yes)
 			(show_name no)
@@ -8481,7 +8001,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf"
 			(at 175.26 181.61 0)
 			(hide yes)
 			(show_name no)
@@ -8492,7 +8012,7 @@
 				)
 			)
 		)
-		(property "Description" "62.5mW Thick Film Resistors 50V ±100ppm/℃ ±1% 3.3kΩ 0402 Chip Resistor - Surface Mount ROHS"
+		(property "Description" "3.3 kΩ ±%1 0402"
 			(at 175.26 181.61 0)
 			(hide yes)
 			(show_name no)
@@ -8503,8 +8023,8 @@
 				)
 			)
 		)
-		(property "MANUFACTURER PRODUCT NUMBER" "RC0402FR-073K3L"
-			(at 173.99 176.022 90)
+		(property "MPN" "0402WGF3301TCE"
+			(at 175.26 181.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8512,11 +8032,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "ALTIUM_VALUE" "3k3"
-			(at 173.99 176.022 90)
+		(property "Manufacturer" "UNI-ROYAL"
+			(at 175.26 181.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8524,11 +8043,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "PACKAGE" "0402"
-			(at 173.99 176.022 90)
+		(property "LCSC" "C25890"
+			(at 175.26 181.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8536,31 +8054,6 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
-			)
-		)
-		(property "DIGIKEY PART NUMBER" "1712-CRG0402F3K3CT-ND"
-			(at 172.466 185.42 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "LSCS PART NUMBER" "C137992"
-			(at 169.672 187.706 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
 			)
 		)
 		(pin "P$2"
@@ -8579,7 +8072,7 @@
 		)
 	)
 	(symbol
-		(lib_id "RLC:CAP0402_1u_16V_X5R")
+		(lib_id "RLC:CAP0402_1u_25V_X5R")
 		(at 81.28 153.67 0)
 		(unit 1)
 		(body_style 1)
@@ -8600,7 +8093,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Value" "CAP0402_1u_16V_X5R"
+		(property "Value" "CAP0402_1u_25V_X5R"
 			(at 76.2 151.13 0)
 			(hide yes)
 			(show_name no)
@@ -8623,7 +8116,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/02336ea48ea44ca18c72517dd3cb7b47.pdf"
 			(at 81.28 153.67 0)
 			(hide yes)
 			(show_name no)
@@ -8634,7 +8127,7 @@
 				)
 			)
 		)
-		(property "Description" "X5R 1uF 16V ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+		(property "Description" "1 µF ±%10 25 V X5R 0402"
 			(at 81.28 153.67 0)
 			(hide yes)
 			(show_name no)
@@ -8645,8 +8138,8 @@
 				)
 			)
 		)
-		(property "MANUFACTURER PRODUCT NUMBER" "CL05A105KO5NNNC"
-			(at 76.2 159.258 0)
+		(property "MPN" "CL05A105KA5NQNC"
+			(at 81.28 153.67 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8654,11 +8147,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "DIGIKEY PART NUMBER" "1276-1067-1-ND"
-			(at 76.2 159.258 0)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 81.28 153.67 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8666,11 +8158,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "LSCS PART NUMBER" "C29266"
-			(at 76.2 159.258 0)
+		(property "LCSC" "C52923"
+			(at 81.28 153.67 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8678,42 +8169,6 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
-			)
-		)
-		(property "PACKAGE" "0402"
-			(at 76.2 159.258 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "VOLTAGE RATING" "16V"
-			(at 76.2 159.258 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "ALTIUM_VALUE" "1u"
-			(at 81.28 156.21 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
 			)
 		)
 		(pin "P$1"
@@ -8850,7 +8305,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/d78fb31904624a51a63f8a5d98d2dc04.pdf"
 			(at 210.82 143.51 0)
 			(hide yes)
 			(show_name no)
@@ -8861,7 +8316,7 @@
 				)
 			)
 		)
-		(property "Description" "75V Independent Type 1.25V@150mA 4ns 150mA SOD-523 Switching Diodes ROHS"
+		(property "Description" "Hızlı diyot 100 V 150 mA SOD-523 (bootstrap)"
 			(at 210.82 143.51 0)
 			(hide yes)
 			(show_name no)
@@ -8872,32 +8327,8 @@
 				)
 			)
 		)
-		(property "MANUFACTURER PRODUCT NUMBER" "1N4148WT"
-			(at 209.042 140.462 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "PACKAGE" "SOD523"
-			(at 209.042 140.462 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "DIGIKEY PART NUMBER" "1N4148WTCT-ND"
-			(at 215.9 151.13 90)
+		(property "MPN" "1N4148WT"
+			(at 210.82 143.51 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8907,8 +8338,19 @@
 				)
 			)
 		)
-		(property "LSCS PART NUMBER" "C917006"
-			(at 215.9 139.065 90)
+		(property "Manufacturer" "ST(Semtech)"
+			(at 210.82 143.51 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C27748"
+			(at 210.82 143.51 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8934,7 +8376,7 @@
 		)
 	)
 	(symbol
-		(lib_id "RLC:RES0402_22")
+		(lib_id "RLC:RES0402_10")
 		(at 142.24 138.43 270)
 		(unit 1)
 		(body_style 1)
@@ -8955,7 +8397,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Value" "RES0402_22"
+		(property "Value" "RES0402_10"
 			(at 138.684 134.874 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8977,7 +8419,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf"
 			(at 142.24 138.43 0)
 			(hide yes)
 			(show_name no)
@@ -8988,7 +8430,7 @@
 				)
 			)
 		)
-		(property "Description" "62.5mW Thick Film Resistors 50V ±1% ±100ppm/℃ 22Ω 0402 Chip Resistor - Surface Mount ROHS"
+		(property "Description" "10 Ω ±%5 0402, kapı direnci; G14"
 			(at 142.24 138.43 0)
 			(hide yes)
 			(show_name no)
@@ -8999,8 +8441,8 @@
 				)
 			)
 		)
-		(property "MANUFACTURER PRODUCT NUMBER" "RC0402FR-0722RL"
-			(at 140.97 132.842 90)
+		(property "MPN" "0402WGF100JTCE"
+			(at 142.24 138.43 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9008,11 +8450,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "ALTIUM_VALUE" "22"
-			(at 140.97 132.842 90)
+		(property "Manufacturer" "UNI-ROYAL"
+			(at 142.24 138.43 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9020,11 +8461,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "PACKAGE" "0402"
-			(at 140.97 132.842 90)
+		(property "LCSC" "C25077"
+			(at 142.24 138.43 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9032,31 +8472,6 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
-			)
-		)
-		(property "DIGIKEY PART NUMBER" "311-22.0LRCT-ND"
-			(at 139.446 142.24 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "LSCS PART NUMBER" "C114765"
-			(at 136.652 144.526 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
 			)
 		)
 		(pin "P$2"
@@ -9267,7 +8682,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf"
 			(at 154.94 181.61 0)
 			(hide yes)
 			(show_name no)
@@ -9278,7 +8693,7 @@
 				)
 			)
 		)
-		(property "Description" "62.5mW Thick Film Resistors 50V ±100ppm/℃ ±1% 3.3kΩ 0402 Chip Resistor - Surface Mount ROHS"
+		(property "Description" "3.3 kΩ ±%1 0402"
 			(at 154.94 181.61 0)
 			(hide yes)
 			(show_name no)
@@ -9289,8 +8704,8 @@
 				)
 			)
 		)
-		(property "MANUFACTURER PRODUCT NUMBER" "RC0402FR-073K3L"
-			(at 153.67 176.022 90)
+		(property "MPN" "0402WGF3301TCE"
+			(at 154.94 181.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9298,11 +8713,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "ALTIUM_VALUE" "3k3"
-			(at 153.67 176.022 90)
+		(property "Manufacturer" "UNI-ROYAL"
+			(at 154.94 181.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9310,11 +8724,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "PACKAGE" "0402"
-			(at 153.67 176.022 90)
+		(property "LCSC" "C25890"
+			(at 154.94 181.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9322,31 +8735,6 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
-			)
-		)
-		(property "DIGIKEY PART NUMBER" "1712-CRG0402F3K3CT-ND"
-			(at 152.146 185.42 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "LSCS PART NUMBER" "C137992"
-			(at 149.352 187.706 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
 			)
 		)
 		(pin "P$2"
@@ -9439,15 +8827,15 @@
 		)
 	)
 	(symbol
-		(lib_id "RLC:RES0402_1k_????")
+		(lib_id "RLC:RES0402_1k")
 		(at 152.4 29.21 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
+		(in_bom no)
+		(on_board no)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "49077d9d-24b8-411b-8f69-9a40ec8a189a")
 		(property "Reference" "R99"
 			(at 148.844 27.965 0)
@@ -9460,7 +8848,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Value" "RES0402_1k_????"
+		(property "Value" "RES0402_1k"
 			(at 147.32 29.21 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9482,7 +8870,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf"
 			(at 152.4 29.21 0)
 			(hide yes)
 			(show_name no)
@@ -9493,7 +8881,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "1 kΩ ±%1 0402 - DNP (E6/G20): +VD boşta, PCB'de yok"
 			(at 152.4 29.21 0)
 			(hide yes)
 			(show_name no)
@@ -9504,8 +8892,8 @@
 				)
 			)
 		)
-		(property "SUPPLIER PART NUMBER 1" "*"
-			(at 146.812 27.94 0)
+		(property "MPN" "0402WGF1001TCE"
+			(at 152.4 29.21 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9513,11 +8901,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "MANUFACTURER PRODUCT NUMBER" "*"
-			(at 146.812 27.94 0)
+		(property "Manufacturer" "UNI-ROYAL"
+			(at 152.4 29.21 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9525,11 +8912,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "SUPPLIER PART NUMBER 2" "*"
-			(at 146.812 27.94 0)
+		(property "LCSC" "C11702"
+			(at 152.4 29.21 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9537,31 +8923,6 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
-			)
-		)
-		(property "ALTIUM_VALUE" "1k"
-			(at 146.812 27.94 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "PACKAGE" "0402"
-			(at 146.812 27.94 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
 			)
 		)
 		(pin "P$2"
@@ -9698,7 +9059,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf"
 			(at 45.72 181.61 0)
 			(hide yes)
 			(show_name no)
@@ -9709,7 +9070,7 @@
 				)
 			)
 		)
-		(property "Description" "62.5mW Thick Film Resistors 50V ±100ppm/℃ ±1% 3.3kΩ 0402 Chip Resistor - Surface Mount ROHS"
+		(property "Description" "3.3 kΩ ±%1 0402"
 			(at 45.72 181.61 0)
 			(hide yes)
 			(show_name no)
@@ -9720,8 +9081,8 @@
 				)
 			)
 		)
-		(property "MANUFACTURER PRODUCT NUMBER" "RC0402FR-073K3L"
-			(at 44.45 176.022 90)
+		(property "MPN" "0402WGF3301TCE"
+			(at 45.72 181.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9729,11 +9090,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "ALTIUM_VALUE" "3k3"
-			(at 44.45 176.022 90)
+		(property "Manufacturer" "UNI-ROYAL"
+			(at 45.72 181.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9741,11 +9101,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "PACKAGE" "0402"
-			(at 44.45 176.022 90)
+		(property "LCSC" "C25890"
+			(at 45.72 181.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9753,31 +9112,6 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
-			)
-		)
-		(property "DIGIKEY PART NUMBER" "1712-CRG0402F3K3CT-ND"
-			(at 42.926 185.42 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "LSCS PART NUMBER" "C137992"
-			(at 40.132 187.706 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
 			)
 		)
 		(pin "P$2"
@@ -9840,7 +9174,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/d78fb31904624a51a63f8a5d98d2dc04.pdf"
 			(at 81.28 143.51 0)
 			(hide yes)
 			(show_name no)
@@ -9851,7 +9185,7 @@
 				)
 			)
 		)
-		(property "Description" "75V Independent Type 1.25V@150mA 4ns 150mA SOD-523 Switching Diodes ROHS"
+		(property "Description" "Hızlı diyot 100 V 150 mA SOD-523 (bootstrap)"
 			(at 81.28 143.51 0)
 			(hide yes)
 			(show_name no)
@@ -9862,32 +9196,8 @@
 				)
 			)
 		)
-		(property "MANUFACTURER PRODUCT NUMBER" "1N4148WT"
-			(at 79.502 140.462 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "PACKAGE" "SOD523"
-			(at 79.502 140.462 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "DIGIKEY PART NUMBER" "1N4148WTCT-ND"
-			(at 86.36 151.13 90)
+		(property "MPN" "1N4148WT"
+			(at 81.28 143.51 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9897,8 +9207,19 @@
 				)
 			)
 		)
-		(property "LSCS PART NUMBER" "C917006"
-			(at 86.36 139.065 90)
+		(property "Manufacturer" "ST(Semtech)"
+			(at 81.28 143.51 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C27748"
+			(at 81.28 143.51 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9924,15 +9245,15 @@
 		)
 	)
 	(symbol
-		(lib_id "RLC:RES0402_3k_????")
+		(lib_id "RLC:RES0402_3k")
 		(at 22.86 34.29 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
+		(in_bom no)
+		(on_board no)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "4fd5b9b3-9114-42a1-8a25-f4718dcbe80b")
 		(property "Reference" "R100"
 			(at 19.304 33.045 0)
@@ -9945,7 +9266,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Value" "RES0402_3k_????"
+		(property "Value" "RES0402_3k"
 			(at 17.78 36.83 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9967,7 +9288,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf"
 			(at 22.86 34.29 0)
 			(hide yes)
 			(show_name no)
@@ -9978,7 +9299,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "3 kΩ ±%1 0402 - DNP (E6/G20): +VD boşta, PCB'de yok"
 			(at 22.86 34.29 0)
 			(hide yes)
 			(show_name no)
@@ -9989,8 +9310,8 @@
 				)
 			)
 		)
-		(property "SUPPLIER PART NUMBER 1" "*"
-			(at 20.066 38.1 0)
+		(property "MPN" "0402WGF3001TCE"
+			(at 22.86 34.29 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9998,11 +9319,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "MANUFACTURER PRODUCT NUMBER" "*"
-			(at 17.272 40.64 0)
+		(property "Manufacturer" "UNI-ROYAL"
+			(at 22.86 34.29 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10010,11 +9330,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "SUPPLIER PART NUMBER 2" "*"
-			(at 17.272 40.386 0)
+		(property "LCSC" "C25784"
+			(at 22.86 34.29 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10022,31 +9341,6 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
-			)
-		)
-		(property "ALTIUM_VALUE" "3k"
-			(at 17.272 42.926 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "PACKAGE" "0402"
-			(at 17.272 45.466 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
 			)
 		)
 		(pin "P$2"
@@ -10258,7 +9552,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/d78fb31904624a51a63f8a5d98d2dc04.pdf"
 			(at 106.68 143.51 0)
 			(hide yes)
 			(show_name no)
@@ -10269,7 +9563,7 @@
 				)
 			)
 		)
-		(property "Description" "75V Independent Type 1.25V@150mA 4ns 150mA SOD-523 Switching Diodes ROHS"
+		(property "Description" "Hızlı diyot 100 V 150 mA SOD-523 (bootstrap)"
 			(at 106.68 143.51 0)
 			(hide yes)
 			(show_name no)
@@ -10280,32 +9574,8 @@
 				)
 			)
 		)
-		(property "MANUFACTURER PRODUCT NUMBER" "1N4148WT"
-			(at 104.902 140.462 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "PACKAGE" "SOD523"
-			(at 104.902 140.462 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "DIGIKEY PART NUMBER" "1N4148WTCT-ND"
-			(at 111.76 151.13 90)
+		(property "MPN" "1N4148WT"
+			(at 106.68 143.51 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10315,8 +9585,19 @@
 				)
 			)
 		)
-		(property "LSCS PART NUMBER" "C917006"
-			(at 111.76 139.065 90)
+		(property "Manufacturer" "ST(Semtech)"
+			(at 106.68 143.51 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C27748"
+			(at 106.68 143.51 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10491,7 +9772,7 @@
 		)
 	)
 	(symbol
-		(lib_id "RLC:RES0402_22")
+		(lib_id "RLC:RES0402_10")
 		(at 43.18 138.43 270)
 		(unit 1)
 		(body_style 1)
@@ -10512,7 +9793,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Value" "RES0402_22"
+		(property "Value" "RES0402_10"
 			(at 39.624 134.874 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10534,7 +9815,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf"
 			(at 43.18 138.43 0)
 			(hide yes)
 			(show_name no)
@@ -10545,7 +9826,7 @@
 				)
 			)
 		)
-		(property "Description" "62.5mW Thick Film Resistors 50V ±1% ±100ppm/℃ 22Ω 0402 Chip Resistor - Surface Mount ROHS"
+		(property "Description" "10 Ω ±%5 0402, kapı direnci; G14"
 			(at 43.18 138.43 0)
 			(hide yes)
 			(show_name no)
@@ -10556,8 +9837,8 @@
 				)
 			)
 		)
-		(property "MANUFACTURER PRODUCT NUMBER" "RC0402FR-0722RL"
-			(at 41.91 132.842 90)
+		(property "MPN" "0402WGF100JTCE"
+			(at 43.18 138.43 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10565,11 +9846,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "ALTIUM_VALUE" "22"
-			(at 41.91 132.842 90)
+		(property "Manufacturer" "UNI-ROYAL"
+			(at 43.18 138.43 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10577,11 +9857,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "PACKAGE" "0402"
-			(at 41.91 132.842 90)
+		(property "LCSC" "C25077"
+			(at 43.18 138.43 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10589,31 +9868,6 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
-			)
-		)
-		(property "DIGIKEY PART NUMBER" "311-22.0LRCT-ND"
-			(at 40.386 142.24 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "LSCS PART NUMBER" "C114765"
-			(at 37.592 144.526 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
 			)
 		)
 		(pin "P$2"
@@ -10632,7 +9886,7 @@
 		)
 	)
 	(symbol
-		(lib_id "RLC:CAP0402_1u_16V_X5R")
+		(lib_id "RLC:CAP0402_1u_25V_X5R")
 		(at 93.98 153.67 0)
 		(unit 1)
 		(body_style 1)
@@ -10653,7 +9907,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Value" "CAP0402_1u_16V_X5R"
+		(property "Value" "CAP0402_1u_25V_X5R"
 			(at 88.9 151.13 0)
 			(hide yes)
 			(show_name no)
@@ -10676,7 +9930,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/02336ea48ea44ca18c72517dd3cb7b47.pdf"
 			(at 93.98 153.67 0)
 			(hide yes)
 			(show_name no)
@@ -10687,7 +9941,7 @@
 				)
 			)
 		)
-		(property "Description" "X5R 1uF 16V ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+		(property "Description" "1 µF ±%10 25 V X5R 0402"
 			(at 93.98 153.67 0)
 			(hide yes)
 			(show_name no)
@@ -10698,8 +9952,8 @@
 				)
 			)
 		)
-		(property "MANUFACTURER PRODUCT NUMBER" "CL05A105KO5NNNC"
-			(at 88.9 159.258 0)
+		(property "MPN" "CL05A105KA5NQNC"
+			(at 93.98 153.67 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10707,11 +9961,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "DIGIKEY PART NUMBER" "1276-1067-1-ND"
-			(at 88.9 159.258 0)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 93.98 153.67 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10719,11 +9972,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "LSCS PART NUMBER" "C29266"
-			(at 88.9 159.258 0)
+		(property "LCSC" "C52923"
+			(at 93.98 153.67 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10731,42 +9983,6 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
-			)
-		)
-		(property "PACKAGE" "0402"
-			(at 88.9 159.258 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "VOLTAGE RATING" "16V"
-			(at 88.9 159.258 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "ALTIUM_VALUE" "1u"
-			(at 93.98 156.21 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
 			)
 		)
 		(pin "P$1"
@@ -10828,7 +10044,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf"
 			(at 182.88 151.13 0)
 			(hide yes)
 			(show_name no)
@@ -10839,7 +10055,7 @@
 				)
 			)
 		)
-		(property "Description" "50V Thick Film Resistors 62.5mW 110kΩ ±1% ±100ppm/℃ 0402 Chip Resistor - Surface Mount ROHS"
+		(property "Description" "10 kΩ ±%1 0402"
 			(at 182.88 151.13 0)
 			(hide yes)
 			(show_name no)
@@ -10850,8 +10066,8 @@
 				)
 			)
 		)
-		(property "MANUFACTURER PRODUCT NUMBER" "RC0402FR-0710KL"
-			(at 181.61 145.542 90)
+		(property "MPN" "0402WGF1002TCE"
+			(at 182.88 151.13 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10859,11 +10075,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "ALTIUM_VALUE" "10k"
-			(at 181.61 145.542 90)
+		(property "Manufacturer" "UNI-ROYAL"
+			(at 182.88 151.13 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10871,11 +10086,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "PACKAGE" "0402"
-			(at 181.61 145.542 90)
+		(property "LCSC" "C25744"
+			(at 182.88 151.13 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10883,31 +10097,6 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
-			)
-		)
-		(property "DIGIKEY PART NUMBER" "311-10.0KLRCT-ND"
-			(at 180.086 154.94 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "LSCS PART NUMBER" "C60490"
-			(at 177.292 157.226 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
 			)
 		)
 		(pin "P$2"
@@ -10969,7 +10158,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf"
 			(at 195.58 181.61 0)
 			(hide yes)
 			(show_name no)
@@ -10980,7 +10169,7 @@
 				)
 			)
 		)
-		(property "Description" "62.5mW Thick Film Resistors 50V ±100ppm/℃ ±1% 3.3kΩ 0402 Chip Resistor - Surface Mount ROHS"
+		(property "Description" "3.3 kΩ ±%1 0402"
 			(at 195.58 181.61 0)
 			(hide yes)
 			(show_name no)
@@ -10991,8 +10180,8 @@
 				)
 			)
 		)
-		(property "MANUFACTURER PRODUCT NUMBER" "RC0402FR-073K3L"
-			(at 194.31 176.022 90)
+		(property "MPN" "0402WGF3301TCE"
+			(at 195.58 181.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11000,11 +10189,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "ALTIUM_VALUE" "3k3"
-			(at 194.31 176.022 90)
+		(property "Manufacturer" "UNI-ROYAL"
+			(at 195.58 181.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11012,11 +10200,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "PACKAGE" "0402"
-			(at 194.31 176.022 90)
+		(property "LCSC" "C25890"
+			(at 195.58 181.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11024,31 +10211,6 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
-			)
-		)
-		(property "DIGIKEY PART NUMBER" "1712-CRG0402F3K3CT-ND"
-			(at 192.786 185.42 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "LSCS PART NUMBER" "C137992"
-			(at 189.992 187.706 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
 			)
 		)
 		(pin "P$2"
@@ -11110,7 +10272,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf"
 			(at 142.24 181.61 0)
 			(hide yes)
 			(show_name no)
@@ -11121,7 +10283,7 @@
 				)
 			)
 		)
-		(property "Description" "50V Thick Film Resistors 62.5mW 110kΩ ±1% ±100ppm/℃ 0402 Chip Resistor - Surface Mount ROHS"
+		(property "Description" "10 kΩ ±%1 0402"
 			(at 142.24 181.61 0)
 			(hide yes)
 			(show_name no)
@@ -11132,8 +10294,8 @@
 				)
 			)
 		)
-		(property "MANUFACTURER PRODUCT NUMBER" "RC0402FR-0710KL"
-			(at 140.97 176.022 90)
+		(property "MPN" "0402WGF1002TCE"
+			(at 142.24 181.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11141,11 +10303,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "ALTIUM_VALUE" "10k"
-			(at 140.97 176.022 90)
+		(property "Manufacturer" "UNI-ROYAL"
+			(at 142.24 181.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11153,11 +10314,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "PACKAGE" "0402"
-			(at 140.97 176.022 90)
+		(property "LCSC" "C25744"
+			(at 142.24 181.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11165,31 +10325,6 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
-			)
-		)
-		(property "DIGIKEY PART NUMBER" "311-10.0KLRCT-ND"
-			(at 139.446 185.42 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "LSCS PART NUMBER" "C60490"
-			(at 136.652 187.706 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
 			)
 		)
 		(pin "P$2"
@@ -11326,7 +10461,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf"
 			(at 25.4 181.61 0)
 			(hide yes)
 			(show_name no)
@@ -11337,7 +10472,7 @@
 				)
 			)
 		)
-		(property "Description" "62.5mW Thick Film Resistors 50V ±100ppm/℃ ±1% 3.3kΩ 0402 Chip Resistor - Surface Mount ROHS"
+		(property "Description" "3.3 kΩ ±%1 0402"
 			(at 25.4 181.61 0)
 			(hide yes)
 			(show_name no)
@@ -11348,8 +10483,8 @@
 				)
 			)
 		)
-		(property "MANUFACTURER PRODUCT NUMBER" "RC0402FR-073K3L"
-			(at 24.13 176.022 90)
+		(property "MPN" "0402WGF3301TCE"
+			(at 25.4 181.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11357,11 +10492,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "ALTIUM_VALUE" "3k3"
-			(at 24.13 176.022 90)
+		(property "Manufacturer" "UNI-ROYAL"
+			(at 25.4 181.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11369,11 +10503,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "PACKAGE" "0402"
-			(at 24.13 176.022 90)
+		(property "LCSC" "C25890"
+			(at 25.4 181.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11381,31 +10514,6 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
-			)
-		)
-		(property "DIGIKEY PART NUMBER" "1712-CRG0402F3K3CT-ND"
-			(at 22.606 185.42 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "LSCS PART NUMBER" "C137992"
-			(at 19.812 187.706 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
 			)
 		)
 		(pin "P$2"
@@ -11467,7 +10575,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf"
 			(at 193.04 151.13 0)
 			(hide yes)
 			(show_name no)
@@ -11478,7 +10586,7 @@
 				)
 			)
 		)
-		(property "Description" "50V Thick Film Resistors 62.5mW 110kΩ ±1% ±100ppm/℃ 0402 Chip Resistor - Surface Mount ROHS"
+		(property "Description" "10 kΩ ±%1 0402"
 			(at 193.04 151.13 0)
 			(hide yes)
 			(show_name no)
@@ -11489,8 +10597,8 @@
 				)
 			)
 		)
-		(property "MANUFACTURER PRODUCT NUMBER" "RC0402FR-0710KL"
-			(at 191.77 145.542 90)
+		(property "MPN" "0402WGF1002TCE"
+			(at 193.04 151.13 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11498,11 +10606,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "ALTIUM_VALUE" "10k"
-			(at 191.77 145.542 90)
+		(property "Manufacturer" "UNI-ROYAL"
+			(at 193.04 151.13 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11510,11 +10617,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "PACKAGE" "0402"
-			(at 191.77 145.542 90)
+		(property "LCSC" "C25744"
+			(at 193.04 151.13 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11522,31 +10628,6 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
-			)
-		)
-		(property "DIGIKEY PART NUMBER" "311-10.0KLRCT-ND"
-			(at 190.246 154.94 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "LSCS PART NUMBER" "C60490"
-			(at 187.452 157.226 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
 			)
 		)
 		(pin "P$2"
@@ -11682,7 +10763,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf"
 			(at 58.42 191.77 0)
 			(hide yes)
 			(show_name no)
@@ -11693,7 +10774,7 @@
 				)
 			)
 		)
-		(property "Description" "62.5mW Thick Film Resistors 50V ±100ppm/℃ ±1% 1kΩ 0402 Chip Resistor - Surface Mount ROHS"
+		(property "Description" "1 kΩ ±%1 0402"
 			(at 58.42 191.77 0)
 			(hide yes)
 			(show_name no)
@@ -11704,8 +10785,8 @@
 				)
 			)
 		)
-		(property "MANUFACTURER PRODUCT NUMBER" "RC0402JR-071KL"
-			(at 57.15 186.182 90)
+		(property "MPN" "0402WGF1001TCE"
+			(at 58.42 191.77 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11713,11 +10794,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right bottom)
 			)
 		)
-		(property "ALTIUM_VALUE" "1k"
-			(at 57.15 186.182 90)
+		(property "Manufacturer" "UNI-ROYAL"
+			(at 58.42 191.77 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11725,11 +10805,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right bottom)
 			)
 		)
-		(property "PACKAGE" "0402"
-			(at 57.15 186.182 90)
+		(property "LCSC" "C11702"
+			(at 58.42 191.77 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11737,31 +10816,6 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right bottom)
-			)
-		)
-		(property "DIGIKEY PART NUMBER" "311-1.0KJRCT-ND"
-			(at 55.626 195.58 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right bottom)
-			)
-		)
-		(property "LSCS PART NUMBER" "C105637"
-			(at 52.832 197.866 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right bottom)
 			)
 		)
 		(pin "P$2"
@@ -11823,7 +10877,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "${KIPRJMOD}/../../../lib/datasheet/EFM8BB21F16G-C-QFN20R_C80713.pdf"
 			(at 180.34 49.53 0)
 			(hide yes)
 			(show_name no)
@@ -11834,7 +10888,7 @@
 				)
 			)
 		)
-		(property "Description" "IC MCU 8BIT 16KB FLASH 20QFN"
+		(property "Description" "8 bit MCU 16 kB flash, QFN-20 3x3"
 			(at 180.34 49.53 0)
 			(hide yes)
 			(show_name no)
@@ -11845,8 +10899,8 @@
 				)
 			)
 		)
-		(property "DIGIKEY PART NUMBER" "336-4743-1-ND"
-			(at 205.74 39.37 0)
+		(property "MPN" "EFM8BB21F16G-C-QFN20R"
+			(at 180.34 49.53 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11854,11 +10908,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "LSCS PART NUMBER" "C80713"
-			(at 205.74 41.91 0)
+		(property "Manufacturer" "Silicon Labs"
+			(at 180.34 49.53 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11866,22 +10919,9 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "PACKAGE" "20QFN"
-			(at 179.07 87.63 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "MANUFACTURER PRODUCT NUMBER" "EFM8BB21F16G-C-QFN20R"
+		(property "LCSC" "C80713"
 			(at 180.34 49.53 0)
 			(hide yes)
 			(show_name no)
@@ -12008,7 +11048,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf"
 			(at 66.04 181.61 0)
 			(hide yes)
 			(show_name no)
@@ -12019,7 +11059,7 @@
 				)
 			)
 		)
-		(property "Description" "62.5mW Thick Film Resistors 50V ±100ppm/℃ ±1% 3.3kΩ 0402 Chip Resistor - Surface Mount ROHS"
+		(property "Description" "3.3 kΩ ±%1 0402"
 			(at 66.04 181.61 0)
 			(hide yes)
 			(show_name no)
@@ -12030,8 +11070,8 @@
 				)
 			)
 		)
-		(property "MANUFACTURER PRODUCT NUMBER" "RC0402FR-073K3L"
-			(at 64.77 176.022 90)
+		(property "MPN" "0402WGF3301TCE"
+			(at 66.04 181.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12039,11 +11079,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "ALTIUM_VALUE" "3k3"
-			(at 64.77 176.022 90)
+		(property "Manufacturer" "UNI-ROYAL"
+			(at 66.04 181.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12051,11 +11090,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "PACKAGE" "0402"
-			(at 64.77 176.022 90)
+		(property "LCSC" "C25890"
+			(at 66.04 181.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12063,31 +11101,6 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
-			)
-		)
-		(property "DIGIKEY PART NUMBER" "1712-CRG0402F3K3CT-ND"
-			(at 63.246 185.42 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "LSCS PART NUMBER" "C137992"
-			(at 60.452 187.706 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
 			)
 		)
 		(pin "P$2"
@@ -12150,7 +11163,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/d78fb31904624a51a63f8a5d98d2dc04.pdf"
 			(at 93.98 143.51 0)
 			(hide yes)
 			(show_name no)
@@ -12161,7 +11174,7 @@
 				)
 			)
 		)
-		(property "Description" "75V Independent Type 1.25V@150mA 4ns 150mA SOD-523 Switching Diodes ROHS"
+		(property "Description" "Hızlı diyot 100 V 150 mA SOD-523 (bootstrap)"
 			(at 93.98 143.51 0)
 			(hide yes)
 			(show_name no)
@@ -12172,32 +11185,8 @@
 				)
 			)
 		)
-		(property "MANUFACTURER PRODUCT NUMBER" "1N4148WT"
-			(at 92.202 140.462 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "PACKAGE" "SOD523"
-			(at 92.202 140.462 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "DIGIKEY PART NUMBER" "1N4148WTCT-ND"
-			(at 99.06 151.13 90)
+		(property "MPN" "1N4148WT"
+			(at 93.98 143.51 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12207,8 +11196,19 @@
 				)
 			)
 		)
-		(property "LSCS PART NUMBER" "C917006"
-			(at 99.06 139.065 90)
+		(property "Manufacturer" "ST(Semtech)"
+			(at 93.98 143.51 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C27748"
+			(at 93.98 143.51 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12234,7 +11234,7 @@
 		)
 	)
 	(symbol
-		(lib_id "RLC:CAP0402_1u_16V_X5R")
+		(lib_id "RLC:CAP0402_1u_25V_X5R")
 		(at 223.52 153.67 0)
 		(unit 1)
 		(body_style 1)
@@ -12255,7 +11255,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Value" "CAP0402_1u_16V_X5R"
+		(property "Value" "CAP0402_1u_25V_X5R"
 			(at 218.44 151.13 0)
 			(hide yes)
 			(show_name no)
@@ -12278,7 +11278,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/02336ea48ea44ca18c72517dd3cb7b47.pdf"
 			(at 223.52 153.67 0)
 			(hide yes)
 			(show_name no)
@@ -12289,7 +11289,7 @@
 				)
 			)
 		)
-		(property "Description" "X5R 1uF 16V ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+		(property "Description" "1 µF ±%10 25 V X5R 0402"
 			(at 223.52 153.67 0)
 			(hide yes)
 			(show_name no)
@@ -12300,8 +11300,8 @@
 				)
 			)
 		)
-		(property "MANUFACTURER PRODUCT NUMBER" "CL05A105KO5NNNC"
-			(at 218.44 159.258 0)
+		(property "MPN" "CL05A105KA5NQNC"
+			(at 223.52 153.67 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12309,11 +11309,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "DIGIKEY PART NUMBER" "1276-1067-1-ND"
-			(at 218.44 159.258 0)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 223.52 153.67 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12321,11 +11320,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "LSCS PART NUMBER" "C29266"
-			(at 218.44 159.258 0)
+		(property "LCSC" "C52923"
+			(at 223.52 153.67 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12333,42 +11331,6 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
-			)
-		)
-		(property "PACKAGE" "0402"
-			(at 218.44 159.258 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "VOLTAGE RATING" "16V"
-			(at 218.44 159.258 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "ALTIUM_VALUE" "1u"
-			(at 223.52 156.21 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
 			)
 		)
 		(pin "P$1"
@@ -12506,7 +11468,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/02336ea48ea44ca18c72517dd3cb7b47.pdf"
 			(at 20.32 95.25 0)
 			(hide yes)
 			(show_name no)
@@ -12517,7 +11479,7 @@
 				)
 			)
 		)
-		(property "Description" "X7R 100nF 16V ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+		(property "Description" "100 nF ±%10 16 V X7R 0402"
 			(at 20.32 95.25 0)
 			(hide yes)
 			(show_name no)
@@ -12528,8 +11490,8 @@
 				)
 			)
 		)
-		(property "MANUFACTURER PRODUCT NUMBER" "CL05B104KO3LNNC"
-			(at 18.288 89.662 0)
+		(property "MPN" "CL05B104KO5NNNC"
+			(at 20.32 95.25 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12537,11 +11499,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "DIGIKEY PART NUMBER" "1276-1507-1-ND"
-			(at 18.288 89.662 0)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 20.32 95.25 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12549,11 +11510,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "LSCS PART NUMBER" "C1525"
-			(at 18.288 89.662 0)
+		(property "LCSC" "C1525"
+			(at 20.32 95.25 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12561,42 +11521,6 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
-			)
-		)
-		(property "PACKAGE" "0402"
-			(at 18.288 89.662 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "VOLTAGE RATING" "16"
-			(at 18.288 89.662 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "ALTIUM_VALUE" "0u1"
-			(at 17.78 97.79 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
 			)
 		)
 		(pin "P$1"
@@ -12659,7 +11583,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/d78fb31904624a51a63f8a5d98d2dc04.pdf"
 			(at 236.22 143.51 0)
 			(hide yes)
 			(show_name no)
@@ -12670,7 +11594,7 @@
 				)
 			)
 		)
-		(property "Description" "75V Independent Type 1.25V@150mA 4ns 150mA SOD-523 Switching Diodes ROHS"
+		(property "Description" "Hızlı diyot 100 V 150 mA SOD-523 (bootstrap)"
 			(at 236.22 143.51 0)
 			(hide yes)
 			(show_name no)
@@ -12681,32 +11605,8 @@
 				)
 			)
 		)
-		(property "MANUFACTURER PRODUCT NUMBER" "1N4148WT"
-			(at 234.442 140.462 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "PACKAGE" "SOD523"
-			(at 234.442 140.462 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "DIGIKEY PART NUMBER" "1N4148WTCT-ND"
-			(at 241.3 151.13 90)
+		(property "MPN" "1N4148WT"
+			(at 236.22 143.51 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12716,8 +11616,19 @@
 				)
 			)
 		)
-		(property "LSCS PART NUMBER" "C917006"
-			(at 241.3 139.065 90)
+		(property "Manufacturer" "ST(Semtech)"
+			(at 236.22 143.51 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C27748"
+			(at 236.22 143.51 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12966,7 +11877,7 @@
 		)
 	)
 	(symbol
-		(lib_id "RLC:RES0402_22")
+		(lib_id "RLC:RES0402_10")
 		(at 53.34 138.43 270)
 		(unit 1)
 		(body_style 1)
@@ -12987,7 +11898,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Value" "RES0402_22"
+		(property "Value" "RES0402_10"
 			(at 49.784 134.874 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13009,7 +11920,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf"
 			(at 53.34 138.43 0)
 			(hide yes)
 			(show_name no)
@@ -13020,7 +11931,7 @@
 				)
 			)
 		)
-		(property "Description" "62.5mW Thick Film Resistors 50V ±1% ±100ppm/℃ 22Ω 0402 Chip Resistor - Surface Mount ROHS"
+		(property "Description" "10 Ω ±%5 0402, kapı direnci; G14"
 			(at 53.34 138.43 0)
 			(hide yes)
 			(show_name no)
@@ -13031,8 +11942,8 @@
 				)
 			)
 		)
-		(property "MANUFACTURER PRODUCT NUMBER" "RC0402FR-0722RL"
-			(at 52.07 132.842 90)
+		(property "MPN" "0402WGF100JTCE"
+			(at 53.34 138.43 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13040,11 +11951,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "ALTIUM_VALUE" "22"
-			(at 52.07 132.842 90)
+		(property "Manufacturer" "UNI-ROYAL"
+			(at 53.34 138.43 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13052,11 +11962,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "PACKAGE" "0402"
-			(at 52.07 132.842 90)
+		(property "LCSC" "C25077"
+			(at 53.34 138.43 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13064,31 +11973,6 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
-			)
-		)
-		(property "DIGIKEY PART NUMBER" "311-22.0LRCT-ND"
-			(at 50.546 142.24 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "LSCS PART NUMBER" "C114765"
-			(at 47.752 144.526 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
 			)
 		)
 		(pin "P$2"
@@ -13150,7 +12034,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf"
 			(at 91.44 41.91 0)
 			(hide yes)
 			(show_name no)
@@ -13161,7 +12045,7 @@
 				)
 			)
 		)
-		(property "Description" "50V Thick Film Resistors 62.5mW 110kΩ ±1% ±100ppm/℃ 0402 Chip Resistor - Surface Mount ROHS"
+		(property "Description" "10 kΩ ±%1 0402"
 			(at 91.44 41.91 0)
 			(hide yes)
 			(show_name no)
@@ -13172,8 +12056,8 @@
 				)
 			)
 		)
-		(property "MANUFACTURER PRODUCT NUMBER" "RC0402FR-0710KL"
-			(at 90.17 36.322 90)
+		(property "MPN" "0402WGF1002TCE"
+			(at 91.44 41.91 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13181,11 +12065,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right bottom)
 			)
 		)
-		(property "ALTIUM_VALUE" "10k"
-			(at 90.17 36.322 90)
+		(property "Manufacturer" "UNI-ROYAL"
+			(at 91.44 41.91 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13193,11 +12076,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right bottom)
 			)
 		)
-		(property "PACKAGE" "0402"
-			(at 90.17 36.322 90)
+		(property "LCSC" "C25744"
+			(at 91.44 41.91 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13205,31 +12087,6 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right bottom)
-			)
-		)
-		(property "DIGIKEY PART NUMBER" "311-10.0KLRCT-ND"
-			(at 88.646 45.72 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right bottom)
-			)
-		)
-		(property "LSCS PART NUMBER" "C60490"
-			(at 85.852 48.006 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right bottom)
 			)
 		)
 		(pin "P$2"
@@ -13253,9 +12110,9 @@
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(in_pos_files yes)
+		(in_pos_files no)
 		(dnp no)
 		(uuid "9ffd5f9c-5b77-44b4-859a-244c74c7a118")
 		(property "Reference" "CK1"
@@ -13302,7 +12159,40 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "PCB pedi (dizgi yok)"
+			(at 226.06 54.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "—"
+			(at 226.06 54.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "—"
+			(at 226.06 54.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "—"
 			(at 226.06 54.61 0)
 			(hide yes)
 			(show_name no)
@@ -13369,7 +12259,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf"
 			(at 63.5 151.13 0)
 			(hide yes)
 			(show_name no)
@@ -13380,7 +12270,7 @@
 				)
 			)
 		)
-		(property "Description" "50V Thick Film Resistors 62.5mW 110kΩ ±1% ±100ppm/℃ 0402 Chip Resistor - Surface Mount ROHS"
+		(property "Description" "10 kΩ ±%1 0402"
 			(at 63.5 151.13 0)
 			(hide yes)
 			(show_name no)
@@ -13391,8 +12281,8 @@
 				)
 			)
 		)
-		(property "MANUFACTURER PRODUCT NUMBER" "RC0402FR-0710KL"
-			(at 62.23 145.542 90)
+		(property "MPN" "0402WGF1002TCE"
+			(at 63.5 151.13 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13400,11 +12290,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "ALTIUM_VALUE" "10k"
-			(at 62.23 145.542 90)
+		(property "Manufacturer" "UNI-ROYAL"
+			(at 63.5 151.13 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13412,11 +12301,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "PACKAGE" "0402"
-			(at 62.23 145.542 90)
+		(property "LCSC" "C25744"
+			(at 63.5 151.13 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13424,31 +12312,6 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
-			)
-		)
-		(property "DIGIKEY PART NUMBER" "311-10.0KLRCT-ND"
-			(at 60.706 154.94 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "LSCS PART NUMBER" "C60490"
-			(at 57.912 157.226 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
 			)
 		)
 		(pin "P$2"
@@ -13467,7 +12330,7 @@
 		)
 	)
 	(symbol
-		(lib_id "MOS:IC MOSDRV FD6288Q 24QFN")
+		(lib_id "MOS:IC MOSDRV JSM6288Q1 24QFN")
 		(at 180.34 97.79 0)
 		(unit 1)
 		(body_style 1)
@@ -13488,7 +12351,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Value" "IC MOSDRV FD6288Q 24QFN"
+		(property "Value" "IC MOSDRV JSM6288Q1 24QFN"
 			(at 160.02 118.11 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13510,7 +12373,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "${KIPRJMOD}/../../../lib/datasheet/JSMSEMI-JSM6288Q1_C52196409.pdf"
 			(at 180.34 97.79 0)
 			(hide yes)
 			(show_name no)
@@ -13521,7 +12384,7 @@
 				)
 			)
 		)
-		(property "Description" "High and low sides MOSFET 1.8A 8V~20V 1.5A QFN-24 Gate Drivers ROHS"
+		(property "Description" "3 faz kapı sürücü, VCC 5-20 V, UVLO 4.5 V, ölü zaman 200 ns, QFN-24 4x4 (FD6288Q pin uyumlu); G3, SYS-016"
 			(at 180.34 97.79 0)
 			(hide yes)
 			(show_name no)
@@ -13532,7 +12395,7 @@
 				)
 			)
 		)
-		(property "DIGIKEY PART NUMBER" "N/A"
+		(property "MPN" "JSM6288Q1"
 			(at 180.34 97.79 0)
 			(hide yes)
 			(show_name no)
@@ -13541,11 +12404,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "PACKAGE" "24QFN(4x4)"
-			(at 208.28 87.63 0)
+		(property "Manufacturer" "JSMSEMI"
+			(at 180.34 97.79 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13553,11 +12415,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "LSCS PART NUMBER" "C328453"
-			(at 179.07 135.89 0)
+		(property "LCSC" "C52196409"
+			(at 180.34 97.79 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13565,11 +12426,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "MANUFACTURER PRODUCT NUMBER" "FD6288Q"
-			(at 187.96 133.35 0)
+		(property "ALT MPN" "FD6288Q"
+			(at 180.34 97.79 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13577,7 +12437,28 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
+			)
+		)
+		(property "ALT Manufacturer" "Fortior Tech"
+			(at 180.34 97.79 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ALT LCSC" "C328453"
+			(at 180.34 97.79 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "1"
@@ -13662,7 +12543,7 @@
 		)
 	)
 	(symbol
-		(lib_id "RLC:CAP0402_1u_16V_X5R")
+		(lib_id "RLC:CAP0402_1u_25V_X5R")
 		(at 236.22 153.67 0)
 		(unit 1)
 		(body_style 1)
@@ -13683,7 +12564,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Value" "CAP0402_1u_16V_X5R"
+		(property "Value" "CAP0402_1u_25V_X5R"
 			(at 231.14 151.13 0)
 			(hide yes)
 			(show_name no)
@@ -13706,7 +12587,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/02336ea48ea44ca18c72517dd3cb7b47.pdf"
 			(at 236.22 153.67 0)
 			(hide yes)
 			(show_name no)
@@ -13717,7 +12598,7 @@
 				)
 			)
 		)
-		(property "Description" "X5R 1uF 16V ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+		(property "Description" "1 µF ±%10 25 V X5R 0402"
 			(at 236.22 153.67 0)
 			(hide yes)
 			(show_name no)
@@ -13728,8 +12609,8 @@
 				)
 			)
 		)
-		(property "MANUFACTURER PRODUCT NUMBER" "CL05A105KO5NNNC"
-			(at 231.14 159.258 0)
+		(property "MPN" "CL05A105KA5NQNC"
+			(at 236.22 153.67 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13737,11 +12618,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "DIGIKEY PART NUMBER" "1276-1067-1-ND"
-			(at 231.14 159.258 0)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 236.22 153.67 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13749,11 +12629,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "LSCS PART NUMBER" "C29266"
-			(at 231.14 159.258 0)
+		(property "LCSC" "C52923"
+			(at 236.22 153.67 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13761,42 +12640,6 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
-			)
-		)
-		(property "PACKAGE" "0402"
-			(at 231.14 159.258 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "VOLTAGE RATING" "16V"
-			(at 231.14 159.258 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "ALTIUM_VALUE" "1u"
-			(at 236.22 156.21 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
 			)
 		)
 		(pin "P$1"
@@ -14006,7 +12849,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf"
 			(at 187.96 191.77 0)
 			(hide yes)
 			(show_name no)
@@ -14017,7 +12860,7 @@
 				)
 			)
 		)
-		(property "Description" "62.5mW Thick Film Resistors 50V ±100ppm/℃ ±1% 1kΩ 0402 Chip Resistor - Surface Mount ROHS"
+		(property "Description" "1 kΩ ±%1 0402"
 			(at 187.96 191.77 0)
 			(hide yes)
 			(show_name no)
@@ -14028,8 +12871,8 @@
 				)
 			)
 		)
-		(property "MANUFACTURER PRODUCT NUMBER" "RC0402JR-071KL"
-			(at 186.69 186.182 90)
+		(property "MPN" "0402WGF1001TCE"
+			(at 187.96 191.77 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14037,11 +12880,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right bottom)
 			)
 		)
-		(property "ALTIUM_VALUE" "1k"
-			(at 186.69 186.182 90)
+		(property "Manufacturer" "UNI-ROYAL"
+			(at 187.96 191.77 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14049,11 +12891,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right bottom)
 			)
 		)
-		(property "PACKAGE" "0402"
-			(at 186.69 186.182 90)
+		(property "LCSC" "C11702"
+			(at 187.96 191.77 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14061,31 +12902,6 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right bottom)
-			)
-		)
-		(property "DIGIKEY PART NUMBER" "311-1.0KJRCT-ND"
-			(at 185.166 195.58 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right bottom)
-			)
-		)
-		(property "LSCS PART NUMBER" "C105637"
-			(at 182.372 197.866 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right bottom)
 			)
 		)
 		(pin "P$2"
@@ -14147,7 +12963,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf"
 			(at 53.34 181.61 0)
 			(hide yes)
 			(show_name no)
@@ -14158,7 +12974,7 @@
 				)
 			)
 		)
-		(property "Description" "50V Thick Film Resistors 62.5mW 110kΩ ±1% ±100ppm/℃ 0402 Chip Resistor - Surface Mount ROHS"
+		(property "Description" "10 kΩ ±%1 0402"
 			(at 53.34 181.61 0)
 			(hide yes)
 			(show_name no)
@@ -14169,8 +12985,8 @@
 				)
 			)
 		)
-		(property "MANUFACTURER PRODUCT NUMBER" "RC0402FR-0710KL"
-			(at 52.07 176.022 90)
+		(property "MPN" "0402WGF1002TCE"
+			(at 53.34 181.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14178,11 +12994,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "ALTIUM_VALUE" "10k"
-			(at 52.07 176.022 90)
+		(property "Manufacturer" "UNI-ROYAL"
+			(at 53.34 181.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14190,11 +13005,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "PACKAGE" "0402"
-			(at 52.07 176.022 90)
+		(property "LCSC" "C25744"
+			(at 53.34 181.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14202,31 +13016,6 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
-			)
-		)
-		(property "DIGIKEY PART NUMBER" "311-10.0KLRCT-ND"
-			(at 50.546 185.42 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "LSCS PART NUMBER" "C60490"
-			(at 47.752 187.706 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
 			)
 		)
 		(pin "P$2"
@@ -14245,7 +13034,7 @@
 		)
 	)
 	(symbol
-		(lib_id "MOS:IC MOSDRV FD6288Q 24QFN")
+		(lib_id "MOS:IC MOSDRV JSM6288Q1 24QFN")
 		(at 50.8 97.79 0)
 		(unit 1)
 		(body_style 1)
@@ -14266,7 +13055,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Value" "IC MOSDRV FD6288Q 24QFN"
+		(property "Value" "IC MOSDRV JSM6288Q1 24QFN"
 			(at 30.48 118.11 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14288,7 +13077,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "${KIPRJMOD}/../../../lib/datasheet/JSMSEMI-JSM6288Q1_C52196409.pdf"
 			(at 50.8 97.79 0)
 			(hide yes)
 			(show_name no)
@@ -14299,7 +13088,7 @@
 				)
 			)
 		)
-		(property "Description" "High and low sides MOSFET 1.8A 8V~20V 1.5A QFN-24 Gate Drivers ROHS"
+		(property "Description" "3 faz kapı sürücü, VCC 5-20 V, UVLO 4.5 V, ölü zaman 200 ns, QFN-24 4x4 (FD6288Q pin uyumlu); G3, SYS-016"
 			(at 50.8 97.79 0)
 			(hide yes)
 			(show_name no)
@@ -14310,7 +13099,7 @@
 				)
 			)
 		)
-		(property "DIGIKEY PART NUMBER" "N/A"
+		(property "MPN" "JSM6288Q1"
 			(at 50.8 97.79 0)
 			(hide yes)
 			(show_name no)
@@ -14319,11 +13108,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "PACKAGE" "24QFN(4x4)"
-			(at 78.74 87.63 0)
+		(property "Manufacturer" "JSMSEMI"
+			(at 50.8 97.79 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14331,11 +13119,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "LSCS PART NUMBER" "C328453"
-			(at 49.53 135.89 0)
+		(property "LCSC" "C52196409"
+			(at 50.8 97.79 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14343,11 +13130,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "MANUFACTURER PRODUCT NUMBER" "FD6288Q"
-			(at 58.42 133.35 0)
+		(property "ALT MPN" "FD6288Q"
+			(at 50.8 97.79 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14355,7 +13141,28 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
+			)
+		)
+		(property "ALT Manufacturer" "Fortior Tech"
+			(at 50.8 97.79 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ALT LCSC" "C328453"
+			(at 50.8 97.79 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "1"
@@ -14484,7 +13291,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/02336ea48ea44ca18c72517dd3cb7b47.pdf"
 			(at 78.74 41.91 0)
 			(hide yes)
 			(show_name no)
@@ -14495,7 +13302,7 @@
 				)
 			)
 		)
-		(property "Description" "X7R 100nF 16V ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+		(property "Description" "100 nF ±%10 16 V X7R 0402"
 			(at 78.74 41.91 0)
 			(hide yes)
 			(show_name no)
@@ -14506,8 +13313,8 @@
 				)
 			)
 		)
-		(property "MANUFACTURER PRODUCT NUMBER" "CL05B104KO3LNNC"
-			(at 76.708 36.322 0)
+		(property "MPN" "CL05B104KO5NNNC"
+			(at 78.74 41.91 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14515,11 +13322,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "DIGIKEY PART NUMBER" "1276-1507-1-ND"
-			(at 76.708 36.322 0)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 78.74 41.91 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14527,11 +13333,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "LSCS PART NUMBER" "C1525"
-			(at 76.708 36.322 0)
+		(property "LCSC" "C1525"
+			(at 78.74 41.91 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14539,42 +13344,6 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
-			)
-		)
-		(property "PACKAGE" "0402"
-			(at 76.708 36.322 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "VOLTAGE RATING" "16"
-			(at 76.708 36.322 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "ALTIUM_VALUE" "0u1"
-			(at 76.2 44.45 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
 			)
 		)
 		(pin "P$1"
@@ -14712,7 +13481,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/02336ea48ea44ca18c72517dd3cb7b47.pdf"
 			(at 208.28 41.91 0)
 			(hide yes)
 			(show_name no)
@@ -14723,7 +13492,7 @@
 				)
 			)
 		)
-		(property "Description" "X7R 100nF 16V ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+		(property "Description" "100 nF ±%10 16 V X7R 0402"
 			(at 208.28 41.91 0)
 			(hide yes)
 			(show_name no)
@@ -14734,8 +13503,8 @@
 				)
 			)
 		)
-		(property "MANUFACTURER PRODUCT NUMBER" "CL05B104KO3LNNC"
-			(at 206.248 36.322 0)
+		(property "MPN" "CL05B104KO5NNNC"
+			(at 208.28 41.91 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14743,11 +13512,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "DIGIKEY PART NUMBER" "1276-1507-1-ND"
-			(at 206.248 36.322 0)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 208.28 41.91 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14755,11 +13523,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "LSCS PART NUMBER" "C1525"
-			(at 206.248 36.322 0)
+		(property "LCSC" "C1525"
+			(at 208.28 41.91 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14767,42 +13534,6 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
-			)
-		)
-		(property "PACKAGE" "0402"
-			(at 206.248 36.322 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "VOLTAGE RATING" "16"
-			(at 206.248 36.322 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "ALTIUM_VALUE" "0u1"
-			(at 205.74 44.45 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
 			)
 		)
 		(pin "P$1"
@@ -14826,9 +13557,9 @@
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(in_pos_files yes)
+		(in_pos_files no)
 		(dnp no)
 		(uuid "bd9e01aa-fdfe-4a40-9efb-09d4894deaa3")
 		(property "Reference" "CD2"
@@ -14875,7 +13606,40 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "PCB pedi (dizgi yok)"
+			(at 17.78 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "—"
+			(at 17.78 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "—"
+			(at 17.78 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "—"
 			(at 17.78 49.53 0)
 			(hide yes)
 			(show_name no)
@@ -14973,7 +13737,7 @@
 		)
 	)
 	(symbol
-		(lib_id "RLC:CAP0402_1u_16V_X5R")
+		(lib_id "RLC:CAP0402_1u_25V_X5R")
 		(at 210.82 153.67 0)
 		(unit 1)
 		(body_style 1)
@@ -14994,7 +13758,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Value" "CAP0402_1u_16V_X5R"
+		(property "Value" "CAP0402_1u_25V_X5R"
 			(at 205.74 151.13 0)
 			(hide yes)
 			(show_name no)
@@ -15017,7 +13781,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/02336ea48ea44ca18c72517dd3cb7b47.pdf"
 			(at 210.82 153.67 0)
 			(hide yes)
 			(show_name no)
@@ -15028,7 +13792,7 @@
 				)
 			)
 		)
-		(property "Description" "X5R 1uF 16V ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+		(property "Description" "1 µF ±%10 25 V X5R 0402"
 			(at 210.82 153.67 0)
 			(hide yes)
 			(show_name no)
@@ -15039,8 +13803,8 @@
 				)
 			)
 		)
-		(property "MANUFACTURER PRODUCT NUMBER" "CL05A105KO5NNNC"
-			(at 205.74 159.258 0)
+		(property "MPN" "CL05A105KA5NQNC"
+			(at 210.82 153.67 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15048,11 +13812,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "DIGIKEY PART NUMBER" "1276-1067-1-ND"
-			(at 205.74 159.258 0)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 210.82 153.67 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15060,11 +13823,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "LSCS PART NUMBER" "C29266"
-			(at 205.74 159.258 0)
+		(property "LCSC" "C52923"
+			(at 210.82 153.67 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15072,42 +13834,6 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
-			)
-		)
-		(property "PACKAGE" "0402"
-			(at 205.74 159.258 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "VOLTAGE RATING" "16V"
-			(at 205.74 159.258 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "ALTIUM_VALUE" "1u"
-			(at 210.82 156.21 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
 			)
 		)
 		(pin "P$1"
@@ -15126,15 +13852,15 @@
 		)
 	)
 	(symbol
-		(lib_id "RLC:RES0402_1k_????")
+		(lib_id "RLC:RES0402_1k")
 		(at 22.86 29.21 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
+		(in_bom no)
+		(on_board no)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "bf59ce5c-ca8d-41db-82a4-5ea61920a15d")
 		(property "Reference" "R101"
 			(at 19.304 27.965 0)
@@ -15147,7 +13873,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Value" "RES0402_1k_????"
+		(property "Value" "RES0402_1k"
 			(at 17.78 29.21 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15169,7 +13895,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf"
 			(at 22.86 29.21 0)
 			(hide yes)
 			(show_name no)
@@ -15180,7 +13906,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "1 kΩ ±%1 0402 - DNP (E6/G20): +VD boşta, PCB'de yok"
 			(at 22.86 29.21 0)
 			(hide yes)
 			(show_name no)
@@ -15191,8 +13917,8 @@
 				)
 			)
 		)
-		(property "SUPPLIER PART NUMBER 1" "*"
-			(at 17.272 27.94 0)
+		(property "MPN" "0402WGF1001TCE"
+			(at 22.86 29.21 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15200,11 +13926,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "MANUFACTURER PRODUCT NUMBER" "*"
-			(at 17.272 27.94 0)
+		(property "Manufacturer" "UNI-ROYAL"
+			(at 22.86 29.21 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15212,11 +13937,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "SUPPLIER PART NUMBER 2" "*"
-			(at 17.272 27.94 0)
+		(property "LCSC" "C11702"
+			(at 22.86 29.21 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15224,31 +13948,6 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
-			)
-		)
-		(property "ALTIUM_VALUE" "1k"
-			(at 17.272 27.94 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "PACKAGE" "0402"
-			(at 17.272 27.94 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
 			)
 		)
 		(pin "P$2"
@@ -15272,9 +13971,9 @@
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(in_pos_files yes)
+		(in_pos_files no)
 		(dnp no)
 		(uuid "c3612fe0-6b00-4255-acc6-af733fd98cb3")
 		(property "Reference" "CK2"
@@ -15321,7 +14020,40 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "PCB pedi (dizgi yok)"
+			(at 96.52 54.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "—"
+			(at 96.52 54.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "—"
+			(at 96.52 54.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "—"
 			(at 96.52 54.61 0)
 			(hide yes)
 			(show_name no)
@@ -15388,7 +14120,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf"
 			(at 17.78 191.77 0)
 			(hide yes)
 			(show_name no)
@@ -15399,7 +14131,7 @@
 				)
 			)
 		)
-		(property "Description" "62.5mW Thick Film Resistors 50V ±100ppm/℃ ±1% 1kΩ 0402 Chip Resistor - Surface Mount ROHS"
+		(property "Description" "1 kΩ ±%1 0402"
 			(at 17.78 191.77 0)
 			(hide yes)
 			(show_name no)
@@ -15410,8 +14142,8 @@
 				)
 			)
 		)
-		(property "MANUFACTURER PRODUCT NUMBER" "RC0402JR-071KL"
-			(at 16.51 186.182 90)
+		(property "MPN" "0402WGF1001TCE"
+			(at 17.78 191.77 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15419,11 +14151,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right bottom)
 			)
 		)
-		(property "ALTIUM_VALUE" "1k"
-			(at 16.51 186.182 90)
+		(property "Manufacturer" "UNI-ROYAL"
+			(at 17.78 191.77 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15431,11 +14162,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right bottom)
 			)
 		)
-		(property "PACKAGE" "0402"
-			(at 16.51 186.182 90)
+		(property "LCSC" "C11702"
+			(at 17.78 191.77 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15443,31 +14173,6 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right bottom)
-			)
-		)
-		(property "DIGIKEY PART NUMBER" "311-1.0KJRCT-ND"
-			(at 14.986 195.58 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right bottom)
-			)
-		)
-		(property "LSCS PART NUMBER" "C105637"
-			(at 12.192 197.866 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right bottom)
 			)
 		)
 		(pin "P$2"
@@ -15604,7 +14309,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf"
 			(at 12.7 181.61 0)
 			(hide yes)
 			(show_name no)
@@ -15615,7 +14320,7 @@
 				)
 			)
 		)
-		(property "Description" "50V Thick Film Resistors 62.5mW 110kΩ ±1% ±100ppm/℃ 0402 Chip Resistor - Surface Mount ROHS"
+		(property "Description" "10 kΩ ±%1 0402"
 			(at 12.7 181.61 0)
 			(hide yes)
 			(show_name no)
@@ -15626,8 +14331,8 @@
 				)
 			)
 		)
-		(property "MANUFACTURER PRODUCT NUMBER" "RC0402FR-0710KL"
-			(at 11.43 176.022 90)
+		(property "MPN" "0402WGF1002TCE"
+			(at 12.7 181.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15635,11 +14340,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "ALTIUM_VALUE" "10k"
-			(at 11.43 176.022 90)
+		(property "Manufacturer" "UNI-ROYAL"
+			(at 12.7 181.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15647,11 +14351,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "PACKAGE" "0402"
-			(at 11.43 176.022 90)
+		(property "LCSC" "C25744"
+			(at 12.7 181.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15659,31 +14362,6 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
-			)
-		)
-		(property "DIGIKEY PART NUMBER" "311-10.0KLRCT-ND"
-			(at 9.906 185.42 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "LSCS PART NUMBER" "C60490"
-			(at 7.112 187.706 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
 			)
 		)
 		(pin "P$2"
@@ -15894,7 +14572,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/d78fb31904624a51a63f8a5d98d2dc04.pdf"
 			(at 223.52 143.51 0)
 			(hide yes)
 			(show_name no)
@@ -15905,7 +14583,7 @@
 				)
 			)
 		)
-		(property "Description" "75V Independent Type 1.25V@150mA 4ns 150mA SOD-523 Switching Diodes ROHS"
+		(property "Description" "Hızlı diyot 100 V 150 mA SOD-523 (bootstrap)"
 			(at 223.52 143.51 0)
 			(hide yes)
 			(show_name no)
@@ -15916,32 +14594,8 @@
 				)
 			)
 		)
-		(property "MANUFACTURER PRODUCT NUMBER" "1N4148WT"
-			(at 221.742 140.462 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "PACKAGE" "SOD523"
-			(at 221.742 140.462 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "DIGIKEY PART NUMBER" "1N4148WTCT-ND"
-			(at 228.6 151.13 90)
+		(property "MPN" "1N4148WT"
+			(at 223.52 143.51 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15951,8 +14605,19 @@
 				)
 			)
 		)
-		(property "LSCS PART NUMBER" "C917006"
-			(at 228.6 139.065 90)
+		(property "Manufacturer" "ST(Semtech)"
+			(at 223.52 143.51 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C27748"
+			(at 223.52 143.51 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15978,7 +14643,7 @@
 		)
 	)
 	(symbol
-		(lib_id "RLC:RES0402_22")
+		(lib_id "RLC:RES0402_10")
 		(at 22.86 138.43 270)
 		(unit 1)
 		(body_style 1)
@@ -15999,7 +14664,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Value" "RES0402_22"
+		(property "Value" "RES0402_10"
 			(at 19.304 134.874 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16021,7 +14686,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf"
 			(at 22.86 138.43 0)
 			(hide yes)
 			(show_name no)
@@ -16032,7 +14697,7 @@
 				)
 			)
 		)
-		(property "Description" "62.5mW Thick Film Resistors 50V ±1% ±100ppm/℃ 22Ω 0402 Chip Resistor - Surface Mount ROHS"
+		(property "Description" "10 Ω ±%5 0402, kapı direnci; G14"
 			(at 22.86 138.43 0)
 			(hide yes)
 			(show_name no)
@@ -16043,8 +14708,8 @@
 				)
 			)
 		)
-		(property "MANUFACTURER PRODUCT NUMBER" "RC0402FR-0722RL"
-			(at 21.59 132.842 90)
+		(property "MPN" "0402WGF100JTCE"
+			(at 22.86 138.43 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16052,11 +14717,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "ALTIUM_VALUE" "22"
-			(at 21.59 132.842 90)
+		(property "Manufacturer" "UNI-ROYAL"
+			(at 22.86 138.43 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16064,11 +14728,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "PACKAGE" "0402"
-			(at 21.59 132.842 90)
+		(property "LCSC" "C25077"
+			(at 22.86 138.43 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16076,31 +14739,6 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
-			)
-		)
-		(property "DIGIKEY PART NUMBER" "311-22.0LRCT-ND"
-			(at 20.066 142.24 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "LSCS PART NUMBER" "C114765"
-			(at 17.272 144.526 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
 			)
 		)
 		(pin "P$2"
@@ -16119,15 +14757,15 @@
 		)
 	)
 	(symbol
-		(lib_id "RLC:RES0402_3k_????")
+		(lib_id "RLC:RES0402_3k")
 		(at 152.4 34.29 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
+		(in_bom no)
+		(on_board no)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "d4827f6b-081f-4df2-872e-ace41c0b1eb6")
 		(property "Reference" "R102"
 			(at 148.844 33.045 0)
@@ -16140,7 +14778,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Value" "RES0402_3k_????"
+		(property "Value" "RES0402_3k"
 			(at 147.32 36.83 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16162,7 +14800,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf"
 			(at 152.4 34.29 0)
 			(hide yes)
 			(show_name no)
@@ -16173,7 +14811,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "3 kΩ ±%1 0402 - DNP (E6/G20): +VD boşta, PCB'de yok"
 			(at 152.4 34.29 0)
 			(hide yes)
 			(show_name no)
@@ -16184,8 +14822,8 @@
 				)
 			)
 		)
-		(property "SUPPLIER PART NUMBER 1" "*"
-			(at 149.606 38.1 0)
+		(property "MPN" "0402WGF3001TCE"
+			(at 152.4 34.29 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16193,11 +14831,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "MANUFACTURER PRODUCT NUMBER" "*"
-			(at 146.812 40.64 0)
+		(property "Manufacturer" "UNI-ROYAL"
+			(at 152.4 34.29 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16205,11 +14842,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "SUPPLIER PART NUMBER 2" "*"
-			(at 146.812 40.386 0)
+		(property "LCSC" "C25784"
+			(at 152.4 34.29 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16217,31 +14853,6 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
-			)
-		)
-		(property "ALTIUM_VALUE" "3k"
-			(at 146.812 42.926 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "PACKAGE" "0402"
-			(at 146.812 45.466 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
 			)
 		)
 		(pin "P$2"
@@ -16409,7 +15020,7 @@
 		)
 	)
 	(symbol
-		(lib_id "RLC:RES0402_22")
+		(lib_id "RLC:RES0402_10")
 		(at 172.72 138.43 270)
 		(unit 1)
 		(body_style 1)
@@ -16430,7 +15041,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Value" "RES0402_22"
+		(property "Value" "RES0402_10"
 			(at 169.164 134.874 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16452,7 +15063,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf"
 			(at 172.72 138.43 0)
 			(hide yes)
 			(show_name no)
@@ -16463,7 +15074,7 @@
 				)
 			)
 		)
-		(property "Description" "62.5mW Thick Film Resistors 50V ±1% ±100ppm/℃ 22Ω 0402 Chip Resistor - Surface Mount ROHS"
+		(property "Description" "10 Ω ±%5 0402, kapı direnci; G14"
 			(at 172.72 138.43 0)
 			(hide yes)
 			(show_name no)
@@ -16474,8 +15085,8 @@
 				)
 			)
 		)
-		(property "MANUFACTURER PRODUCT NUMBER" "RC0402FR-0722RL"
-			(at 171.45 132.842 90)
+		(property "MPN" "0402WGF100JTCE"
+			(at 172.72 138.43 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16483,11 +15094,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "ALTIUM_VALUE" "22"
-			(at 171.45 132.842 90)
+		(property "Manufacturer" "UNI-ROYAL"
+			(at 172.72 138.43 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16495,11 +15105,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "PACKAGE" "0402"
-			(at 171.45 132.842 90)
+		(property "LCSC" "C25077"
+			(at 172.72 138.43 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16507,31 +15116,6 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
-			)
-		)
-		(property "DIGIKEY PART NUMBER" "311-22.0LRCT-ND"
-			(at 169.926 142.24 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "LSCS PART NUMBER" "C114765"
-			(at 167.132 144.526 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
 			)
 		)
 		(pin "P$2"
@@ -16593,7 +15177,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf"
 			(at 182.88 181.61 0)
 			(hide yes)
 			(show_name no)
@@ -16604,7 +15188,7 @@
 				)
 			)
 		)
-		(property "Description" "50V Thick Film Resistors 62.5mW 110kΩ ±1% ±100ppm/℃ 0402 Chip Resistor - Surface Mount ROHS"
+		(property "Description" "10 kΩ ±%1 0402"
 			(at 182.88 181.61 0)
 			(hide yes)
 			(show_name no)
@@ -16615,8 +15199,8 @@
 				)
 			)
 		)
-		(property "MANUFACTURER PRODUCT NUMBER" "RC0402FR-0710KL"
-			(at 181.61 176.022 90)
+		(property "MPN" "0402WGF1002TCE"
+			(at 182.88 181.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16624,11 +15208,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "ALTIUM_VALUE" "10k"
-			(at 181.61 176.022 90)
+		(property "Manufacturer" "UNI-ROYAL"
+			(at 182.88 181.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16636,11 +15219,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "PACKAGE" "0402"
-			(at 181.61 176.022 90)
+		(property "LCSC" "C25744"
+			(at 182.88 181.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16648,31 +15230,6 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
-			)
-		)
-		(property "DIGIKEY PART NUMBER" "311-10.0KLRCT-ND"
-			(at 180.086 185.42 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "LSCS PART NUMBER" "C60490"
-			(at 177.292 187.706 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
 			)
 		)
 		(pin "P$2"
@@ -16734,7 +15291,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf"
 			(at 33.02 181.61 0)
 			(hide yes)
 			(show_name no)
@@ -16745,7 +15302,7 @@
 				)
 			)
 		)
-		(property "Description" "50V Thick Film Resistors 62.5mW 110kΩ ±1% ±100ppm/℃ 0402 Chip Resistor - Surface Mount ROHS"
+		(property "Description" "10 kΩ ±%1 0402"
 			(at 33.02 181.61 0)
 			(hide yes)
 			(show_name no)
@@ -16756,8 +15313,8 @@
 				)
 			)
 		)
-		(property "MANUFACTURER PRODUCT NUMBER" "RC0402FR-0710KL"
-			(at 31.75 176.022 90)
+		(property "MPN" "0402WGF1002TCE"
+			(at 33.02 181.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16765,11 +15322,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "ALTIUM_VALUE" "10k"
-			(at 31.75 176.022 90)
+		(property "Manufacturer" "UNI-ROYAL"
+			(at 33.02 181.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16777,11 +15333,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "PACKAGE" "0402"
-			(at 31.75 176.022 90)
+		(property "LCSC" "C25744"
+			(at 33.02 181.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16789,31 +15344,6 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
-			)
-		)
-		(property "DIGIKEY PART NUMBER" "311-10.0KLRCT-ND"
-			(at 30.226 185.42 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "LSCS PART NUMBER" "C60490"
-			(at 27.432 187.706 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
 			)
 		)
 		(pin "P$2"
@@ -16832,7 +15362,7 @@
 		)
 	)
 	(symbol
-		(lib_id "RLC:RES0402_22")
+		(lib_id "RLC:RES0402_10")
 		(at 193.04 138.43 270)
 		(unit 1)
 		(body_style 1)
@@ -16853,7 +15383,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Value" "RES0402_22"
+		(property "Value" "RES0402_10"
 			(at 189.484 134.874 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16875,7 +15405,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf"
 			(at 193.04 138.43 0)
 			(hide yes)
 			(show_name no)
@@ -16886,7 +15416,7 @@
 				)
 			)
 		)
-		(property "Description" "62.5mW Thick Film Resistors 50V ±1% ±100ppm/℃ 22Ω 0402 Chip Resistor - Surface Mount ROHS"
+		(property "Description" "10 Ω ±%5 0402, kapı direnci; G14"
 			(at 193.04 138.43 0)
 			(hide yes)
 			(show_name no)
@@ -16897,8 +15427,8 @@
 				)
 			)
 		)
-		(property "MANUFACTURER PRODUCT NUMBER" "RC0402FR-0722RL"
-			(at 191.77 132.842 90)
+		(property "MPN" "0402WGF100JTCE"
+			(at 193.04 138.43 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16906,11 +15436,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "ALTIUM_VALUE" "22"
-			(at 191.77 132.842 90)
+		(property "Manufacturer" "UNI-ROYAL"
+			(at 193.04 138.43 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16918,11 +15447,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "PACKAGE" "0402"
-			(at 191.77 132.842 90)
+		(property "LCSC" "C25077"
+			(at 193.04 138.43 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16930,31 +15458,6 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
-			)
-		)
-		(property "DIGIKEY PART NUMBER" "311-22.0LRCT-ND"
-			(at 190.246 142.24 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "LSCS PART NUMBER" "C114765"
-			(at 187.452 144.526 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
 			)
 		)
 		(pin "P$2"
@@ -16973,7 +15476,7 @@
 		)
 	)
 	(symbol
-		(lib_id "RLC:RES0402_22")
+		(lib_id "RLC:RES0402_10")
 		(at 33.02 138.43 270)
 		(unit 1)
 		(body_style 1)
@@ -16994,7 +15497,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Value" "RES0402_22"
+		(property "Value" "RES0402_10"
 			(at 29.464 134.874 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17016,7 +15519,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf"
 			(at 33.02 138.43 0)
 			(hide yes)
 			(show_name no)
@@ -17027,7 +15530,7 @@
 				)
 			)
 		)
-		(property "Description" "62.5mW Thick Film Resistors 50V ±1% ±100ppm/℃ 22Ω 0402 Chip Resistor - Surface Mount ROHS"
+		(property "Description" "10 Ω ±%5 0402, kapı direnci; G14"
 			(at 33.02 138.43 0)
 			(hide yes)
 			(show_name no)
@@ -17038,8 +15541,8 @@
 				)
 			)
 		)
-		(property "MANUFACTURER PRODUCT NUMBER" "RC0402FR-0722RL"
-			(at 31.75 132.842 90)
+		(property "MPN" "0402WGF100JTCE"
+			(at 33.02 138.43 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17047,11 +15550,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "ALTIUM_VALUE" "22"
-			(at 31.75 132.842 90)
+		(property "Manufacturer" "UNI-ROYAL"
+			(at 33.02 138.43 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17059,11 +15561,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "PACKAGE" "0402"
-			(at 31.75 132.842 90)
+		(property "LCSC" "C25077"
+			(at 33.02 138.43 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17071,31 +15572,6 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
-			)
-		)
-		(property "DIGIKEY PART NUMBER" "311-22.0LRCT-ND"
-			(at 30.226 142.24 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "LSCS PART NUMBER" "C114765"
-			(at 27.432 144.526 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
 			)
 		)
 		(pin "P$2"
@@ -17188,7 +15664,7 @@
 		)
 	)
 	(symbol
-		(lib_id "RLC:RES0402_22")
+		(lib_id "RLC:RES0402_10")
 		(at 182.88 138.43 270)
 		(unit 1)
 		(body_style 1)
@@ -17209,7 +15685,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Value" "RES0402_22"
+		(property "Value" "RES0402_10"
 			(at 179.324 134.874 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17231,7 +15707,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf"
 			(at 182.88 138.43 0)
 			(hide yes)
 			(show_name no)
@@ -17242,7 +15718,7 @@
 				)
 			)
 		)
-		(property "Description" "62.5mW Thick Film Resistors 50V ±1% ±100ppm/℃ 22Ω 0402 Chip Resistor - Surface Mount ROHS"
+		(property "Description" "10 Ω ±%5 0402, kapı direnci; G14"
 			(at 182.88 138.43 0)
 			(hide yes)
 			(show_name no)
@@ -17253,8 +15729,8 @@
 				)
 			)
 		)
-		(property "MANUFACTURER PRODUCT NUMBER" "RC0402FR-0722RL"
-			(at 181.61 132.842 90)
+		(property "MPN" "0402WGF100JTCE"
+			(at 182.88 138.43 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17262,11 +15738,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "ALTIUM_VALUE" "22"
-			(at 181.61 132.842 90)
+		(property "Manufacturer" "UNI-ROYAL"
+			(at 182.88 138.43 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17274,11 +15749,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "PACKAGE" "0402"
-			(at 181.61 132.842 90)
+		(property "LCSC" "C25077"
+			(at 182.88 138.43 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17286,31 +15760,6 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
-			)
-		)
-		(property "DIGIKEY PART NUMBER" "311-22.0LRCT-ND"
-			(at 180.086 142.24 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "LSCS PART NUMBER" "C114765"
-			(at 177.292 144.526 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
 			)
 		)
 		(pin "P$2"
@@ -17372,7 +15821,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf"
 			(at 53.34 151.13 0)
 			(hide yes)
 			(show_name no)
@@ -17383,7 +15832,7 @@
 				)
 			)
 		)
-		(property "Description" "50V Thick Film Resistors 62.5mW 110kΩ ±1% ±100ppm/℃ 0402 Chip Resistor - Surface Mount ROHS"
+		(property "Description" "10 kΩ ±%1 0402"
 			(at 53.34 151.13 0)
 			(hide yes)
 			(show_name no)
@@ -17394,8 +15843,8 @@
 				)
 			)
 		)
-		(property "MANUFACTURER PRODUCT NUMBER" "RC0402FR-0710KL"
-			(at 52.07 145.542 90)
+		(property "MPN" "0402WGF1002TCE"
+			(at 53.34 151.13 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17403,11 +15852,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "ALTIUM_VALUE" "10k"
-			(at 52.07 145.542 90)
+		(property "Manufacturer" "UNI-ROYAL"
+			(at 53.34 151.13 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17415,11 +15863,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "PACKAGE" "0402"
-			(at 52.07 145.542 90)
+		(property "LCSC" "C25744"
+			(at 53.34 151.13 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17427,31 +15874,6 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
-			)
-		)
-		(property "DIGIKEY PART NUMBER" "311-10.0KLRCT-ND"
-			(at 50.546 154.94 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "LSCS PART NUMBER" "C60490"
-			(at 47.752 157.226 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
 			)
 		)
 		(pin "P$2"
@@ -17470,7 +15892,7 @@
 		)
 	)
 	(symbol
-		(lib_id "RLC:RES0402_22")
+		(lib_id "RLC:RES0402_10")
 		(at 162.56 138.43 270)
 		(unit 1)
 		(body_style 1)
@@ -17491,7 +15913,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Value" "RES0402_22"
+		(property "Value" "RES0402_10"
 			(at 159.004 134.874 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17513,7 +15935,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf"
 			(at 162.56 138.43 0)
 			(hide yes)
 			(show_name no)
@@ -17524,7 +15946,7 @@
 				)
 			)
 		)
-		(property "Description" "62.5mW Thick Film Resistors 50V ±1% ±100ppm/℃ 22Ω 0402 Chip Resistor - Surface Mount ROHS"
+		(property "Description" "10 Ω ±%5 0402, kapı direnci; G14"
 			(at 162.56 138.43 0)
 			(hide yes)
 			(show_name no)
@@ -17535,8 +15957,8 @@
 				)
 			)
 		)
-		(property "MANUFACTURER PRODUCT NUMBER" "RC0402FR-0722RL"
-			(at 161.29 132.842 90)
+		(property "MPN" "0402WGF100JTCE"
+			(at 162.56 138.43 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17544,11 +15966,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "ALTIUM_VALUE" "22"
-			(at 161.29 132.842 90)
+		(property "Manufacturer" "UNI-ROYAL"
+			(at 162.56 138.43 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17556,11 +15977,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "PACKAGE" "0402"
-			(at 161.29 132.842 90)
+		(property "LCSC" "C25077"
+			(at 162.56 138.43 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17568,31 +15988,6 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
-			)
-		)
-		(property "DIGIKEY PART NUMBER" "311-22.0LRCT-ND"
-			(at 159.766 142.24 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "LSCS PART NUMBER" "C114765"
-			(at 156.972 144.526 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
 			)
 		)
 		(pin "P$2"
@@ -17654,7 +16049,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "${KIPRJMOD}/../../../lib/datasheet/EFM8BB21F16G-C-QFN20R_C80713.pdf"
 			(at 50.8 49.53 0)
 			(hide yes)
 			(show_name no)
@@ -17665,7 +16060,7 @@
 				)
 			)
 		)
-		(property "Description" "IC MCU 8BIT 16KB FLASH 20QFN"
+		(property "Description" "8 bit MCU 16 kB flash, QFN-20 3x3"
 			(at 50.8 49.53 0)
 			(hide yes)
 			(show_name no)
@@ -17676,8 +16071,8 @@
 				)
 			)
 		)
-		(property "DIGIKEY PART NUMBER" "336-4743-1-ND"
-			(at 76.2 39.37 0)
+		(property "MPN" "EFM8BB21F16G-C-QFN20R"
+			(at 50.8 49.53 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17685,11 +16080,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "LSCS PART NUMBER" "C80713"
-			(at 76.2 41.91 0)
+		(property "Manufacturer" "Silicon Labs"
+			(at 50.8 49.53 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17697,22 +16091,9 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "PACKAGE" "20QFN"
-			(at 49.53 87.63 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "MANUFACTURER PRODUCT NUMBER" "EFM8BB21F16G-C-QFN20R"
+		(property "LCSC" "C80713"
 			(at 50.8 49.53 0)
 			(hide yes)
 			(show_name no)
@@ -17839,7 +16220,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf"
 			(at 162.56 181.61 0)
 			(hide yes)
 			(show_name no)
@@ -17850,7 +16231,7 @@
 				)
 			)
 		)
-		(property "Description" "50V Thick Film Resistors 62.5mW 110kΩ ±1% ±100ppm/℃ 0402 Chip Resistor - Surface Mount ROHS"
+		(property "Description" "10 kΩ ±%1 0402"
 			(at 162.56 181.61 0)
 			(hide yes)
 			(show_name no)
@@ -17861,8 +16242,8 @@
 				)
 			)
 		)
-		(property "MANUFACTURER PRODUCT NUMBER" "RC0402FR-0710KL"
-			(at 161.29 176.022 90)
+		(property "MPN" "0402WGF1002TCE"
+			(at 162.56 181.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17870,11 +16251,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "ALTIUM_VALUE" "10k"
-			(at 161.29 176.022 90)
+		(property "Manufacturer" "UNI-ROYAL"
+			(at 162.56 181.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17882,11 +16262,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "PACKAGE" "0402"
-			(at 161.29 176.022 90)
+		(property "LCSC" "C25744"
+			(at 162.56 181.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17894,31 +16273,6 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
-			)
-		)
-		(property "DIGIKEY PART NUMBER" "311-10.0KLRCT-ND"
-			(at 159.766 185.42 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "LSCS PART NUMBER" "C60490"
-			(at 156.972 187.706 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
 			)
 		)
 		(pin "P$2"
@@ -18054,7 +16408,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf"
 			(at 43.18 151.13 0)
 			(hide yes)
 			(show_name no)
@@ -18065,7 +16419,7 @@
 				)
 			)
 		)
-		(property "Description" "50V Thick Film Resistors 62.5mW 110kΩ ±1% ±100ppm/℃ 0402 Chip Resistor - Surface Mount ROHS"
+		(property "Description" "10 kΩ ±%1 0402"
 			(at 43.18 151.13 0)
 			(hide yes)
 			(show_name no)
@@ -18076,8 +16430,8 @@
 				)
 			)
 		)
-		(property "MANUFACTURER PRODUCT NUMBER" "RC0402FR-0710KL"
-			(at 41.91 145.542 90)
+		(property "MPN" "0402WGF1002TCE"
+			(at 43.18 151.13 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18085,11 +16439,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "ALTIUM_VALUE" "10k"
-			(at 41.91 145.542 90)
+		(property "Manufacturer" "UNI-ROYAL"
+			(at 43.18 151.13 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18097,11 +16450,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "PACKAGE" "0402"
-			(at 41.91 145.542 90)
+		(property "LCSC" "C25744"
+			(at 43.18 151.13 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18109,31 +16461,6 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
-			)
-		)
-		(property "DIGIKEY PART NUMBER" "311-10.0KLRCT-ND"
-			(at 40.386 154.94 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "LSCS PART NUMBER" "C60490"
-			(at 37.592 157.226 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
 			)
 		)
 		(pin "P$2"
@@ -18195,7 +16522,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf"
 			(at 172.72 151.13 0)
 			(hide yes)
 			(show_name no)
@@ -18206,7 +16533,7 @@
 				)
 			)
 		)
-		(property "Description" "50V Thick Film Resistors 62.5mW 110kΩ ±1% ±100ppm/℃ 0402 Chip Resistor - Surface Mount ROHS"
+		(property "Description" "10 kΩ ±%1 0402"
 			(at 172.72 151.13 0)
 			(hide yes)
 			(show_name no)
@@ -18217,8 +16544,8 @@
 				)
 			)
 		)
-		(property "MANUFACTURER PRODUCT NUMBER" "RC0402FR-0710KL"
-			(at 171.45 145.542 90)
+		(property "MPN" "0402WGF1002TCE"
+			(at 172.72 151.13 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18226,11 +16553,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "ALTIUM_VALUE" "10k"
-			(at 171.45 145.542 90)
+		(property "Manufacturer" "UNI-ROYAL"
+			(at 172.72 151.13 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18238,11 +16564,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "PACKAGE" "0402"
-			(at 171.45 145.542 90)
+		(property "LCSC" "C25744"
+			(at 172.72 151.13 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18250,31 +16575,6 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
-			)
-		)
-		(property "DIGIKEY PART NUMBER" "311-10.0KLRCT-ND"
-			(at 169.926 154.94 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "LSCS PART NUMBER" "C60490"
-			(at 167.132 157.226 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
 			)
 		)
 		(pin "P$2"
@@ -18293,7 +16593,7 @@
 		)
 	)
 	(symbol
-		(lib_id "RLC:RES0402_22")
+		(lib_id "RLC:RES0402_10")
 		(at 152.4 138.43 270)
 		(unit 1)
 		(body_style 1)
@@ -18314,7 +16614,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Value" "RES0402_22"
+		(property "Value" "RES0402_10"
 			(at 148.844 134.874 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18336,7 +16636,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf"
 			(at 152.4 138.43 0)
 			(hide yes)
 			(show_name no)
@@ -18347,7 +16647,7 @@
 				)
 			)
 		)
-		(property "Description" "62.5mW Thick Film Resistors 50V ±1% ±100ppm/℃ 22Ω 0402 Chip Resistor - Surface Mount ROHS"
+		(property "Description" "10 Ω ±%5 0402, kapı direnci; G14"
 			(at 152.4 138.43 0)
 			(hide yes)
 			(show_name no)
@@ -18358,8 +16658,8 @@
 				)
 			)
 		)
-		(property "MANUFACTURER PRODUCT NUMBER" "RC0402FR-0722RL"
-			(at 151.13 132.842 90)
+		(property "MPN" "0402WGF100JTCE"
+			(at 152.4 138.43 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18367,11 +16667,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "ALTIUM_VALUE" "22"
-			(at 151.13 132.842 90)
+		(property "Manufacturer" "UNI-ROYAL"
+			(at 152.4 138.43 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18379,11 +16678,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "PACKAGE" "0402"
-			(at 151.13 132.842 90)
+		(property "LCSC" "C25077"
+			(at 152.4 138.43 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18391,31 +16689,6 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
-			)
-		)
-		(property "DIGIKEY PART NUMBER" "311-22.0LRCT-ND"
-			(at 149.606 142.24 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "LSCS PART NUMBER" "C114765"
-			(at 146.812 144.526 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
 			)
 		)
 		(pin "P$2"
@@ -18478,7 +16751,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/02336ea48ea44ca18c72517dd3cb7b47.pdf"
 			(at 149.86 95.25 0)
 			(hide yes)
 			(show_name no)
@@ -18489,7 +16762,7 @@
 				)
 			)
 		)
-		(property "Description" "X7R 100nF 16V ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+		(property "Description" "100 nF ±%10 16 V X7R 0402"
 			(at 149.86 95.25 0)
 			(hide yes)
 			(show_name no)
@@ -18500,8 +16773,8 @@
 				)
 			)
 		)
-		(property "MANUFACTURER PRODUCT NUMBER" "CL05B104KO3LNNC"
-			(at 147.828 89.662 0)
+		(property "MPN" "CL05B104KO5NNNC"
+			(at 149.86 95.25 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18509,11 +16782,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "DIGIKEY PART NUMBER" "1276-1507-1-ND"
-			(at 147.828 89.662 0)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 149.86 95.25 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18521,11 +16793,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "LSCS PART NUMBER" "C1525"
-			(at 147.828 89.662 0)
+		(property "LCSC" "C1525"
+			(at 149.86 95.25 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18533,42 +16804,6 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
-			)
-		)
-		(property "PACKAGE" "0402"
-			(at 147.828 89.662 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "VOLTAGE RATING" "16"
-			(at 147.828 89.662 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "ALTIUM_VALUE" "0u1"
-			(at 147.32 97.79 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
 			)
 		)
 		(pin "P$1"
@@ -18586,7 +16821,6 @@
 			)
 		)
 	)
-
 	(symbol
 		(lib_id "stack:PWR_FLAG")
 		(at 147.32 34.29 0)
@@ -18709,5 +16943,553 @@
 	(no_connect
 		(at 27.94 49.53)
 		(uuid "28a77264-3930-545a-9761-d5fe77ba8981")
+	)
+	(symbol
+		(lib_id "RLC:CAP0402_1u_25V_X5R")
+		(at 226.06 95.25 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "257ee939-7dcb-500b-a37e-a58017a7f267")
+		(property "Reference" "C120"
+			(at 226.06 92.71 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Value" "CAP0402_1u_25V_X5R"
+			(at 220.98 92.71 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Footprint" "RLC:0402-CAP"
+			(at 226.06 95.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/02336ea48ea44ca18c72517dd3cb7b47.pdf"
+			(at 226.06 95.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "1 µF ±%10 25 V X5R 0402"
+			(at 226.06 95.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "CL05A105KA5NQNC"
+			(at 226.06 95.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 226.06 95.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C52923"
+			(at 226.06 95.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "P$1"
+			(uuid "4fa196e3-0e70-5ae4-a58f-f529ef53a31f")
+		)
+		(pin "P$2"
+			(uuid "1ec59f5a-b7bb-50d7-9c73-d840e0fa6bf7")
+		)
+		(instances
+			(project "esc55a"
+				(path "/78885a65-daf6-56b0-984c-eb1fc04dfd40/723633c2-b7e3-5a0f-9161-76fbfcd2babb"
+					(reference "C120")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "stack:+8V_BAR")
+		(at 226.06 90.17 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "a4845bc8-16a3-59e3-86ce-468c109f0f74")
+		(property "Reference" "#PWR111"
+			(at 226.06 90.17 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+8V"
+			(at 226.06 86.36 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 226.06 90.17 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 226.06 90.17 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 226.06 90.17 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin ""
+			(uuid "c95a6d7f-77a4-5948-bd2d-0d44d22fcc1f")
+		)
+		(instances
+			(project "esc55a"
+				(path "/78885a65-daf6-56b0-984c-eb1fc04dfd40/723633c2-b7e3-5a0f-9161-76fbfcd2babb"
+					(reference "#PWR111")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "stack:GND_POWER_GROUND")
+		(at 226.06 97.79 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "1c93d0d7-c11e-5dee-84fe-dc5ab80388ec")
+		(property "Reference" "#PWR112"
+			(at 226.06 97.79 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 226.06 104.14 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 226.06 97.79 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 226.06 97.79 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 226.06 97.79 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin ""
+			(uuid "3ca013c5-951a-52e3-ba59-2ddbe35f18d6")
+		)
+		(instances
+			(project "esc55a"
+				(path "/78885a65-daf6-56b0-984c-eb1fc04dfd40/723633c2-b7e3-5a0f-9161-76fbfcd2babb"
+					(reference "#PWR112")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(text "C120: U12 VCC-COM, 1 µF (G13)"
+		(exclude_from_sim no)
+		(at 220.98 102.87 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left top)
+		)
+		(uuid "b7ae349d-f5d3-57e0-93c5-8a24428f8d3d")
+	)
+	(symbol
+		(lib_id "RLC:CAP0402_1u_25V_X5R")
+		(at 96.52 95.25 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "6a5e9512-f1ca-5da6-bc04-a890afe12dd8")
+		(property "Reference" "C220"
+			(at 96.52 92.71 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Value" "CAP0402_1u_25V_X5R"
+			(at 91.44 92.71 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Footprint" "RLC:0402-CAP"
+			(at 96.52 95.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/02336ea48ea44ca18c72517dd3cb7b47.pdf"
+			(at 96.52 95.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "1 µF ±%10 25 V X5R 0402"
+			(at 96.52 95.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "CL05A105KA5NQNC"
+			(at 96.52 95.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 96.52 95.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C52923"
+			(at 96.52 95.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "P$1"
+			(uuid "a86f9ed6-a04c-553f-b3c9-f30ec674c650")
+		)
+		(pin "P$2"
+			(uuid "f590e3f0-0b4c-5ee8-beff-2d74bfdfc6a0")
+		)
+		(instances
+			(project "esc55a"
+				(path "/78885a65-daf6-56b0-984c-eb1fc04dfd40/723633c2-b7e3-5a0f-9161-76fbfcd2babb"
+					(reference "C220")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "stack:+8V_BAR")
+		(at 96.52 90.17 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "6fa15ffc-ef5b-5370-9683-d9b3bffc4286")
+		(property "Reference" "#PWR113"
+			(at 96.52 90.17 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+8V"
+			(at 96.52 86.36 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 96.52 90.17 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 96.52 90.17 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 96.52 90.17 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin ""
+			(uuid "37edcac8-3f5a-59e7-a1cb-a110a729aa7e")
+		)
+		(instances
+			(project "esc55a"
+				(path "/78885a65-daf6-56b0-984c-eb1fc04dfd40/723633c2-b7e3-5a0f-9161-76fbfcd2babb"
+					(reference "#PWR113")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "stack:GND_POWER_GROUND")
+		(at 96.52 97.79 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "de09160b-8f6f-5676-8334-b520d2326827")
+		(property "Reference" "#PWR114"
+			(at 96.52 97.79 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 96.52 104.14 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 96.52 97.79 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 96.52 97.79 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 96.52 97.79 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin ""
+			(uuid "739e58c1-32df-52c3-bf50-17559578080a")
+		)
+		(instances
+			(project "esc55a"
+				(path "/78885a65-daf6-56b0-984c-eb1fc04dfd40/723633c2-b7e3-5a0f-9161-76fbfcd2babb"
+					(reference "#PWR114")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(text "C220: U22 VCC-COM, 1 µF (G13)"
+		(exclude_from_sim no)
+		(at 91.44 102.87 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left top)
+		)
+		(uuid "3f814752-15c5-5b6b-990e-3179c2a61864")
 	)
 )

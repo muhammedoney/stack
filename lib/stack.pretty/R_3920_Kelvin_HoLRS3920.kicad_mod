@@ -1,0 +1,99 @@
+(footprint "R_3920_Kelvin_HoLRS3920"
+	(version 20260206)
+	(generator "stack_esc55a_revb")
+	(layer "F.Cu")
+	(descr "Akim sontu 3920 (10 x 5.2 mm), Milliohm HoLRS3920-10W-0.1mR; ped DS s.6 (L 11, A 6.2, B 5.6 mm). Kelvin: 2 / 3 algilama pedleri pad 1 / 4 ic kenarinin ust kosesinde, net-tie 1-2 / 3-4; govde altindan iz gecmez (aciktaki alasim)")
+	(tags "shunt kelvin 3920 HoLRS3920")
+	(property "Reference" "REF**"
+		(at 0 -4.3 0)
+		(layer "F.SilkS")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "R_3920_Kelvin_HoLRS3920"
+		(at 0 4.3 0)
+		(layer "F.Fab")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr smd)
+	(net_tie_pad_groups "1, 2" "3, 4")
+	(duplicate_pad_numbers_are_jumpers no)
+	(fp_line
+		(start -2.4 -3.4)
+		(end 2.4 -3.4)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+	)
+	(fp_line
+		(start -2.4 3.4)
+		(end 2.4 3.4)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+	)
+	(fp_rect
+		(start -5 -2.6)
+		(end 5 2.6)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.Fab")
+	)
+	(fp_rect
+		(start -5.75 -3.6)
+		(end 5.75 3.6)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.CrtYd")
+	)
+	(fp_text user "${REFERENCE}"
+		(at 0 0 0)
+		(layer "F.Fab")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(pad "1" smd rect
+		(at -4.15 0)
+		(size 2.7 6.2)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+	)
+	(pad "2" smd rect
+		(at -3.05 -2.85)
+		(size 0.5 0.5)
+		(layers "F.Cu")
+	)
+	(pad "3" smd rect
+		(at 3.05 -2.85)
+		(size 0.5 0.5)
+		(layers "F.Cu")
+	)
+	(pad "4" smd rect
+		(at 4.15 0)
+		(size 2.7 6.2)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+	)
+	(embedded_fonts no)
+)

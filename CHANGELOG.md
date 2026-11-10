@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-11-10 — ESC şematik Rev B, F405 referansları, DT-002
+
+- İP-03 güç analizi (`docs/rapor/guc-ip03.md`): 40 V MOSFET, JSM6288Q1 (UVLO), 0.1 mΩ + INA240 akım ölçümü, SMDJ24CA + 15 × 10 µF 50 V, FMU SY8303 × 2 + AMS1117; 4 × 55 A sürekli ısıl olarak tutmuyor. `docs/inceleme.md` düzeltmesi: INA199C1 kazancı 50 (tam ölçek ~124 A), FMU VBAT bölücüsü 29 V.
+- esc55a şematik Rev B (`tools/esc55a_revb.py`, `tools/sch_edit.py`): G1, G3–G6, G11–G14, E6 uygulandı; tüm parçalarda LCSC/MPN; ERC 0 hata, 2 uyarı. PCB güncellenmedi (senkron notu `boards/esc55a/README.md`). Yeni semboller/ayak izleri `lib/`, `lib/stack.pretty/`.
+- ESC Rev B maliyeti (`docs/bom-maliyet.md` §9, `boards/esc55a/bom-revb.csv`): ESC 16.72 $, stack ~31.7 $ (100 set); veri sayfaları `lib/datasheet/`.
+- F405 referans taraması ve önerilen mimari `docs/mimari-fmu.md`; pin haritası `docs/pin-haritasi.md` (SPEEDYBEEF405V4 uyumlu, 8 motor, HSE 8 MHz).
+- DT-002 (müşteri onayı bekliyor): FMU gereksinimleri hedef ürün ailesine göre (M3 8S, M4a 8 motor, ArduPilot); SYS 61, DOG 103; KRR-005…007 öneri; SOR-013…017.
+
 ## 2026-11-06 — Kapı 1 onayı
 
 - Müşteri gereksinimleri onayladı: SYS-001…094, MUS, PRJ `Onaylı`. DT-001: maliyet hedefi 15 $ → ≤ 28 $/stack (100 set, tüm özellikler). SOR-010: ESC’de ters kutup koruması yok, + / − ipek baskı ve uyarı. SOR-011: kutuda 8 pin kablo, düşük ESR kondansatör, M3 tampon/vida. SOR-012: analog OSD kesin (SYS-034 zorunlu).

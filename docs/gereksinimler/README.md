@@ -43,3 +43,16 @@ Kapı 1’e hazır taslak (5" stack: fmu + esc55a). Hepsi `Taslak`, müşteri on
 | Mevcut tasarımın karşılamadığı | SYS-012, SYS-014, SYS-020 (kritik, E1), SYS-042, SYS-044, SYS-062, SYS-091 — `izlenebilirlik.md` kapsam özeti |
 
 **Kapı 1 (2026-11-06):** müşteri onayladı. SYS-001…094 ve MUS/PRJ `Onaylı`; DT-001 maliyet hedefi ≤ 28 $/stack; SOR-010…012 cevaplandı. İş paketleri İP-01…11 açık.
+
+## Durum (2026-11-10) — DT-002 müşteri onayı bekliyor
+
+FMU (M1 F405) gereksinimleri yol haritasındaki hedef ürünlere göre güncellendi (müşteri: “F405 için gereksinimleri hedef ürünü göz önüne alarak yap”). Etki analizi `proje.md` → DT-002.
+
+| | Durum |
+|---|---|
+| MUS | MUS-001…013 (13; Onaylı 9, Taslak 4: MUS-010…013) |
+| SYS | 61 (Onaylı 46, **Değişti 10**: SYS-002, 003, 022, 035, 037, 042, 044, 050, 055, 062; **Taslak 5**: SYS-004, 023, 046, 056, 057); Z 41, Ö 18, İ 2 |
+| DOG | DOG-001…103 (Ü-öncesi 59, Kart 44); değişen 13, yeni DOG-091…103 |
+| KRR | KRR-001…004; **öneri** KRR-005 (pin haritası SPEEDYBEEF405V4), KRR-006 (referans kullanım kuralı), KRR-007 (8S stratejisi) |
+| RSK | RSK-001…016 (RSK-014…016 yeni) |
+| Açık soru (şimdi sorulacak, sırayla) | SOR-013 8S stratejisi, SOR-015 “55 A” tanımı, SOR-016 maliyet ≤ 32 $, SOR-017 pil kondansatörü zorunlu, SOR-014 açık kaynak |
