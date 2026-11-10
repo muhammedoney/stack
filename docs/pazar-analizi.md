@@ -1,6 +1,6 @@
 # Pazar analizi — FPV stack (FMU + 4’ü 1 arada ESC)
 
-Sahibi `pazar-analisti`. Tarih: 2026-11-06. Ham veri: [`pazar/rakipler.csv`](pazar/rakipler.csv). Fiyatlar USD, KDV/kargo hariç, satıcı sayfasında görülen değerler (stok ve kampanya sık değişiyor). Akım değerleri **üretici iddiası**; bağımsız test yok.
+Sahibi `pazar-analisti`. Tarih: 2026-11-06 (§6a: 2026-11-10, müşteri km taşı sırası). Ham veri: [`pazar/rakipler.csv`](pazar/rakipler.csv). Fiyatlar USD, KDV/kargo hariç, satıcı sayfasında görülen değerler (stok ve kampanya sık değişiyor). Akım değerleri **üretici iddiası**; bağımsız test yok.
 
 ## 1. Özet
 
@@ -72,6 +72,34 @@ Sahibi `pazar-analisti`. Tarih: 2026-11-06. Ham veri: [`pazar/rakipler.csv`](paz
 | Fiyat bandı | Satış **≤ 70 $/stack** [öneri, tahmin] | SpeedyBee V4 (70 $) ile aynı, AliExpress markalarının (45–57 $) üstünde; yerli destek + belgeli tasarım fark |
 | 7"/10" (sonra) | esc65a: **65 A, 3–8S** varyantı | GEPRC H65 8S ve T-Motor V70A 8S ile aynı sınıf; 10" için 80 A ayrı değerlendirilir |
 | Fark yaratma | Doğru akım ölçümü (pazarda kalibrasyon sorunlu), 6S geçici koruması, açık belgeler, yerli destek; ileride Bluetooth/kablosuz ayar | |
+
+## 6a. Portföy ve yol haritası (2026-11-10, müşteri sırası)
+
+Ayrıntı, muadiller ve kaynaklar: [`pazar/urun-portfoyu-yol-haritasi.md`](pazar/urun-portfoyu-yol-haritasi.md); ham veri [`pazar/portfoy-fiyatlar.csv`](pazar/portfoy-fiyatlar.csv). “F100” yazım hatasıydı, doğrusu **F405**. Hedef fiyatlar **öneri**dir.
+
+| KT | Ürün | Ana muadil ($) | Hedef fiyat (öneri, $) |
+|---|---|---|---|
+| M1 | 5" stack: F405 FMU + 55 A (mevcut) + ayrı FMU/ESC SKU + aksesuar | SpeedyBee F405 V4 55A 65.99 | stack 59–65; FC 35–39; ESC 28–33 |
+| M2 | 5"/7" ESC **65 A / 80 A, 3–6S** (esc65a, 40 V BOM) | SpeedyBee BLS 60A 46.99 (V4 60A stack kalktı), GEPRC H60 46.79 | ESC 39–45; stack 72–78 |
+| M3 | 7"/10" **8S**: ESC 65 A + 80 A, 8S FMU, GPS M10 | GEPRC H65 8S 46.99, H80 69.99; GEP-F405-8S 47.99; HGLRC M100-5883 16–22 | ESC 45–49 / 62–68; FMU 40–45; GPS 15–18 |
+| M4 | F7 FMU (F722; Betaflight + INAV) | SpeedyBee F7 V3 FC 45.99 (stack kalktı), Foxeer F722 V4 64.90 | FC 42–48 |
+| M4a | **Dual-ESC FMU** (2× 4in1 → 8 motor), ayrı SKU | SpeedyBee 8 motor pedi; fark = çift ESC konnektörü | FC Dual 48–55 |
+| M5 | 2. versiyon: BF + INAV + **ArduPilot** → **H743** önerisi | GEPRC Taker H743 FC 87, TBS Lucid H7 59.95 | FC 55–65; stack 105–115 |
+| M6 | Kanat FC (INAV) + ESC aynı PCB (kırılabilir) | TBS Lucid Wing AIO (H7 + 50 A) 69.95–82.99; RU НИМБУС F4 stack 7 700 ₽ | F405 + 45 A 55–65 |
+| M7 | AM32 32 bit ESC (60 A 3–6S, 80 A 8S) | JHEMCU AM32A60 44.99, TBS Lucid 60A 8S 84.99 | 45–50 / 70–80 |
+| M8 | ELRS alıcı (2.4 G → LR1121) | Happymodel EP2 13.49–16.99, RP1 V2 18.99 | 13–16 / 22–25 |
+| M9 | Analog VTX seviye 1 (≤ 600 mW, 20×20) | Flywoo HM600 19.99, Unify Pro32 Nano 22.99–31.10 | 22–27 |
+| M10 | Analog VTX seviye 2 (1.6–2.5 W, 7–36 V) | RUSH Max Solo 49.99–51.99 | 45–52 |
+| M11 | Fiber → stack uyumu (`../fiber` mevcut; sıfırdan değil) | Transwan 35×30 mm; bizim fiberair Rev B | fiber deposunda |
+
+Ertelenen: AIO (en arkaya), dijital VTX (durdu), mekanik (en son). Önerilen takvim 2026 Q4→2029 Q3 ve poster: [`pazar/urun-portfoyu-yol-haritasi.md`](pazar/urun-portfoyu-yol-haritasi.md) §B, [`pazar/stack-yol-haritasi-poster.jpg`](pazar/stack-yol-haritasi-poster.jpg).
+
+**Önemli bulgular / güncellemeler (§2, §3, §6’ya göre):**
+- SpeedyBee F405 V4 55A stack resmi **65.99 $**; **V4 60A ve F7 V3 stack’leri üretimden kalktı** (SpeedyBee, 2026-11-10). §6 “≤ 70 $” lider ürünün üstünde.
+- **STM32F722’de ArduPilot çalışmaz** (512 KB; ArduPilot ≥ 1 MB ister). F405 ve F745 kısıtlı firmware, F765/H743 tam. F765 Betaflight ürün hedefi yok ve Matek’te EOL → üç yazılım için gerçekçi seçenek **H743**.
+- 10" sınıfı 80–100 A 8S’e kaydı (GEPRC H80 69.99 $, H100 79.99 $).
+- GEPRC H65 8S: FPVtopia (üretici verisi) BLHeli_S, hedef B_X_30 → önceki çelişki büyük ölçüde çözüldü.
+- UAVMODEL blog özellik bilgisinde hatalı; yalnız eğilim için kullanılmalı.
 
 ## 7. Belirsizlikler
 

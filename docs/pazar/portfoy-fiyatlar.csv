@@ -1,0 +1,92 @@
+kategori,urun,uretici,ozellik,fiyat_usd,satici,erisim_tarihi,not
+FC,SpeedyBee F405 V4 30x30 (yalniz FC),SpeedyBee,F405 ICM42688P baro AT7456E BT SD 5V+9V 3A,45.99,RaceDayQuads,2026-11-10,Rotorama 44.39 EUR (~49.41); flycamdrones 28.19 indirimli
+FC,Diatone Mamba MK4 F405 Mini 20x20,Diatone,F405 ICM42688P AT7456E 16MB 5V2.5A 9V2A,31.99-54.99,Diatone / MyFPVStore,2026-11-10,
+FC,GEP-F405-8S,GEPRC,F405 8S girisli,47.99,GEPRC,2026-11-10,tek satici
+FC,GEPRC TAKER F722 8S,GEPRC,F722 8S,49.99,GEPRC,2026-11-10,tek satici
+FC,GEPRC TAKER H743 MINI,GEPRC,H743 20x20,45.99,GEPRC,2026-11-10,tek satici
+FC,Foxeer F722 V4,Foxeer,F722 ICM42688 DPS310,64.90,Foxeer,2026-11-10,tek satici
+FC,TBS Lucid H7,TBS,H743 BF/INAV/ArduPilot,59.95,TBS / GetFPV,2026-11-10,
+FC,Ewing Aerospace H7 (NDAA/Blue UAS),Ewing,H7 NDAA uyumlu,74.99,Ewing,2026-11-10,H7 Pro 94.99
+FC-kanat,SpeedyBee F405 WING APP,SpeedyBee,F405 INAV 12 PWM PDB 90A sensor BLE/WiFi,64.99-74.99,Great Hobbies / SoarSky,2026-11-10,
+FC-kanat,Matek F405-WTE,Matek,F405 ELRS+WiFi dahili 25x25,56.39 GBP (KDV dahil),Unmanned Tech,2026-11-10,USD karsiligi ~70 (tahmin)
+FC-kanat,Matek H743-WING V3,Matek,H743 13 PWM PDB CAN,109.99 GBP / 124 EUR (KDV dahil),3DXR / Drone Impulse,2026-11-10,
+Stack,SpeedyBee F405 V4 BLS 55A,SpeedyBee,F405 + 55/70A 3-6S,65.99 (resmi),SpeedyBee,2026-11-10,2026-11-06 notu 69.99-86.49; 60A surumu 75.99
+Stack,GEPRC TAKER F405 BLS 60A V2,GEPRC,F405 + 60A 3-6S,80.99-100.32,GEPRC / diyfpv,2026-11-10,
+Stack,SpeedyBee F405 Mini BLS 35A 20x20,SpeedyBee,F405 + 35/45A 3-6S,64.99 (resmi; uretimden kalkti) / 79.99+,SpeedyBee / FPVSTORERC,2026-11-10,
+Stack,GEPRC TAKER F405 BLS 80A 8S,GEPRC,F405 + 80A 8S,47.99-116.99 (FC/ESC/set secenekli),GEPRC,2026-11-10,
+AIO,SpeedyBee F405 AIO 40A Bluejay 25.5,SpeedyBee,F405 + 40A 3-6S Bluejay,55.99-61.99,SpeedyBee,2026-11-10,diyfpv 89.22'den
+AIO,Flywoo GOKU F405 V2 1-2S 12A ELRS,Flywoo,F405 + 12A + ELRS seri,64.17-89.99,Unmanned Tech / RaceDayQuads,2026-11-10,
+AIO,BetaFPV F4 1S ELRS AIO,BetaFPV,F411 5A ELRS SPI,39.99,brushlesswhoop (inceleme),2026-11-10,tarih eski olabilir
+AIO,Happymodel ELRS X1 AIO 12A,Happymodel,F411 12A ELRS SPI EFM8BB21,52.80 GBP (KDV dahil),yourfpv,2026-11-10,
+ESC,SpeedyBee BLS 55A 30x30,SpeedyBee,55/70A 3-6S BLHeli_S,26.39-39.99,RotorXpress / Progressive RC,2026-11-10,UK 44.90 GBP KDV dahil
+ESC,SpeedyBee BLS 35A Mini V2 20x20,SpeedyBee,35/45A 3-6S,44.99 / 32.50 GBP,Great Hobbies / yourfpv,2026-11-10,
+ESC,GEPRC TAKER H60,GEPRC,60/65A 3-6S,46.79,MyFPVStore,2026-11-10,
+ESC,GEPRC TAKER H65 8S,GEPRC,65/70A 3-8S,46.99-49.49,GEPRC / MyFPVStore,2026-11-10,diyfpv yazilimi BLHeli_32 diyor; adi BLS (celiski)
+ESC,GEPRC TAKER H80 8S BLS,GEPRC,80A 8S,69.99,GEPRC,2026-11-10,tek satici
+ESC,GEPRC TAKER H100 8S BLS,GEPRC,100A 8S,79.99,GEPRC,2026-11-10,tek satici
+ESC,GEPRC TAKER H60 MINI AM32,GEPRC,60A AM32 20x20,45.99,GEPRC,2026-11-10,tek satici
+ESC,TBS Lucid 60A 8S AM32,TBS,60A 8S AM32,84.99,GetFPV,2026-11-10,
+ESC,Axisflying Argus PRO 80A 4-8S,Axisflying,80/90A 8S BLHeli_32 57x56 mm,99.00-123.54,Axisflying / diyfpv,2026-11-10,13-15 inc icin oneriliyor
+ESC,iFlight BLITZ E80 Pro,iFlight,80/100A 2-8S,229.99,iFlight,2026-11-10,tek satici
+ESC,Ewing 80A 4in1 AM32 (NDAA),Ewing,80A AM32,149.99,Ewing,2026-11-10,stok yok
+GPS,HGLRC M100-5883,HGLRC,M10 + QMC5883 10Hz 21x21,16.40-22.49,diyfpv (ZoneFPV..GetFPV),2026-11-10,HGLRC 16.99
+GPS,HGLRC M100 Mini (pusulasiz),HGLRC,M10,6.99+,diyfpv,2026-11-10,
+GPS,Matek M10Q-5883,Matek,SAM-M10Q + QMC5883L,24.99+,diyfpv (RMRC),2026-11-10,
+GPS,SpeedyBee BZ-181,SpeedyBee,M10 sinifi,32.99,Great Hobbies,2026-11-10,tek satici
+VTX-analog,RUSHFPV Tank III Ultimate,RUSHFPV,25-1000mW 7-36V,41.98-41.99,yohorc / dronegearhq,2026-11-10,
+VTX-analog,TBS Unify Pro32 HV,TBS,25-1000mW 6-25V,46.75-52.41,diyfpv / rotorbuilds,2026-11-10,
+VTX-analog,GEPRC MATEN 5.8G 1.6W / 2.5W,GEPRC,1.6-2.5W,47.99-54.99,GEPRC / yohorc,2026-11-10,1.2G/3.3G/10W surumleri 55-150
+VTX-analog,SpeedyBee TX800,SpeedyBee,800mW,19.99-59.99 (liste belirsiz),Great Hobbies,2026-11-10,satir eslesmesi belirsiz
+VTX-dijital,HDZero Race V3,HDZero,dijital,69.99-79.99,hd-zero.com / hdzero.us,2026-11-10,Freestyle V2 99.99-114.99
+VTX-dijital,Walksnail Avatar HD V2 VTX,Walksnail,dijital,118.99-128.99,RaceDayQuads / GetFPV,2026-11-10,Kit V2 139-159
+VTX-dijital,DJI O4 Air Unit,DJI,dijital,109 / Pro 229,dronegearhq (DJI magazasi),2026-11-10,tek kaynak
+RX,Happymodel EP2,Happymodel,ESP8285+SX1280 seramik,13.49-16.99,FlyFive33 / TinyWhoop,2026-11-10,
+RX,RadioMaster RP1/RP2 V2,RadioMaster,ESP8285+SX1281,18.99,RadioMaster,2026-11-10,
+RX,RadioMaster RP3 V2,RadioMaster,LNA+PA cesitlemeli,19.99,RadioMaster / cskyuav,2026-11-10,
+RX,RadioMaster RP4TD,RadioMaster,cift SX1281 gercek cesitleme,24.99,RadioMaster,2026-11-10,
+RX,GEPRC ELRS C3 Gemini Xrossband,GEPRC,LR1121x2 + ESP32-C3 cift bant,25.99-27.99,GEPRC,2026-11-10,
+RX,SpeedyBee Nano 2.4G ELRS,SpeedyBee,2.4G,19.99,Great Hobbies,2026-11-10,
+PDB,Matek FCHUB-12S V2,Matek,3-12S 4x70A 440A sensor 5V5A 12V4A,27.21-38.99,RMRC / RaceDayQuads / GetFPV,2026-11-10,
+BEC,SpeedyBee 12V/1A Micro BEC (anahtarli),SpeedyBee,3-6S,7.99,Great Hobbies,2026-11-10,tek satici
+BEC,SpeedyBee Goggles BEC G2,SpeedyBee,gozluk beslemesi,26.99,Great Hobbies,2026-11-10,tek satici
+Aksesuar,SpeedyBee BT Nano 3,SpeedyBee,Bluetooth FC ayar adaptoru,14.99,Great Hobbies,2026-11-10,
+LED,Matek 2812 Slim LED Strip,Matek,8 LED,4.99 (tek) / 6.79-8.49 (2li),hobbywireless / fpvoptic,2026-11-10,
+LED,Matek 2812 LED Controller V2,Matek,30.5 4 kanal,5.99,dronecorporate,2026-11-10,
+LED,SpeedyBee 2812 kol LED (4 adet),SpeedyBee,,4.99,SpeedyBee,2026-11-10,
+Buzzer,VIFLY Finder 2,VIFLY,kendinden pilli 110 dB,13.99 / 12.72 EUR,Amazon / fpv-fly.fr,2026-11-10,
+Radyo-TX,RadioMaster Pocket ELRS,RadioMaster,EdgeTX,59.99-71.50,RadioMaster / stickbench,2026-11-10,
+Radyo-TX,RadioMaster Boxer ELRS,RadioMaster,EdgeTX,153.99,stickbench,2026-11-10,
+TR-pazar,SpeedyBee F405 V4 BLS 55A stack,SpeedyBee,,3540.40 TL,Migitec,2026-11-10,gumruk dahil gorunuyor; KDV durumu belirtilmemis
+TR-pazar,SpeedyBee F405 V4 BLS 55A stack,SpeedyBee,,4450 TL + KDV (5340 TL),Robotzade,2026-11-10,stok yok
+TR-pazar,SpeedyBee F405 V4 BLS 55A stack,SpeedyBee,,92.90 USD + KDV,Komponentci,2026-11-10,stok yok
+TR-rakip,Orbit STACK F435 + BLS 50A,Orbit Teknoloji (Ankara),AT32F435 + 50A 2-6S Bluejay ters kutup korumasi,fiyat bulunamadi,orbitteknoloji.com.tr / PttAVM,2026-11-10,yerli; kendi dizgi tesisi
+TR-rakip,Yuke Aero FCU-FPV / AM32 DroneCAN ESC / ELRS RX,Yuke Aero (Istanbul),KiCad+JLC; prototip,satista degil,yukeaero.com,2026-11-10,
+Stack,SpeedyBee F405 V4 BLS 60A,SpeedyBee,F405 + 60/80A 3-6S BLHeli_S,75.99 (resmi; uretimden kalkti),SpeedyBee / FPVSTORERC,2026-11-10,ESC tek 46.99 (SpeedyBee)
+Stack,SpeedyBee F7 V3 BL32 50A,SpeedyBee,F722 + 50/55A 3-6S BLHeli_32,89.99 (resmi; uretimden kalkti) / 102.66,SpeedyBee / RMRC,2026-11-10,FC tek 45.99 (indirimli resmi)
+FC,Foxeer F722 V4 (tekrar),Foxeer,F722 512KB ArduPilot yok,64.90,Foxeer,2026-11-10,tek satici
+FC,GEPRC TAKER H743 BT 30x30,GEPRC,H743 MPU6000+ICM42688 BF/INAV/ArduPilot 5V3A 12V2.5A,87.00 / 65.89 EUR,Next FPV / Rotorama,2026-11-10,Rotorama: uretimden kalkti
+Stack,GEPRC TAKER H743 BT 32Bit 65A,GEPRC,H743 + 65A 3-6S BL32 (AM32 AT32F421 destekli),120.59-135.00,diyfpv (Rotor Village / FPVSTORERC),2026-11-10,50A stack 109.99 GEPRC stok yok
+FC,Matek F765-WSE,Matek,F765 2MB INAV/ArduPilot (BF hedefi yok),78.99-79.99,hobbywireless / defianceRC,2026-11-10,EOL; yerine H743-WLITE; stok yok
+FC-kanat-AIO,TBS Lucid Wing AIO 2-6S 50A,TBS,H743 + 1x50A AM32 INAV/ArduPilot servo BEC 5A,69.95 / 76.99 / 82.99,TBS / RaceDayQuads / GetFPV,2026-11-10,UK 69.95 GBP KDV dahil (flyingtech)
+AIO,MicoAir743v2-AIO-35A,MicoAir,H743 + 4x35A Bluejay ArduPilot/INAV/BF/PX4,fiyat alinmadi,micoair.com,2026-11-10,VTOL icin ornek
+FC-kanat,CoreWing F405 Wing V2 (eski SpeedyBee F405 WING APP),CoreWing,F405 INAV/ArduPilot PDB servo BEC 8A,fiyat alinmadi (eski ad 64.99-74.99),RaceDayQuads,2026-11-10,RU 8217 RUB (rccopter.ru eski ad)
+FC-kanat,Matek H743-WING V2/V3,Matek,H743 13 PWM CAN,12200 RUB,glory-avia.ru,2026-11-10,UK 109.99 GBP KDV dahil (3DXR)
+RU-rakip,NIMBUS F4 stack (OOO IRT),OOO IRT (Rusya),F4 + 65A 32bit 4-6S kendi ESC yazilimi BF/INAV/ArduPilot,7700 RUB,nalitay.rf / irtsolution.com,2026-11-10,tek satici; yerli uretim
+RU-rakip,Baklan-1 (KB Oko),KB Oko (Rusya),kanat IHA FC >100A motor,prototip,aviastat.ru,2026-11-10,satista degil
+RU-rakip,Strizh (NITU MISIS),MISIS (Rusya),kanat + cok rotorlu FC yerli eleman,prototip,misis.ru,2026-11-10,satista degil
+ESC,SpeedyBee BLS 60A 30x30,SpeedyBee,60/80A 3-6S BLHeli_S 3 oz,46.99,SpeedyBee,2026-11-10,tek satici (resmi)
+ESC,JHEMCU Ruibet 60A/65A,JHEMCU,60-65A 3-6S BLHeli_S,39.99+,SpeedyFPV,2026-11-10,tek satici
+ESC,JHEMCU AM32A60,JHEMCU,60A 3-6S AM32 akim sensoru,44.99 (liste 54.99),SpeedyFPV,2026-11-10,tek satici
+ESC,HobbyWing XRotor G2 65A AM32,HobbyWing,65/80A 3-6S AM32 F4 MCU,119.99,Pyrodrone,2026-11-10,tek satici
+ESC,GEPRC TAKER H65 8S (tekrar),GEPRC,65/70A 3-8S BLHeli_S hedef B_X_30,46.99,FPVtopia (uretici verisi 2026-10-22),2026-11-10,yazilim celiskisi cozuldu
+VTX-analog-1,Flywoo GOKU HM600,Flywoo,25-600mW 7-28V 20/25/30 U.FL,19.99,RaceDayQuads,2026-11-10,tek satici
+VTX-analog-1,HGLRC Zeus Nano,HGLRC,25-350mW 16/20/25,22.99-25.99,diyfpv / Wrekd,2026-11-10,
+VTX-analog-1,TBS Unify Pro32 Nano 5G8 V1.1,TBS,25-500mW nano,22.99-31.10,Wrekd / diyfpv,2026-11-10,
+VTX-analog-1,JHEMCU 25-600mW 20x20 MMCX,JHEMCU,25-600mW 7-26V IRC Tramp,26.99,diyfpv (Koptery.cz),2026-11-10,
+VTX-analog-1,SpeedyBee TX800,SpeedyBee,25-800mW 20x20 MMCX,29.99-36.77,Wrekd / diyfpv,2026-11-10,onceki satir belirsizligi giderildi
+VTX-analog-1,RUSHFPV Tank Solo,RUSHFPV,25-1000mW 20x20 MMCX,33.99,Wrekd,2026-11-10,tek satici
+VTX-analog-2,RUSHFPV Max Solo 2.5W,RUSHFPV,25mW-2.5W 7-36V fanli SmartAudio,49.99 / 51.99,RUSHFPV / FPVSTORERC / CaptainRC,2026-11-10,
+VTX-analog-2,Foxeer Reaper Extreme 2.5W,Foxeer,2.5W 37CH,62.90,diyfpv,2026-11-10,tek satici
+Fiber-hava,Transwan fiber modul (Sky Link),Transwan (CN),35x30 mm 16g GH1.25 5-32V SBUS/CRSF,420 (set),transwan.com.cn,2026-11-10,Streamblick ayni urun
+Fiber-hava,SkycraftUA fiber modul,SkycraftUA,50x29x13 mm SH1.0 6P 5.5-26V 0.4W CRSF,fiyat alinmadi,skycraftua.com,2026-11-10,
+Fiber-hava,RUID fiber TX,Guangzhou RUID,33x53x14 mm 16g SH1.0 6P 9-30V SBUS/CRSF,fiyat alinmadi,fiberwdm.com veri sayfasi,2026-11-10,
