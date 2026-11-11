@@ -1,284 +1,145 @@
 #!/usr/bin/env python3
-"""Crow PCB logo: place CROW left of beak, export JPG + SVG + DXF.
+"""Crow PCB silkscreen logo: clean vector beak mark, KiCad footprints + previews.
 
-Usage:
-  python3 tools/crow_logo_pcb.py \\
-    /path/to/crow-beak-only.jpg \\
-    docs/pazar/crow-fpv-logo-pcb
+The silkscreen mark is the beak silhouette of docs/pazar/crow-fpv-logo.jpg drawn
+as one solid polygon (no raster tracing, no letters cut into it: at 6-8 mm the
+letter holes are below JLC silkscreen limits and do not print). The word "CROW"
+is a separate KiCad stroke-font text next to the mark, in the "_Text" variant.
+
+JLC silkscreen limits used: line >= 0.153 mm, text height >= 1.0 mm.
+Text: 6 mm mark -> 1.2 mm / 0.18 mm, 8 mm mark -> 1.6 mm / 0.2 mm.
+
+Outputs (written every run, deterministic):
+  lib/stack.pretty/Crow_Logo_{6,8}mm.kicad_mod        mark only (F.SilkS)
+  lib/stack.pretty/Crow_Logo_Text_{6,8}mm.kicad_mod   mark + "CROW" stroke text
+  docs/pazar/crow-fpv-logo-pcb.{svg,dxf,jpg}          8 mm mark (+ text preview)
+
+Usage:  python3 tools/crow_logo_pcb.py
 """
 from __future__ import annotations
 
-import sys
+import uuid
 from pathlib import Path
 
-import numpy as np
 from PIL import Image, ImageDraw, ImageFont
 
 ROOT = Path(__file__).resolve().parents[1]
+PRETTY = ROOT / "lib" / "stack.pretty"
+DOCS = ROOT / "docs" / "pazar"
 FONT = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
 
+# Beak silhouette (outer contour of the earlier traced mark, cleaned: notch and
+# letter holes removed). Units: source pixels, y down. Beak tip points right-down.
+BEAK = [(322, 366), (478, 366), (594, 439), (694, 542), (739, 626),
+        (667, 593), (540, 564), (367, 672), (449, 550), (449, 445)]
 
-def compose(src: Path, out_stem: Path) -> Image.Image:
-    im = Image.open(src).convert("RGBA")
-    w, h = im.size
-    # Head cheek sits left of the beak (beak opens right).
-    # Knockout letters inside the white head, left of the beak (cheek).
-    font_size = max(32, int(w * 0.07))
-    font = ImageFont.truetype(FONT, font_size)
-    text = "CROW"
-    draw = ImageDraw.Draw(im)
-    bbox = draw.textbbox((0, 0), text, font=font)
-    tw, th = bbox[2] - bbox[0], bbox[3] - bbox[1]
-    # Cheek: left of beak tip, right of crest — inside filled head.
-    x = int(w * 0.46) - tw // 2
-    y = int(h * 0.47) - th // 2
-    # Slight stroke so letter holes survive contour tracing.
-    draw.text((x, y), text, font=font, fill=(0, 0, 0, 255), stroke_width=1, stroke_fill=(0, 0, 0, 255))
-    rgb = Image.new("RGB", im.size, (0, 0, 0))
-    rgb.paste(im, mask=im.split()[3])
-    jpg = out_stem.with_suffix(".jpg")
-    rgb.save(jpg, quality=95)
-    print("wrote", jpg)
-    return rgb
+def text_size(width_mm: float):
+    """CROW text height/stroke: 0.2 x mark width, never below JLC limits (1.0 / 0.153 mm)."""
+    h = max(1.2, round(0.2 * width_mm, 2))
+    return h, max(0.18, round(h * 0.125, 3))
 
 
-def binary_mask(im: Image.Image, thr: int = 40) -> np.ndarray:
-    g = np.asarray(im.convert("L"))
-    return g > thr
+def norm(width_mm: float):
+    """Polygon in mm, origin at the mark centre, y down (KiCad)."""
+    xs = [p[0] for p in BEAK]
+    ys = [p[1] for p in BEAK]
+    s = width_mm / (max(xs) - min(xs))
+    cx = (max(xs) + min(xs)) / 2
+    cy = (max(ys) + min(ys)) / 2
+    pts = [((x - cx) * s, (y - cy) * s) for x, y in BEAK]
+    return pts, (max(ys) - min(ys)) * s
 
 
-def neighbors8(y: int, x: int):
-    # Clockwise from E
-    return (
-        (y, x + 1),
-        (y + 1, x + 1),
-        (y + 1, x),
-        (y + 1, x - 1),
-        (y, x - 1),
-        (y - 1, x - 1),
-        (y - 1, x),
-        (y - 1, x + 1),
-    )
+def uid(name: str) -> str:
+    return str(uuid.uuid5(uuid.NAMESPACE_URL, "stack/crow/" + name))
 
 
-def trace_boundary(mask: np.ndarray, start: tuple[int, int]) -> list[tuple[int, int]]:
-    """Moore-neighbor outer boundary walk. Points are (x, y) pixel corners-ish (pixel centers)."""
-    h, w = mask.shape
-    sy, sx = start
-    # Start direction: coming from left, looking for first FG
-    contour = []
-    y, x = sy, sx
-    # Find initial backtrack (west of start)
-    back = 4  # index into neighbors8: W
-    for _ in range(h * w * 2):
-        contour.append((x, y))
-        nbrs = neighbors8(y, x)
-        # Start search from next after backtrack (back+1)
-        found = None
-        for k in range(1, 9):
-            i = (back + k) % 8
-            ny, nx = nbrs[i]
-            if 0 <= ny < h and 0 <= nx < w and mask[ny, nx]:
-                found = (ny, nx, i)
-                break
-        if found is None:
-            break
-        y, x, i = found
-        # New back is opposite of entry direction
-        back = (i + 4) % 8
-        if (x, y) == (sx, sy) and len(contour) > 8:
-            break
-        if len(contour) > h * w:
-            break
-    return contour
-
-
-def label_components(mask: np.ndarray) -> list[np.ndarray]:
-    """Connected components (4-conn) without scipy."""
-    h, w = mask.shape
-    seen = np.zeros_like(mask, dtype=bool)
-    comps = []
-    for y in range(h):
-        for x in range(w):
-            if not mask[y, x] or seen[y, x]:
-                continue
-            stack = [(y, x)]
-            seen[y, x] = True
-            cells = []
-            while stack:
-                cy, cx = stack.pop()
-                cells.append((cy, cx))
-                for ny, nx in ((cy - 1, cx), (cy + 1, cx), (cy, cx - 1), (cy, cx + 1)):
-                    if 0 <= ny < h and 0 <= nx < w and mask[ny, nx] and not seen[ny, nx]:
-                        seen[ny, nx] = True
-                        stack.append((ny, nx))
-            comps.append(np.array(cells))
-    return comps
-
-
-def component_mask(shape, cells) -> np.ndarray:
-    m = np.zeros(shape, dtype=bool)
-    m[cells[:, 0], cells[:, 1]] = True
-    return m
-
-
-def find_boundary_start(comp_mask: np.ndarray) -> tuple[int, int] | None:
-    h, w = comp_mask.shape
-    for y in range(h):
-        for x in range(w):
-            if not comp_mask[y, x]:
-                continue
-            for ny, nx in ((y - 1, x), (y + 1, x), (y, x - 1), (y, x + 1)):
-                if not (0 <= ny < h and 0 <= nx < w) or not comp_mask[ny, nx]:
-                    return y, x
-    return None
-
-
-def simplify(pts: list[tuple[int, int]], eps: float) -> list[tuple[float, float]]:
-    """Ramer–Douglas–Peucker."""
-    if len(pts) < 3:
-        return [(float(x), float(y)) for x, y in pts]
-
-    def _rdp(points, epsilon):
-        start, end = points[0], points[-1]
-        sx, sy = start
-        ex, ey = end
-        max_d, idx = 0.0, 0
-        for i in range(1, len(points) - 1):
-            px, py = points[i]
-            # distance point to line
-            num = abs((ey - sy) * px - (ex - sx) * py + ex * sy - ey * sx)
-            den = ((ey - sy) ** 2 + (ex - sx) ** 2) ** 0.5 or 1.0
-            d = num / den
-            if d > max_d:
-                max_d, idx = d, i
-        if max_d > epsilon:
-            left = _rdp(points[: idx + 1], epsilon)
-            right = _rdp(points[idx:], epsilon)
-            return left[:-1] + right
-        return [start, end]
-
-    return _rdp([(float(x), float(y)) for x, y in pts], eps)
-
-
-def flood_background(mask: np.ndarray) -> np.ndarray:
-    """True = background black reachable from image border."""
-    h, w = mask.shape
-    bg = np.zeros_like(mask, dtype=bool)
-    stack = []
-    for x in range(w):
-        for y in (0, h - 1):
-            if not mask[y, x]:
-                stack.append((y, x))
-    for y in range(h):
-        for x in (0, w - 1):
-            if not mask[y, x]:
-                stack.append((y, x))
-    while stack:
-        y, x = stack.pop()
-        if y < 0 or y >= h or x < 0 or x >= w or bg[y, x] or mask[y, x]:
-            continue
-        bg[y, x] = True
-        stack.extend(((y - 1, x), (y + 1, x), (y, x - 1), (y, x + 1)))
-    return bg
-
-
-def contour_of(cm: np.ndarray, eps: float) -> list[tuple[float, float]] | None:
-    start = find_boundary_start(cm)
-    if start is None:
-        return None
-    raw = trace_boundary(cm, start)
-    if len(raw) < 12:
-        return None
-    simp = simplify(raw, eps)
-    return simp if len(simp) >= 3 else None
-
-
-def contours_from_image(im: Image.Image, min_area: int = 40, eps: float = 1.8):
-    """Outer white body + internal holes (eye, CROW letters) for even-odd fill."""
-    mask = binary_mask(im)
-    bg = flood_background(mask)
-    # White body components
-    white_comps = label_components(mask)
-    outer_paths = []
-    for cells in white_comps:
-        if len(cells) < min_area:
-            continue
-        cm = component_mask(mask.shape, cells)
-        p = contour_of(cm, eps)
-        if p:
-            outer_paths.append(p)
-    # Black islands = holes (not background)
-    hole_mask = ~mask & ~bg
-    hole_paths = []
-    for cells in label_components(hole_mask):
-        if len(cells) < 8:
-            continue
-        cm = component_mask(mask.shape, cells)
-        p = contour_of(cm, eps)
-        if p:
-            hole_paths.append(p)
-    return outer_paths, hole_paths, mask.shape
-
-
-def write_svg(outers, holes, shape, out: Path, scale_mm: float = 12.0):
-    h, w = shape
-    s = scale_mm / max(w, h)
-    parts = []
-    for pts in outers + holes:
-        parts.append("M " + " L ".join(f"{x:.2f} {y:.2f}" for x, y in pts) + " Z")
-    d = " ".join(parts)
+def footprint(name: str, width_mm: float, text: bool) -> str:
+    pts, h = norm(width_mm)
+    xy = " ".join(f"(xy {x:.4f} {y:.4f})" for x, y in pts)
+    tx = width_mm / 2 + 0.6  # text starts 0.6 mm right of the mark
+    th, tw = text_size(width_mm)
     lines = [
-        '<?xml version="1.0" encoding="UTF-8"?>',
-        f'<svg xmlns="http://www.w3.org/2000/svg" width="{w * s:.3f}mm" height="{h * s:.3f}mm" '
-        f'viewBox="0 0 {w} {h}">',
-        '<rect width="100%" height="100%" fill="black"/>',
-        f'<path fill="white" fill-rule="evenodd" d="{d}"/>',
-        "</svg>",
+        f'(footprint "{name}"',
+        '\t(version 20241229)',
+        '\t(generator "stack_crow_logo")',
+        '\t(layer "F.Cu")',
+        f'\t(descr "Crow FPV silkscreen mark, {width_mm:g} mm wide{" + CROW text" if text else ""}; tools/crow_logo_pcb.py")',
+        '\t(attr exclude_from_pos_files exclude_from_bom allow_missing_courtyard)',
+        f'\t(property "Reference" "LOGO**" (at 0 {-h / 2 - 1:.3f} 0) (layer "F.SilkS") (hide yes) (uuid "{uid(name + "/ref")}")',
+        '\t\t(effects (font (size 1 1) (thickness 0.15))))',
+        f'\t(property "Value" "{name}" (at 0 {h / 2 + 1:.3f} 0) (layer "F.Fab") (hide yes) (uuid "{uid(name + "/val")}")',
+        '\t\t(effects (font (size 1 1) (thickness 0.15))))',
+        f'\t(fp_poly (pts {xy}) (stroke (width 0) (type solid)) (fill yes) (layer "F.SilkS") (uuid "{uid(name + "/poly")}"))',
     ]
-    out.write_text("\n".join(lines) + "\n", encoding="utf-8")
-    print("wrote", out)
+    if text:
+        lines += [
+            f'\t(fp_text user "CROW" (at {tx:.3f} 0 0) (layer "F.SilkS") (uuid "{uid(name + "/txt")}")',
+            f'\t\t(effects (font (size {th} {th}) (thickness {tw}) (bold yes)) (justify left)))',
+        ]
+    lines.append(")")
+    return "\n".join(lines) + "\n"
 
 
-def write_dxf(outers, holes, shape, out: Path, scale_mm: float = 12.0):
-    """Minimal DXF R12 closed polylines in mm (outer + hole outlines)."""
-    h, w = shape
-    s = scale_mm / max(w, h)
-    ents = []
-    for pts in outers + holes:
-        if len(pts) < 2:
-            continue
-        closed = pts + [pts[0]]
-        ents.append("0\nPOLYLINE\n8\n0\n66\n1\n70\n1\n")
-        for x, y in closed:
-            ents.append(
-                f"0\nVERTEX\n8\n0\n10\n{x * s:.4f}\n20\n{(h - y) * s:.4f}\n30\n0.0\n"
-            )
-        ents.append("0\nSEQEND\n")
-    body = "".join(ents)
-    dxf = (
-        "0\nSECTION\n2\nHEADER\n0\nENDSEC\n"
-        "0\nSECTION\n2\nTABLES\n0\nENDSEC\n"
-        "0\nSECTION\n2\nBLOCKS\n0\nENDSEC\n"
-        "0\nSECTION\n2\nENTITIES\n"
-        f"{body}"
-        "0\nENDSEC\n0\nEOF\n"
-    )
-    out.write_text(dxf, encoding="utf-8")
-    print("wrote", out)
+def write_svg(path: Path, width_mm: float):
+    pts, h = norm(width_mm)
+    d = "M " + " L ".join(f"{x + width_mm / 2:.4f} {y + h / 2:.4f}" for x, y in pts) + " Z"
+    path.write_text(
+        '<?xml version="1.0" encoding="UTF-8"?>\n'
+        f'<svg xmlns="http://www.w3.org/2000/svg" width="{width_mm:.3f}mm" height="{h:.3f}mm" '
+        f'viewBox="0 0 {width_mm:.4f} {h:.4f}">\n'
+        f'<path fill="white" d="{d}"/>\n</svg>\n', encoding="utf-8")
+
+
+def write_dxf(path: Path, width_mm: float):
+    pts, h = norm(width_mm)
+    v = "".join(f"0\nVERTEX\n8\n0\n10\n{x:.4f}\n20\n{-y:.4f}\n30\n0.0\n" for x, y in pts + [pts[0]])
+    path.write_text(
+        "0\nSECTION\n2\nENTITIES\n0\nPOLYLINE\n8\n0\n66\n1\n70\n1\n" + v +
+        "0\nSEQEND\n0\nENDSEC\n0\nEOF\n", encoding="utf-8")
+
+
+def write_preview(path: Path):
+    """Preview from KiCad's own F.SilkS export of the footprints (green mask, white silk)."""
+    import os, re, subprocess, tempfile
+    ppm, W, H = 32, 1000, 820
+    im = Image.new("RGB", (W, H), (10, 40, 20))
+    dr = ImageDraw.Draw(im)
+    f = ImageFont.truetype(FONT.replace("-Bold", ""), 18)
+    dr.text((30, 15), "PCB ipek baskı — KiCad çıktısı (yeşil maske, beyaz ipek; 32 px/mm)", font=f, fill=(200, 230, 200))
+    with tempfile.TemporaryDirectory() as tmp:
+        for n, oy in (("Crow_Logo_8mm", 70), ("Crow_Logo_Text_8mm", 330), ("Crow_Logo_Text_6mm", 590)):
+            subprocess.run(["kicad-cli", "fp", "export", "svg", "--footprint", n, "--layers", "F.SilkS",
+                            "-o", tmp, str(PRETTY)], check=True, capture_output=True,
+                           env=dict(os.environ, LC_ALL="C.UTF-8"))
+            svg = re.sub(r"<text.*?</text>", "", Path(tmp, n + ".svg").read_text(), flags=re.S)
+            polys, lines = [], []
+            for m in re.finditer(r'<path[^>]*d="([^"]+)"', svg):
+                v = [float(x) for x in re.findall(r"-?\d+\.?\d*", m.group(1))]
+                (polys if "Z" in m.group(1) else lines).append(list(zip(v[0::2], v[1::2])))
+            pts = [p for q in polys + lines for p in q]
+            mx, my = min(p[0] for p in pts), min(p[1] for p in pts)
+            w, h = max(p[0] for p in pts) - mx, max(p[1] for p in pts) - my
+            ox, o2 = 60, oy + 35
+            for q in polys:
+                dr.polygon([(ox + (x - mx) * ppm, o2 + (y - my) * ppm) for x, y in q], fill=(240, 240, 240))
+            for q in lines:
+                dr.line([(ox + (x - mx) * ppm, o2 + (y - my) * ppm) for x, y in q], fill=(240, 240, 240), width=6)
+            dr.text((60, oy), f"{n}  ({w:.1f} × {h:.1f} mm)", font=f, fill=(180, 220, 180))
+    im.save(path, quality=95)
 
 
 def main():
-    src = Path(sys.argv[1]) if len(sys.argv) > 1 else Path(
-        "/home/user/.cursor/projects/home-user-calismalar-stack/assets/crow-beak-only.jpg"
-    )
-    stem = Path(sys.argv[2]) if len(sys.argv) > 2 else ROOT / "docs/pazar/crow-fpv-logo-pcb"
-    stem.parent.mkdir(parents=True, exist_ok=True)
-    rgb = compose(src, stem)
-    outers, holes, shape = contours_from_image(rgb, min_area=80, eps=2.0)
-    print(f"outers: {len(outers)} holes: {len(holes)}")
-    write_svg(outers, holes, shape, stem.with_suffix(".svg"))
-    write_dxf(outers, holes, shape, stem.with_suffix(".dxf"))
+    PRETTY.mkdir(parents=True, exist_ok=True)
+    for w in (6, 8):
+        for text in (False, True):
+            name = f"Crow_Logo{'_Text' if text else ''}_{w}mm"
+            (PRETTY / f"{name}.kicad_mod").write_text(footprint(name, w, text), encoding="utf-8")
+            print("wrote", PRETTY / f"{name}.kicad_mod")
+    write_svg(DOCS / "crow-fpv-logo-pcb.svg", 8.0)
+    write_dxf(DOCS / "crow-fpv-logo-pcb.dxf", 8.0)
+    write_preview(DOCS / "crow-fpv-logo-pcb.jpg")
+    print("wrote previews in", DOCS)
 
 
 if __name__ == "__main__":

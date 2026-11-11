@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-11-13 — Crow PCB ipek logosu
+
+- `tools/crow_logo_pcb.py` yeniden yazıldı: piksel izleme yerine temiz vektör gaga işareti; gaga içine oyulmuş CROW kaldırıldı (6–8 mm’de basılmıyordu). KiCad ayak izleri `lib/stack.pretty/Crow_Logo_{6,8}mm`, `Crow_Logo_Text_{6,8}mm` (yazı ayrı stroke metin, JLC sınırları içinde); önizleme KiCad’in kendi çıktısından.
+
 ## 2026-11-13 — Seri MCU AT32F435, muadil kuralı, hedef BOM şematiklerde
 
 - Müşteri: tasarım değişmeden takılabilen muadil (SYS-095, KRR-011); seri MCU AT32F435RGT7, STM32F405/APM32F405 aynı PCB’de varyant (DT-006, KRR-012, PRJ-009 SKU’lar); IMU LSM6DSV16X (KRR-013); MCU başına ayrı derleme kabul.

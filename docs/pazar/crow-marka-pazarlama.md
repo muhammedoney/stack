@@ -8,9 +8,10 @@ Sahibi `pazar-analisti`. Tarih: 2026-11-11 (rev 3). Girdi: marka **Crow** (K12);
 | Dosya | Kullanım |
 |---|---|
 | [`crow-fpv-logo.jpg`](crow-fpv-logo.jpg) | Web, kutu, belge — 30.5 kare + gaga + Crow FPV + Fly to Joy |
-| [`crow-fpv-logo-pcb.jpg`](crow-fpv-logo-pcb.jpg) | **PCB ipek** — gaga; **CROW yazısı gaga solunda, logo içinde** (knockout); kare yok |
-| [`crow-fpv-logo-pcb.svg`](crow-fpv-logo-pcb.svg) | PCB / CAD — vektör (even-odd) |
-| [`crow-fpv-logo-pcb.dxf`](crow-fpv-logo-pcb.dxf) | PCB — poliline (mm); `tools/crow_logo_pcb.py` |
+| [`crow-fpv-logo-pcb.jpg`](crow-fpv-logo-pcb.jpg) | **PCB ipek** önizlemesi (KiCad çıktısı) — tek parça dolu gaga; kare yok. 2026-11-13: gaga içine oyulmuş CROW yazısı kaldırıldı (6–8 mm’de harf boşlukları JLC ipek sınırının altında, basılmıyordu). Yazı gerekiyorsa ayrı KiCad metni olarak gaganın sağında |
+| [`crow-fpv-logo-pcb.svg`](crow-fpv-logo-pcb.svg) | PCB / CAD — vektör, 8 mm |
+| `lib/stack.pretty/Crow_Logo_{6,8}mm`, `Crow_Logo_Text_{6,8}mm` | KiCad ayak izleri (F.SilkS): yalnız işaret / işaret + CROW (6 mm: 1.2 mm yazı, 8 mm: 1.6 mm). FMU (36 mm) için 6 mm, ESC için 8 mm önerilir |
+| [`crow-fpv-logo-pcb.dxf`](crow-fpv-logo-pcb.dxf) | PCB — poliline (mm), 8 mm; hepsi `python3 tools/crow_logo_pcb.py` ile üretilir |
 
 ## Kararlar (müşteri, 2026-11-11 — K13)
 

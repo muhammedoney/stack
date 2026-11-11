@@ -1,0 +1,12 @@
+(footprint "Crow_Logo_6mm"
+	(version 20241229)
+	(generator "stack_crow_logo")
+	(layer "F.Cu")
+	(descr "Crow FPV silkscreen mark, 6 mm wide; tools/crow_logo_pcb.py")
+	(attr exclude_from_pos_files exclude_from_bom allow_missing_courtyard)
+	(property "Reference" "LOGO**" (at 0 -3.201 0) (layer "F.SilkS") (hide yes) (uuid "4d6d3b08-c2c7-5d0b-8ecf-bb92fd6c4b59")
+		(effects (font (size 1 1) (thickness 0.15))))
+	(property "Value" "Crow_Logo_6mm" (at 0 3.201 0) (layer "F.Fab") (hide yes) (uuid "3f9f183d-ff0a-5944-a20a-e1388af0f117")
+		(effects (font (size 1 1) (thickness 0.15))))
+	(fp_poly (pts (xy -3.0000 -2.2014) (xy -0.7554 -2.2014) (xy 0.9137 -1.1511) (xy 2.3525 0.3309) (xy 3.0000 1.5396) (xy 1.9640 1.0647) (xy 0.1367 0.6475) (xy -2.3525 2.2014) (xy -1.1727 0.4460) (xy -1.1727 -1.0647)) (stroke (width 0) (type solid)) (fill yes) (layer "F.SilkS") (uuid "d348ac1a-5d8b-53b4-b03a-87ce3818775c"))
+)
