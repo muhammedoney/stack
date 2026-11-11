@@ -9,7 +9,7 @@
 		(date "2026-11-11")
 		(rev "B")
 		(company "Stack")
-		(comment 1 "STM32F405RGT7 LQFP64, HSE 8 MHz, VCAP, VDDA, BOOT0, NRST, SWD, LED0, buzzer")
+		(comment 1 "STM32F405RGT6 LQFP64, HSE 8 MHz, VCAP, VDDA, BOOT0, NRST, SWD, LED0, buzzer")
 		(comment 2 "tools/fmu_schematic.py ile üretildi, elle düzenlemeyin")
 	)
 	(lib_symbols
@@ -3797,7 +3797,7 @@
 				)
 			)
 		)
-		(property "Value" "STM32F405RGT7"
+		(property "Value" "STM32F405RGT6"
 			(at 210.82 198.12 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3818,7 +3818,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "${KIPRJMOD}/../../../lib/datasheet/STM32F405RGT6.pdf"
+		(property "Datasheet" "https://www.lcsc.com/product-detail/C15742.html"
 			(at 210.82 139.7 0)
 			(hide yes)
 			(show_name no)
@@ -3840,7 +3840,7 @@
 				)
 			)
 		)
-		(property "MPN" "STM32F405RGT7"
+		(property "MPN" "STM32F405RGT6"
 			(at 210.82 139.7 0)
 			(hide yes)
 			(show_name no)
@@ -3862,7 +3862,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C1337199"
+		(property "LCSC" "C15742"
 			(at 210.82 139.7 0)
 			(hide yes)
 			(show_name no)
@@ -3873,7 +3873,7 @@
 				)
 			)
 		)
-		(property "Temperature" "T_A -40…+105 °C (sipariş kodu 7, DS; LCSC)"
+		(property "Temperature" "T_A -40…+85 °C (sipariş kodu 6, DS) — müşteri istisnası 2026-11-11 (KRR-008: FMU MCU muaf)"
 			(at 210.82 139.7 0)
 			(hide yes)
 			(show_name no)
@@ -3884,7 +3884,7 @@
 				)
 			)
 		)
-		(property "ALT LCSC" "C15742"
+		(property "ALT LCSC" "C1337199"
 			(at 210.82 139.7 0)
 			(hide yes)
 			(show_name no)
@@ -3895,7 +3895,7 @@
 				)
 			)
 		)
-		(property "ALT MPN" "STM32F405RGT6 (85 °C; KRR-008 dışı)"
+		(property "ALT MPN" "STM32F405RGT7 (105 °C, stok yetersiz)"
 			(at 210.82 139.7 0)
 			(hide yes)
 			(show_name no)
@@ -11638,7 +11638,7 @@
 			)
 		)
 	)
-	(text "MCU — STM32F405RGT7 (SYS-030, SYS-050, KRR-005, KRR-008); pinler docs/pin-haritasi.md §1.1"
+	(text "MCU — STM32F405RGT6 (SYS-030, SYS-050, KRR-005, KRR-008); pinler docs/pin-haritasi.md §1.1"
 		(exclude_from_sim no)
 		(at 20 22 0)
 		(effects

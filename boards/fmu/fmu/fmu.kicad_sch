@@ -24,7 +24,7 @@
 		)
 		(uuid "d5b9706a-b26b-50a8-aa4d-4f3f97a46911")
 	)
-	(text "STM32F405RGT7 · ICM-42688-P · DPS368 · GD25Q128 · AT7456E · SY8303 × 2 (5 V / 9 V) · AMS1117-3.3 · USB-C · 2 × SM08B ESC (8 motor)"
+	(text "STM32F405RGT6 · ICM-42688-P · DPS368 · W25Q128JV · AT7456E · SY8303 × 2 (5 V / 9 V) · AMS1117-3.3 · USB-C · 2 × SM08B ESC (8 motor)"
 		(exclude_from_sim no)
 		(at 20 33 0)
 		(effects
@@ -68,7 +68,7 @@
 		)
 		(uuid "6994c201-e0b9-523d-92cd-f41a03fa080f")
 	)
-	(text "STM32F405RGT7 LQFP64, HSE 8 MHz, VCAP, VDDA, BOOT0, NRST, SWD, LED0, buzzer"
+	(text "STM32F405RGT6 LQFP64, HSE 8 MHz, VCAP, VDDA, BOOT0, NRST, SWD, LED0, buzzer"
 		(exclude_from_sim no)
 		(at 95 124 0)
 		(effects
@@ -79,7 +79,7 @@
 		)
 		(uuid "d429d810-ffad-5720-8060-d842eb129ba9")
 	)
-	(text "ICM-42688-P (SPI1), DPS368 baro (I2C1 0x76), GD25Q128 flash (SPI3)"
+	(text "ICM-42688-P (SPI1), DPS368 baro (I2C1 0x76), W25Q128JV flash (SPI3)"
 		(exclude_from_sim no)
 		(at 165 124 0)
 		(effects

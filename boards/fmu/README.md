@@ -12,8 +12,8 @@ KiCad şematiği **sıfırdan** çizildi (İP-05, 2026-11-11): `tools/fmu_schema
 |---|---|---|---|
 | 1 | `fmu/fmu.kicad_sch` | Kök: blok akışı, sayfa sembolleri | — |
 | 2 | `fmu/power.kicad_sch` | BAT+/− pedleri (F101/Q101 öncesi, J_ESC1.VBAT ile aynı düğüm), F101 5 A, Q101 AO3401A (D pil, S VIN) + 10 V zener + 100 k, D102 SMBJ24CA, 2 × 10 µF 50 V + 3 × 100 nF; U101 SY8303 5 V/2 A (L 6.8 µH SWPA6045), U102 SY8303 9 V/1.5 A (L 10 µH SWPA5040, EN ← PB11), U103 AMS1117-3.3 (22 µF), IMU süzgeci 10 Ω + 2.2 µF + 100 nF, VBAT 140 k/10 k %0.5 + 100 nF → PC0, CUR1 10 k + 100 nF → PC1, CUR2 1 k + 100 nF → PC5, SJ101 + 10 k (ortalama), test noktaları | 1xx |
-| 3 | `fmu/mcu.kicad_sch` | STM32F405RGT7, VDD 4 × 100 nF + 4.7 µF, VDDA ferrit + 1 µF + 100 nF, VCAP 2 × 2.2 µF, NRST 100 nF, BOOT0 düğmesi + 10 k, BOOT1 10 k, HSE 8 MHz + 2 × 18 pF, LED0 (PC13), buzzer AO3400A (PC15) + pedler, SWD pedleri | 2xx |
-| 4 | `fmu/sensors.kicad_sch` | ICM-42688-P SPI1 (CS PA4, INT1 PC4), DPS368 I2C1 0x76 + 2 × 2.2 k, GD25Q128 SPI3 (CS PC14) | 3xx |
+| 3 | `fmu/mcu.kicad_sch` | STM32F405RGT6, VDD 4 × 100 nF + 4.7 µF, VDDA ferrit + 1 µF + 100 nF, VCAP 2 × 2.2 µF, NRST 100 nF, BOOT0 düğmesi + 10 k, BOOT1 10 k, HSE 8 MHz + 2 × 18 pF, LED0 (PC13), buzzer AO3400A (PC15) + pedler, SWD pedleri | 2xx |
+| 4 | `fmu/sensors.kicad_sch` | ICM-42688-P SPI1 (CS PA4, INT1 PC4), DPS368 I2C1 0x76 + 2 × 2.2 k, W25Q128JV SPI3 (CS PC14) | 3xx |
 | 5 | `fmu/osd.kicad_sch` | AT7456E SPI2 (CS PB12), 27 MHz, 5 V, CVBS giriş 0.1 µF + 75 Ω, çıkış 75 Ω | 4xx |
 | 6 | `fmu/io.kicad_sch` | USB-C + 2 × 5.1 k + USBLC6-2SC6 + PMEG3020 (VBUS → 5 V), J_ESC1/J_ESC2 SM08B (J_ESC2 DNP, VBAT 0 Ω DNP), M5–M8 pedleri, RX SH4 (UART2), DJI SH6 (UART1 + 9 V + SBUS), GPS SH6 (UART6 + I2C1 + 5 V), SBUS → 74LVC1G04 → 1 k → PA3, UART3/4/5 pedleri, VTX/kamera, LED şerit, S9 pedleri | 5xx |
 
@@ -25,10 +25,10 @@ Sayfalar arası sinyaller global etiket; raylar (GND, +3V3, +3V3_IMU, +5V, +9V, 
 
 | İşlev | Parça (LCSC) | Sıcaklık sınıfı |
 |---|---|---|
-| MCU | STM32F405RGT7 (C1337199) | −40…105 °C |
+| MCU | STM32F405RGT6 (C15742), ALT RGT7 C1337199 | −40…85 °C (müşteri istisnası, KRR-008) |
 | IMU | ICM-42688-P Tokmas (C54308212), ALT TDK C1850418 | −40…85 °C **istisna** |
 | Baro | DPS368XTSA1 Infineon (C3232508), ALT Tokmas C55090144 | −40…85 °C **istisna** |
-| Flash | GD25Q128ESJGR (C22404005), ALT W25Q128JVSIQ C97521 | −40…105 °C (sipariş kodu J) |
+| Flash | W25Q128JVSIQ (C97521), ALT GD25Q128ESJGR C22404005 | −40…85 °C (BF + ArduPilot destekli) |
 | OSD | AT7456E (C82351) | −40…85 °C **istisna** |
 | Buck × 2 | SY8303AAIC (C2937216) | T_A −40…105 °C |
 | LDO | AMS1117-3.3 (C6186), ALT UMW C347222 | −40…125 °C |
@@ -65,11 +65,11 @@ Pin karşılaştırma betiği oturum dizininde tutuldu (`pinmap_check.py`: §1.1
 | **FMU toplam** | **27.06** |
 | Dual SKU farkı (J503) | +0.07 |
 
-MCU tek başına 13.03 $ (STM32F405RGT7, JLC stoğu **4**). RGT6 (85 °C, stok 24) ile 18.61 $; RGT6 + Tokmas baro + W25Q128 ile ≈ 16.35 $.
+MCU tek başına 13.03 $ (STM32F405RGT6, JLC stoğu **4**). RGT6 (85 °C, stok 24) ile 18.61 $; RGT6 + Tokmas baro + W25Q128 ile ≈ 16.35 $.
 
 ## Açık konular
 
-1. **MCU tedariki:** STM32F405RGT7 JLC/LCSC stoğu 4 (< 200), 13.03 $; RGT6 de 24 adet. `bom-tedarik` dış tedarik/konsinye fiyatı; KRR-008 MCU satırı maliyetle birlikte yeniden değerlendirilmeli.
+1. **MCU tedariki:** STM32F405RGT6 JLC/LCSC stoğu 4 (< 200), 13.03 $; RGT6 de 24 adet. `bom-tedarik` dış tedarik/konsinye fiyatı; KRR-008 MCU satırı maliyetle birlikte yeniden değerlendirilmeli.
 2. **ESC 8 pin dizilimi** (İP-10, KRR-004): `ESC_PINOUT` geçici.
 3. **SH konnektör cihaz tarafı dizilimleri** (RX, DJI, GPS) doğrulanmadı; SYS-065 GPS'i 4 pin diyor, mimari §4.2 6 pin (UART6 + I2C1 + 5 V) — ikincisi uygulandı, dış I2C bu konnektörde.
 4. **Flash:** GD25Q128 Betaflight `flash_m25p16` tablosunda (0xC84018) var, `USE_FLASH_M25P16` gerekir (pin-haritasi §1.4 W25Q128FV yazıyor); ArduPilot `AP_Logger_Flash_JEDEC` tablosunda yok → AP yaması veya ALT W25Q128JVSIQ (85 °C istisnası).
@@ -80,3 +80,16 @@ MCU tek başına 13.03 $ (STM32F405RGT7, JLC stoğu **4**). RGT6 (85 °C, stok 2
 9. **9 V EN:** PB11 → 1 k → EN, 100 k → 3V3 (sıfırda açık); Betaflight `PINIO1_CONFIG 129` anlamı `gomulu-yazilim` ile teyit.
 10. Listeden sapmalar (gerekçeli): IMU süzgeç kondansatörü 2.2 µF (DS Şekil 5; listede 1 µF); CUR1 → PC1 yolunda 10 k (SJ101 kapalıyken eşit ağırlıklı ortalama için); flash ~WP/~HOLD 10 k ile 3V3'e; DJI pin 6 SBUS, SBUS pedi ile aynı ağ.
 11. 8S BOM varyantı: VIN parçalarında `8S` alanı; 60 V buck ayak izi farkı PCB yer payı işidir (`pcb-muhendisi`).
+
+## Güncelleme 2026-11-11 — FMU sıcaklık sınıfı 85 °C (müşteri)
+
+Müşteri: “İşlemciyi bu sıcaklık durumundan muaf tut. FMU kartı hiçbir zaman ESC kadar yüksek bir sıcaklığa ulaşmayacak.” → SYS-087 / KRR-008 güncellendi.
+
+| | Önce | Sonra |
+|---|---|---|
+| U201 | STM32F405RGT7 (C1337199, 13.03 $, stok 4) | **STM32F405RGT6 (C15742, 4.58 $, stok 24 → 100 set için dış tedarik)** |
+| U303 | GD25Q128ESJGR (ArduPilot JEDEC tablosunda yok) | **W25Q128JVSIQ (C97521, BF + AP destekli)** |
+| FMU kart (100 set) | 27.06 $ | **17.72 $** (komponent 15.78, PCB 0.25, dizgi 1.69) |
+| Stack (+ ESC 17.20 $) | 44.26 $ | **34.92 $** (hedef ≤ 32 $) |
+
+ERC 0, pin haritası farkı 0, betik idempotent. BOM: `python3 tools/fmu_bom.py` (fiyatlar `tools/jlc.py`, önbellek git dışı).

@@ -50,3 +50,6 @@ boards/*/altium/History/
 boards/*/altium/Project Logs*/
 boards/*/altium/Project Outputs*/
 __Previews/
+
+# JLC fiyat önbelleği (tools/jlc.py)
+tools/jlc_cache.json

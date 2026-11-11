@@ -72,6 +72,8 @@ Her karar: bağlam, seçenekler, seçilen ve gerekçe, etkilediği SYS/dosyalar.
 **Gerekçe:** ESC tasarım sıcaklığı (kart 95 °C, sıcak nokta 110 °C) 15 °C payla 125 °C sınıfı ister; 105 °C IC yalnız soğuk bölgede kabul. FMU kendi kaybı + yığında ESC’den gelen ısıyla 85 °C sınırını aşabilir; 105 °C ekonomik orta yol, IMU/baro/OSD gibi 105 °C muadili olmayan işlevler yerleşim ve ölçümle korunur. STM32F405RGT7 aynı kalıp ve pin dizilimi → Betaflight/ArduPilot ve pin haritası (KRR-005) etkilenmez. Pasiflerin çoğu (X7R, kalın film direnç) zaten bu sınıfta; maliyet farkı MCU’larda ve bazı IC’lerde yoğunlaşır.
 **Etki:** SYS-083 (Değişti), SYS-085…087 (yeni); DOG-082, DOG-104…108; `bom-tedarik` BOM taraması ve fark maliyeti (SYS-002, PRJ-004 ≤ 32 $, RSK-004, RSK-017); `sematik-muhendisi` parça numaraları (EFM8BB21F16I?, STM32F405RGT7, C_boot X7R); `bom-maliyet.md` R3 (bulk X5R tasarrufu) reddedilir; `pcb-muhendisi` 85 °C istisna parçalarını ısı kaynaklarından uzak yerleştirir (RSK-018).
 
+**Güncelleme (müşteri, 2026-11-11):** FMU sütunu gevşetildi: “İşlemciyi bu sıcaklık durumundan muaf tut. FMU kartı hiçbir zaman ESC kadar yüksek bir sıcaklığa ulaşmayacak. ESC önemli olan!” → FMU parçaları ≥ 85 °C, MCU STM32F405RGT6; ESC kuralı (≥ 125 °C, X5R yok) değişmedi. Etki: FMU 27.06 → 17.72 $/kart (RGT6 + W25Q128JV), `boards/fmu/bom-revb.csv`.
+
 ## KRR-009 — Tasarım şimdilik kapalı, açık belge yayımlanır (2026-11-11)
 **Durum:** Onaylı (müşteri, 2026-11-11, SOR-014: “tamam”).
 **Bağlam:** SOR-014: şema/PCB açık kaynak mı? Açık referansların lisansları (KRR-006) ve kopyalanma riski.

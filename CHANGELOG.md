@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-11-11 — FMU sıcaklık istisnası, QN3109 analizi
+
+- Müşteri: FMU 105 °C kuralından çıkarıldı (SYS-087, KRR-008); ESC kuralı aynı. FMU: STM32F405RGT6, W25Q128JVSIQ (ArduPilot flash sorunu kapandı); FMU 17.72 $, stack 34.92 $ (≤ 32 $’ı 2.9 $ aşıyor, RSK-004). `tools/fmu_bom.py`, `tools/jlc.py` repoya alındı.
+- `docs/rapor/qn3109-analiz.md`: Mamba F55 / GEPRC’deki QN3109 (UBIQ, 30 V, 1.35 mΩ) 4 kanal sürekli 55 A veremez (≈ 35–39 A @ 5 m/s; 4 × 55 A ≈ 10 s); bizim BLP016 ile aynı ısıl sınıf. Veri sayfası `lib/datasheet/UBIQ-QN3109M6N.pdf`.
+
 ## 2026-11-11 — F405 FMU şematiği (İP-05)
 
 - `tools/fmu_schematic.py`: M1 F405 FMU şematiği sıfırdan, 5 alt sayfa (power, mcu, sensors, osd, io); STM32F405RGT7, ICM-42688-P, DPS368, GD25Q128, AT7456E, SY8303 × 2 (5 V/2 A, 9 V/1.5 A), AMS1117-3.3, AO3401A ters kutup (doğru yön), J_ESC1 + J_ESC2 (Dual SKU, DNP), SBUS evirici, USB-C + USBLC6. Referanslardan dosya kopyalanmadı (KRR-006); yeni semboller `lib/stack.kicad_sym`, ayak izleri `lib/stack.pretty/` (KiCad standart kopyaları).

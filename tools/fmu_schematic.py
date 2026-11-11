@@ -578,9 +578,10 @@ def define_parts():
     TP("TP105", "GND", desc="Test noktası GND")
 
     # ------------------------------------------------------------------ mcu
-    part("U201", "STM32F405RGTx", "STM32F405RGT7", "LQFP64", "C1337199", "STM32F405RGT7", "STMicroelectronics",
-         "T_A -40…+105 °C (sipariş kodu 7, DS; LCSC)", "FMU MCU, LQFP64, HSE 8 MHz (SYS-030, KRR-005, KRR-008)",
-         alt={"ALT MPN": "STM32F405RGT6 (85 °C; KRR-008 dışı)", "ALT LCSC": "C15742"})
+    part("U201", "STM32F405RGTx", "STM32F405RGT6", "LQFP64", "C15742", "STM32F405RGT6", "STMicroelectronics",
+         "T_A -40…+85 °C (sipariş kodu 6, DS) — müşteri istisnası 2026-11-11 (KRR-008: FMU MCU muaf)",
+         "FMU MCU, LQFP64, HSE 8 MHz (SYS-030, KRR-005, KRR-008)",
+         alt={"ALT MPN": "STM32F405RGT7 (105 °C, stok yetersiz)", "ALT LCSC": "C1337199"})
     for ref in ("C201", "C202", "C203", "C204"):
         C(ref, "100nF 16V", "VDD dekuplaj (pin 19/32/48/64)")
     C("C205", "4.7uF 16V", "VDD toplu")
@@ -630,10 +631,10 @@ def define_parts():
     R("R301", "100k", "Baro SDO → GND: adres 0x76 (DS Tablo 11 R3)")
     R("R302", "2.2k", "I2C1 SCL çekme (pin-haritasi §1.1)")
     R("R303", "2.2k", "I2C1 SDA çekme")
-    part("U303", "W25Q128JVS", "GD25Q128ESJGR", "SOIC8W", "C22404005", "GD25Q128ESJGR", "GigaDevice",
-         "-40…+105 °C (sipariş kodu J, DS s.57)", "Blackbox flash 16 MB SPI3, CS PC14 (SYS-033). BF: flash_m25p16 "
-         "(0xC84018); ArduPilot JEDEC tablosunda yok → ALT ya da AP yaması",
-         alt={"ALT MPN": "W25Q128JVSIQ (Winbond, 85 °C, basic; BF + AP)", "ALT LCSC": "C97521"})
+    part("U303", "W25Q128JVS", "W25Q128JVSIQ", "SOIC8W", "C97521", "W25Q128JVSIQ", "Winbond",
+         "-40…+85 °C (DS) — FMU 85 °C sınıfı yeterli (müşteri 2026-11-11, KRR-008)",
+         "Blackbox flash 16 MB SPI3, CS PC14 (SYS-033). Betaflight flash_m25p16 + ArduPilot AP_Logger_Flash_JEDEC destekli",
+         alt={"ALT MPN": "GD25Q128ESJGR (GigaDevice, 105 °C; ArduPilot JEDEC tablosunda yok)", "ALT LCSC": "C22404005"})
     C("C304", "100nF 16V", "Flash VCC")
     R("R304", "10k", "FLASH_CS → 3V3 (açılışta seçili değil)")
     R("R305", "10k", "~WP ve ~HOLD → 3V3 (tek SPI, QSPI kullanılmaz)")
@@ -983,7 +984,7 @@ def page_power():
 
 
 def page_mcu():
-    s = sheet("MCU", "mcu.kicad_sch", 3, "STM32F405RGT7 LQFP64, HSE 8 MHz, VCAP, VDDA, BOOT0, NRST, SWD, LED0, buzzer")
+    s = sheet("MCU", "mcu.kicad_sch", 3, "STM32F405RGT6 LQFP64, HSE 8 MHz, VCAP, VDDA, BOOT0, NRST, SWD, LED0, buzzer")
     mcu = {
         "1": "+3V3", "2": "LED0", "3": "FLASH_CS", "4": "BEEPER", "5": "OSC_IN", "6": "OSC_OUT", "7": "NRST",
         "8": "ADC_VBAT", "9": "ADC_CURR1", "10": "SPI2_MISO", "11": "SPI2_MOSI", "12": "GND", "13": "VDDA",
@@ -997,7 +998,7 @@ def page_mcu():
         "57": "SPI3_MOSI", "58": "M1", "59": "M2", "60": "BOOT0", "61": "I2C1_SCL", "62": "I2C1_SDA", "63": "GND",
         "64": "+3V3",
     }
-    s.note("MCU — STM32F405RGT7 (SYS-030, SYS-050, KRR-005, KRR-008); pinler docs/pin-haritasi.md §1.1", 20, 22, 2, True)
+    s.note("MCU — STM32F405RGT6 (SYS-030, SYS-050, KRR-005, KRR-008); pinler docs/pin-haritasi.md §1.1", 20, 22, 2, True)
     s.place("U201", 210.82, 139.7, mcu)
     s.note("Boş GPIO yok: LQFP64'ün 51 G/Ç'sinin tamamı kullanılıyor (pin-haritasi §1.1).\n"
            "DMA: ADC1 DMA2 S4 (ADC1_DMA_OPT 1), SPI1 DMA2 S0/S3; SPI2 (OSD) ve SPI3 (flash) DMA'sız (§1.3).",
@@ -1034,7 +1035,7 @@ def page_mcu():
 
 
 def page_sensors():
-    s = sheet("Sensors", "sensors.kicad_sch", 4, "ICM-42688-P (SPI1), DPS368 baro (I2C1 0x76), GD25Q128 flash (SPI3)")
+    s = sheet("Sensors", "sensors.kicad_sch", 4, "ICM-42688-P (SPI1), DPS368 baro (I2C1 0x76), W25Q128JV flash (SPI3)")
     s.note("IMU — ICM-42688-P, SPI1, CS PA4, INT1 PC4 (SYS-031, SYS-042)", 20, 22, 2, True)
     s.place("U301", 73.66, 71.12, {"12": "IMU_CS", "13": "SPI1_SCK", "14": "SPI1_MOSI", "1": "SPI1_MISO",
                                    "4": "IMU_INT1", "9": "GND", "2": "NC", "3": "NC", "10": "NC", "11": "NC",
@@ -1056,8 +1057,8 @@ def page_sensors():
                                     "3": "FLASH_WPH", "7": "FLASH_WPH", "8": "+3V3", "4": "GND"})
     grid(s, [("C304", "+3V3", "GND"), ("R304", "+3V3", "FLASH_CS"), ("R305", "+3V3", "FLASH_WPH")], 309.88, 66.04,
          dx=17.78)
-    s.note("GD25Q128ESJGR (−40…105 °C) ↔ W25Q128JVSIQ (85 °C) aynı ayak izi. Betaflight USE_FLASH_M25P16\n"
-           "(GD25Q128 0xC84018 tabloda). ArduPilot AP_Logger_Flash_JEDEC tablosunda GD25Q128 yok → açık konu.",
+    s.note("W25Q128JVSIQ (85 °C) ↔ GD25Q128ESJGR (105 °C) aynı ayak izi. Betaflight USE_FLASH_M25P16;\n"
+           "ArduPilot AP_Logger_Flash_JEDEC W25Q128 destekli (GD25Q128 tabloda yok).",
            230, 100, 1.27)
     return s
 
@@ -1166,7 +1167,7 @@ def write_all():
                      f'\t\t(uuid "{U("root-text", n[0])}")\n\t)\n')
 
     rtext("Stack FMU — M1 F405 uçuş kontrol kartı (Rev B, sıfırdan)", 20, 25, 3, True)
-    rtext("STM32F405RGT7 · ICM-42688-P · DPS368 · GD25Q128 · AT7456E · SY8303 × 2 (5 V / 9 V) · AMS1117-3.3 · USB-C · "
+    rtext("STM32F405RGT6 · ICM-42688-P · DPS368 · W25Q128JV · AT7456E · SY8303 × 2 (5 V / 9 V) · AMS1117-3.3 · USB-C · "
           "2 × SM08B ESC (8 motor)", 20, 33, 1.5)
     rtext("Pin haritası: docs/pin-haritasi.md §1 (tek kaynak) · Mimari: docs/mimari-fmu.md §4 · Güç: docs/rapor/guc-ip03.md §8\n"
           "Kaynak: tools/fmu_schematic.py (tekrar çalıştırılabilir, sabit UUID). Referanslardan dosya kopyalanmadı (KRR-006).\n"

@@ -9,7 +9,7 @@
 		(date "2026-11-11")
 		(rev "B")
 		(company "Stack")
-		(comment 1 "ICM-42688-P (SPI1), DPS368 baro (I2C1 0x76), GD25Q128 flash (SPI3)")
+		(comment 1 "ICM-42688-P (SPI1), DPS368 baro (I2C1 0x76), W25Q128JV flash (SPI3)")
 		(comment 2 "tools/fmu_schematic.py ile üretildi, elle düzenlemeyin")
 	)
 	(lib_symbols
@@ -2611,7 +2611,7 @@
 				)
 			)
 		)
-		(property "Value" "GD25Q128ESJGR"
+		(property "Value" "W25Q128JVSIQ"
 			(at 271.78 93.98 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2632,7 +2632,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/33961c2a83e6472c087f377dc608bbe8.pdf"
+		(property "Datasheet" "https://www.lcsc.com/product-detail/C97521.html"
 			(at 271.78 71.12 0)
 			(hide yes)
 			(show_name no)
@@ -2643,7 +2643,7 @@
 				)
 			)
 		)
-		(property "Description" "Blackbox flash 16 MB SPI3, CS PC14 (SYS-033). BF: flash_m25p16 (0xC84018); ArduPilot JEDEC tablosunda yok → ALT ya da AP yaması"
+		(property "Description" "Blackbox flash 16 MB SPI3, CS PC14 (SYS-033). Betaflight flash_m25p16 + ArduPilot AP_Logger_Flash_JEDEC destekli"
 			(at 271.78 71.12 0)
 			(hide yes)
 			(show_name no)
@@ -2654,7 +2654,7 @@
 				)
 			)
 		)
-		(property "MPN" "GD25Q128ESJGR"
+		(property "MPN" "W25Q128JVSIQ"
 			(at 271.78 71.12 0)
 			(hide yes)
 			(show_name no)
@@ -2665,7 +2665,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "GigaDevice"
+		(property "Manufacturer" "Winbond"
 			(at 271.78 71.12 0)
 			(hide yes)
 			(show_name no)
@@ -2676,7 +2676,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C22404005"
+		(property "LCSC" "C97521"
 			(at 271.78 71.12 0)
 			(hide yes)
 			(show_name no)
@@ -2687,7 +2687,7 @@
 				)
 			)
 		)
-		(property "Temperature" "-40…+105 °C (sipariş kodu J, DS s.57)"
+		(property "Temperature" "-40…+85 °C (DS) — FMU 85 °C sınıfı yeterli (müşteri 2026-11-11, KRR-008)"
 			(at 271.78 71.12 0)
 			(hide yes)
 			(show_name no)
@@ -2698,7 +2698,7 @@
 				)
 			)
 		)
-		(property "ALT LCSC" "C97521"
+		(property "ALT LCSC" "C22404005"
 			(at 271.78 71.12 0)
 			(hide yes)
 			(show_name no)
@@ -2709,7 +2709,7 @@
 				)
 			)
 		)
-		(property "ALT MPN" "W25Q128JVSIQ (Winbond, 85 °C, basic; BF + AP)"
+		(property "ALT MPN" "GD25Q128ESJGR (GigaDevice, 105 °C; ArduPilot JEDEC tablosunda yok)"
 			(at 271.78 71.12 0)
 			(hide yes)
 			(show_name no)
@@ -5210,7 +5210,7 @@
 		)
 		(uuid "d693cce5-7f45-5bc3-9991-ce63b301f889")
 	)
-	(text "GD25Q128ESJGR (−40…105 °C) ↔ W25Q128JVSIQ (85 °C) aynı ayak izi. Betaflight USE_FLASH_M25P16\n(GD25Q128 0xC84018 tabloda). ArduPilot AP_Logger_Flash_JEDEC tablosunda GD25Q128 yok → açık konu."
+	(text "W25Q128JVSIQ (85 °C) ↔ GD25Q128ESJGR (105 °C) aynı ayak izi. Betaflight USE_FLASH_M25P16;\nArduPilot AP_Logger_Flash_JEDEC W25Q128 destekli (GD25Q128 tabloda yok)."
 		(exclude_from_sim no)
 		(at 230 100 0)
 		(effects
