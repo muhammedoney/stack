@@ -427,3 +427,95 @@ Yedekler (şematikte ALT alanları): C49210445 ↔ **1 µF 25 V X7R C53426846** 
 | Dirençler UNI-ROYAL 0402WGF | 7 kod | −55…155 °C | LCSC | ✓ |
 
 **J0 (açık):** LCSC/JLC'de SH 1.0 mm 8 pin yatay 15 klon tarandı (XYECONN, Bossie, XUNPU, Megastar, LXW, SANHI, JXT, BX, HMT, CHUANGYUE …): hepsi −25/−40…85 °C. 105 °C sınıflı 1.0 mm seçenek **Molex Pico-Clasp 501568-0807** (C587867, −40…105 °C, 0.45 $ @100, stok 1 251; dikey 501331-0807 C505340, 0.30 $). SH ile geçmeli değil: FMU konnektörü ve kablo da değişir (`sistem-mimari`, FMU↔ESC arayüzü). Öneri: Rev B'de SH kalır; J0'ı kartın serin kenarına (MOSFET'lerden uzak) koymak (`pcb-muhendisi`) ve prototip ısıl ölçümünde J0 sıcaklığını ölçmek; > 85 °C çıkarsa Pico-Clasp'e geçiş kararı.
+
+## 10. Tasarruf taraması (2026-11-11)
+
+> **Kaynak:** fiyat, stok, basic/extended JLCPCB parça arayüzü (`tools/jlc.py`), 2026-11-11. Sürücü desteği GitHub kaynaklarından aynı gün: Betaflight `src/main/drivers/barometer/barometer_dps310.c`, `barometer_bmp5xx.c`, `drivers/flash_m25p16.c` (etiketler 4.5.2, 4.5.5, 2025.12.5, 2026.6.2); ArduPilot `libraries/AP_Baro/AP_Baro_SPL06.cpp`, `AP_Baro_BMP581.cpp`, `AP_Logger/AP_Logger_Flash_JEDEC.cpp` (Copter-4.5.7, 4.6.3, 4.7.x, master). Veri sayfaları: SPA06-003 (LCSC C30589048, Ver2.0), DPS368 (C3232508). STM32 dış fiyatı web araması (findchips/DigiKey/Future, tarihsiz önbellek), 2026-11-11.
+> **Taban:** ESC Rev B + yüksek sıcaklık 17.20 $ + FMU (`boards/fmu/bom-revb.csv`) 17.72 $ = **34.92 $/stack**. Hedef PRJ-004 ≤ 32 $ → gereken ≥ 2.92 $.
+> **Yöntem:** 100 set = 100 × karttaki adet kademesi. Dizgi §4: FMU extended tür başına Economic 3.07 $, Standard 1.53 $; ESC Standard 1.53 $; sipariş 100 set. Ham tablo: [`boards/tasarruf-2026-11-11.csv`](../boards/tasarruf-2026-11-11.csv). Şematik ve gereksinimler değiştirilmedi.
+> **Sınıflar:** A güvenli (gereksinim değişmez, güç/yazılım incelemesi yok; yalnız `sematik-muhendisi` kod girer). B inceleme gerekir. C müşteri kararı (SYS değişir). KRR-008 (ESC ≥ 125 °C, X5R yok; FMU ≥ 85 °C, X7R) ve SYS-034 analog OSD korunur.
+
+### 10.1 A — güvenli
+
+| # | Kart / ref | Değişiklik | $/stack | Stok / 2× ihtiyaç |
+|---|---|---|---|---|
+| A1 | ESC M1aH…M4cL | BLP016 C49328363 2 500 adet peşin (2 500 kademesi 0.1664 $) — §9.7 R2 | **−0.21** | 3 903 / 4 800 ✗ (peşin alım stoğu ayırır) |
+| A2 | FMU U103 | AMS1117-3.3 C6186 (basic, 0.1485) → UMW **C347222** (0.0385, ext, aynı SOT-223, −40…125 °C; şematikte zaten ALT) | −0.10 | 924 269 ✓ |
+| A3 | FMU C302 | 10 nF C1524 (ext) → **C15195** CL05B103KB5NNNC (basic) | −0.02 | ✓ |
+| A4 | FMU C206 | VDDA 1 µF C49210445 → 2.2 µF X7R 0603 **C5360821** (C114/C208/C209 ile tek kod) | −0.01 | ✓ |
+| A5 | FMU C205 | VDD toplu 4.7 µF C107365 → 10 µF X7R 0805 **C380347** (C112/C404 ile tek kod) | −0.01 | ✓ |
+| A6 | FMU D202 | 1N4148WT C27748 (ext) → 1N4148WS SOD-323 **C2128** (basic) | −0.02 | ✓ |
+| A7 | FMU dizgi | Economic → **Standard tek yüz**: A2–A6 sonrası 29 extended türde Standard (25.56 + 8.21 + 0.50 + 29 × 1.53 = 78.6 $) Economic'ten (8.18 + 1.53 + 29 × 3.07 = 98.7 $) ucuz; başabaş 16 tür. §4'teki tür ücretleri JLC teklifiyle doğrulanmalı (§8.2) | −0.25 | — |
+| | **A toplamı** | FMU extended tür 32 → 29 | **−0.61 → 34.31 $** | |
+
+### 10.2 B — inceleme gerekir
+
+| # | Kart / ref | Değişiklik | $/stack | Stok | Kim inceler, ne kontrol edilir |
+|---|---|---|---|---|---|
+| **B1** | FMU U302 | Baro DPS368XTSA1 C3232508 (2.78 $) → **Goertek SPA06-003 C30589048** (0.48 $) | **−2.30** | 39 085 ✓ | **gomulu-yazilim:** SPA06-003 PROD_ID 0x11, katsayılar 0x10–0x24 (DS §7.11). BF `barometer_dps310.c` 0x11'i "SPL07_003" olarak tanır ve aynı katsayı düzenini okur (4.5.2'den beri); AP `AP_Baro_SPL06` 0x11'i SPA06 olarak tanır (Copter ≥ 4.6.3; 4.5.7'de yok). Hedef: BF `baro_hardware DPS310`, AP hwdef `BARO SPL06 I2C:0:0x76`. Prototipte iki yazılımda tanınma ve irtifa testi. **pcb-muhendisi:** pin dizilimi DPS368 ile aynı (1 GND, 2 CSB, 3 SDA, 4 SCK, 5 SDO, 6 VDDIO, 7 GND, 8 VDD; LGA-8 2.0 × 2.5, 0.65 mm), ped ölçüsünü Goertek önerisiyle karşılaştır. SDO → GND = 0x76 aynı. *Düzeltme:* §9 sonrası FMU README'deki "SPA06-003 BF'de sürücü yok" bilgisi kaynak koduna göre geçersiz. Yedekler: Tokmas DPS368 C55090144 1.41 $ (aynı ayak izi ve sürücü, −1.37 $, klon riski); Bosch BMP581 C5362283 1.44 $ (−1.34 $, LGA-10 2 × 2, BF yalnız 2026.6+ `bmp5xx`, AP ≥ 4.5) |
+| **B2** | ESC U2 | INA240A3DR C2060584 (1.79 $, SOIC-8, ×100) → **INA281B2IDBVR C1517409** (1.27 $, SOT-23-5, ×50, V_CM −4…110 V, −40…125 °C) | **−0.52** | 5 400 ✓ | **guc-elektronigi:** SYS-021 (10–200 A ±%5, < 10 A ±1 A) için B sınıfı ofset/kazanç hatası; CUR 5 mV/A → 280 A = 1.40 V (SYS-020 ✓, çözünürlük yarıya iner); PWM ortak kip geçici bastırımı (INA240'ın üstünlüğü). **gomulu-yazilim:** `ibata_scale` 100 → 200. **pcb-muhendisi:** SOT-23-5 + Kelvin yolları. Reddedilirse INA240A3 kalır |
+| B3 | FMU D501 | PMEG3020EH C19268151 → B5819W SL **C8598** (basic, 40 V 1 A) | −0.05 | ✓ | guc-elektronigi: USB'de V_F (≈ 0.45 V @ 0.3 A), 5 V rayı ≈ 4.5 V; AT7456E 4.75 V alt sınırı yalnız USB'de |
+| B4 | FMU 5 V FB | 100 k / 13.7 k (ext) → 15 k C25756 / 2 k C4109 (basic) → 5.10 V (4.97–5.23) | −0.02 | ✓ | guc-elektronigi (SYS-040; FB empedansı, R_FS değişmez). 9 V FB'de basic çift yok (47 k / 3.3 k üst sınırda), değişmez |
+| B5 | ESC D13…D45 | 1N4148WT ×12 → 1N4148WS **C2128** (basic) — §9.7 R5 | −0.07 | ✓ | guc-elektronigi (T_J 150 °C veri sayfasından), pcb-muhendisi (SOD-523 → SOD-323, 12 yer) |
+| B6 | ESC R0/R02 | 90.9 k (ext) → basic (100 k + FB çifti) — §9.7 R6 | −0.02 | ✓ | guc-elektronigi: PVDD değeri |
+| B7 | ESC C1…C60 | Bulk 15 → 12 × C89632 — §9.7 R4 | −0.36 | ✓ | guc-elektronigi: dalgalanma 1 → 1.25 A_rms/adet, set kondansatörüne bağımlılık. **Pakete alınmadı** (yedek) |
+| B8 | Üretim | FMU + ESC tek panel / tek Standard sipariş | ≈ −0.10 (net) | — | pcb-muhendisi. Kurulum + şablon + ortak extended türler ≈ −0.38 $, ama FMU ESC katman yapısına (dış 2 oz) geçer: PCB ≈ +0.28 $ ve 0.5 mm aralıklı LQFP64/LGA'da 2 oz riski. **Önerilmez** |
+| B9 | ESC | Dizgiyi tek yüze topla | −0.34 | — | pcb-muhendisi: 62 alt yüz parçası sığmaz (tahmin), ısıl yayılım. **Önerilmez** (§4) |
+
+**A + B paketi (B1–B6): −3.57 $ → 31.35 $/stack, ≤ 32 $ karşılanıyor (pay 0.65 $).** B7 eklenirse 30.99 $.
+Duyarlılık: B1 Tokmas DPS368 yedeğine düşerse 32.27 $ (aşar); B2 reddedilirse 31.87 $ (pay 0.13 $).
+
+### 10.3 C — müşteri kararı
+
+| # | Değişiklik | $/stack | Stok | Gereksinim / etki |
+|---|---|---|---|---|
+| **C1** | STM32F405RGT6 C15742 → **APM32F405RGT6** C5290473 (3.20 $ @100; 2.79 $ @160) | **−1.38** (JLC fiyatına göre); dış tedarik STM32 fiyatına göre −2.9…−5.1 | 1 728 ✓ | SYS-030 "resmî STM32F405". Pin uyumlu; BF APM32F405 hedefi var; AP desteği ve USB/DFU `gomulu-yazilim` doğrulamalı. **STM32 tedarik riskini de kapatır** |
+| C2 | INA240A3 → INA186A3IDCKR C2058245 (B2 yerine) | −1.22 | 4 046 ✓ | SYS-021 gevşer; V_CM ≤ 40 V, SYS-014 ile sınırda |
+| C3 | ICM-42688-P (Tokmas) → BMI270 C2836813 (1.23 $) | −0.89 | 9 232 ✓ | SYS-031: BF'de 3.2 kHz (8 kHz yok); pin dizilimi farklı |
+| C4 | W25Q128JVSIQ → PUYA PY25Q128HA-SUH-IT C7419750 (0.81 $) | −0.71 | 3 357 ✓ | BF ≥ 4.5 destekli (JEDEC 0x852018); ArduPilot tablosunda yok (master dahil) → SYS-056 için AP yaması. ZB25VQ128 (BF + AP 4.7) JLC'de yok; GD25Q128 / BY25Q128 / FM25Q128 / XT25F128F yalnız BF 2026.6 |
+| C5 | Baro çıkar (B1 sonrası) | −0.50 | — | SYS-032 (Ö) |
+| C6 | Flash çıkar | −1.53 | — | SYS-033 (Ö), SYS-056 |
+| — | Analog OSD (AT7456E) | 0 | — | SYS-034 zorunlu: dokunulmadı. Stoklu muadil yok (AT7456 C82523 ve MAX7456 stok 0; AT7456ELAH 1.85 $ daha pahalı) |
+
+### 10.4 Değişmeyenler ve neden
+
+| Parça | Bulgu |
+|---|---|
+| IMU Tokmas ICM-42688-P 2.12 $ | TDK orijinali C1850418 20.60 $ @30, stok 39: alternatif yok (SYS-031). HXY klonu C46550687 2.48 $ daha pahalı |
+| AT7456E 1.73 $ | 500 kademesi 1.61 $ ama 500 adet almak 100 set için toplamda pahalı |
+| W25Q128JVSIQ 1.53 $ (basic) | BF 4.5 + AP stabil destekli ucuz 16 MB SOIC-8 JLC'de yok. W25Q64 (8 MB) daha pahalı (1.81 $). → C4 |
+| EFM8BB21F16I ×4, JSM6288Q1 ×4 | 500 kademesine çıkmak toplamda pahalı; 125 °C muadil yok (§9.10) |
+| 8 MHz kristal 0.17 $ | Ucuz 3225'ler (0.13 $) ESR 250 Ω: HSE kazanç payı < 5 (gm_crit ≈ 0.57 mA/V). Basic 8 MHz yalnız 5032/HC-49 |
+| SY8303 ×2, bobinler, 22 µF'ler, SH konnektörler, USB-C, sigorta, TVS, 74LVC1G04, USBLC6 | Basic muadil yok ya da fark < 0.02 $; 22 µF birleştirme parça farkıyla tür tasarrufunu yiyor |
+
+### 10.5 Yeni tedarik riskleri (2026-11-11)
+
+| Parça | Durum | Etki |
+|---|---|---|
+| **STM32F405RGT6** C15742 | JLC stoğu **24** (100 lazım, 2× 200). Dış referans @100: Future ≈ 6.13 $, DigiKey RGT6TR ≈ 6.93 $ (+7 $ makara), Mouser ≈ 8.34 $ (findchips önbelleği, tarihsiz) | Taban 4.58 $ yerine ~6.1–8.3 $: **+1.5…+3.8 $/stack**. JLC "global sourcing" fiyatı da bu bantta beklenir (doğrulanmadı). A+B ile 31.35 $ → **~32.9–35.1 $** |
+| **JW5026** C185109 (ESC buck) | Stok **132** (11-10'da 4 308) | SYS-091 ✗ (200). `guc-elektronigi` 40 V muadil seçmeli, maliyet bilinmiyor |
+| BLP016N04LC-Q | 3 903 / 4 800 | A1 peşin alımıyla ayrılmalı (§9.5) |
+
+### 10.6 Öneri
+
+1. **A + B (B1–B6): 31.35 $/stack**, hedefin 0.65 $ altında — **yalnız STM32F405RGT6 JLC fiyatıyla (4.58 $) bulunabilirse**. Kritik kalemler B1 (−2.30, `gomulu-yazilim` + `pcb-muhendisi`) ve B2 (−0.52, `guc-elektronigi`).
+2. **Gerçekçi MCU fiyatıyla (dış tedarik ~6.9 $) A + B ≈ 33.7 $ → 32 $ aşılır.** En az zararlı C seçimi: **C1 APM32F405RGT6** — hiçbir özellik kaybolmaz, stok sorununu kapatır; A + B + C1 = **29.97 $** (STM32 dış fiyatına göre pay daha da büyük). C1 kabul edilmezse C4 (−0.71) + C3 (−0.89) bile ~32.1 $'da kalır, yani STM32'yle 32 $ ancak MCU JLC fiyatına yakın bir kaynaktan alınırsa tutar.
+3. Müşteriye soru (yönetici üzerinden): SYS-030 "resmî STM32F405" → "STM32F405 ya da Betaflight'ın resmî desteklediği pin uyumlu APM32F405" olarak gevşetilsin mi?
+
+### 10.7 Şematiğe işlenecek parça değişiklikleri (`sematik-muhendisi`, onaylar gelince)
+
+| Kart | Ref | Önce → sonra (LCSC) | Koşul |
+|---|---|---|---|
+| FMU | U103 | C6186 → **C347222** (MPN AMS1117-3.3, UMW; ALT C6186) | A |
+| FMU | C302 | C1524 → **C15195** | A |
+| FMU | C206 | 1 µF 0402 C49210445 → **2.2 µF 16 V X7R 0603 C5360821** | A |
+| FMU | C205 | 4.7 µF C107365 → **10 µF 16 V X7R 0805 C380347** | A |
+| FMU | D202 | 1N4148WT C27748 → **1N4148WS C2128**, SOD-323 | A |
+| ESC | M1aH…M4cL | kod aynı; sipariş notu: 2 500 adet peşin | A |
+| FMU | U302 | DPS368 C3232508 → **SPA06-003 C30589048** (ayak izi aynı; ALT C55090144 Tokmas DPS368); `Temperature` −40…85 °C | B1 onayı |
+| ESC | U2 | INA240A3DR → **INA281B2IDBVR C1517409**, SOT-23-5 sembol/ayak izi; ALT INA240A3DR | B2 onayı |
+| FMU | D501 | PMEG3020EH → **B5819W SL C8598**, SOD-123 | B3 onayı |
+| FMU | 5 V FB | 100 k / 13.7 k → **15 k C25756 / 2 k C4109** | B4 onayı |
+| ESC | D13…D45 | C27748 → **C2128** SOD-323 | B5 onayı |
+| ESC | R0/R02 | C26989 → guc-elektronigi'nin basic değerleri | B6 onayı |
+| FMU | U201 | C15742 → **C5290473** APM32F405RGT6 (ALT C15742) | C1 müşteri kararı |

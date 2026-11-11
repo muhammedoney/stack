@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-11-11 — Tasarruf taraması
+
+- `docs/bom-maliyet.md` §10, `boards/tasarruf-2026-11-11.csv`: A (güvenli) −0.61 $, B (inceleme gerekir; SPA06-003 baro −2.30 $, INA281B2 −0.52 $ …) → A + B = 31.35 $/stack (MCU JLC fiyatıyla). Dış tedarik STM32F405 fiyatıyla ~33.7 $; C1 APM32F405 ile 29.97 $. Yeni risk: ESC JW5026 stoğu 132.
+
 ## 2026-11-11 — FMU sıcaklık istisnası, QN3109 analizi
 
 - Müşteri: FMU 105 °C kuralından çıkarıldı (SYS-087, KRR-008); ESC kuralı aynı. FMU: STM32F405RGT6, W25Q128JVSIQ (ArduPilot flash sorunu kapandı); FMU 17.72 $, stack 34.92 $ (≤ 32 $’ı 2.9 $ aşıyor, RSK-004). `tools/fmu_bom.py`, `tools/jlc.py` repoya alındı.
