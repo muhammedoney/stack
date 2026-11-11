@@ -1100,7 +1100,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "IC:IC PWR INA240A3D SOIC-8"
+		(symbol "IC:IC PWR RSA240C SOIC-8"
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -1116,7 +1116,7 @@
 					)
 				)
 			)
-			(property "Value" "IC PWR INA240A3D SOIC-8"
+			(property "Value" "IC PWR RSA240C SOIC-8"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -1148,7 +1148,7 @@
 					)
 				)
 			)
-			(property "Description" "Akım algılama yükselteci x100, V_CM -4...80 V, SOIC-8; R00 0.1 mΩ ile 10 mV/A (ibata_scale 100); G4, SYS-020/021"
+			(property "Description" "Akım algılama yükselteci x100, PWM bastırmalı, V_CM -5…100 V, SOIC-8 (1 IN- 2 GND 3 REF2 4 NC 5 OUT 6 VS 7 REF1 8 IN+ = INA240); R00 0.1 mΩ ile 10 mV/A (ibata_scale 100); G4, SYS-020/021"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -1170,7 +1170,7 @@
 					)
 				)
 			)
-			(symbol "IC PWR INA240A3D SOIC-8_1_0"
+			(symbol "IC PWR RSA240C SOIC-8_1_0"
 				(rectangle
 					(start 12.7 12.7)
 					(end -12.7 -12.7)
@@ -1330,7 +1330,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "IC:IC PWR JW5026 SOT23-6"
+		(symbol "IC:IC PWR SCT2400 SOT23-6"
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -1346,7 +1346,7 @@
 					)
 				)
 			)
-			(property "Value" ""
+			(property "Value" "IC PWR SCT2400 SOT23-6"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -1356,7 +1356,7 @@
 					)
 				)
 			)
-			(property "Footprint" ""
+			(property "Footprint" "IC:SOT23-6"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -1378,7 +1378,7 @@
 					)
 				)
 			)
-			(property "Description" "Step-down type 1A 4.7V~40V SOT-23-6 DC-DC Converters ROHS"
+			(property "Description" "Buck 0.6 A, V_IN 4.5-40 V (42 V mutlak), 2 MHz, V_FB 0.81 V ±%2.5, TSOT23-6 (1 BST 2 GND 3 FB 4 EN 5 VIN 6 SW = JW5026); PVDD 8.17 V (R02 20 k / R01 2.2 k)"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -1400,7 +1400,7 @@
 					)
 				)
 			)
-			(symbol "IC PWR JW5026 SOT23-6_1_0"
+			(symbol "IC PWR SCT2400 SOT23-6_1_0"
 				(rectangle
 					(start 12.7 7.62)
 					(end -12.7 -10.16)
@@ -3451,7 +3451,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "RLC:RES0402_10k"
+		(symbol "RLC:RES0402_100k"
 			(pin_numbers
 				(hide yes)
 			)
@@ -3473,7 +3473,7 @@
 					)
 				)
 			)
-			(property "Value" ""
+			(property "Value" "RES0402_100k"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -3483,7 +3483,7 @@
 					)
 				)
 			)
-			(property "Footprint" ""
+			(property "Footprint" "RLC:0402-RES"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -3505,7 +3505,7 @@
 					)
 				)
 			)
-			(property "Description" "50V Thick Film Resistors 62.5mW 110kΩ ±1% ±100ppm/℃ 0402 Chip Resistor - Surface Mount ROHS"
+			(property "Description" "100 kΩ ±%1 0402, U1 EN (B6)"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -3527,7 +3527,240 @@
 					)
 				)
 			)
-			(symbol "RES0402_10k_1_0"
+			(symbol "RES0402_100k_1_0"
+				(polyline
+					(pts
+						(xy -2.159 1.016) (xy -2.54 0)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+						(color 128 0 0 1)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.524 -1.016) (xy -2.159 1.016)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+						(color 128 0 0 1)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -0.889 1.016) (xy -1.524 -1.016)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+						(color 128 0 0 1)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -0.254 -1.016) (xy -0.889 1.016)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+						(color 128 0 0 1)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0.381 1.016) (xy -0.254 -1.016)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+						(color 128 0 0 1)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.016 -1.016) (xy 0.381 1.016)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+						(color 128 0 0 1)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.651 1.016) (xy 1.016 -1.016)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+						(color 128 0 0 1)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.286 -1.016) (xy 1.651 1.016)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+						(color 128 0 0 1)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.54 0) (xy 2.286 -1.016)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+						(color 128 0 0 1)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin passive line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "P$1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 0 180)
+					(length 2.54)
+					(name "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "P$2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "RLC:RES0402_20k"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "RES0402_20k"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "RLC:0402-RES"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "20 kΩ ±%1 0402, U1 FB üst (B6): PVDD = V_FB × (1 + 20/2.2) = 8.17 V (SCT2400) / 8.07 V (JW5026)"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "*0402-RES*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "RES0402_20k_1_0"
 				(polyline
 					(pts
 						(xy -2.159 1.016) (xy -2.54 0)
@@ -4150,7 +4383,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "RLC:RES0402_90k9"
+		(symbol "RLC:RES0402_2k2"
 			(pin_numbers
 				(hide yes)
 			)
@@ -4172,7 +4405,7 @@
 					)
 				)
 			)
-			(property "Value" ""
+			(property "Value" "RES0402_2k2"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -4182,7 +4415,7 @@
 					)
 				)
 			)
-			(property "Footprint" ""
+			(property "Footprint" "RLC:0402-RES"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -4204,7 +4437,7 @@
 					)
 				)
 			)
-			(property "Description" "62.5mW Thick Film Resistors 50V ±100ppm/℃ ±1% 90.9kΩ 0402 Chip Resistor - Surface Mount ROHS"
+			(property "Description" "2.2 kΩ ±%1 0402, U1 FB alt (B6)"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -4226,7 +4459,7 @@
 					)
 				)
 			)
-			(symbol "RES0402_90k9_1_0"
+			(symbol "RES0402_2k2_1_0"
 				(polyline
 					(pts
 						(xy -2.159 1.016) (xy -2.54 0)
@@ -8680,6 +8913,28 @@
 				)
 			)
 		)
+		(property "Critical" "evet"
+			(at 167.64 57.15 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Procurement" "2 500 adet peşin alım (A1: stok 3 903 < 2 × 2 400; muadil §4)"
+			(at 167.64 57.15 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "57c6e75c-1c2d-4ed4-90b9-f8c110a73004")
 		)
@@ -8714,7 +8969,7 @@
 		)
 	)
 	(symbol
-		(lib_id "IC:IC PWR JW5026 SOT23-6")
+		(lib_id "IC:IC PWR SCT2400 SOT23-6")
 		(at 182.88 107.95 0)
 		(unit 1)
 		(body_style 1)
@@ -8735,7 +8990,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Value" "IC PWR JW5026 SOT23-6"
+		(property "Value" "IC PWR SCT2400 SOT23-6"
 			(at 170.18 123.19 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8757,7 +9012,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/f83872ed2237628ee0705043f9e45a8d.pdf"
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/6d2d30a1729d799dffa8acd75e20e625.pdf"
 			(at 182.88 107.95 0)
 			(hide yes)
 			(show_name no)
@@ -8768,7 +9023,7 @@
 				)
 			)
 		)
-		(property "Description" "Buck 1 A, V_IN 4.7-40 V (44 V mutlak), SOT-23-6; PVDD 8.07 V"
+		(property "Description" "Buck 0.6 A, V_IN 4.5-40 V (42 V mutlak), 2 MHz, V_FB 0.81 V ±%2.5, TSOT23-6 (1 BST 2 GND 3 FB 4 EN 5 VIN 6 SW = JW5026); PVDD 8.17 V (R02 20 k / R01 2.2 k)"
 			(at 182.88 107.95 0)
 			(hide yes)
 			(show_name no)
@@ -8779,7 +9034,7 @@
 				)
 			)
 		)
-		(property "MPN" "JW5026SOTB#TRPBF"
+		(property "MPN" "SCT2400TVBR"
 			(at 182.88 107.95 0)
 			(hide yes)
 			(show_name no)
@@ -8790,7 +9045,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "JoulWatt"
+		(property "Manufacturer" "SCT"
 			(at 182.88 107.95 0)
 			(hide yes)
 			(show_name no)
@@ -8801,7 +9056,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C185109"
+		(property "LCSC" "C2693819"
 			(at 182.88 107.95 0)
 			(hide yes)
 			(show_name no)
@@ -8812,7 +9067,95 @@
 				)
 			)
 		)
-		(property "Temperature" "T_J -40…+125 °C (LCSC)"
+		(property "ALT MPN" "JW5026SOTB#TRPBF"
+			(at 182.88 107.95 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ALT Manufacturer" "JoulWatt Tech"
+			(at 182.88 107.95 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ALT LCSC" "C185109"
+			(at 182.88 107.95 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ALT2 MPN" "JW5018SOTB#TRPBF"
+			(at 182.88 107.95 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ALT2 Manufacturer" "JoulWatt Tech"
+			(at 182.88 107.95 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ALT2 LCSC" "C3040676"
+			(at 182.88 107.95 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ALT Note" "Aynı FB 20 k / 2.2 k, L00 10 µH: JW5026/JW5018 V_FB 0.8 V → PVDD 8.07 V; DOG-111 (birer ESC)"
+			(at 182.88 107.95 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Temperature" "T_J -40…+125 °C çalışma, 150 °C mutlak (SCT2400 DS s.2)"
+			(at 182.88 107.95 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Critical" "evet"
 			(at 182.88 107.95 0)
 			(hide yes)
 			(show_name no)
@@ -9405,6 +9748,17 @@
 				)
 			)
 		)
+		(property "Critical" "hayır"
+			(at 264.16 34.29 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "P$1"
 			(uuid "bf384530-e1f5-46c1-8fba-b9d2fcfa56eb")
 		)
@@ -9674,6 +10028,28 @@
 				)
 			)
 		)
+		(property "Critical" "evet"
+			(at 134.62 57.15 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Procurement" "2 500 adet peşin alım (A1: stok 3 903 < 2 × 2 400; muadil §4)"
+			(at 134.62 57.15 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "c6694fd1-32a7-4da9-8beb-696984d92e22")
 		)
@@ -9782,7 +10158,7 @@
 		)
 	)
 	(symbol
-		(lib_id "RLC:RES0402_90k9")
+		(lib_id "RLC:RES0402_100k")
 		(at 165.1 110.49 90)
 		(unit 1)
 		(body_style 1)
@@ -9803,7 +10179,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Value" "RES0402_90k9"
+		(property "Value" "RES0402_100k"
 			(at 168.656 114.046 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9836,7 +10212,7 @@
 				)
 			)
 		)
-		(property "Description" "90.9 kΩ ±%1 0402"
+		(property "Description" "100 kΩ ±%1 0402, U1 EN (B6)"
 			(at 165.1 110.49 0)
 			(hide yes)
 			(show_name no)
@@ -9847,7 +10223,7 @@
 				)
 			)
 		)
-		(property "MPN" "0402WGF9092TCE"
+		(property "MPN" "0402WGF1003TCE"
 			(at 165.1 110.49 0)
 			(hide yes)
 			(show_name no)
@@ -9869,7 +10245,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C26989"
+		(property "LCSC" "C25741"
 			(at 165.1 110.49 0)
 			(hide yes)
 			(show_name no)
@@ -9881,6 +10257,17 @@
 			)
 		)
 		(property "Temperature" "-55…+155 °C (UNI-ROYAL 0402WGF, LCSC)"
+			(at 165.1 110.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Critical" "hayır"
 			(at 165.1 110.49 0)
 			(hide yes)
 			(show_name no)
@@ -10007,6 +10394,17 @@
 			)
 		)
 		(property "Temperature" "X7R: -55…+125 °C (EIA)"
+			(at 233.68 34.29 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Critical" "hayır"
 			(at 233.68 34.29 0)
 			(hide yes)
 			(show_name no)
@@ -10175,6 +10573,28 @@
 				)
 			)
 		)
+		(property "Critical" "evet"
+			(at 167.64 39.37 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Procurement" "2 500 adet peşin alım (A1: stok 3 903 < 2 × 2 400; muadil §4)"
+			(at 167.64 39.37 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "b7aed504-bac6-44d6-b0ab-32bca2221675")
 		)
@@ -10307,7 +10727,51 @@
 				)
 			)
 		)
+		(property "ALT MPN" "AMS1117-3.3S"
+			(at 261.62 173.99 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ALT Manufacturer" "TECH PUBLIC"
+			(at 261.62 173.99 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ALT LCSC" "C46473005"
+			(at 261.62 173.99 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(property "Temperature" "-40…+125 °C (LCSC); P = (PVDD-3.3 V)·I, kart 95 °C'de T_J payı guc-elektronigi"
+			(at 261.62 173.99 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Critical" "evet"
 			(at 261.62 173.99 0)
 			(hide yes)
 			(show_name no)
@@ -10521,6 +10985,17 @@
 				)
 			)
 		)
+		(property "Critical" "hayır"
+			(at 228.6 34.29 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "P$1"
 			(uuid "701dde8f-40ae-4e39-a041-72157f8f6bf7")
 		)
@@ -10722,7 +11197,7 @@
 		)
 	)
 	(symbol
-		(lib_id "RLC:RES0402_10k")
+		(lib_id "RLC:RES0402_2k2")
 		(at 215.9 110.49 90)
 		(unit 1)
 		(body_style 1)
@@ -10743,7 +11218,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Value" "RES0402_10k"
+		(property "Value" "RES0402_2k2"
 			(at 218.44 115.57 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10776,7 +11251,7 @@
 				)
 			)
 		)
-		(property "Description" "10 kΩ ±%1 0402"
+		(property "Description" "2.2 kΩ ±%1 0402, U1 FB alt (B6)"
 			(at 215.9 110.49 0)
 			(hide yes)
 			(show_name no)
@@ -10787,7 +11262,7 @@
 				)
 			)
 		)
-		(property "MPN" "0402WGF1002TCE"
+		(property "MPN" "0402WGF2201TCE"
 			(at 215.9 110.49 0)
 			(hide yes)
 			(show_name no)
@@ -10809,7 +11284,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C25744"
+		(property "LCSC" "C25879"
 			(at 215.9 110.49 0)
 			(hide yes)
 			(show_name no)
@@ -10821,6 +11296,17 @@
 			)
 		)
 		(property "Temperature" "-55…+155 °C (UNI-ROYAL 0402WGF, LCSC)"
+			(at 215.9 110.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Critical" "hayır"
 			(at 215.9 110.49 0)
 			(hide yes)
 			(show_name no)
@@ -11100,6 +11586,28 @@
 				)
 			)
 		)
+		(property "Critical" "evet"
+			(at 60.96 110.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Procurement" "2 500 adet peşin alım (A1: stok 3 903 < 2 × 2 400; muadil §4)"
+			(at 60.96 110.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "ae193800-174b-4fc0-8f8a-c9f37c5be748")
 		)
@@ -11243,6 +11751,17 @@
 				)
 			)
 		)
+		(property "Critical" "hayır"
+			(at 259.08 143.51 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "P$2"
 			(uuid "af304448-0c10-40e3-ae65-c9ac028a7307")
 		)
@@ -11358,6 +11877,17 @@
 			)
 		)
 		(property "Temperature" "X7R: -55…+125 °C (EIA)"
+			(at 193.04 95.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Critical" "hayır"
 			(at 193.04 95.25 0)
 			(hide yes)
 			(show_name no)
@@ -11516,6 +12046,28 @@
 			)
 		)
 		(property "Temperature" "T_J -55…+175 °C (DS; ALT NTMFS 175 °C); kılıf ≤ 110 °C hedef (guc-ip03 §2.5)"
+			(at 60.96 163.83 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Critical" "evet"
+			(at 60.96 163.83 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Procurement" "2 500 adet peşin alım (A1: stok 3 903 < 2 × 2 400; muadil §4)"
 			(at 60.96 163.83 0)
 			(hide yes)
 			(show_name no)
@@ -11692,6 +12244,28 @@
 			)
 		)
 		(property "Temperature" "T_J -55…+175 °C (DS; ALT NTMFS 175 °C); kılıf ≤ 110 °C hedef (guc-ip03 §2.5)"
+			(at 134.62 39.37 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Critical" "evet"
+			(at 134.62 39.37 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Procurement" "2 500 adet peşin alım (A1: stok 3 903 < 2 × 2 400; muadil §4)"
 			(at 134.62 39.37 0)
 			(hide yes)
 			(show_name no)
@@ -11942,6 +12516,28 @@
 			)
 		)
 		(property "Temperature" "T_J -55…+175 °C (DS; ALT NTMFS 175 °C); kılıf ≤ 110 °C hedef (guc-ip03 §2.5)"
+			(at 93.98 92.71 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Critical" "evet"
+			(at 93.98 92.71 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Procurement" "2 500 adet peşin alım (A1: stok 3 903 < 2 × 2 400; muadil §4)"
 			(at 93.98 92.71 0)
 			(hide yes)
 			(show_name no)
@@ -12239,6 +12835,28 @@
 				)
 			)
 		)
+		(property "Critical" "evet"
+			(at 27.94 110.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Procurement" "2 500 adet peşin alım (A1: stok 3 903 < 2 × 2 400; muadil §4)"
+			(at 27.94 110.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "24abb57d-81f7-47c4-8ec2-d1288ab8b887")
 		)
@@ -12371,7 +12989,73 @@
 				)
 			)
 		)
+		(property "ALT MPN" "EB390M10PFFWT"
+			(at 127 100.33 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ALT Manufacturer" "MHCH"
+			(at 127 100.33 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ALT LCSC" "C55591762"
+			(at 127 100.33 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ALT Note" "KOŞULLU ALT: EB3921 'mikro elektrot' ped 11/2.7/6.2 = HoLRS (MHCH DS s.3); elektrot sürümü üreticiden teyit"
+			(at 127 100.33 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(property "Temperature" "-55…+170 °C (DS s.3); güç azaltma eğrisi DS s.4"
+			(at 127 100.33 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Critical" "evet"
+			(at 127 100.33 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Exception" "Koşullu: teyit gelmezse istisna, 110 adet peşin (stok 3 830; muadil §3-4)"
 			(at 127 100.33 0)
 			(hide yes)
 			(show_name no)
@@ -12536,6 +13220,28 @@
 			)
 		)
 		(property "Temperature" "T_J -55…+175 °C (DS; ALT NTMFS 175 °C); kılıf ≤ 110 °C hedef (guc-ip03 §2.5)"
+			(at 27.94 92.71 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Critical" "evet"
+			(at 27.94 92.71 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Procurement" "2 500 adet peşin alım (A1: stok 3 903 < 2 × 2 400; muadil §4)"
 			(at 27.94 92.71 0)
 			(hide yes)
 			(show_name no)
@@ -12839,6 +13545,17 @@
 				)
 			)
 		)
+		(property "Critical" "hayır"
+			(at 248.92 34.29 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "P$1"
 			(uuid "94beb33c-4209-4216-86fc-3403c56f797c")
 		)
@@ -12987,6 +13704,28 @@
 			)
 		)
 		(property "Temperature" "T_J -55…+175 °C (DS; ALT NTMFS 175 °C); kılıf ≤ 110 °C hedef (guc-ip03 §2.5)"
+			(at 93.98 57.15 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Critical" "evet"
+			(at 93.98 57.15 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Procurement" "2 500 adet peşin alım (A1: stok 3 903 < 2 × 2 400; muadil §4)"
 			(at 93.98 57.15 0)
 			(hide yes)
 			(show_name no)
@@ -13284,6 +14023,28 @@
 				)
 			)
 		)
+		(property "Critical" "evet"
+			(at 93.98 146.05 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Procurement" "2 500 adet peşin alım (A1: stok 3 903 < 2 × 2 400; muadil §4)"
+			(at 93.98 146.05 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "cb919d7c-e926-4afa-a6a9-38c125e3f602")
 		)
@@ -13525,6 +14286,28 @@
 			)
 		)
 		(property "Temperature" "T_J -55…+175 °C (DS; ALT NTMFS 175 °C); kılıf ≤ 110 °C hedef (guc-ip03 §2.5)"
+			(at 27.94 39.37 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Critical" "evet"
+			(at 27.94 39.37 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Procurement" "2 500 adet peşin alım (A1: stok 3 903 < 2 × 2 400; muadil §4)"
 			(at 27.94 39.37 0)
 			(hide yes)
 			(show_name no)
@@ -13860,6 +14643,17 @@
 				)
 			)
 		)
+		(property "Critical" "hayır"
+			(at 154.94 110.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "P$1"
 			(uuid "0c4792fc-4773-4c3f-834b-38656454ad9f")
 		)
@@ -14008,6 +14802,28 @@
 			)
 		)
 		(property "Temperature" "T_J -55…+175 °C (DS; ALT NTMFS 175 °C); kılıf ≤ 110 °C hedef (guc-ip03 §2.5)"
+			(at 27.94 146.05 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Critical" "evet"
+			(at 27.94 146.05 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Procurement" "2 500 adet peşin alım (A1: stok 3 903 < 2 × 2 400; muadil §4)"
 			(at 27.94 146.05 0)
 			(hide yes)
 			(show_name no)
@@ -14194,6 +15010,28 @@
 				)
 			)
 		)
+		(property "Critical" "evet"
+			(at 200.66 57.15 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Procurement" "2 500 adet peşin alım (A1: stok 3 903 < 2 × 2 400; muadil §4)"
+			(at 200.66 57.15 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "87c0dc8e-b8e1-42a7-9587-860af967eb64")
 		)
@@ -14370,6 +15208,17 @@
 				)
 			)
 		)
+		(property "Critical" "hayır"
+			(at 223.52 100.33 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "P$1"
 			(uuid "0c21fb77-3ffa-4e92-af3d-f5b1ae7333e4")
 		)
@@ -14486,6 +15335,17 @@
 			)
 		)
 		(property "Temperature" "X7R: -55…+125 °C (EIA)"
+			(at 279.4 34.29 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Critical" "hayır"
 			(at 279.4 34.29 0)
 			(hide yes)
 			(show_name no)
@@ -14622,6 +15482,17 @@
 				)
 			)
 		)
+		(property "Critical" "hayır"
+			(at 238.76 34.29 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "P$1"
 			(uuid "b98ec4c1-7077-4019-ae69-2bb58bd65ed4")
 		)
@@ -14738,6 +15609,17 @@
 			)
 		)
 		(property "Temperature" "X7R: -55…+125 °C (EIA)"
+			(at 274.32 34.29 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Critical" "hayır"
 			(at 274.32 34.29 0)
 			(hide yes)
 			(show_name no)
@@ -14985,6 +15867,17 @@
 				)
 			)
 		)
+		(property "Critical" "hayır"
+			(at 160.02 171.45 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "P$1"
 			(uuid "e0397145-b08b-4163-b3d8-4d27fb936d74")
 		)
@@ -15143,6 +16036,28 @@
 				)
 			)
 		)
+		(property "Critical" "evet"
+			(at 93.98 163.83 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Procurement" "2 500 adet peşin alım (A1: stok 3 903 < 2 × 2 400; muadil §4)"
+			(at 93.98 163.83 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "f6b44076-15fc-49f7-ba59-820f88a097d2")
 		)
@@ -15286,6 +16201,17 @@
 				)
 			)
 		)
+		(property "Critical" "hayır"
+			(at 134.62 148.59 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "P$1"
 			(uuid "82b89625-f3a2-493a-83cb-a7f7638198e0")
 		)
@@ -15402,6 +16328,17 @@
 			)
 		)
 		(property "Temperature" "X7R: -55…+125 °C (EIA)"
+			(at 228.6 46.99 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Critical" "hayır"
 			(at 228.6 46.99 0)
 			(hide yes)
 			(show_name no)
@@ -16096,6 +17033,17 @@
 				)
 			)
 		)
+		(property "Critical" "hayır"
+			(at 259.08 34.29 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "P$1"
 			(uuid "99d54eb1-ff7d-48f3-b7f0-4674ac3b93d6")
 		)
@@ -16332,6 +17280,17 @@
 				)
 			)
 		)
+		(property "Critical" "hayır"
+			(at 259.08 146.05 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "P$2"
 			(uuid "e736dc65-9b94-4c36-86d2-93bfa068d6c6")
 		)
@@ -16532,6 +17491,17 @@
 				)
 			)
 		)
+		(property "Critical" "hayır"
+			(at 238.76 46.99 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "P$1"
 			(uuid "4d24d575-2ddd-42ea-957c-cf42c38d8755")
 		)
@@ -16690,6 +17660,28 @@
 				)
 			)
 		)
+		(property "Critical" "evet"
+			(at 60.96 39.37 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Procurement" "2 500 adet peşin alım (A1: stok 3 903 < 2 × 2 400; muadil §4)"
+			(at 60.96 39.37 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "1b7e2a2d-b863-4430-8ee8-0223f2f9e02c")
 		)
@@ -16823,6 +17815,17 @@
 			)
 		)
 		(property "Temperature" "X7R: -55…+125 °C (EIA)"
+			(at 149.86 110.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Critical" "hayır"
 			(at 149.86 110.49 0)
 			(hide yes)
 			(show_name no)
@@ -17472,6 +18475,28 @@
 				)
 			)
 		)
+		(property "Critical" "evet"
+			(at 60.96 146.05 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Procurement" "2 500 adet peşin alım (A1: stok 3 903 < 2 × 2 400; muadil §4)"
+			(at 60.96 146.05 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "1547e824-843a-49be-8d2b-87e167bf5d61")
 		)
@@ -17766,7 +18791,7 @@
 		)
 	)
 	(symbol
-		(lib_id "RLC:RES0402_90k9")
+		(lib_id "RLC:RES0402_20k")
 		(at 215.9 100.33 90)
 		(unit 1)
 		(body_style 1)
@@ -17787,7 +18812,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Value" "RES0402_90k9"
+		(property "Value" "RES0402_20k"
 			(at 219.456 103.886 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17820,7 +18845,7 @@
 				)
 			)
 		)
-		(property "Description" "90.9 kΩ ±%1 0402"
+		(property "Description" "20 kΩ ±%1 0402, U1 FB üst (B6): PVDD = V_FB × (1 + 20/2.2) = 8.17 V (SCT2400) / 8.07 V (JW5026)"
 			(at 215.9 100.33 0)
 			(hide yes)
 			(show_name no)
@@ -17831,7 +18856,7 @@
 				)
 			)
 		)
-		(property "MPN" "0402WGF9092TCE"
+		(property "MPN" "0402WGF2002TCE"
 			(at 215.9 100.33 0)
 			(hide yes)
 			(show_name no)
@@ -17853,7 +18878,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C26989"
+		(property "LCSC" "C25765"
 			(at 215.9 100.33 0)
 			(hide yes)
 			(show_name no)
@@ -17865,6 +18890,17 @@
 			)
 		)
 		(property "Temperature" "-55…+155 °C (UNI-ROYAL 0402WGF, LCSC)"
+			(at 215.9 100.33 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Critical" "hayır"
 			(at 215.9 100.33 0)
 			(hide yes)
 			(show_name no)
@@ -17891,7 +18927,7 @@
 		)
 	)
 	(symbol
-		(lib_id "IC:IC PWR INA240A3D SOIC-8")
+		(lib_id "IC:IC PWR RSA240C SOIC-8")
 		(at 160.02 148.59 0)
 		(unit 1)
 		(body_style 1)
@@ -17912,7 +18948,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Value" "IC PWR INA240A3D SOIC-8"
+		(property "Value" "IC PWR RSA240C SOIC-8"
 			(at 147.32 163.83 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17934,7 +18970,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "${KIPRJMOD}/../../../lib/datasheet/TI-INA240A3DR_C2060584.pdf"
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/cfd23beb0bf5a5e792cccc39733921bb.pdf"
 			(at 160.02 148.59 0)
 			(hide yes)
 			(show_name no)
@@ -17945,7 +18981,7 @@
 				)
 			)
 		)
-		(property "Description" "Akım algılama yükselteci x100, V_CM -4...80 V, SOIC-8; R00 0.1 mΩ ile 10 mV/A (ibata_scale 100); G4, SYS-020/021"
+		(property "Description" "Akım algılama yükselteci x100, PWM bastırmalı, V_CM -5…100 V, SOIC-8 (1 IN- 2 GND 3 REF2 4 NC 5 OUT 6 VS 7 REF1 8 IN+ = INA240); R00 0.1 mΩ ile 10 mV/A (ibata_scale 100); G4, SYS-020/021"
 			(at 160.02 148.59 0)
 			(hide yes)
 			(show_name no)
@@ -17956,7 +18992,7 @@
 				)
 			)
 		)
-		(property "MPN" "INA240A3DR"
+		(property "MPN" "RSA240CXK"
 			(at 160.02 148.59 0)
 			(hide yes)
 			(show_name no)
@@ -17967,7 +19003,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "Texas Instruments"
+		(property "Manufacturer" "Jiangsu RUNIC Tech"
 			(at 160.02 148.59 0)
 			(hide yes)
 			(show_name no)
@@ -17978,7 +19014,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C2060584"
+		(property "LCSC" "C54300729"
 			(at 160.02 148.59 0)
 			(hide yes)
 			(show_name no)
@@ -17989,7 +19025,62 @@
 				)
 			)
 		)
-		(property "Temperature" "T_A -40…+125 °C, T_J ≤ 150 °C (SBOS662)"
+		(property "ALT MPN" "INA240A3DR"
+			(at 160.02 148.59 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ALT Manufacturer" "Texas Instruments"
+			(at 160.02 148.59 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ALT LCSC" "C2060584"
+			(at 160.02 148.59 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ALT Note" "Koşul DOG-019: RSA240 ofseti -10/25/+50 °C'de ≤ 50 µV değilse INA240A3DR takılır (PCB aynı)"
+			(at 160.02 148.59 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Temperature" "T_A -40…+125 °C, T_J ≤ 150 °C (RSA240 DS §7; ALT SBOS662)"
+			(at 160.02 148.59 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Critical" "evet"
 			(at 160.02 148.59 0)
 			(hide yes)
 			(show_name no)
@@ -18240,6 +19331,28 @@
 			)
 		)
 		(property "Temperature" "-40…+85 °C (LCSC; JST -25…+85 °C) - 105 °C hedefinin altında, açık konu (SH ailesinde 105 °C yok)"
+			(at 279.4 153.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Critical" "evet"
+			(at 279.4 153.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Exception" "SYS-086 (f) sıcaklık istisnası: SH 1.0 ailesinde ≥ 105 °C yok (JST −25…85); serin kenar + DOG-105 ölçümü"
 			(at 279.4 153.67 0)
 			(hide yes)
 			(show_name no)
@@ -18730,6 +19843,17 @@
 				)
 			)
 		)
+		(property "Critical" "hayır"
+			(at 193.04 140.97 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "P$2"
 			(uuid "da4f8175-ee71-4918-b861-62ddf1a1adb3")
 		)
@@ -18856,6 +19980,17 @@
 				)
 			)
 		)
+		(property "Critical" "hayır"
+			(at 233.68 46.99 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "P$1"
 			(uuid "b8e63fe8-af17-4037-92bf-5345c9f90cde")
 		)
@@ -18971,6 +20106,17 @@
 			)
 		)
 		(property "Temperature" "-55…+155 °C (UNI-ROYAL 0402WGF, LCSC)"
+			(at 182.88 140.97 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Critical" "hayır"
 			(at 182.88 140.97 0)
 			(hide yes)
 			(show_name no)
@@ -19107,6 +20253,17 @@
 				)
 			)
 		)
+		(property "Critical" "hayır"
+			(at 243.84 34.29 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "P$1"
 			(uuid "64b8d44b-a7d1-4c09-b841-a65c964cbaa3")
 		)
@@ -19222,6 +20379,17 @@
 			)
 		)
 		(property "Temperature" "-55…+155 °C (UNI-ROYAL 0402WGF, LCSC)"
+			(at 259.08 148.59 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Critical" "hayır"
 			(at 259.08 148.59 0)
 			(hide yes)
 			(show_name no)
@@ -19380,6 +20548,28 @@
 			)
 		)
 		(property "Temperature" "T_J -55…+175 °C (DS; ALT NTMFS 175 °C); kılıf ≤ 110 °C hedef (guc-ip03 §2.5)"
+			(at 60.96 57.15 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Critical" "evet"
+			(at 60.96 57.15 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Procurement" "2 500 adet peşin alım (A1: stok 3 903 < 2 × 2 400; muadil §4)"
 			(at 60.96 57.15 0)
 			(hide yes)
 			(show_name no)
@@ -19670,7 +20860,51 @@
 				)
 			)
 		)
+		(property "ALT MPN" "SMDJ24CA-AT/TR13"
+			(at 127 110.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ALT Manufacturer" "Brightking"
+			(at 127 110.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ALT LCSC" "C523477"
+			(at 127 110.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(property "Temperature" "T_J -55…+150 °C (DS); P_PP sıcaklıkla azalır (DS eğri)"
+			(at 127 110.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Critical" "evet"
 			(at 127 110.49 0)
 			(hide yes)
 			(show_name no)
@@ -19829,6 +21063,28 @@
 			)
 		)
 		(property "Temperature" "T_J -55…+175 °C (DS; ALT NTMFS 175 °C); kılıf ≤ 110 °C hedef (guc-ip03 §2.5)"
+			(at 93.98 39.37 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Critical" "evet"
+			(at 93.98 39.37 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Procurement" "2 500 adet peşin alım (A1: stok 3 903 < 2 × 2 400; muadil §4)"
 			(at 93.98 39.37 0)
 			(hide yes)
 			(show_name no)
@@ -20238,6 +21494,28 @@
 				)
 			)
 		)
+		(property "Critical" "evet"
+			(at 93.98 110.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Procurement" "2 500 adet peşin alım (A1: stok 3 903 < 2 × 2 400; muadil §4)"
+			(at 93.98 110.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "9be4c948-e1e6-4d53-b703-6aae9b344aad")
 		)
@@ -20525,6 +21803,28 @@
 				)
 			)
 		)
+		(property "Critical" "evet"
+			(at 27.94 163.83 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Procurement" "2 500 adet peşin alım (A1: stok 3 903 < 2 × 2 400; muadil §4)"
+			(at 27.94 163.83 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "9b60848d-3639-48c8-82ef-a5bc90c339ee")
 		)
@@ -20691,6 +21991,28 @@
 			)
 		)
 		(property "Temperature" "T_J -55…+175 °C (DS; ALT NTMFS 175 °C); kılıf ≤ 110 °C hedef (guc-ip03 §2.5)"
+			(at 200.66 39.37 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Critical" "evet"
+			(at 200.66 39.37 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Procurement" "2 500 adet peşin alım (A1: stok 3 903 < 2 × 2 400; muadil §4)"
 			(at 200.66 39.37 0)
 			(hide yes)
 			(show_name no)
@@ -20991,6 +22313,28 @@
 				)
 			)
 		)
+		(property "Critical" "evet"
+			(at 60.96 92.71 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Procurement" "2 500 adet peşin alım (A1: stok 3 903 < 2 × 2 400; muadil §4)"
+			(at 60.96 92.71 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "2ca45dbf-7e43-4914-8d0f-25bb285b2ca6")
 		)
@@ -21135,6 +22479,17 @@
 				)
 			)
 		)
+		(property "Critical" "hayır"
+			(at 254 34.29 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "P$1"
 			(uuid "5dda4197-d98b-4ad5-b854-9e3d5dd02cde")
 		)
@@ -21249,7 +22604,51 @@
 				)
 			)
 		)
+		(property "ALT MPN" "FNR3015S100MT"
+			(at 208.28 95.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ALT Manufacturer" "cjiang (Changjiang Microelectronics Tech)"
+			(at 208.28 95.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ALT LCSC" "C167757"
+			(at 208.28 95.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(property "Temperature" "-40…+125 °C, öz ısınma dahil (SWPA DS s.1)"
+			(at 208.28 95.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Critical" "evet"
 			(at 208.28 95.25 0)
 			(hide yes)
 			(show_name no)
@@ -21386,6 +22785,17 @@
 				)
 			)
 		)
+		(property "Critical" "hayır"
+			(at 284.48 34.29 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "P$1"
 			(uuid "d18e0748-6bc9-4f1b-89d5-d67ac1d7fbff")
 		)
@@ -21501,6 +22911,17 @@
 			)
 		)
 		(property "Temperature" "-55…+155 °C (UNI-ROYAL 0402WGF, LCSC)"
+			(at 259.08 140.97 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Critical" "hayır"
 			(at 259.08 140.97 0)
 			(hide yes)
 			(show_name no)
@@ -21627,6 +23048,17 @@
 			)
 		)
 		(property "Temperature" "X7R: -55…+125 °C (EIA)"
+			(at 269.24 34.29 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Critical" "hayır"
 			(at 269.24 34.29 0)
 			(hide yes)
 			(show_name no)
@@ -21894,6 +23326,28 @@
 			)
 		)
 		(property "Temperature" "T_J -55…+175 °C (DS; ALT NTMFS 175 °C); kılıf ≤ 110 °C hedef (guc-ip03 §2.5)"
+			(at 27.94 57.15 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Critical" "evet"
+			(at 27.94 57.15 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Procurement" "2 500 adet peşin alım (A1: stok 3 903 < 2 × 2 400; muadil §4)"
 			(at 27.94 57.15 0)
 			(hide yes)
 			(show_name no)
@@ -22293,6 +23747,17 @@
 				)
 			)
 		)
+		(property "Critical" "hayır"
+			(at 119.38 172.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "P$1"
 			(uuid "6915a1e2-4296-5d91-ab6e-aebaed2e1722")
 		)
@@ -22600,6 +24065,17 @@
 				)
 			)
 		)
+		(property "Critical" "hayır"
+			(at 129.54 172.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "P$1"
 			(uuid "ac4c5637-5355-56bf-a8eb-0183c6d65f55")
 		)
@@ -22784,6 +24260,335 @@
 			(justify left top)
 		)
 		(uuid "800a23e7-b1b9-5f54-b67b-5baec148396f")
+	)
+	(symbol
+		(lib_id "RLC:CAP0805_10u_16V_X7R")
+		(at 231.14 100.33 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "e9ac75f7-fc4a-58d2-8402-5f3c060c8825")
+		(property "Reference" "C03b"
+			(at 231.14 102.87 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Value" "CAP0805_10u_16V_X7R"
+			(at 231.14 97.79 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Footprint" "stack:C_0805_2012Metric"
+			(at 231.14 100.33 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/71a9f8eccc4da164324d4a716182c5e3.pdf"
+			(at 231.14 100.33 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "10 µF ±%10 16 V X7R 0805; G12/G13; X5R 0603 C70225 yerine (yüksek sıcaklık)"
+			(at 231.14 100.33 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "TCC0805X7R106K160FT"
+			(at 231.14 100.33 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "CCTC"
+			(at 231.14 100.33 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C380347"
+			(at 231.14 100.33 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ALT MPN" "CL21B106KOQNNNE"
+			(at 231.14 100.33 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ALT Manufacturer" "Samsung Electro-Mechanics"
+			(at 231.14 100.33 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ALT LCSC" "C95841"
+			(at 231.14 100.33 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Temperature" "X7R: -55…+125 °C (EIA)"
+			(at 231.14 100.33 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Critical" "hayır"
+			(at 231.14 100.33 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "P$1"
+			(uuid "30b42b0c-b75d-5ef9-b164-bb5eec190153")
+		)
+		(pin "P$2"
+			(uuid "5d50ad4c-3b95-5c4e-b6af-0f29ec059a31")
+		)
+		(instances
+			(project "esc55a"
+				(path "/78885a65-daf6-56b0-984c-eb1fc04dfd40/37409c1c-c9c8-5bac-b93e-9d69cb61ece5"
+					(reference "C03b")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "stack:+8V_BAR")
+		(at 231.14 95.25 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "106e27cd-455a-51a8-9def-e86f7394b9e0")
+		(property "Reference" "#PWR105"
+			(at 231.14 95.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+8V"
+			(at 231.14 91.44 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 231.14 95.25 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 231.14 95.25 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 231.14 95.25 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin ""
+			(uuid "1cc58239-0d7e-5652-b7a1-3e98367c791d")
+		)
+		(instances
+			(project "esc55a"
+				(path "/78885a65-daf6-56b0-984c-eb1fc04dfd40/37409c1c-c9c8-5bac-b93e-9d69cb61ece5"
+					(reference "#PWR105")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "stack:GND_POWER_GROUND")
+		(at 231.14 102.87 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "bfb00519-98ad-558c-9e32-1e2fc293cb48")
+		(property "Reference" "#PWR106"
+			(at 231.14 102.87 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 231.14 109.22 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 231.14 102.87 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 231.14 102.87 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 231.14 102.87 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin ""
+			(uuid "9ea8de83-a1e7-50a1-a821-38f2c3e24900")
+		)
+		(instances
+			(project "esc55a"
+				(path "/78885a65-daf6-56b0-984c-eb1fc04dfd40/37409c1c-c9c8-5bac-b93e-9d69cb61ece5"
+					(reference "#PWR106")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(text "C03b: PVDD 2. 10 µF\nU1 SCT2400: 8.17 V"
+		(exclude_from_sim no)
+		(at 236.22 116.84 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left top)
+		)
+		(uuid "08fd6a2b-1ab8-55f6-98ce-5cb0a5533118")
 	)
 	(embedded_fonts no)
 	(symbol

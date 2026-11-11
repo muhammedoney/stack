@@ -1469,7 +1469,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "RLC:DPWR_1N4148WT"
+		(symbol "RLC:DPWR_1N4148WS"
 			(pin_numbers
 				(hide yes)
 			)
@@ -1491,7 +1491,7 @@
 					)
 				)
 			)
-			(property "Value" ""
+			(property "Value" "DPWR_1N4148WS"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -1501,7 +1501,7 @@
 					)
 				)
 			)
-			(property "Footprint" ""
+			(property "Footprint" "stack:D_SOD-323_KA"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -1523,7 +1523,7 @@
 					)
 				)
 			)
-			(property "Description" "75V Independent Type 1.25V@150mA 4ns 150mA SOD-523 Switching Diodes ROHS"
+			(property "Description" "Hızlı diyot 100 V 150 mA SOD-323 (bootstrap); 1N4148WT SOD-523 C27748 yerine (hedef BOM, basic)"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -1534,7 +1534,7 @@
 					)
 				)
 			)
-			(property "ki_fp_filters" "*SOD-523_0P9X1P3*"
+			(property "ki_fp_filters" "*SOD-323*"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -1545,7 +1545,7 @@
 					)
 				)
 			)
-			(symbol "DPWR_1N4148WT_1_0"
+			(symbol "DPWR_1N4148WS_1_0"
 				(polyline
 					(pts
 						(xy -1.27 1.27) (xy 1.27 0)
@@ -6746,6 +6746,17 @@
 				)
 			)
 		)
+		(property "Critical" "hayır"
+			(at 142.24 181.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "P$2"
 			(uuid "a2fa8982-9beb-41de-bf10-43ae467b5dc4")
 		)
@@ -6861,6 +6872,17 @@
 			)
 		)
 		(property "Temperature" "-55…+155 °C (UNI-ROYAL 0402WGF, LCSC)"
+			(at 43.18 151.13 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Critical" "hayır"
 			(at 43.18 151.13 0)
 			(hide yes)
 			(show_name no)
@@ -7071,6 +7093,17 @@
 				)
 			)
 		)
+		(property "Critical" "hayır"
+			(at 78.74 41.91 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "P$1"
 			(uuid "d28f6d6b-2665-40e7-ba41-ce2b1c66d06a")
 		)
@@ -7185,7 +7218,7 @@
 				)
 			)
 		)
-		(property "ALT MPN" "FD6288Q"
+		(property "ALT MPN" "HL6288Q"
 			(at 50.8 97.79 0)
 			(hide yes)
 			(show_name no)
@@ -7196,7 +7229,7 @@
 				)
 			)
 		)
-		(property "ALT Manufacturer" "Fortior Tech"
+		(property "ALT Manufacturer" "HL"
 			(at 50.8 97.79 0)
 			(hide yes)
 			(show_name no)
@@ -7207,7 +7240,51 @@
 				)
 			)
 		)
-		(property "ALT LCSC" "C328453"
+		(property "ALT LCSC" "C50331902"
+			(at 50.8 97.79 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ALT2 MPN" "NSG6288Q"
+			(at 50.8 97.79 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ALT2 Manufacturer" "WXNSIC"
+			(at 50.8 97.79 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ALT2 LCSC" "C54570588"
+			(at 50.8 97.79 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ALT Note" "QFN24 FD6288Q dizilimi (HL6288Q DS §5); UVLO+ ≤ 5.1 V. JSM6288Q C19077370 ve JSMSEMI 'FD6288Q' C7466367 ALT DEĞİLDİR (UVLO ≈ 7 V)"
 			(at 50.8 97.79 0)
 			(hide yes)
 			(show_name no)
@@ -7219,6 +7296,17 @@
 			)
 		)
 		(property "Temperature" "-40…+125 °C (LCSC; DS görüntü PDF)"
+			(at 50.8 97.79 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Critical" "evet"
 			(at 50.8 97.79 0)
 			(hide yes)
 			(show_name no)
@@ -7420,6 +7508,17 @@
 				)
 			)
 		)
+		(property "Critical" "hayır"
+			(at 180.34 151.13 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "P$2"
 			(uuid "1edcdee2-6de6-4b75-b3bf-6ef3fd0198c0")
 		)
@@ -7609,6 +7708,17 @@
 			)
 		)
 		(property "Temperature" "-55…+155 °C (UNI-ROYAL 0402WGF, LCSC)"
+			(at 22.86 138.43 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Critical" "hayır"
 			(at 22.86 138.43 0)
 			(hide yes)
 			(show_name no)
@@ -7819,6 +7929,17 @@
 				)
 			)
 		)
+		(property "Critical" "hayır"
+			(at 175.26 191.77 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "P$2"
 			(uuid "0254a4a3-13b7-48ad-967f-fd981a0849cf")
 		)
@@ -7835,7 +7956,7 @@
 		)
 	)
 	(symbol
-		(lib_id "RLC:DPWR_1N4148WT")
+		(lib_id "RLC:DPWR_1N4148WS")
 		(at 81.28 143.51 270)
 		(unit 1)
 		(body_style 1)
@@ -7856,7 +7977,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Value" "DPWR_1N4148WT"
+		(property "Value" "DPWR_1N4148WS"
 			(at 83.058 147.066 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7867,7 +7988,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Footprint" "RLC:SOD-523_0P9X1P3"
+		(property "Footprint" "stack:D_SOD-323_KA"
 			(at 81.28 143.51 0)
 			(hide yes)
 			(show_name no)
@@ -7878,7 +7999,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/d78fb31904624a51a63f8a5d98d2dc04.pdf"
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/460cf88f750c4519b4ed435068ee729e.pdf"
 			(at 81.28 143.51 0)
 			(hide yes)
 			(show_name no)
@@ -7889,7 +8010,7 @@
 				)
 			)
 		)
-		(property "Description" "Hızlı diyot 100 V 150 mA SOD-523 (bootstrap)"
+		(property "Description" "Hızlı diyot 100 V 150 mA SOD-323 (bootstrap); 1N4148WT SOD-523 C27748 yerine (hedef BOM, basic)"
 			(at 81.28 143.51 0)
 			(hide yes)
 			(show_name no)
@@ -7900,7 +8021,7 @@
 				)
 			)
 		)
-		(property "MPN" "1N4148WT"
+		(property "MPN" "1N4148WS"
 			(at 81.28 143.51 0)
 			(hide yes)
 			(show_name no)
@@ -7911,7 +8032,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "ST(Semtech)"
+		(property "Manufacturer" "Jiangsu Changjing Electronics Technology Co., Ltd."
 			(at 81.28 143.51 0)
 			(hide yes)
 			(show_name no)
@@ -7922,7 +8043,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C27748"
+		(property "LCSC" "C2128"
 			(at 81.28 143.51 0)
 			(hide yes)
 			(show_name no)
@@ -7933,7 +8054,51 @@
 				)
 			)
 		)
-		(property "Temperature" "T_J -65…+150 °C (LCSC)"
+		(property "ALT MPN" "1N4148WS"
+			(at 81.28 143.51 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ALT Manufacturer" "Yangzhou Yangjie Elec Tech"
+			(at 81.28 143.51 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ALT LCSC" "C389058"
+			(at 81.28 143.51 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Temperature" "T_J 150 °C (CJ DS; ALT Yangjie -55…+150 °C)"
+			(at 81.28 143.51 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Critical" "hayır"
 			(at 81.28 143.51 0)
 			(hide yes)
 			(show_name no)
@@ -8069,6 +8234,17 @@
 				)
 			)
 		)
+		(property "Critical" "hayır"
+			(at 91.44 41.91 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "P$2"
 			(uuid "a559f127-63b4-4511-9c81-2f2e67d85528")
 		)
@@ -8194,6 +8370,17 @@
 				)
 			)
 		)
+		(property "Critical" "hayır"
+			(at 45.72 181.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "P$2"
 			(uuid "5d8d7fd7-66aa-4bc7-93ed-0a26e2dd42d6")
 		)
@@ -8309,6 +8496,17 @@
 			)
 		)
 		(property "Temperature" "-55…+155 °C (UNI-ROYAL 0402WGF, LCSC)"
+			(at 170.18 138.43 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Critical" "hayır"
 			(at 170.18 138.43 0)
 			(hide yes)
 			(show_name no)
@@ -8478,6 +8676,17 @@
 				)
 			)
 		)
+		(property "Critical" "hayır"
+			(at 106.68 153.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "P$1"
 			(uuid "db2b516a-f63b-4589-8235-fcb978ab4d87")
 		)
@@ -8603,6 +8812,17 @@
 				)
 			)
 		)
+		(property "Critical" "hayır"
+			(at 33.02 181.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "P$2"
 			(uuid "e3cfce2b-5621-4c1d-a379-97cc82dfbe17")
 		)
@@ -8619,7 +8839,7 @@
 		)
 	)
 	(symbol
-		(lib_id "RLC:DPWR_1N4148WT")
+		(lib_id "RLC:DPWR_1N4148WS")
 		(at 223.52 143.51 270)
 		(unit 1)
 		(body_style 1)
@@ -8640,7 +8860,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Value" "DPWR_1N4148WT"
+		(property "Value" "DPWR_1N4148WS"
 			(at 225.298 147.066 90)
 			(hide yes)
 			(show_name no)
@@ -8652,7 +8872,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Footprint" "RLC:SOD-523_0P9X1P3"
+		(property "Footprint" "stack:D_SOD-323_KA"
 			(at 223.52 143.51 0)
 			(hide yes)
 			(show_name no)
@@ -8663,7 +8883,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/d78fb31904624a51a63f8a5d98d2dc04.pdf"
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/460cf88f750c4519b4ed435068ee729e.pdf"
 			(at 223.52 143.51 0)
 			(hide yes)
 			(show_name no)
@@ -8674,7 +8894,7 @@
 				)
 			)
 		)
-		(property "Description" "Hızlı diyot 100 V 150 mA SOD-523 (bootstrap)"
+		(property "Description" "Hızlı diyot 100 V 150 mA SOD-323 (bootstrap); 1N4148WT SOD-523 C27748 yerine (hedef BOM, basic)"
 			(at 223.52 143.51 0)
 			(hide yes)
 			(show_name no)
@@ -8685,7 +8905,7 @@
 				)
 			)
 		)
-		(property "MPN" "1N4148WT"
+		(property "MPN" "1N4148WS"
 			(at 223.52 143.51 0)
 			(hide yes)
 			(show_name no)
@@ -8696,7 +8916,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "ST(Semtech)"
+		(property "Manufacturer" "Jiangsu Changjing Electronics Technology Co., Ltd."
 			(at 223.52 143.51 0)
 			(hide yes)
 			(show_name no)
@@ -8707,7 +8927,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C27748"
+		(property "LCSC" "C2128"
 			(at 223.52 143.51 0)
 			(hide yes)
 			(show_name no)
@@ -8718,7 +8938,51 @@
 				)
 			)
 		)
-		(property "Temperature" "T_J -65…+150 °C (LCSC)"
+		(property "ALT MPN" "1N4148WS"
+			(at 223.52 143.51 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ALT Manufacturer" "Yangzhou Yangjie Elec Tech"
+			(at 223.52 143.51 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ALT LCSC" "C389058"
+			(at 223.52 143.51 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Temperature" "T_J 150 °C (CJ DS; ALT Yangjie -55…+150 °C)"
+			(at 223.52 143.51 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Critical" "hayır"
 			(at 223.52 143.51 0)
 			(hide yes)
 			(show_name no)
@@ -9002,6 +9266,17 @@
 				)
 			)
 		)
+		(property "Critical" "hayır"
+			(at 43.18 138.43 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "P$2"
 			(uuid "aa211e1b-a0f2-44d3-b47c-1a879f562e5f")
 		)
@@ -9167,7 +9442,7 @@
 		)
 	)
 	(symbol
-		(lib_id "RLC:DPWR_1N4148WT")
+		(lib_id "RLC:DPWR_1N4148WS")
 		(at 198.12 143.51 270)
 		(unit 1)
 		(body_style 1)
@@ -9188,7 +9463,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Value" "DPWR_1N4148WT"
+		(property "Value" "DPWR_1N4148WS"
 			(at 199.898 147.066 90)
 			(hide yes)
 			(show_name no)
@@ -9200,7 +9475,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Footprint" "RLC:SOD-523_0P9X1P3"
+		(property "Footprint" "stack:D_SOD-323_KA"
 			(at 198.12 143.51 0)
 			(hide yes)
 			(show_name no)
@@ -9211,7 +9486,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/d78fb31904624a51a63f8a5d98d2dc04.pdf"
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/460cf88f750c4519b4ed435068ee729e.pdf"
 			(at 198.12 143.51 0)
 			(hide yes)
 			(show_name no)
@@ -9222,7 +9497,7 @@
 				)
 			)
 		)
-		(property "Description" "Hızlı diyot 100 V 150 mA SOD-523 (bootstrap)"
+		(property "Description" "Hızlı diyot 100 V 150 mA SOD-323 (bootstrap); 1N4148WT SOD-523 C27748 yerine (hedef BOM, basic)"
 			(at 198.12 143.51 0)
 			(hide yes)
 			(show_name no)
@@ -9233,7 +9508,7 @@
 				)
 			)
 		)
-		(property "MPN" "1N4148WT"
+		(property "MPN" "1N4148WS"
 			(at 198.12 143.51 0)
 			(hide yes)
 			(show_name no)
@@ -9244,7 +9519,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "ST(Semtech)"
+		(property "Manufacturer" "Jiangsu Changjing Electronics Technology Co., Ltd."
 			(at 198.12 143.51 0)
 			(hide yes)
 			(show_name no)
@@ -9255,7 +9530,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C27748"
+		(property "LCSC" "C2128"
 			(at 198.12 143.51 0)
 			(hide yes)
 			(show_name no)
@@ -9266,7 +9541,51 @@
 				)
 			)
 		)
-		(property "Temperature" "T_J -65…+150 °C (LCSC)"
+		(property "ALT MPN" "1N4148WS"
+			(at 198.12 143.51 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ALT Manufacturer" "Yangzhou Yangjie Elec Tech"
+			(at 198.12 143.51 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ALT LCSC" "C389058"
+			(at 198.12 143.51 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Temperature" "T_J 150 °C (CJ DS; ALT Yangjie -55…+150 °C)"
+			(at 198.12 143.51 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Critical" "hayır"
 			(at 198.12 143.51 0)
 			(hide yes)
 			(show_name no)
@@ -9402,6 +9721,17 @@
 				)
 			)
 		)
+		(property "Critical" "hayır"
+			(at 22.86 29.21 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "P$2"
 			(uuid "2d8a895a-dbdb-4f51-8e68-15bd9d770318")
 		)
@@ -9527,6 +9857,17 @@
 				)
 			)
 		)
+		(property "Critical" "hayır"
+			(at 12.7 138.43 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "P$2"
 			(uuid "5f8c2ee5-62a2-4518-823d-e321c8332773")
 		)
@@ -9642,6 +9983,39 @@
 			)
 		)
 		(property "Temperature" "I sınıfı T_A -40…+125 °C, T_J ≤ 130 °C (EFM8BB2 DS §2, Tablo 4.1, 4.15); G sınıfı 85 °C"
+			(at 167.64 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Critical" "evet"
+			(at 167.64 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Exception" "İSTİSNA: Bluejay yalnız EFM8BB21/BB51; BB21 125 °C tek kod (QFN20 tray C5727559 stok 0, QSOP24 farklı kılıf). Peşin alım"
+			(at 167.64 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Procurement" "500 adet peşin alım (İ1: 400 + 100 yedek; muadil §4)"
 			(at 167.64 49.53 0)
 			(hide yes)
 			(show_name no)
@@ -9898,6 +10272,17 @@
 			)
 		)
 		(property "Temperature" "-55…+155 °C (UNI-ROYAL 0402WGF, LCSC)"
+			(at 129.54 138.43 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Critical" "hayır"
 			(at 129.54 138.43 0)
 			(hide yes)
 			(show_name no)
@@ -10293,6 +10678,17 @@
 				)
 			)
 		)
+		(property "Critical" "hayır"
+			(at 162.56 181.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "P$2"
 			(uuid "215963fe-b1de-4dba-894c-9e4062ffce07")
 		)
@@ -10408,6 +10804,17 @@
 			)
 		)
 		(property "Temperature" "-55…+155 °C (UNI-ROYAL 0402WGF, LCSC)"
+			(at 208.28 41.91 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Critical" "hayır"
 			(at 208.28 41.91 0)
 			(hide yes)
 			(show_name no)
@@ -10543,6 +10950,17 @@
 				)
 			)
 		)
+		(property "Critical" "hayır"
+			(at 149.86 181.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "P$2"
 			(uuid "0a9fd9fb-e3dd-4332-9f52-90f95ce24aa9")
 		)
@@ -10658,6 +11076,17 @@
 			)
 		)
 		(property "Temperature" "-55…+155 °C (UNI-ROYAL 0402WGF, LCSC)"
+			(at 63.5 138.43 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Critical" "hayır"
 			(at 63.5 138.43 0)
 			(hide yes)
 			(show_name no)
@@ -10793,6 +11222,17 @@
 				)
 			)
 		)
+		(property "Critical" "hayır"
+			(at 149.86 138.43 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "P$2"
 			(uuid "eee8bcfc-ec5c-4db6-aa4f-4f29373eccf3")
 		)
@@ -10809,7 +11249,7 @@
 		)
 	)
 	(symbol
-		(lib_id "RLC:DPWR_1N4148WT")
+		(lib_id "RLC:DPWR_1N4148WS")
 		(at 106.68 143.51 270)
 		(unit 1)
 		(body_style 1)
@@ -10830,7 +11270,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Value" "DPWR_1N4148WT"
+		(property "Value" "DPWR_1N4148WS"
 			(at 108.458 147.066 90)
 			(hide yes)
 			(show_name no)
@@ -10842,7 +11282,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Footprint" "RLC:SOD-523_0P9X1P3"
+		(property "Footprint" "stack:D_SOD-323_KA"
 			(at 106.68 143.51 0)
 			(hide yes)
 			(show_name no)
@@ -10853,7 +11293,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/d78fb31904624a51a63f8a5d98d2dc04.pdf"
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/460cf88f750c4519b4ed435068ee729e.pdf"
 			(at 106.68 143.51 0)
 			(hide yes)
 			(show_name no)
@@ -10864,7 +11304,7 @@
 				)
 			)
 		)
-		(property "Description" "Hızlı diyot 100 V 150 mA SOD-523 (bootstrap)"
+		(property "Description" "Hızlı diyot 100 V 150 mA SOD-323 (bootstrap); 1N4148WT SOD-523 C27748 yerine (hedef BOM, basic)"
 			(at 106.68 143.51 0)
 			(hide yes)
 			(show_name no)
@@ -10875,7 +11315,7 @@
 				)
 			)
 		)
-		(property "MPN" "1N4148WT"
+		(property "MPN" "1N4148WS"
 			(at 106.68 143.51 0)
 			(hide yes)
 			(show_name no)
@@ -10886,7 +11326,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "ST(Semtech)"
+		(property "Manufacturer" "Jiangsu Changjing Electronics Technology Co., Ltd."
 			(at 106.68 143.51 0)
 			(hide yes)
 			(show_name no)
@@ -10897,7 +11337,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C27748"
+		(property "LCSC" "C2128"
 			(at 106.68 143.51 0)
 			(hide yes)
 			(show_name no)
@@ -10908,7 +11348,51 @@
 				)
 			)
 		)
-		(property "Temperature" "T_J -65…+150 °C (LCSC)"
+		(property "ALT MPN" "1N4148WS"
+			(at 106.68 143.51 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ALT Manufacturer" "Yangzhou Yangjie Elec Tech"
+			(at 106.68 143.51 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ALT LCSC" "C389058"
+			(at 106.68 143.51 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Temperature" "T_J 150 °C (CJ DS; ALT Yangjie -55…+150 °C)"
+			(at 106.68 143.51 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Critical" "hayır"
 			(at 106.68 143.51 0)
 			(hide yes)
 			(show_name no)
@@ -11034,6 +11518,17 @@
 			)
 		)
 		(property "Temperature" "-55…+155 °C (UNI-ROYAL 0402WGF, LCSC)"
+			(at 182.88 181.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Critical" "hayır"
 			(at 182.88 181.61 0)
 			(hide yes)
 			(show_name no)
@@ -11234,6 +11729,17 @@
 			)
 		)
 		(property "Temperature" "-55…+155 °C (UNI-ROYAL 0402WGF, LCSC)"
+			(at 38.1 191.77 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Critical" "hayır"
 			(at 38.1 191.77 0)
 			(hide yes)
 			(show_name no)
@@ -11777,6 +12283,17 @@
 				)
 			)
 		)
+		(property "Critical" "hayır"
+			(at 33.02 138.43 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "P$2"
 			(uuid "3fb0f9c6-bcfd-4fb8-a282-5bd54b7f1ebe")
 		)
@@ -11892,6 +12409,17 @@
 			)
 		)
 		(property "Temperature" "-55…+155 °C (UNI-ROYAL 0402WGF, LCSC)"
+			(at 134.62 191.77 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Critical" "hayır"
 			(at 134.62 191.77 0)
 			(hide yes)
 			(show_name no)
@@ -12061,6 +12589,17 @@
 				)
 			)
 		)
+		(property "Critical" "hayır"
+			(at 93.98 153.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "P$1"
 			(uuid "e5726e97-7674-461b-9d0b-a3a44d7507b6")
 		)
@@ -12186,6 +12725,17 @@
 				)
 			)
 		)
+		(property "Critical" "hayır"
+			(at 154.94 191.77 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "P$2"
 			(uuid "df48b6c3-8333-4425-b405-f05311da4454")
 		)
@@ -12301,6 +12851,17 @@
 			)
 		)
 		(property "Temperature" "-55…+155 °C (UNI-ROYAL 0402WGF, LCSC)"
+			(at 160.02 138.43 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Critical" "hayır"
 			(at 160.02 138.43 0)
 			(hide yes)
 			(show_name no)
@@ -12510,6 +13071,17 @@
 				)
 			)
 		)
+		(property "Critical" "hayır"
+			(at 25.4 181.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "P$2"
 			(uuid "6a5d8b8b-b74c-4b50-b962-cbcd37261492")
 		)
@@ -12700,6 +13272,17 @@
 			)
 		)
 		(property "Temperature" "-55…+155 °C (UNI-ROYAL 0402WGF, LCSC)"
+			(at 139.7 138.43 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Critical" "hayır"
 			(at 139.7 138.43 0)
 			(hide yes)
 			(show_name no)
@@ -12983,6 +13566,17 @@
 				)
 			)
 		)
+		(property "Critical" "hayır"
+			(at 63.5 151.13 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "P$2"
 			(uuid "a71a62ce-8a76-4011-8e3d-ab49dc651c32")
 		)
@@ -13074,7 +13668,7 @@
 		)
 	)
 	(symbol
-		(lib_id "RLC:DPWR_1N4148WT")
+		(lib_id "RLC:DPWR_1N4148WS")
 		(at 93.98 143.51 270)
 		(unit 1)
 		(body_style 1)
@@ -13095,7 +13689,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Value" "DPWR_1N4148WT"
+		(property "Value" "DPWR_1N4148WS"
 			(at 95.758 147.066 90)
 			(hide yes)
 			(show_name no)
@@ -13107,7 +13701,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Footprint" "RLC:SOD-523_0P9X1P3"
+		(property "Footprint" "stack:D_SOD-323_KA"
 			(at 93.98 143.51 0)
 			(hide yes)
 			(show_name no)
@@ -13118,7 +13712,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/d78fb31904624a51a63f8a5d98d2dc04.pdf"
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/460cf88f750c4519b4ed435068ee729e.pdf"
 			(at 93.98 143.51 0)
 			(hide yes)
 			(show_name no)
@@ -13129,7 +13723,7 @@
 				)
 			)
 		)
-		(property "Description" "Hızlı diyot 100 V 150 mA SOD-523 (bootstrap)"
+		(property "Description" "Hızlı diyot 100 V 150 mA SOD-323 (bootstrap); 1N4148WT SOD-523 C27748 yerine (hedef BOM, basic)"
 			(at 93.98 143.51 0)
 			(hide yes)
 			(show_name no)
@@ -13140,7 +13734,7 @@
 				)
 			)
 		)
-		(property "MPN" "1N4148WT"
+		(property "MPN" "1N4148WS"
 			(at 93.98 143.51 0)
 			(hide yes)
 			(show_name no)
@@ -13151,7 +13745,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "ST(Semtech)"
+		(property "Manufacturer" "Jiangsu Changjing Electronics Technology Co., Ltd."
 			(at 93.98 143.51 0)
 			(hide yes)
 			(show_name no)
@@ -13162,7 +13756,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C27748"
+		(property "LCSC" "C2128"
 			(at 93.98 143.51 0)
 			(hide yes)
 			(show_name no)
@@ -13173,7 +13767,51 @@
 				)
 			)
 		)
-		(property "Temperature" "T_J -65…+150 °C (LCSC)"
+		(property "ALT MPN" "1N4148WS"
+			(at 93.98 143.51 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ALT Manufacturer" "Yangzhou Yangjie Elec Tech"
+			(at 93.98 143.51 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ALT LCSC" "C389058"
+			(at 93.98 143.51 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Temperature" "T_J 150 °C (CJ DS; ALT Yangjie -55…+150 °C)"
+			(at 93.98 143.51 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Critical" "hayır"
 			(at 93.98 143.51 0)
 			(hide yes)
 			(show_name no)
@@ -13343,6 +13981,17 @@
 				)
 			)
 		)
+		(property "Critical" "hayır"
+			(at 81.28 153.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "P$1"
 			(uuid "b875c7e5-f6e1-4b75-8cf6-b5e0071b2a81")
 		)
@@ -13469,6 +14118,17 @@
 				)
 			)
 		)
+		(property "Critical" "hayır"
+			(at 195.58 41.91 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "P$1"
 			(uuid "5416cc46-86cc-4be6-9585-3ea43f4959f2")
 		)
@@ -13585,6 +14245,17 @@
 			)
 		)
 		(property "Temperature" "X7R: -55…+125 °C (EIA)"
+			(at 137.16 95.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Critical" "hayır"
 			(at 137.16 95.25 0)
 			(hide yes)
 			(show_name no)
@@ -13905,6 +14576,17 @@
 				)
 			)
 		)
+		(property "Critical" "hayır"
+			(at 170.18 181.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "P$2"
 			(uuid "a76987eb-09b1-4de4-a5fc-65193223deaa")
 		)
@@ -13921,7 +14603,7 @@
 		)
 	)
 	(symbol
-		(lib_id "RLC:DPWR_1N4148WT")
+		(lib_id "RLC:DPWR_1N4148WS")
 		(at 210.82 143.51 270)
 		(unit 1)
 		(body_style 1)
@@ -13942,7 +14624,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Value" "DPWR_1N4148WT"
+		(property "Value" "DPWR_1N4148WS"
 			(at 212.598 147.066 90)
 			(hide yes)
 			(show_name no)
@@ -13954,7 +14636,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Footprint" "RLC:SOD-523_0P9X1P3"
+		(property "Footprint" "stack:D_SOD-323_KA"
 			(at 210.82 143.51 0)
 			(hide yes)
 			(show_name no)
@@ -13965,7 +14647,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/d78fb31904624a51a63f8a5d98d2dc04.pdf"
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/460cf88f750c4519b4ed435068ee729e.pdf"
 			(at 210.82 143.51 0)
 			(hide yes)
 			(show_name no)
@@ -13976,7 +14658,7 @@
 				)
 			)
 		)
-		(property "Description" "Hızlı diyot 100 V 150 mA SOD-523 (bootstrap)"
+		(property "Description" "Hızlı diyot 100 V 150 mA SOD-323 (bootstrap); 1N4148WT SOD-523 C27748 yerine (hedef BOM, basic)"
 			(at 210.82 143.51 0)
 			(hide yes)
 			(show_name no)
@@ -13987,7 +14669,7 @@
 				)
 			)
 		)
-		(property "MPN" "1N4148WT"
+		(property "MPN" "1N4148WS"
 			(at 210.82 143.51 0)
 			(hide yes)
 			(show_name no)
@@ -13998,7 +14680,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "ST(Semtech)"
+		(property "Manufacturer" "Jiangsu Changjing Electronics Technology Co., Ltd."
 			(at 210.82 143.51 0)
 			(hide yes)
 			(show_name no)
@@ -14009,7 +14691,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C27748"
+		(property "LCSC" "C2128"
 			(at 210.82 143.51 0)
 			(hide yes)
 			(show_name no)
@@ -14020,7 +14702,51 @@
 				)
 			)
 		)
-		(property "Temperature" "T_J -65…+150 °C (LCSC)"
+		(property "ALT MPN" "1N4148WS"
+			(at 210.82 143.51 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ALT Manufacturer" "Yangzhou Yangjie Elec Tech"
+			(at 210.82 143.51 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ALT LCSC" "C389058"
+			(at 210.82 143.51 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Temperature" "T_J 150 °C (CJ DS; ALT Yangjie -55…+150 °C)"
+			(at 210.82 143.51 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Critical" "hayır"
 			(at 210.82 143.51 0)
 			(hide yes)
 			(show_name no)
@@ -14146,6 +14872,17 @@
 			)
 		)
 		(property "Temperature" "-55…+155 °C (UNI-ROYAL 0402WGF, LCSC)"
+			(at 53.34 151.13 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Critical" "hayır"
 			(at 53.34 151.13 0)
 			(hide yes)
 			(show_name no)
@@ -14389,6 +15126,17 @@
 				)
 			)
 		)
+		(property "Critical" "hayır"
+			(at 223.52 153.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "P$1"
 			(uuid "bd86b352-3e30-4366-ba8e-90dba8e46ac9")
 		)
@@ -14504,6 +15252,17 @@
 			)
 		)
 		(property "Temperature" "-55…+155 °C (UNI-ROYAL 0402WGF, LCSC)"
+			(at 139.7 29.21 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Critical" "hayır"
 			(at 139.7 29.21 0)
 			(hide yes)
 			(show_name no)
@@ -14640,6 +15399,17 @@
 				)
 			)
 		)
+		(property "Critical" "hayır"
+			(at 20.32 95.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "P$1"
 			(uuid "49b781af-bcfd-4e6e-898f-7066b92b9b76")
 		)
@@ -14755,6 +15525,17 @@
 			)
 		)
 		(property "Temperature" "-55…+155 °C (UNI-ROYAL 0402WGF, LCSC)"
+			(at 66.04 181.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Critical" "hayır"
 			(at 66.04 181.61 0)
 			(hide yes)
 			(show_name no)
@@ -14890,6 +15671,17 @@
 				)
 			)
 		)
+		(property "Critical" "hayır"
+			(at 12.7 181.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "P$2"
 			(uuid "5a5d35da-2fb0-4a46-bb9c-734f21e09aad")
 		)
@@ -15005,6 +15797,17 @@
 			)
 		)
 		(property "Temperature" "-55…+155 °C (UNI-ROYAL 0402WGF, LCSC)"
+			(at 129.54 181.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Critical" "hayır"
 			(at 129.54 181.61 0)
 			(hide yes)
 			(show_name no)
@@ -15290,6 +16093,17 @@
 				)
 			)
 		)
+		(property "Critical" "hayır"
+			(at 180.34 138.43 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "P$2"
 			(uuid "f2fbd048-bd72-4c6c-8362-2b66a865a90b")
 		)
@@ -15480,6 +16294,17 @@
 			)
 		)
 		(property "Temperature" "-55…+155 °C (UNI-ROYAL 0402WGF, LCSC)"
+			(at 139.7 34.29 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Critical" "hayır"
 			(at 139.7 34.29 0)
 			(hide yes)
 			(show_name no)
@@ -15689,6 +16514,17 @@
 				)
 			)
 		)
+		(property "Critical" "hayır"
+			(at 53.34 181.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "P$2"
 			(uuid "89295dc3-de88-4fb1-8392-34c7f9265517")
 		)
@@ -15888,6 +16724,17 @@
 				)
 			)
 		)
+		(property "Critical" "hayır"
+			(at 170.18 151.13 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "P$2"
 			(uuid "c244c833-6d1e-4797-b9fa-e68731456d4a")
 		)
@@ -16013,6 +16860,17 @@
 				)
 			)
 		)
+		(property "Critical" "hayır"
+			(at 53.34 138.43 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "P$2"
 			(uuid "5cb8eb99-09bb-48ab-b064-c8cd3fd847d3")
 		)
@@ -16128,6 +16986,17 @@
 			)
 		)
 		(property "Temperature" "-55…+155 °C (UNI-ROYAL 0402WGF, LCSC)"
+			(at 17.78 191.77 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Critical" "hayır"
 			(at 17.78 191.77 0)
 			(hide yes)
 			(show_name no)
@@ -16556,6 +17425,17 @@
 				)
 			)
 		)
+		(property "Critical" "hayır"
+			(at 210.82 153.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "P$1"
 			(uuid "ebae94aa-6038-498c-bc3b-5045af2c91e5")
 		)
@@ -16681,6 +17561,17 @@
 				)
 			)
 		)
+		(property "Critical" "hayır"
+			(at 58.42 191.77 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "P$2"
 			(uuid "99c35540-5d67-421f-9f03-ef5801234087")
 		)
@@ -16796,6 +17687,39 @@
 			)
 		)
 		(property "Temperature" "I sınıfı T_A -40…+125 °C, T_J ≤ 130 °C (EFM8BB2 DS §2, Tablo 4.1, 4.15); G sınıfı 85 °C"
+			(at 50.8 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Critical" "evet"
+			(at 50.8 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Exception" "İSTİSNA: Bluejay yalnız EFM8BB21/BB51; BB21 125 °C tek kod (QFN20 tray C5727559 stok 0, QSOP24 farklı kılıf). Peşin alım"
+			(at 50.8 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Procurement" "500 adet peşin alım (İ1: 400 + 100 yedek; muadil §4)"
 			(at 50.8 49.53 0)
 			(hide yes)
 			(show_name no)
@@ -16988,6 +17912,17 @@
 				)
 			)
 		)
+		(property "Critical" "hayır"
+			(at 22.86 34.29 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "P$2"
 			(uuid "7a790730-06c5-4895-bff8-82b9966fdc4c")
 		)
@@ -17103,6 +18038,17 @@
 			)
 		)
 		(property "Temperature" "-55…+155 °C (UNI-ROYAL 0402WGF, LCSC)"
+			(at 160.02 151.13 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Critical" "hayır"
 			(at 160.02 151.13 0)
 			(hide yes)
 			(show_name no)
@@ -17301,7 +18247,7 @@
 				)
 			)
 		)
-		(property "ALT MPN" "FD6288Q"
+		(property "ALT MPN" "HL6288Q"
 			(at 167.64 97.79 0)
 			(hide yes)
 			(show_name no)
@@ -17312,7 +18258,7 @@
 				)
 			)
 		)
-		(property "ALT Manufacturer" "Fortior Tech"
+		(property "ALT Manufacturer" "HL"
 			(at 167.64 97.79 0)
 			(hide yes)
 			(show_name no)
@@ -17323,7 +18269,51 @@
 				)
 			)
 		)
-		(property "ALT LCSC" "C328453"
+		(property "ALT LCSC" "C50331902"
+			(at 167.64 97.79 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ALT2 MPN" "NSG6288Q"
+			(at 167.64 97.79 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ALT2 Manufacturer" "WXNSIC"
+			(at 167.64 97.79 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ALT2 LCSC" "C54570588"
+			(at 167.64 97.79 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ALT Note" "QFN24 FD6288Q dizilimi (HL6288Q DS §5); UVLO+ ≤ 5.1 V. JSM6288Q C19077370 ve JSMSEMI 'FD6288Q' C7466367 ALT DEĞİLDİR (UVLO ≈ 7 V)"
 			(at 167.64 97.79 0)
 			(hide yes)
 			(show_name no)
@@ -17335,6 +18325,17 @@
 			)
 		)
 		(property "Temperature" "-40…+125 °C (LCSC; DS görüntü PDF)"
+			(at 167.64 97.79 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Critical" "evet"
 			(at 167.64 97.79 0)
 			(hide yes)
 			(show_name no)
@@ -17570,6 +18571,17 @@
 				)
 			)
 		)
+		(property "Critical" "hayır"
+			(at 198.12 153.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "P$1"
 			(uuid "5f997827-05ee-4e13-b62a-47e0064a6f9e")
 		)
@@ -17775,6 +18787,17 @@
 			)
 		)
 		(property "Temperature" "X7R: -55…+125 °C (EIA)"
+			(at 213.36 95.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Critical" "hayır"
 			(at 213.36 95.25 0)
 			(hide yes)
 			(show_name no)
@@ -18093,6 +19116,17 @@
 			)
 		)
 		(property "Temperature" "X7R: -55…+125 °C (EIA)"
+			(at 96.52 95.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Critical" "hayır"
 			(at 96.52 95.25 0)
 			(hide yes)
 			(show_name no)

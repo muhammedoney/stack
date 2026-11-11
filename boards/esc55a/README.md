@@ -115,6 +115,36 @@ Müşteri 2026-11-11: “Kart yüksek derecelere çıkar.” Kural [öneri, `ger
 
 **J0 açık konu:** 15 SH 1.0 mm 8P klon (−25/−40…85 °C) tarandı; 105 °C seçenek Molex Pico-Clasp 501568-0807 (C587867) SH ile geçmez → FMU konnektörü ve kablo değişir (`sistem-mimari` kararı). Önerilen: prototip ısıl ölçümünde J0 sıcaklığı ölçülsün.
 
+### Hedef BOM uygulaması (2026-11-13)
+
+Kaynak: [`docs/muadil.md`](../../docs/muadil.md) §1, §3, §6 (ESC), [`bom-hedef.csv`](bom-hedef.csv), [`docs/rapor/guc-tasarruf.md`](../../docs/rapor/guc-tasarruf.md) §2.4, §6, §8, §10; KRR-008 (ESC ≥ 125 °C, X5R yok), KRR-011 / SYS-095 (muadil kuralı). Aynı betik: `python3 tools/esc55a_revb.py` (Rev A'dan da Rev B'den de aynı dosyalar; ikinci çalıştırma değiştirmez). FMU bu adımda değişmedi.
+
+| Ref | Önce | Sonra (LCSC) | ALT (ALT2) | Drop-in teyidi (veri sayfası) |
+|---|---|---|---|---|
+| U2 | INA240A3DR C2060584 | **RSA240CXK** Runic **C54300729**, sembol `IC:IC PWR RSA240C SOIC-8`, ayak izi aynı `stack:SOIC-8_3.9x4.9mm_P1.27mm` | INA240A3DR C2060584 | RSA240 DS s.5 (SOP8): 1 IN−, 2 GND, 3 REF2, 4 NC, 5 OUT, 6 VS, 7 REF1, 8 IN+ = SBOS662 §6; V_CM −5…100 V, −40…125 °C; ×100 → `ibata_scale 100` aynı. Koşul DOG-019 (ALT Note) |
+| U1 | JW5026 C185109 | **SCT2400TVBR** SCT **C2693819**, sembol `IC:IC PWR SCT2400 SOT23-6`, ayak izi aynı `IC:SOT23-6` | JW5026SOTB C185109 (ALT2 JW5018SOTB C3040676) | SCT2400 DS s.2 "Pin configuration" ↔ JW5026 DS "Pin description" ↔ JW5018 DS: 1 BST, 2 GND, 3 FB, 4 EN, 5 VIN, 6 SW (üçü aynı). SCT2400 TSOT23-6 (D 2.85–2.95, E 2.65–2.95, e 0.95, b 0.30–0.50) SOT-23-6 pedine oturur; V_IN mutlak 42 V, T_J −40…125 °C |
+| R0 | 90.9 k C26989 | **100 k C25741** (EN) | — | EN eşiği 1.21 V (SCT) / 1.3 V (JW); EN'de alt direnç yok → davranış aynı |
+| R02 / R01 | 90.9 k / 10 k | **20 k C25765 / 2.2 k C25879** (FB üst / alt) | — | aşağıda PVDD |
+| C03b | — | **yeni** 10 µF 16 V X7R 0805 **C380347** (CCTC), PVDD–GND, C03'ün yanında | Samsung C95841 (C03 ile aynı) | SCT2400 kararlılık payı (guc-tasarruf §10) |
+| D13…D45 (12) | 1N4148WT C27748 SOD-523 | **1N4148WS C2128** (CJ), sembol `RLC:DPWR_1N4148WS`, ayak izi **`stack:D_SOD-323_KA`** | Yangjie 1N4148WS C389058 | KiCad `D_SOD-323` kopyası, ped adları K (katot, ped 1 konumu) / A — sembol pin adları (Altium) aynı kaldığı için netlist pinleri değişmedi; T_J 150 °C |
+| U12…U42 | ALT FD6288Q C328453 | ana aynı (JSM6288Q1 C52196409) | **HL6288Q C50331902** (ALT2 NSG6288Q C54570588) | ALT Note: **JSM6288Q C19077370 ve JSMSEMI "FD6288Q" C7466367 ALT değildir** (UVLO ≈ 7 V) |
+| M (24), D00, L00, U0, J0, R00 | | ana aynı | M C194661, D00 C523477, L00 C167757, U0 C46473005, J0 C160407, R00 C55591762 (**koşullu**) | muadil §1 |
+
+**PVDD (SCT2400 V_FB 0.81 V ±%2.5, DS s.3):** 0.81 × (1 + 20/2.2) = **8.17 V** (en kötü 0.79…0.83 V, ±%1 direnç: 7.83–8.53 V); ALT JW5026/JW5018 (V_FB 0.80 V): **8.07 V** (7.73–8.43 V) — Rev B'deki 0.8 × (1 + 90.9/10) = 8.07 V korunur (SCT ile +0.10 V). Her durumda ≤ 12 V (U0 girişi) ✓; sürücü UVLO payı VCC ≥ 7.73 − 5.1 = +2.6 V ✓ (guc-tasarruf §6).
+
+**Yeni alanlar (KRR-011):** `ALT MPN / ALT Manufacturer / ALT LCSC`, gerekirse `ALT2 MPN / ALT2 Manufacturer / ALT2 LCSC` (U1, U12…U42), `ALT Note` (U1 DOG-111, U2 DOG-019, U12…U42 "ALT değildir" notu, R00 koşullu ALT), **`Critical`** (BOM'daki her parçada evet/hayır; evet = M ×24, U11…U41, U12…U42, U1, U2, U0, D00, J0, L00, R00), `Exception` (U11…U41 EFM8BB21F16I istisnası, J0 SYS-086 f sıcaklık istisnası, R00 koşullu), `Procurement` (M: 2 500 adet peşin; U11…U41: 500 adet peşin). Alan sırası sabit: … ALT LCSC, ALT2 …, ALT Note, Temperature, Critical, Exception, Procurement. Seramik ALT'ları (C02, C03/C07/C03b, 1 µF) yüksek sıcaklık adımından kaldı; CSV'de bu satırlar "genel" (ALT boş).
+
+**Yeni semboller:** `IC:IC PWR SCT2400 SOT23-6` (JW5026 kopyası), `IC:IC PWR RSA240C SOIC-8` (INA240A3D kopyası; INA240A3D sembolü ALT için kütüphanede kalır), `RLC:DPWR_1N4148WS`, `RLC:RES0402_100k / _20k / _2k2`. **Yeni ayak izi:** `stack:D_SOD-323_KA`. FMU sembolleri değişmedi (kütüphanelere yalnız ekleme).
+
+| Kontrol (hedef BOM) | Sonuç |
+|---|---|
+| ERC | **0 hata, 2 uyarı** (aynı: 2 × `multiple_net_names` PVDD / +8V) |
+| Netlist (önce ↔ sonra) | 726 → 728 pin; ortak pinlerde bölümleme farkı **0**, ağ adı değişimi 0; yeni yalnız **C03b.1 → PVDD, C03b.2 → GND**. Diğer farklar değer / ayak izi (D13…D45) / alan |
+| BOM ↔ `bom-hedef.csv` | 27 LCSC satırı, adet + MPN + ALT MPN/LCSC/üretici + Critical: **fark 0**. Tek metin farkı: R00 `Exception` şematikte "110 adet peşin" (muadil §3–4), CSV'de "2 500 adet" — CSV satırı MOSFET'ten kopya görünüyor, `bom-tedarik` düzeltmeli |
+| İdempotent | ikinci çalıştırmada md5 aynı; Rev A (44e8e21) + betik = çalışma ağacı (4 şematik, fp-lib-table, `lib/*.kicad_sym`, `stack.pretty`) |
+
+**PCB senkron notu (ek, `pcb-muhendisi`):** (1) Yeni **C03b** 0805 `stack:C_0805_2012Metric`, C03'ün yanına, U1 çıkışı / L00 PVDD ucuna yakın. (2) **D13…D45 ayak izi SOD-523 → `stack:D_SOD-323_KA`** (2.5 × 1.25 mm gövde, ped merkezleri ±1.05 mm; katot ped 1 konumu, sol). (3) U1 (TSOT23-6) ve U2 (SOIC-8) ayak izi aynı. (4) Diğer değişiklikler yalnız alan (`tools/pcb_fields.py`). (5) Dikkat — KiCad referans sayısını tamsayı okur: **C1/C01, C2/C02, C3/C03, C4/C04, C5/C05, C6/C06, C7/C07, R0/R00, R1/R01, R2/R02, R3/R03, R4/R04** çiftleri `kicad-cli sch export netlist` bileşen listesinde tek bileşen (iki birim) olarak çıkıyor (netlistte 12 ref eksik; pin → ağ düğümleri doğru). Rev A'dan beri var (Altium adları); *Update PCB from Schematic* öncesi kontrol edilmeli, gerekirse ref takası (bana bildir). `C03b`, `M1aH` gibi rakamla bitmeyen adlar KiCad BOM'unda `?` ekiyle görünür (Annotate çalıştırılmamalı).
+
 ## J0 (SM08B-SRSS-TB)
 
 | Pin | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |

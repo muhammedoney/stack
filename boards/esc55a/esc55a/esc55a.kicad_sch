@@ -10,6 +10,7 @@
 		(comment 1 "Altium esc55a.PrjPcb -> KiCad 10 (tools/esc55a_sch.py)")
 		(comment 2 "Rev B şematik: tools/esc55a_revb.py (guc-ip03 G1, G3-G6, G11-G14, E6)")
 		(comment 3 "Yüksek sıcaklık 2026-11-11: MCU I sınıfı 125 °C, X5R yok (X7R); J0 85 °C açık")
+		(comment 4 "Hedef BOM 2026-11-13: RSA240CXK, SCT2400, FB 20 k / 2.2 k, C03b, 1N4148WS; ALT alanları")
 	)
 	(lib_symbols)
 	(sheet

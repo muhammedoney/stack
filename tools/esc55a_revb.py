@@ -31,6 +31,16 @@ not touched (see boards/esc55a/README.md, "Rev B şematik").
        C03/C07 10 uF 16 V X5R 0603 -> X7R 0805 (CCTC); 16 x 1 uF 25 V X5R 0402
        -> 1 uF 16 V X7R 0402 (CCTC). New field "Temperature" on every part.
        J0 (SH clone, -40..85 C) has no 105 C SH part -> unchanged, open item.
+  HB   target BOM (hedef BOM 2026-11-13, docs/muadil.md §6, boards/esc55a/
+       bom-hedef.csv; KRR-011): U2 INA240A3DR -> RSA240CXK (Runic, same SOIC-8
+       pins, ALT INA240A3DR); U1 JW5026 -> SCT2400TVBR (same SOT-23-6 BST-GND-
+       FB-EN-VIN-SW, ALT JW5026, ALT2 JW5018); R0 90.9 k -> 100 k, R02 90.9 k
+       -> 20 k, R01 10 k -> 2.2 k (PVDD 0.81 V x (1 + 20/2.2) = 8.17 V with
+       SCT2400, 8.07 V with JW5026); new C03b 10 uF 16 V X7R 0805 on PVDD;
+       D13..D45 1N4148WT SOD-523 -> 1N4148WS SOD-323 (stack:D_SOD-323_KA, pads
+       K/A as the Altium symbol); drivers ALT HL6288Q (ALT2 NSG6288Q);
+       new fields ALT2 MPN / ALT2 Manufacturer / ALT2 LCSC, ALT Note,
+       Critical (evet/hayır), Exception, Procurement.
   all  Value = symbol name, Footprint, Datasheet, MPN, Manufacturer, LCSC
        (and ALT MPN / ALT Manufacturer / ALT LCSC) on every part; the Altium
        fields (MANUFACTURER PRODUCT NUMBER, LSCS PART NUMBER, DIGIKEY ...)
@@ -82,48 +92,73 @@ PARTS = {
                 mfr="BL (Shanghai Belling)", lcsc="C49328363", ds=DS % "60e9b7bb6d64f081d184b353ffc14825",
                 descr="N-MOSFET 40 V, R_DS(on) 1.6 mΩ maks @10 V, PDFN5x6 (1-3 S, 4 G, 5-8 D); G1, SYS-014",
                 alt=("NTMFS5C430NLT1G", "onsemi", "C194661"),
-                temp="T_J -55…+175 °C (DS; ALT NTMFS 175 °C); kılıf ≤ 110 °C hedef (guc-ip03 §2.5)"),
+                temp="T_J -55…+175 °C (DS; ALT NTMFS 175 °C); kılıf ≤ 110 °C hedef (guc-ip03 §2.5)",
+                proc="2 500 adet peşin alım (A1: stok 3 903 < 2 × 2 400; muadil §4)"),
     "drv": dict(sym="MOS:IC MOSDRV JSM6288Q1 24QFN", fp="MOS:QFN-24(4x4)", mpn="JSM6288Q1", mfr="JSMSEMI",
                 lcsc="C52196409", ds=DS % "8e66a7cf2679ad9374949075990da53d",
                 descr="3 faz kapı sürücü, VCC 5-20 V, UVLO 4.5 V, ölü zaman 200 ns, QFN-24 4x4 (FD6288Q pin uyumlu); G3, SYS-016",
-                alt=("FD6288Q", "Fortior Tech", "C328453"),
+                alt=("HL6288Q", "HL", "C50331902"), alt2=("NSG6288Q", "WXNSIC", "C54570588"),
+                note="QFN24 FD6288Q dizilimi (HL6288Q DS §5); UVLO+ ≤ 5.1 V. JSM6288Q C19077370 ve JSMSEMI "
+                     "'FD6288Q' C7466367 ALT DEĞİLDİR (UVLO ≈ 7 V)",
                 temp="-40…+125 °C (LCSC; DS görüntü PDF)"),
     "mcu": dict(sym="IC:IC MCU EFM8BB21F16I-C 20QFN", fp="IC:QFN20_3X3_SIL", mpn="EFM8BB21F16I-C-QFN20R",
                 mfr="Silicon Labs", lcsc="C2053222", ds=LDS + "EFM8BB21F16G-C-QFN20R_C80713.pdf",
                 descr="8 bit MCU 16 kB flash, QFN-20 3x3, I sınıfı (G sınıfıyla aynı kılıf ve pinler); yüksek sıcaklık 2026-11-11",
-                temp="I sınıfı T_A -40…+125 °C, T_J ≤ 130 °C (EFM8BB2 DS §2, Tablo 4.1, 4.15); G sınıfı 85 °C"),
-    "buck": dict(sym=None, fp="IC:SOT23-6", mpn="JW5026SOTB#TRPBF", mfr="JoulWatt", lcsc="C185109",
-                 ds=DS % "f83872ed2237628ee0705043f9e45a8d",
-                 descr="Buck 1 A, V_IN 4.7-40 V (44 V mutlak), SOT-23-6; PVDD 8.07 V",
-                 temp="T_J -40…+125 °C (LCSC)"),
+                temp="I sınıfı T_A -40…+125 °C, T_J ≤ 130 °C (EFM8BB2 DS §2, Tablo 4.1, 4.15); G sınıfı 85 °C",
+                exc="İSTİSNA: Bluejay yalnız EFM8BB21/BB51; BB21 125 °C tek kod (QFN20 tray C5727559 stok 0, "
+                    "QSOP24 farklı kılıf). Peşin alım",
+                proc="500 adet peşin alım (İ1: 400 + 100 yedek; muadil §4)"),
+    "buck": dict(sym="IC:IC PWR SCT2400 SOT23-6", fp="IC:SOT23-6", mpn="SCT2400TVBR", mfr="SCT", lcsc="C2693819",
+                 ds=DS % "6d2d30a1729d799dffa8acd75e20e625",
+                 descr="Buck 0.6 A, V_IN 4.5-40 V (42 V mutlak), 2 MHz, V_FB 0.81 V ±%2.5, TSOT23-6 "
+                       "(1 BST 2 GND 3 FB 4 EN 5 VIN 6 SW = JW5026); PVDD 8.17 V (R02 20 k / R01 2.2 k)",
+                 alt=("JW5026SOTB#TRPBF", "JoulWatt Tech", "C185109"),
+                 alt2=("JW5018SOTB#TRPBF", "JoulWatt Tech", "C3040676"),
+                 note="Aynı FB 20 k / 2.2 k, L00 10 µH: JW5026/JW5018 V_FB 0.8 V → PVDD 8.07 V; DOG-111 (birer ESC)",
+                 temp="T_J -40…+125 °C çalışma, 150 °C mutlak (SCT2400 DS s.2)"),
     "ldo": dict(sym=None, fp="IC:SOT89-3", mpn="AMS1117-3.3S", mfr="UMW", lcsc="C347256",
                 ds=DS % "40abec897f3661104e2a4d1ebd8e7463",
                 descr="LDO 3.3 V 1 A, SOT-89-3; giriş PVDD ≤ 12 V önerilen (15 V mutlak); çıkışta C07 10 µF (G12)",
+                alt=("AMS1117-3.3S", "TECH PUBLIC", "C46473005"),
                 temp="-40…+125 °C (LCSC); P = (PVDD-3.3 V)·I, kart 95 °C'de T_J payı guc-elektronigi"),
-    "ina": dict(sym="IC:IC PWR INA240A3D SOIC-8", fp="stack:SOIC-8_3.9x4.9mm_P1.27mm", mpn="INA240A3DR",
-                mfr="Texas Instruments", lcsc="C2060584", ds="https://www.ti.com/lit/ds/symlink/ina240.pdf",
-                descr="Akım algılama yükselteci x100, V_CM -4...80 V, SOIC-8; R00 0.1 mΩ ile 10 mV/A (ibata_scale 100); G4, SYS-020/021",
-                temp="T_A -40…+125 °C, T_J ≤ 150 °C (SBOS662)"),
+    "ina": dict(sym="IC:IC PWR RSA240C SOIC-8", fp="stack:SOIC-8_3.9x4.9mm_P1.27mm", mpn="RSA240CXK",
+                mfr="Jiangsu RUNIC Tech", lcsc="C54300729", ds=DS % "cfd23beb0bf5a5e792cccc39733921bb",
+                descr="Akım algılama yükselteci x100, PWM bastırmalı, V_CM -5…100 V, SOIC-8 (1 IN- 2 GND 3 REF2 4 NC "
+                      "5 OUT 6 VS 7 REF1 8 IN+ = INA240); R00 0.1 mΩ ile 10 mV/A (ibata_scale 100); G4, SYS-020/021",
+                alt=("INA240A3DR", "Texas Instruments", "C2060584"),
+                note="Koşul DOG-019: RSA240 ofseti -10/25/+50 °C'de ≤ 50 µV değilse INA240A3DR takılır (PCB aynı)",
+                temp="T_A -40…+125 °C, T_J ≤ 150 °C (RSA240 DS §7; ALT SBOS662)"),
     "shunt": dict(sym="RLC:RES3920_0m1_KELVIN", fp="stack:R_3920_Kelvin_HoLRS3920", mpn="HoLRS3920-10W-0.1mR-1%",
                   mfr="Milliohm", lcsc="C55113241", ds=DS % "f0d59f0eaa1bba956e553f01ceae8df7",
                   descr="Akım şöntü 0.1 mΩ ±%1 10 W 3920, ±100 ppm/K; Kelvin: 2 = isns_p (VBAT ucu), 3 = isns_n (PWR ucu); G4",
-                  temp="-55…+170 °C (DS s.3); güç azaltma eğrisi DS s.4"),
+                  temp="-55…+170 °C (DS s.3); güç azaltma eğrisi DS s.4",
+                  alt=("EB390M10PFFWT", "MHCH", "C55591762"),
+                  note="KOŞULLU ALT: EB3921 'mikro elektrot' ped 11/2.7/6.2 = HoLRS (MHCH DS s.3); elektrot sürümü "
+                       "üreticiden teyit",
+                  exc="Koşullu: teyit gelmezse istisna, 110 adet peşin (stok 3 830; muadil §3-4)"),
     "tvs": dict(sym="RLC:DTVS_SMDJ24CA", fp="RLC:SMC-TVS", mpn="SMDJ24CA", mfr="DOWO", lcsc="C284061",
                 ds=DS % "f3a866763da2bf38848a6c16e1beeff3",
                 descr="TVS 3 kW çift yönlü, V_RWM 24 V, V_BR 26.7-29.5 V, V_C 38.9 V @77 A, SMC; G5, SYS-014",
+                alt=("SMDJ24CA-AT/TR13", "Brightking", "C523477"),
                 temp="T_J -55…+150 °C (DS); P_PP sıcaklıkla azalır (DS eğri)"),
     "ind": dict(sym="RLC:IND3015_10u", fp="stack:L_Sunlord_SWPA3015S", mpn="SWPA3015S100MT", mfr="Sunlord",
                 lcsc="C45403", ds="https://jlcpcb.com/partdetail/C45403",
                 descr="10 µH ±%20, I_sat 0.92 A, 3 x 3 x 1.5 mm; G11",
+                alt=("FNR3015S100MT", "cjiang (Changjiang Microelectronics Tech)", "C167757"),
                 temp="-40…+125 °C, öz ısınma dahil (SWPA DS s.1)"),
     "conn": dict(sym=None, fp="CONN:JST_SM08B-SRSS-TB", mpn="XY-SM08B-SRSS-TB", mfr="XYECONN", lcsc="C54582896",
                  ds=DS % "910e382ac20e49fa8135c8269a1a8fef",
                  descr="SH 1.0 mm 8 pin yatay SMD (SM08B-SRSS-TB muadili)",
                  alt=("SM08B-SRSS-TB(LF)(SN)", "JST", "C160407"),
-                 temp="-40…+85 °C (LCSC; JST -25…+85 °C) - 105 °C hedefinin altında, açık konu (SH ailesinde 105 °C yok)"),
-    "diode": dict(sym=None, fp="RLC:SOD-523_0P9X1P3", mpn="1N4148WT", mfr="ST(Semtech)", lcsc="C27748",
-                  ds=DS % "d78fb31904624a51a63f8a5d98d2dc04", descr="Hızlı diyot 100 V 150 mA SOD-523 (bootstrap)",
-                  temp="T_J -65…+150 °C (LCSC)"),
+                 temp="-40…+85 °C (LCSC; JST -25…+85 °C) - 105 °C hedefinin altında, açık konu (SH ailesinde 105 °C yok)",
+                 exc="SYS-086 (f) sıcaklık istisnası: SH 1.0 ailesinde ≥ 105 °C yok (JST −25…85); serin kenar + "
+                     "DOG-105 ölçümü"),
+    "diode": dict(sym="RLC:DPWR_1N4148WS", fp="stack:D_SOD-323_KA", mpn="1N4148WS",
+                  mfr="Jiangsu Changjing Electronics Technology Co., Ltd.", lcsc="C2128",
+                  ds=DS % "460cf88f750c4519b4ed435068ee729e",
+                  descr="Hızlı diyot 100 V 150 mA SOD-323 (bootstrap); 1N4148WT SOD-523 C27748 yerine (hedef BOM, basic)",
+                  alt=("1N4148WS", "Yangzhou Yangjie Elec Tech", "C389058"),
+                  temp="T_J 150 °C (CJ DS; ALT Yangjie -55…+150 °C)"),
     "bulk": dict(sym="RLC:CAP1206_10u_50V_X7R", fp="RLC:1206-CAP", mpn="CL31B106KBHNNNE", mfr="Samsung Electro-Mechanics",
                  lcsc="C89632", ds=DS % "a1390a51092e4f3c84866ab492516a00",
                  descr="10 µF ±%10 50 V X7R 1206, bulk (15 adet); G6, SYS-014", temp=T_X7R),
@@ -145,7 +180,10 @@ PARTS = {
                 mfr="CCTC", lcsc="C49210445", ds=CCTC,
                 descr="1 µF ±%10 16 V X7R 0402 (bootstrap / sürücü VCC, PVDD 8.07 V); X5R 25 V C52923 yerine (yüksek sıcaklık)",
                 alt=("TCC0402X7R105K250AT", "CCTC", "C53426846"), temp=T_X7R),
-    "r90k9": R(None, "0402WGF9092TCE", "C26989", "90.9 kΩ ±%1 0402"),
+    "r100k": R("RLC:RES0402_100k", "0402WGF1003TCE", "C25741", "100 kΩ ±%1 0402, U1 EN (B6)"),
+    "r20k": R("RLC:RES0402_20k", "0402WGF2002TCE", "C25765",
+              "20 kΩ ±%1 0402, U1 FB üst (B6): PVDD = V_FB × (1 + 20/2.2) = 8.17 V (SCT2400) / 8.07 V (JW5026)"),
+    "r2k2": R("RLC:RES0402_2k2", "0402WGF2201TCE", "C25879", "2.2 kΩ ±%1 0402, U1 FB alt (B6)"),
     "r10k": R(None, "0402WGF1002TCE", "C25744", "10 kΩ ±%1 0402"),
     "r220": R(None, "0402WGF2200TCE", "C25091", "220 Ω ±%1 0402"),
     "r22": R(None, "0402WGF220JTCE", "C25092", "22 Ω ±%5 0402"),
@@ -158,8 +196,12 @@ PARTS = {
                  "1 kΩ ±%1 0402 - DNP (E6/G20): +VD boşta, PCB'de yok"),
     "pad": dict(sym=None, fp=None, mpn="—", mfr="—", lcsc="—", ds="", descr="PCB pedi (dizgi yok)", temp=""),
 }
-NEW_FIELDS = ("MPN", "Manufacturer", "LCSC", "ALT MPN", "ALT Manufacturer", "ALT LCSC")
-KEEP_FIELDS = ("Reference", "Value", "Footprint", "Datasheet", "Description", "Temperature") + NEW_FIELDS
+NEW_FIELDS = ("MPN", "Manufacturer", "LCSC", "ALT MPN", "ALT Manufacturer", "ALT LCSC",
+              "ALT2 MPN", "ALT2 Manufacturer", "ALT2 LCSC", "ALT Note")
+# hedef BOM (KRR-011): Critical evet/hayır on every BOM part, Exception / Procurement where given
+TAIL_FIELDS = ("Temperature", "Critical", "Exception", "Procurement")
+KEEP_FIELDS = ("Reference", "Value", "Footprint", "Datasheet", "Description") + NEW_FIELDS + TAIL_FIELDS
+CRITICAL = ("mos", "drv", "mcu", "buck", "ldo", "ina", "shunt", "tvs", "ind", "conn")
 # Rev B library symbols replaced by the high-temperature parts (only this script used them)
 LIB_OBSOLETE = {"RLC": ("CAP0805_4u7_50V_X5R", "CAP0603_10u_16V_X5R", "CAP0402_1u_25V_X5R")}
 
@@ -178,12 +220,14 @@ def classify(ref, lib_id):
         return "mos"
     if "6288Q" in name:
         return "drv"
-    for key, word in (("mcu", "EFM8BB21"), ("buck", "JW5026"), ("ldo", "AMS1117"), ("ina", "INA2"), ("ina", "INA199"),
+    for key, word in (("mcu", "EFM8BB21"), ("buck", "JW5026"), ("buck", "SCT2400"), ("ldo", "AMS1117"),
+                      ("ina", "INA2"), ("ina", "INA199"), ("ina", "RSA240"),
                       ("tvs", "SMDJ"), ("diode", "1N4148")):
         if word in name:
             return key
     fixed = {"R00": "shunt", "L00": "ind", "J0": "conn", "C00": "c100n50", "C01": "c100n50", "C02": "c02",
-             "C03": "c10u16", "C07": "c10u16", "C05": "c1n", "C06": "c100n16", "R03": "r22", "R04": "r22"}
+             "C03": "c10u16", "C03b": "c10u16", "C07": "c10u16", "C05": "c1n", "C06": "c100n16",
+             "R03": "r22", "R04": "r22", "R0": "r100k", "R02": "r20k", "R01": "r2k2"}
     if ref in fixed:
         return fixed[ref]
     if ref in DNP_3K:
@@ -196,7 +240,7 @@ def classify(ref, lib_id):
         return "c1u"
     if "0u1_16V" in name:
         return "c100n16"
-    for key, sym in (("r90k9", "RES0402_90k9"), ("r10k", "RES0402_10k"), ("r220", "RES0402_220"),
+    for key, sym in (("r10k", "RES0402_10k"), ("r220", "RES0402_220"),
                      ("rgate", "RES0402_22"), ("rgate", "RES0402_10"), ("r3k3", "RES0402_3k3"), ("r1k", "RES0402_1k")):
         if name == sym:
             return key
@@ -318,8 +362,10 @@ def build_symbols():
                 find(q, "number")[1] = Str(num)
                 find(q, "name")[1] = Str(name)
                 sub.append(q)
-    add("IC", "IC", "IC PWR INA199C1DCKR SC70-6", p["ina"]["sym"].split(":")[1], p["ina"]["descr"], p["ina"]["fp"],
-        ina_pins)
+    # INA240A3 symbol (Rev B U2, now the ALT of RSA240C): kept in IC.kicad_sym with its Rev B text
+    add("IC", "IC", "IC PWR INA199C1DCKR SC70-6", "IC PWR INA240A3D SOIC-8",
+        "Akım algılama yükselteci x100, V_CM -4...80 V, SOIC-8; R00 0.1 mΩ ile 10 mV/A (ibata_scale 100); G4, "
+        "SYS-020/021", p["ina"]["fp"], ina_pins)
 
     shunt = lib_get(os.path.join(KICAD_SYM, "Device.kicad_sym"), "R_Shunt")
     add("RLC", None, shunt, "RES3920_0m1_KELVIN", p["shunt"]["descr"], p["shunt"]["fp"])
@@ -327,6 +373,16 @@ def build_symbols():
                      ("c02", "CAP0603_4u7_35V_X5R"), ("c10u16", "CAP0402_10u_10V_X5R"),
                      ("c1u", "CAP0402_1u_16V_X5R"), ("rgate", "RES0402_22"), ("r3k_dnp", "RES0402_3k_????")):
         add("RLC", "RLC", src, p[key]["sym"].split(":")[1], p[key]["descr"], p[key]["fp"])
+    # hedef BOM 2026-11-13: same pins as the symbols they replace
+    add("IC", "IC", "IC PWR JW5026 SOT23-6", p["buck"]["sym"].split(":")[1], p["buck"]["descr"], p["buck"]["fp"])
+    add("IC", None, out["IC:IC PWR INA240A3D SOIC-8"], p["ina"]["sym"].split(":")[1],
+        p["ina"]["descr"], p["ina"]["fp"])
+
+    def sod323(node):
+        prop(node, "ki_fp_filters")[2] = Str("*SOD-323*")
+    add("RLC", "RLC", "DPWR_1N4148WT", p["diode"]["sym"].split(":")[1], p["diode"]["descr"], p["diode"]["fp"], sod323)
+    for key in ("r100k", "r20k", "r2k2"):
+        add("RLC", "RLC", "RES0402_10k", p[key]["sym"].split(":")[1], p[key]["descr"], p[key]["fp"])
     # remove first, then append in a fixed order: a run on Rev A and a run on Rev B give the same library
     for lib_id in out:
         lib_del(libp(lib_id.split(":")[0]), lib_id.split(":")[1])
@@ -456,6 +512,13 @@ def footprints():
         write_if_changed(os.path.join(d, name + ".kicad_mod"),
                          open(os.path.join(KICAD_FP, lib + ".pretty", name + ".kicad_mod"), encoding="utf-8").read())
     write_if_changed(os.path.join(d, "R_3920_Kelvin_HoLRS3920.kicad_mod"), KELVIN_FP)
+    # 1N4148WS (hedef BOM): KiCad D_SOD-323 with pads K (1) / A (2) = pin names of the Altium diode symbol
+    sod = open(os.path.join(KICAD_FP, "Diode_SMD.pretty", "D_SOD-323.kicad_mod"), encoding="utf-8").read()
+    sod = (sod.replace('(footprint "D_SOD-323"', '(footprint "D_SOD-323_KA"', 1)
+           .replace('(property "Value" "D_SOD-323"', '(property "Value" "D_SOD-323_KA"', 1)
+           .replace('(descr "SOD-323"', '(descr "SOD-323, pads K (cathode) / A (anode) for the Stack diode symbols"', 1)
+           .replace('(pad "1" ', '(pad "K" ', 1).replace('(pad "2" ', '(pad "A" ', 1))
+    write_if_changed(os.path.join(d, "D_SOD-323_KA.kicad_mod"), sod)
     table = os.path.join(PRJ, "fp-lib-table")
     text = open(table, encoding="utf-8").read()
     if '(name "stack")' not in text:
@@ -575,22 +638,23 @@ def apply_part(s, inst, symbols):
     for p in [q for q in inst if isinstance(q, list) and q[0] == "property"]:
         if p[1] not in KEEP_FIELDS:
             inst.remove(p)
-    alt = part.get("alt")
+    alt, alt2 = part.get("alt"), part.get("alt2")
     if key != "pad":
         set_prop(inst, "Value", lib_id.split(":", 1)[1], hidden=prop(inst, "Value") is None)
         set_prop(inst, "Footprint", part["fp"])
     set_prop(inst, "Datasheet", datasheet(part))
     set_prop(inst, "Description", part["descr"])
-    vals = dict(zip(NEW_FIELDS, (part["mpn"], part["mfr"], part["lcsc"]) + (alt if alt else ("", "", ""))))
-    for k in NEW_FIELDS:
+    vals = dict(zip(NEW_FIELDS, (part["mpn"], part["mfr"], part["lcsc"]) + (alt if alt else ("", "", ""))
+                    + (alt2 if alt2 else ("", "", "")) + (part.get("note", ""),)))
+    vals.update({"Temperature": part["temp"], "Exception": part.get("exc", ""), "Procurement": part.get("proc", ""),
+                 "Critical": "" if key == "pad" else ("evet" if key in CRITICAL else "hayır")})
+    for k in NEW_FIELDS + TAIL_FIELDS:
         if vals[k]:
             set_prop(inst, k, vals[k])
         elif prop(inst, k) is not None:
             inst.remove(prop(inst, k))
-    if part["temp"]:
-        set_prop(inst, "Temperature", part["temp"])
-    # fixed field order (Reference ... ALT LCSC, Temperature) in the existing property slots
-    order = ("Reference", "Value", "Footprint", "Datasheet", "Description") + NEW_FIELDS + ("Temperature",)
+    # fixed field order (Reference ... ALT LCSC, ALT2 ..., Temperature, Critical ...) in the property slots
+    order = ("Reference", "Value", "Footprint", "Datasheet", "Description") + NEW_FIELDS + TAIL_FIELDS
     slots = [i for i, q in enumerate(inst) if isinstance(q, list) and q[0] == "property"]
     props = sorted((inst[i] for i in slots), key=lambda q: order.index(q[1]))
     for i, q in zip(slots, props):
@@ -768,6 +832,15 @@ def edit_main(s, symbols, log):
                "CUR = 10 mV/A -> Betaflight ibata_scale 100, offset 0", 115.57, 80.01)
     if not has_text(s, "C06: U2 VS"):
         s.text("C06: U2 VS dekuplaj\nC07: U0 çıkışı (G12)", 134.62, 175.26)
+    # hedef BOM (2026-11-13): second 10 µF on PVDD next to C03 (SCT2400 margin, guc-tasarruf §10). Own UUID
+    # seed, after every Rev B addition: a run from Rev A and a run from Rev B give the same UUIDs.
+    seed_uuids("stack/boards/esc55a/hedefbom/main")
+    base = s.geometry()
+    if add_cap(s, "C03b", "C03", 231.14, 100.33, "+8V", 101):
+        log.append("main: C03b eklendi")
+    hits += s.collisions(base)
+    if not has_text(s, "C03b:"):
+        s.text("C03b: PVDD 2. 10 µF\nU1 SCT2400: 8.17 V", 236.22, 116.84)
     return hits
 
 
@@ -800,6 +873,8 @@ def edit_root(path):
         tb.append(["comment", "2", Str("Rev B şematik: tools/esc55a_revb.py (guc-ip03 G1, G3-G6, G11-G14, E6)")])
     if not [c for c in find_all(tb, "comment") if c[1] == "3"]:
         tb.append(["comment", "3", Str("Yüksek sıcaklık 2026-11-11: MCU I sınıfı 125 °C, X5R yok (X7R); J0 85 °C açık")])
+    if not [c for c in find_all(tb, "comment") if c[1] == "4"]:
+        tb.append(["comment", "4", Str("Hedef BOM 2026-11-13: RSA240CXK, SCT2400, FB 20 k / 2.2 k, C03b, 1N4148WS; ALT alanları")])
     s.save()
 
 
