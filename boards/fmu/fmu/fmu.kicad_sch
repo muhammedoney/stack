@@ -1,0 +1,351 @@
+(kicad_sch
+	(version 20260306)
+	(generator "eeschema")
+	(generator_version "10.0")
+	(uuid "f394d34b-b328-5e81-bc0a-3e0521c1bfc4")
+	(paper "A3")
+	(title_block
+		(title "FMU F405 — kök")
+		(date "2026-11-11")
+		(rev "B")
+		(company "Stack")
+		(comment 1 "tools/fmu_schematic.py ile üretildi")
+	)
+	(lib_symbols)
+	(text "Stack FMU — M1 F405 uçuş kontrol kartı (Rev B, sıfırdan)"
+		(exclude_from_sim no)
+		(at 20 25 0)
+		(effects
+			(font
+				(size 3 3)
+				(bold yes)
+			)
+			(justify left top)
+		)
+		(uuid "d5b9706a-b26b-50a8-aa4d-4f3f97a46911")
+	)
+	(text "STM32F405RGT7 · ICM-42688-P · DPS368 · GD25Q128 · AT7456E · SY8303 × 2 (5 V / 9 V) · AMS1117-3.3 · USB-C · 2 × SM08B ESC (8 motor)"
+		(exclude_from_sim no)
+		(at 20 33 0)
+		(effects
+			(font
+				(size 1.5 1.5)
+			)
+			(justify left top)
+		)
+		(uuid "e08d83b3-69cf-5e89-a604-651e2bfe7824")
+	)
+	(text "Pin haritası: docs/pin-haritasi.md §1 (tek kaynak) · Mimari: docs/mimari-fmu.md §4 · Güç: docs/rapor/guc-ip03.md §8\nKaynak: tools/fmu_schematic.py (tekrar çalıştırılabilir, sabit UUID). Referanslardan dosya kopyalanmadı (KRR-006).\nSayfalar arası bağlantı global etiketlerle; raylar (GND, +3V3, +3V3_IMU, +5V, +9V, VIN, VBAT, VBUS) güç sembolüyle.\nReferans numaraları sayfaya göre: 1xx power, 2xx mcu, 3xx sensors, 4xx osd, 5xx io."
+		(exclude_from_sim no)
+		(at 20 40 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left top)
+		)
+		(uuid "842653c9-7b30-5d87-a082-f3cde7f6ac0d")
+	)
+	(text "Blok akışı:  BAT+/− & J_ESC1.VBAT → F101 → Q101 (ters kutup) → VIN → { D102 TVS, VBAT ölçüm, U101 5 V, U102 9 V }\n+5V (+ USB VBUS Schottky) → U103 → +3V3 → { MCU, flash, baro, 10 Ω → +3V3_IMU → IMU };  +5V → OSD, LED şerit, alıcı, GPS, buzzer;  +9V → DJI, analog VTX"
+		(exclude_from_sim no)
+		(at 20 62 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left top)
+		)
+		(uuid "021a9b29-56ad-520e-aaee-eb8b43d0e833")
+	)
+	(text "BAT pedleri, sigorta, ters kutup, TVS, SY8303 × 2 (5 V / 9 V), AMS1117-3.3, IMU süzgeci, VBAT/CUR ölçümü"
+		(exclude_from_sim no)
+		(at 25 124 0)
+		(effects
+			(font
+				(size 1.0 1.0)
+			)
+			(justify left top)
+		)
+		(uuid "6994c201-e0b9-523d-92cd-f41a03fa080f")
+	)
+	(text "STM32F405RGT7 LQFP64, HSE 8 MHz, VCAP, VDDA, BOOT0, NRST, SWD, LED0, buzzer"
+		(exclude_from_sim no)
+		(at 95 124 0)
+		(effects
+			(font
+				(size 1.0 1.0)
+			)
+			(justify left top)
+		)
+		(uuid "d429d810-ffad-5720-8060-d842eb129ba9")
+	)
+	(text "ICM-42688-P (SPI1), DPS368 baro (I2C1 0x76), GD25Q128 flash (SPI3)"
+		(exclude_from_sim no)
+		(at 165 124 0)
+		(effects
+			(font
+				(size 1.0 1.0)
+			)
+			(justify left top)
+		)
+		(uuid "255906ef-589e-5889-b64e-edb1cbab1aa7")
+	)
+	(text "AT7456E analog OSD, SPI2, 27 MHz, CVBS 75 Ω, 5 V"
+		(exclude_from_sim no)
+		(at 235 124 0)
+		(effects
+			(font
+				(size 1.0 1.0)
+			)
+			(justify left top)
+		)
+		(uuid "d10ba7e8-b7bc-52cc-882c-85298ac61db8")
+	)
+	(text "USB-C, ESC konnektörleri, UART konnektör/pedleri, SBUS çevirici, VTX/kamera, LED şerit, servo"
+		(exclude_from_sim no)
+		(at 305 124 0)
+		(effects
+			(font
+				(size 1.0 1.0)
+			)
+			(justify left top)
+		)
+		(uuid "3e790191-8c31-5b28-a516-4140282dabb7")
+	)
+	(sheet
+		(at 25 100)
+		(size 60 20)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "30b0262a-43b4-5e51-a6a2-cdbf3e9897ab")
+		(property "Sheetname" "Power"
+			(at 25 99.3 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(bold yes)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "power.kicad_sch"
+			(at 25 120.6 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1 1)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "fmu"
+				(path "/f394d34b-b328-5e81-bc0a-3e0521c1bfc4"
+					(page "2")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 95 100)
+		(size 60 20)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "563abe95-0871-529a-9af2-c93153ef0522")
+		(property "Sheetname" "MCU"
+			(at 95 99.3 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(bold yes)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "mcu.kicad_sch"
+			(at 95 120.6 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1 1)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "fmu"
+				(path "/f394d34b-b328-5e81-bc0a-3e0521c1bfc4"
+					(page "3")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 165 100)
+		(size 60 20)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "db446465-a09e-5d25-a2cf-65c5f767a266")
+		(property "Sheetname" "Sensors"
+			(at 165 99.3 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(bold yes)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "sensors.kicad_sch"
+			(at 165 120.6 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1 1)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "fmu"
+				(path "/f394d34b-b328-5e81-bc0a-3e0521c1bfc4"
+					(page "4")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 235 100)
+		(size 60 20)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "b72775d5-d16a-5763-88ef-723aafdb1a59")
+		(property "Sheetname" "OSD"
+			(at 235 99.3 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(bold yes)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "osd.kicad_sch"
+			(at 235 120.6 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1 1)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "fmu"
+				(path "/f394d34b-b328-5e81-bc0a-3e0521c1bfc4"
+					(page "5")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 305 100)
+		(size 60 20)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "866d26f8-8a0a-59f6-9e80-a5fca8684552")
+		(property "Sheetname" "IO"
+			(at 305 99.3 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(bold yes)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "io.kicad_sch"
+			(at 305 120.6 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1 1)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "fmu"
+				(path "/f394d34b-b328-5e81-bc0a-3e0521c1bfc4"
+					(page "6")
+				)
+			)
+		)
+	)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
+	(embedded_fonts no)
+)

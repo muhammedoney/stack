@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-11-11 — F405 FMU şematiği (İP-05)
+
+- `tools/fmu_schematic.py`: M1 F405 FMU şematiği sıfırdan, 5 alt sayfa (power, mcu, sensors, osd, io); STM32F405RGT7, ICM-42688-P, DPS368, GD25Q128, AT7456E, SY8303 × 2 (5 V/2 A, 9 V/1.5 A), AMS1117-3.3, AO3401A ters kutup (doğru yön), J_ESC1 + J_ESC2 (Dual SKU, DNP), SBUS evirici, USB-C + USBLC6. Referanslardan dosya kopyalanmadı (KRR-006); yeni semboller `lib/stack.kicad_sym`, ayak izleri `lib/stack.pretty/` (KiCad standart kopyaları).
+- ERC 0 ihlal; MCU pinleri `docs/pin-haritasi.md` §1 ile 64/64 aynı (`tools/pinmap_check.py`); betik idempotent.
+- BOM `boards/fmu/bom-revb.csv`: FMU 27.06 $/kart (RGT7 13.03 $, stok 4) → stack 44.26 $; RGT6 ile 35.81 $. ≤ 32 $ hedefi tutmuyor, müşteri kararı bekliyor.
+
 ## 2026-11-11 — Müşteri kararları, yüksek sıcaklık, 55 A etiketi
 
 - Müşteri: DT-002 onaylı; DT-004 maliyet hedefi ≤ 32 $/stack; kutuda silindirik düşük ESR kondansatör kesin (SYS-061/063); tasarım kapalı, açık belge (KRR-009, PRJ-008); 8S: M1 3–6S, PCB 8S varyantına yer (KRR-007).
