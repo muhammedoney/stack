@@ -4608,7 +4608,7 @@
 		)
 		(embedded_fonts no)
 	)
-	(symbol "CAP0805_4u7_50V_X5R"
+	(symbol "CAP0805_4u7_50V_X7R"
 		(pin_numbers
 			(hide yes)
 		)
@@ -4630,7 +4630,7 @@
 				)
 			)
 		)
-		(property "Value" "CAP0805_4u7_50V_X5R"
+		(property "Value" "CAP0805_4u7_50V_X7R"
 			(at 0 0 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4662,7 +4662,7 @@
 				)
 			)
 		)
-		(property "Description" "4.7 µF ±%10 50 V X5R 0805 (JW5026 girişi); G6"
+		(property "Description" "4.7 µF ±%10 50 V X7R 0805 (JW5026 girişi); G6; X5R C98192 yerine (yüksek sıcaklık)"
 			(at 0 0 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4684,7 +4684,7 @@
 				)
 			)
 		)
-		(symbol "CAP0805_4u7_50V_X5R_1_0"
+		(symbol "CAP0805_4u7_50V_X7R_1_0"
 			(polyline
 				(pts
 					(xy 0 2.032) (xy 0 2.54)
@@ -4774,7 +4774,7 @@
 		)
 		(embedded_fonts no)
 	)
-	(symbol "CAP0603_10u_16V_X5R"
+	(symbol "CAP0805_10u_16V_X7R"
 		(pin_numbers
 			(hide yes)
 		)
@@ -4796,7 +4796,7 @@
 				)
 			)
 		)
-		(property "Value" "CAP0603_10u_16V_X5R"
+		(property "Value" "CAP0805_10u_16V_X7R"
 			(at 0 0 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4806,7 +4806,7 @@
 				)
 			)
 		)
-		(property "Footprint" "RLC:0603-CAP"
+		(property "Footprint" "stack:C_0805_2012Metric"
 			(at 0 0 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4828,7 +4828,7 @@
 				)
 			)
 		)
-		(property "Description" "10 µF ±%10 16 V X5R 0603; G12/G13"
+		(property "Description" "10 µF ±%10 16 V X7R 0805; G12/G13; X5R 0603 C70225 yerine (yüksek sıcaklık)"
 			(at 0 0 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4850,7 +4850,7 @@
 				)
 			)
 		)
-		(symbol "CAP0603_10u_16V_X5R_1_0"
+		(symbol "CAP0805_10u_16V_X7R_1_0"
 			(polyline
 				(pts
 					(xy 0 2.032) (xy 0 2.54)
@@ -4940,7 +4940,7 @@
 		)
 		(embedded_fonts no)
 	)
-	(symbol "CAP0402_1u_25V_X5R"
+	(symbol "CAP0402_1u_16V_X7R"
 		(pin_numbers
 			(hide yes)
 		)
@@ -4962,7 +4962,7 @@
 				)
 			)
 		)
-		(property "Value" "CAP0402_1u_25V_X5R"
+		(property "Value" "CAP0402_1u_16V_X7R"
 			(at 0 0 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4994,7 +4994,7 @@
 				)
 			)
 		)
-		(property "Description" "1 µF ±%10 25 V X5R 0402"
+		(property "Description" "1 µF ±%10 16 V X7R 0402 (bootstrap / sürücü VCC, PVDD 8.07 V); X5R 25 V C52923 yerine (yüksek sıcaklık)"
 			(at 0 0 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5016,7 +5016,7 @@
 				)
 			)
 		)
-		(symbol "CAP0402_1u_25V_X5R_1_0"
+		(symbol "CAP0402_1u_16V_X7R_1_0"
 			(polyline
 				(pts
 					(xy 0 2.032) (xy 0 2.54)

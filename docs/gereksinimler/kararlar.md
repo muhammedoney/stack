@@ -27,7 +27,7 @@ Her karar: bağlam, seçenekler, seçilen ve gerekçe, etkilediği SYS/dosyalar.
 **Etki:** `docs/pin-haritasi.md` (sistem-mimari), esc55a J0 ve fmu J0/J1 dizilimi değişebilir (inceleme E8).
 
 ## KRR-005 — FMU MCU pin ataması Betaflight `SPEEDYBEEF405V4` tabanlı (2026-11-10)
-**Durum:** Öneri / müşteri onayı bekliyor (DT-002; SYS-050 Onaylı maddeyi değiştirir).
+**Durum:** Onaylı (müşteri, 2026-11-11, DT-002 onayıyla; SYS-050 `Onaylı (DT-002)`).
 **Bağlam:** KRR-004 SpeedyBee F405 V4 ailesiyle uyumu seçti; F405 LQFP64’te 8 DShot + LED + 6 UART + 3 SPI ancak DMA’sı dikkatle dağıtılırsa sığar (FeroFly V1.0 “motor 3 DMA” revizyonu). Cezeri Altium şeması (Mamba F405 MK2 tersine mühendisliği) müşterinin kendi şeması sayılmıyor (`docs/mimari-fmu.md`).
 **Seçenekler:** 1) `SPEEDYBEEF405V4` (BF) + `speedybeef4v4` (AP) pinleri, belgelenmiş farklarla 2) Altium (Mamba) pinleri 3) Sıfırdan kendi ataması 4) GEPRC F405 pinleri.
 **Karar:** 1. Farklar yalnız `docs/pin-haritasi.md` §1.4: SPI3’te flash (CS PC14), UART5 TX PC12, `ADC1_DMA_OPT 1`, PC5 = CUR2, baro parçası, VBAT 15:1. HSE 8 MHz.
@@ -35,7 +35,7 @@ Her karar: bağlam, seçenekler, seçilen ve gerekçe, etkilediği SYS/dosyalar.
 **Etki:** SYS-035, 037, 050, 056; DOG-034, -049, -094, -099, -100; fmu şematiği (İP-05), `firmware/` config ve hwdef (İP-07). Boş GPIO kalmıyor (RSK-015).
 
 ## KRR-006 — Referans tasarım kullanım kuralı (2026-11-10)
-**Durum:** Öneri (ekip kuralı) / müşteri onayı bekliyor; SOR-014 cevabı “açık kaynak” olursa yeniden değerlendirilir.
+**Durum:** Onaylı (müşteri, 2026-11-11, DT-002 onayıyla). SOR-014 cevabı “şimdilik kapalı” (KRR-009) → kural aynen geçerli; tasarım açık kaynağa çevrilirse yeniden değerlendirilir.
 **Bağlam:** `docs/mimari-fmu.md` §1: açık F405 referansları farklı lisanslarda — CERN-OHL-P (FeroFly), -W (Mini-Air), -S (KURC), CC-BY-SA (Pixhawk), CC-BY-NC-SA (Revolution, Sparky2, Acci); ticari kartlar yalnız GPL-3 config/hwdef. Hukuki görüş değildir.
 **Seçenekler:** 1) Hiçbir referanstan dosya kopyalanmaz; yalnız fikir ve yayımlanmış pin atamaları (işlevsel bilgi) kullanılır 2) İzin verici (P/W) kaynaklardan dosya alınır, bildirim korunur 3) Serbest kullanım.
 **Karar:** 1. Tasarım veri sayfaları + `guc-ip03` hesapları + kendi `lib/` kütüphanemizle sıfırdan çizilir. Sembol, ayak izi, şema sayfası, yerleşim **kopyalanmaz**. NC lisanslı kaynaklar (CC-BY-NC-SA) **yalnız okunur**; -S ve CC-BY-SA kaynaklardan da dosya alınmaz. İleride P/W kaynaklı bir dosya gerçekten alınırsa önce bu KRR değişir, kaynak + lisans belgeye ve `CHANGELOG.md`’ye yazılır.
@@ -43,8 +43,39 @@ Her karar: bağlam, seçenekler, seçilen ve gerekçe, etkilediği SYS/dosyalar.
 **Etki:** Tüm tasarım ajanları (sematik, pcb, gomulu); `dogrulama-kalite` incelemesinde kaynak sorusu. SYS etkisi yok (kural, gereksinim değil).
 
 ## KRR-007 — FMU 8S stratejisi (2026-11-10)
-**Durum:** Öneri / müşteri onayı bekliyor (SOR-013).
+**Durum:** Onaylı (müşteri, 2026-11-11, SOR-013: “önerini uygula” → seçenek 1).
 **Bağlam:** M3 8S FMU ister (MUS-012). 8S LiHV dolu 34.8 V; SYS-014 kuralıyla (geçici + 5 V) VIN parçaları mutlak ≥ 45 V. M1 BOM’undaki SY8303 (40 V), AO3401A (−30 V), sigorta (32 V DC), SMBJ24CA 8S’e uymaz (`docs/mimari-fmu.md` §4.4). Onaylı SYS-003 “FMU iki ESC sınıfında değişmeden” diyordu.
 **Seçenekler:** 1) M1 BOM 3–6S; PCB 8S BOM varyantına yer bırakır; M3’te yalnız BOM (gerekirse küçük revizyon) 2) M1 baştan 8S dayanıklı, tek BOM (tahmini +1–2 $/kart, `bom-tedarik` doğrulayacak) 3) M3’te ayrı FMU PCB’si.
-**Karar (öneri):** 1. **Gerekçe:** M1 maliyeti zaten hedefin üstünde (SOR-016); 5" kullanıcısı 8S dayanımına para ödemez; 8S’in ayak izi riski (60 V buck kılıfı) yerleşim payıyla küçülür, M3 takvimi (2027 Q3) öncesi doğrulanır.
+**Karar:** 1. **Gerekçe:** M1 maliyeti zaten hedefin üstünde (SOR-016); 5" kullanıcısı 8S dayanımına para ödemez; 8S’in ayak izi riski (60 V buck kılıfı) yerleşim payıyla küçülür, M3 takvimi (2027 Q3) öncesi doğrulanır.
 **Etki:** SYS-003, 022, 044, 046; DOG-003, -045, -097, -098; FMU şematik/PCB (İP-05/06), `bom-tedarik` 8S BOM listesi. Seçenek 2 seçilirse SYS-046 İptal, SYS-044’te M1 için ≥ 45 V, SYS-002’ye +1–2 $.
+
+## KRR-008 — Yüksek sıcaklık bileşen sınıfı kuralı (2026-11-11)
+**Durum:** Kural onaylı (müşteri talebi MUS-014, DT-003); sayısal sınırlar [öneri] — `bom-tedarik` (bulunabilirlik, LCSC stoğu, fiyat) ve `sistem-mimari` (EFM8BB21 I sınıfı, STM32F405RGT7) doğrulamasından sonra SYS-085…087 `Onaylı`.
+**Bağlam:** Müşteri: “Kart yüksek derecelere çıkar. Ona göre komponentleri güncelle.” guc-ip03 §2.5: ESC sınır akımda kart ortalaması ≈ 95–99 °C, MOSFET kılıfı ≈ 110 °C; X5R (+85 °C) aşılır (G6). FMU kart kaybı ≈ 2.5 W → 60–90 °C (masa, tahmin), STM32F405RGT6 (−40…85 °C) sınırda (G18); FMU yığında ESC’nin üstünde. Onaylı SYS-083 yalnız “≥ −20…+85 °C” istiyordu (ortam −10…+50 °C’ye göre yazılmıştı, kart ısınmasını hesaba katmıyordu).
+**Seçenekler:** 1) Sınıf kartın tasarım sıcaklığına göre: ESC ≥ 125 °C, FMU ≥ 105 °C, istisnalar ölçümle gerekçeli 2) Her iki kartta ≥ 125 °C (FMU’da IMU/baro/OSD için muadil yok → uygulanamaz) 3) ≥ 85 °C kalır, ısı yalnız yerleşim/akım sınırıyla yönetilir (müşteri talebine aykırı).
+**Karar:** 1. Kural tablosu:
+
+| Parça türü | ESC (SYS-086) | FMU (SYS-087) |
+|---|---|---|
+| Seramik kondansatör | X7R veya üstü (X7S, X8R, C0G); X5R/X6S/Y5V yok | X7R veya üstü |
+| Elektrolitik / polimer / tantal | Kartta yok | Kullanılırsa ≥ 105 °C |
+| Set (kutu) kondansatörü | Silindirik Al elektrolitik, 105 °C (SYS-063) | — |
+| Direnç, shunt, ferrit, bobin | ≥ 125 °C (öz ısınma dahil) | ≥ 105 °C (çoğu 125–155 °C, ek maliyet yok) |
+| MOSFET, diyot, TVS | T_j,maks ≥ 150 °C | T_j,maks ≥ 150 °C |
+| IC (sürücü, akım yükselteci, buck, LDO) | ≥ 125 °C tercih; 105 °C yalnız muadil yoksa ve ölçülen kılıf ≤ 90 °C | ≥ 105 °C |
+| MCU | EFM8BB21 I sınıfı (−40…125 °C) [doğrulanacak] | STM32F405RGT7 (−40…105 °C) |
+| IMU, baro, OSD, flash | — | ≥ 105 °C; muadil yoksa 85 °C, kılıf ≤ 70 °C ölçülür |
+| Kristal / osilatör | (kullanılırsa) ≥ 125 °C | ≥ 105 °C; yoksa 85 °C istisnası |
+| Konnektör (SH, USB-C), LED, buzzer | ≥ 125 °C; yoksa istisna listesi + yerel ölçüm | ≥ 105 °C; yoksa 85 °C, yerel ≤ 70 °C |
+| Genel ölçüt | SYS-085 koşulunda her parça sınırının ≥ 15 °C altında | Yığın ölçümünde sınırın ≥ 15 °C altında |
+
+**Gerekçe:** ESC tasarım sıcaklığı (kart 95 °C, sıcak nokta 110 °C) 15 °C payla 125 °C sınıfı ister; 105 °C IC yalnız soğuk bölgede kabul. FMU kendi kaybı + yığında ESC’den gelen ısıyla 85 °C sınırını aşabilir; 105 °C ekonomik orta yol, IMU/baro/OSD gibi 105 °C muadili olmayan işlevler yerleşim ve ölçümle korunur. STM32F405RGT7 aynı kalıp ve pin dizilimi → Betaflight/ArduPilot ve pin haritası (KRR-005) etkilenmez. Pasiflerin çoğu (X7R, kalın film direnç) zaten bu sınıfta; maliyet farkı MCU’larda ve bazı IC’lerde yoğunlaşır.
+**Etki:** SYS-083 (Değişti), SYS-085…087 (yeni); DOG-082, DOG-104…108; `bom-tedarik` BOM taraması ve fark maliyeti (SYS-002, PRJ-004 ≤ 32 $, RSK-004, RSK-017); `sematik-muhendisi` parça numaraları (EFM8BB21F16I?, STM32F405RGT7, C_boot X7R); `bom-maliyet.md` R3 (bulk X5R tasarrufu) reddedilir; `pcb-muhendisi` 85 °C istisna parçalarını ısı kaynaklarından uzak yerleştirir (RSK-018).
+
+## KRR-009 — Tasarım şimdilik kapalı, açık belge yayımlanır (2026-11-11)
+**Durum:** Onaylı (müşteri, 2026-11-11, SOR-014: “tamam”).
+**Bağlam:** SOR-014: şema/PCB açık kaynak mı? Açık referansların lisansları (KRR-006) ve kopyalanma riski.
+**Seçenekler:** 1) Şimdilik kapalı; açık belge = pin haritası, BF/AP hedefleri, kılavuz; 100 set sonrası yeniden açılabilir 2) CERN-OHL-W 3) CERN-OHL-P.
+**Karar:** 1. Yayımlanacak: `docs/pin-haritasi.md` türevi kullanıcı pin/ped haritası, Betaflight config ve ArduPilot hwdef (zaten GPL-3), kullanıcı kılavuzu (set kondansatörü zorunluluğu dahil). Şematik/PCB kaynak dosyaları ve BOM yayımlanmaz; şema PDF’i isteğe bağlı, ayrı karar. 100 set sonrası yeniden değerlendirilir.
+**Gerekçe:** Kopyalanma riski düşer, karar geri alınabilir (kapalıdan açığa geçmek kolay, tersi değil); KRR-006 kuralıyla lisans yükümlülüğü yok.
+**Etki:** PRJ-008; KRR-006 geçerli; SYS etkisi yok.

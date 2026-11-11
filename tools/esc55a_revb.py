@@ -24,6 +24,13 @@ not touched (see boards/esc55a/README.md, "Rev B şematik").
   E6   R99-R106 (+VD divider, not on the PCB) -> DNP, not on board, values
        3k / 1k
   G25  "max 15V" note -> "PVDD <= 12 V (U0 LDO)"
+  HT   high temperature (customer 2026-11-11, board ~95 C, guc-ip03 §2.5):
+       every part >= 125 C class where available (min 105 C), no X5R:
+       U11..U41 EFM8BB21F16G (-40..85 C) -> EFM8BB21F16I-C-QFN20R (-40..125 C,
+       same QFN20 and pins); C02 4.7 uF 50 V X5R -> X7R 0805 (HRE);
+       C03/C07 10 uF 16 V X5R 0603 -> X7R 0805 (CCTC); 16 x 1 uF 25 V X5R 0402
+       -> 1 uF 16 V X7R 0402 (CCTC). New field "Temperature" on every part.
+       J0 (SH clone, -40..85 C) has no 105 C SH part -> unchanged, open item.
   all  Value = symbol name, Footprint, Datasheet, MPN, Manufacturer, LCSC
        (and ALT MPN / ALT Manufacturer / ALT LCSC) on every part; the Altium
        fields (MANUFACTURER PRODUCT NUMBER, LSCS PART NUMBER, DIGIKEY ...)
@@ -61,61 +68,83 @@ SAMSUNG = DS % "02336ea48ea44ca18c72517dd3cb7b47"
 FH = DS % "09fe2daf22580a99fa7fea93ccb20fb7"
 
 
+T_R = "-55…+155 °C (UNI-ROYAL 0402WGF, LCSC)"
+T_X7R = "X7R: -55…+125 °C (EIA)"
+CCTC = DS % "71a9f8eccc4da164324d4a716182c5e3"
+
+
 def R(sym, mpn, lcsc, descr):
-    return dict(sym=sym, fp="RLC:0402-RES", mpn=mpn, mfr="UNI-ROYAL", lcsc=lcsc, ds=UNIROYAL, descr=descr)
+    return dict(sym=sym, fp="RLC:0402-RES", mpn=mpn, mfr="UNI-ROYAL", lcsc=lcsc, ds=UNIROYAL, descr=descr, temp=T_R)
 
 
 PARTS = {
     "mos": dict(sym="MOS:NMOS 40V BLP016N04LC-Q", fp="MOS:8DFN4.9X5.8", mpn="BLP016N04LC-Q",
                 mfr="BL (Shanghai Belling)", lcsc="C49328363", ds=DS % "60e9b7bb6d64f081d184b353ffc14825",
                 descr="N-MOSFET 40 V, R_DS(on) 1.6 mΩ maks @10 V, PDFN5x6 (1-3 S, 4 G, 5-8 D); G1, SYS-014",
-                alt=("NTMFS5C430NLT1G", "onsemi", "C194661")),
+                alt=("NTMFS5C430NLT1G", "onsemi", "C194661"),
+                temp="T_J -55…+175 °C (DS; ALT NTMFS 175 °C); kılıf ≤ 110 °C hedef (guc-ip03 §2.5)"),
     "drv": dict(sym="MOS:IC MOSDRV JSM6288Q1 24QFN", fp="MOS:QFN-24(4x4)", mpn="JSM6288Q1", mfr="JSMSEMI",
                 lcsc="C52196409", ds=DS % "8e66a7cf2679ad9374949075990da53d",
                 descr="3 faz kapı sürücü, VCC 5-20 V, UVLO 4.5 V, ölü zaman 200 ns, QFN-24 4x4 (FD6288Q pin uyumlu); G3, SYS-016",
-                alt=("FD6288Q", "Fortior Tech", "C328453")),
-    "mcu": dict(sym=None, fp="IC:QFN20_3X3_SIL", mpn="EFM8BB21F16G-C-QFN20R", mfr="Silicon Labs", lcsc="C80713",
-                ds=LDS + "EFM8BB21F16G-C-QFN20R_C80713.pdf", descr="8 bit MCU 16 kB flash, QFN-20 3x3"),
+                alt=("FD6288Q", "Fortior Tech", "C328453"),
+                temp="-40…+125 °C (LCSC; DS görüntü PDF)"),
+    "mcu": dict(sym="IC:IC MCU EFM8BB21F16I-C 20QFN", fp="IC:QFN20_3X3_SIL", mpn="EFM8BB21F16I-C-QFN20R",
+                mfr="Silicon Labs", lcsc="C2053222", ds=LDS + "EFM8BB21F16G-C-QFN20R_C80713.pdf",
+                descr="8 bit MCU 16 kB flash, QFN-20 3x3, I sınıfı (G sınıfıyla aynı kılıf ve pinler); yüksek sıcaklık 2026-11-11",
+                temp="I sınıfı T_A -40…+125 °C, T_J ≤ 130 °C (EFM8BB2 DS §2, Tablo 4.1, 4.15); G sınıfı 85 °C"),
     "buck": dict(sym=None, fp="IC:SOT23-6", mpn="JW5026SOTB#TRPBF", mfr="JoulWatt", lcsc="C185109",
                  ds=DS % "f83872ed2237628ee0705043f9e45a8d",
-                 descr="Buck 1 A, V_IN 4.7-40 V (44 V mutlak), SOT-23-6; PVDD 8.07 V"),
+                 descr="Buck 1 A, V_IN 4.7-40 V (44 V mutlak), SOT-23-6; PVDD 8.07 V",
+                 temp="T_J -40…+125 °C (LCSC)"),
     "ldo": dict(sym=None, fp="IC:SOT89-3", mpn="AMS1117-3.3S", mfr="UMW", lcsc="C347256",
                 ds=DS % "40abec897f3661104e2a4d1ebd8e7463",
-                descr="LDO 3.3 V 1 A, SOT-89-3; giriş PVDD ≤ 12 V önerilen (15 V mutlak); çıkışta C07 10 µF (G12)"),
+                descr="LDO 3.3 V 1 A, SOT-89-3; giriş PVDD ≤ 12 V önerilen (15 V mutlak); çıkışta C07 10 µF (G12)",
+                temp="-40…+125 °C (LCSC); P = (PVDD-3.3 V)·I, kart 95 °C'de T_J payı guc-elektronigi"),
     "ina": dict(sym="IC:IC PWR INA240A3D SOIC-8", fp="stack:SOIC-8_3.9x4.9mm_P1.27mm", mpn="INA240A3DR",
                 mfr="Texas Instruments", lcsc="C2060584", ds="https://www.ti.com/lit/ds/symlink/ina240.pdf",
-                descr="Akım algılama yükselteci x100, V_CM -4...80 V, SOIC-8; R00 0.1 mΩ ile 10 mV/A (ibata_scale 100); G4, SYS-020/021"),
+                descr="Akım algılama yükselteci x100, V_CM -4...80 V, SOIC-8; R00 0.1 mΩ ile 10 mV/A (ibata_scale 100); G4, SYS-020/021",
+                temp="T_A -40…+125 °C, T_J ≤ 150 °C (SBOS662)"),
     "shunt": dict(sym="RLC:RES3920_0m1_KELVIN", fp="stack:R_3920_Kelvin_HoLRS3920", mpn="HoLRS3920-10W-0.1mR-1%",
                   mfr="Milliohm", lcsc="C55113241", ds=DS % "f0d59f0eaa1bba956e553f01ceae8df7",
-                  descr="Akım şöntü 0.1 mΩ ±%1 10 W 3920, ±100 ppm/K; Kelvin: 2 = isns_p (VBAT ucu), 3 = isns_n (PWR ucu); G4"),
+                  descr="Akım şöntü 0.1 mΩ ±%1 10 W 3920, ±100 ppm/K; Kelvin: 2 = isns_p (VBAT ucu), 3 = isns_n (PWR ucu); G4",
+                  temp="-55…+170 °C (DS s.3); güç azaltma eğrisi DS s.4"),
     "tvs": dict(sym="RLC:DTVS_SMDJ24CA", fp="RLC:SMC-TVS", mpn="SMDJ24CA", mfr="DOWO", lcsc="C284061",
                 ds=DS % "f3a866763da2bf38848a6c16e1beeff3",
-                descr="TVS 3 kW çift yönlü, V_RWM 24 V, V_BR 26.7-29.5 V, V_C 38.9 V @77 A, SMC; G5, SYS-014"),
+                descr="TVS 3 kW çift yönlü, V_RWM 24 V, V_BR 26.7-29.5 V, V_C 38.9 V @77 A, SMC; G5, SYS-014",
+                temp="T_J -55…+150 °C (DS); P_PP sıcaklıkla azalır (DS eğri)"),
     "ind": dict(sym="RLC:IND3015_10u", fp="stack:L_Sunlord_SWPA3015S", mpn="SWPA3015S100MT", mfr="Sunlord",
                 lcsc="C45403", ds="https://jlcpcb.com/partdetail/C45403",
-                descr="10 µH ±%20, I_sat 0.92 A, 3 x 3 x 1.5 mm; G11"),
+                descr="10 µH ±%20, I_sat 0.92 A, 3 x 3 x 1.5 mm; G11",
+                temp="-40…+125 °C, öz ısınma dahil (SWPA DS s.1)"),
     "conn": dict(sym=None, fp="CONN:JST_SM08B-SRSS-TB", mpn="XY-SM08B-SRSS-TB", mfr="XYECONN", lcsc="C54582896",
                  ds=DS % "910e382ac20e49fa8135c8269a1a8fef",
                  descr="SH 1.0 mm 8 pin yatay SMD (SM08B-SRSS-TB muadili)",
-                 alt=("SM08B-SRSS-TB(LF)(SN)", "JST", "C160407")),
+                 alt=("SM08B-SRSS-TB(LF)(SN)", "JST", "C160407"),
+                 temp="-40…+85 °C (LCSC; JST -25…+85 °C) - 105 °C hedefinin altında, açık konu (SH ailesinde 105 °C yok)"),
     "diode": dict(sym=None, fp="RLC:SOD-523_0P9X1P3", mpn="1N4148WT", mfr="ST(Semtech)", lcsc="C27748",
-                  ds=DS % "d78fb31904624a51a63f8a5d98d2dc04", descr="Hızlı diyot 100 V 150 mA SOD-523 (bootstrap)"),
+                  ds=DS % "d78fb31904624a51a63f8a5d98d2dc04", descr="Hızlı diyot 100 V 150 mA SOD-523 (bootstrap)",
+                  temp="T_J -65…+150 °C (LCSC)"),
     "bulk": dict(sym="RLC:CAP1206_10u_50V_X7R", fp="RLC:1206-CAP", mpn="CL31B106KBHNNNE", mfr="Samsung Electro-Mechanics",
                  lcsc="C89632", ds=DS % "a1390a51092e4f3c84866ab492516a00",
-                 descr="10 µF ±%10 50 V X7R 1206, bulk (15 adet); G6, SYS-014"),
+                 descr="10 µF ±%10 50 V X7R 1206, bulk (15 adet); G6, SYS-014", temp=T_X7R),
     "c100n50": dict(sym=None, fp="RLC:0402-CAP", mpn="CL05B104KB54PNC", mfr="Samsung Electro-Mechanics",
-                    lcsc="C307331", ds=SAMSUNG, descr="100 nF ±%10 50 V X7R 0402"),
-    "c02": dict(sym="RLC:CAP0805_4u7_50V_X5R", fp="stack:C_0805_2012Metric", mpn="CL21A475KBQNNNE",
-                mfr="Samsung Electro-Mechanics", lcsc="C98192", ds=DS % "02336ea48ea44ca18c72517dd3cb7b47",
-                descr="4.7 µF ±%10 50 V X5R 0805 (JW5026 girişi); G6"),
-    "c10u16": dict(sym="RLC:CAP0603_10u_16V_X5R", fp="RLC:0603-CAP", mpn="0603X106K160NT", mfr="FH",
-                   lcsc="C70225", ds=FH, descr="10 µF ±%10 16 V X5R 0603; G12/G13"),
+                    lcsc="C307331", ds=SAMSUNG, descr="100 nF ±%10 50 V X7R 0402", temp=T_X7R),
+    "c02": dict(sym="RLC:CAP0805_4u7_50V_X7R", fp="stack:C_0805_2012Metric", mpn="CGA0805X7R475K500MT",
+                mfr="HRE", lcsc="C6119944", ds=DS % "1c250b1bb4558a523ffa7f4e1dc167ea",
+                descr="4.7 µF ±%10 50 V X7R 0805 (JW5026 girişi); G6; X5R C98192 yerine (yüksek sıcaklık)",
+                alt=("TCC0805X7R475K500FT", "CCTC", "C20416422"), temp=T_X7R),
+    "c10u16": dict(sym="RLC:CAP0805_10u_16V_X7R", fp="stack:C_0805_2012Metric", mpn="TCC0805X7R106K160FT", mfr="CCTC",
+                   lcsc="C380347", ds=CCTC,
+                   descr="10 µF ±%10 16 V X7R 0805; G12/G13; X5R 0603 C70225 yerine (yüksek sıcaklık)",
+                   alt=("CL21B106KOQNNNE", "Samsung Electro-Mechanics", "C95841"), temp=T_X7R),
     "c100n16": dict(sym="RLC:CAP0402_0u1_16V_X7R", fp="RLC:0402-CAP", mpn="CL05B104KO5NNNC", mfr="Samsung Electro-Mechanics",
-                    lcsc="C1525", ds=SAMSUNG, descr="100 nF ±%10 16 V X7R 0402"),
+                    lcsc="C1525", ds=SAMSUNG, descr="100 nF ±%10 16 V X7R 0402", temp=T_X7R),
     "c1n": dict(sym=None, fp="RLC:0402-CAP", mpn="0402B102K500NT", mfr="FH", lcsc="C1523", ds=FH,
-                descr="1 nF ±%10 50 V X7R 0402 (U2 giriş farkı, isns_p-isns_n)"),
-    "c1u": dict(sym="RLC:CAP0402_1u_25V_X5R", fp="RLC:0402-CAP", mpn="CL05A105KA5NQNC",
-                mfr="Samsung Electro-Mechanics", lcsc="C52923", ds=SAMSUNG, descr="1 µF ±%10 25 V X5R 0402"),
+                descr="1 nF ±%10 50 V X7R 0402 (U2 giriş farkı, isns_p-isns_n)", temp=T_X7R),
+    "c1u": dict(sym="RLC:CAP0402_1u_16V_X7R", fp="RLC:0402-CAP", mpn="TCC0402X7R105K160AT",
+                mfr="CCTC", lcsc="C49210445", ds=CCTC,
+                descr="1 µF ±%10 16 V X7R 0402 (bootstrap / sürücü VCC, PVDD 8.07 V); X5R 25 V C52923 yerine (yüksek sıcaklık)",
+                alt=("TCC0402X7R105K250AT", "CCTC", "C53426846"), temp=T_X7R),
     "r90k9": R(None, "0402WGF9092TCE", "C26989", "90.9 kΩ ±%1 0402"),
     "r10k": R(None, "0402WGF1002TCE", "C25744", "10 kΩ ±%1 0402"),
     "r220": R(None, "0402WGF2200TCE", "C25091", "220 Ω ±%1 0402"),
@@ -127,10 +156,12 @@ PARTS = {
                  "3 kΩ ±%1 0402 - DNP (E6/G20): +VD boşta, PCB'de yok"),
     "r1k_dnp": R("RLC:RES0402_1k", "0402WGF1001TCE", "C11702",
                  "1 kΩ ±%1 0402 - DNP (E6/G20): +VD boşta, PCB'de yok"),
-    "pad": dict(sym=None, fp=None, mpn="—", mfr="—", lcsc="—", ds="", descr="PCB pedi (dizgi yok)"),
+    "pad": dict(sym=None, fp=None, mpn="—", mfr="—", lcsc="—", ds="", descr="PCB pedi (dizgi yok)", temp=""),
 }
 NEW_FIELDS = ("MPN", "Manufacturer", "LCSC", "ALT MPN", "ALT Manufacturer", "ALT LCSC")
-KEEP_FIELDS = ("Reference", "Value", "Footprint", "Datasheet", "Description") + NEW_FIELDS
+KEEP_FIELDS = ("Reference", "Value", "Footprint", "Datasheet", "Description", "Temperature") + NEW_FIELDS
+# Rev B library symbols replaced by the high-temperature parts (only this script used them)
+LIB_OBSOLETE = {"RLC": ("CAP0805_4u7_50V_X5R", "CAP0603_10u_16V_X5R", "CAP0402_1u_25V_X5R")}
 
 BULK_KEEP = ["C%d" % n for n in range(1, 11)] + ["C16", "C17", "C18", "C19", "C48"]
 BULK_REMOVE = ["C39", "C36", "C46", "C47", "C38", "C26", "C28", "C27", "C29", "C30", "C37", "C40", "C60", "C50"]
@@ -217,6 +248,16 @@ def lib_put(path, node):
         open(path, "w", encoding="utf-8").write(new)
 
 
+def lib_del(path, name):
+    """Remove the top-level symbol NAME from a .kicad_sym file (if present)."""
+    text = open(path, encoding="utf-8").read()
+    m = re.search(r'\n\t\(symbol "%s"\n' % re.escape(name), text)
+    if m:
+        s = m.start() + 1
+        e = sexpr_end(text, s + 1)
+        open(path, "w", encoding="utf-8").write(text[:m.start()] + text[e:])
+
+
 def clone_sym(node, old, new, props):
     n = copy.deepcopy(node)
     n[1] = Str(new)
@@ -247,6 +288,7 @@ def build_symbols():
     p = PARTS
     add("MOS", "MOS", "NMOS PWR ME7170", p["mos"]["sym"].split(":")[1], p["mos"]["descr"], p["mos"]["fp"])
     add("MOS", "MOS", "IC MOSDRV FD6288Q 24QFN", p["drv"]["sym"].split(":")[1], p["drv"]["descr"], p["drv"]["fp"])
+    add("IC", "IC", "IC MCU EFM8BB21F16G-C 20QFN", p["mcu"]["sym"].split(":")[1], p["mcu"]["descr"], p["mcu"]["fp"])
 
     def ina_pins(node):
         # INA199 (SC70-6) box -> INA240 SOIC-8 numbering; same pin places, two new pins
@@ -285,8 +327,14 @@ def build_symbols():
                      ("c02", "CAP0603_4u7_35V_X5R"), ("c10u16", "CAP0402_10u_10V_X5R"),
                      ("c1u", "CAP0402_1u_16V_X5R"), ("rgate", "RES0402_22"), ("r3k_dnp", "RES0402_3k_????")):
         add("RLC", "RLC", src, p[key]["sym"].split(":")[1], p[key]["descr"], p[key]["fp"])
+    # remove first, then append in a fixed order: a run on Rev A and a run on Rev B give the same library
+    for lib_id in out:
+        lib_del(libp(lib_id.split(":")[0]), lib_id.split(":")[1])
     for lib_id, node in out.items():
         lib_put(libp(lib_id.split(":")[0]), node)
+    for lib, names in LIB_OBSOLETE.items():
+        for name in names:
+            lib_del(libp(lib), name)
     return out
 
 
@@ -539,6 +587,14 @@ def apply_part(s, inst, symbols):
             set_prop(inst, k, vals[k])
         elif prop(inst, k) is not None:
             inst.remove(prop(inst, k))
+    if part["temp"]:
+        set_prop(inst, "Temperature", part["temp"])
+    # fixed field order (Reference ... ALT LCSC, Temperature) in the existing property slots
+    order = ("Reference", "Value", "Footprint", "Datasheet", "Description") + NEW_FIELDS + ("Temperature",)
+    slots = [i for i, q in enumerate(inst) if isinstance(q, list) and q[0] == "property"]
+    props = sorted((inst[i] for i in slots), key=lambda q: order.index(q[1]))
+    for i, q in zip(slots, props):
+        inst[i] = q
     if key in ("r3k_dnp", "r1k_dnp"):
         set_flag(inst, "dnp", "yes")
         set_flag(inst, "on_board", "no")
@@ -633,6 +689,10 @@ def drop_unused_cache(s):
     for n in list(find_all(s.libsyms, "symbol")):
         if n[1] not in used:
             s.libsyms.remove(n)
+    # sorted by name as eeschema writes it (same file whether the run starts from Rev A or Rev B)
+    syms = find_all(s.libsyms, "symbol")
+    rest = [q for q in s.libsyms[1:] if not (isinstance(q, list) and q[0] == "symbol")]
+    s.libsyms[1:] = rest + sorted(syms, key=lambda q: str(q[1]))
 
 
 # ------------------------------------------------------------------ sheets
@@ -738,6 +798,8 @@ def edit_root(path):
         tb.insert(2, ["rev", Str("B")])
     if not [c for c in find_all(tb, "comment") if c[1] == "2"]:
         tb.append(["comment", "2", Str("Rev B şematik: tools/esc55a_revb.py (guc-ip03 G1, G3-G6, G11-G14, E6)")])
+    if not [c for c in find_all(tb, "comment") if c[1] == "3"]:
+        tb.append(["comment", "3", Str("Yüksek sıcaklık 2026-11-11: MCU I sınıfı 125 °C, X5R yok (X7R); J0 85 °C açık")])
     s.save()
 
 

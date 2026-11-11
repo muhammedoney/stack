@@ -376,3 +376,54 @@ M1aH…M4cL **C49328363**, U12…U42 **C52196409**, U2 **C2060584**, R00 **C5511
 2. PCB iç katman 1 oz (G19) için JLC teklifi alınmadı. Maliyet etkisi tahmini +0.1–0.2 $/kart, tabloya katılmadı.
 3. JLC "tek kart" ücreti (+0.48 $/kart) belirsizliği sürüyor. Uygulanırsa 32 $ payı kalmaz.
 4. A3 (BB51) ve INA186A3 kararları açık. 28 $ hedefi için müşteri kararları (B3, B6, R9) gerekiyor.
+
+### 9.10 Yüksek sıcaklık güncellemesi (2026-11-11)
+
+> **Girdi:** müşteri 2026-11-11 "kart yüksek derecelere çıkar". Kural [öneri, `gereksinim-muhendisi` yazıyor]: ESC'deki her parça ≥ 125 °C hedef, en az 105 °C; seramik en az X7R (X5R yok); elektrolitik yok. Isıl girdi `guc-ip03` §2.5: kart ≈ 95 °C, MOSFET kılıfı ≤ 110 °C. **Kaynak:** fiyat/stok JLCPCB parça arayüzü, sıcaklık LCSC parametresi ve `lib/datasheet/` veri sayfaları, 2026-11-11. Satır satır: [`bom-revb.csv`](../boards/esc55a/bom-revb.csv) `sicaklik_C`, `revb2_*` sütunları. Şematik: `tools/esc55a_revb.py` (alan `Temperature`).
+
+**Sınıfı yetmeyen ve değişen parçalar (100 set kademesi):**
+
+| Ref | Adet | Önce (LCSC, sınıf) | Sonra (LCSC) | Sınıf | Stok 11-11 / 2× ihtiyaç | Birim $ önce → sonra | Kart Δ $ |
+|---|---|---|---|---|---|---|---|
+| U11…U41 | 4 | EFM8BB21F16G-C-QFN20R C80713, T_A −40…85 °C | **EFM8BB21F16I-C-QFN20R C2053222** | T_A −40…125 °C (T_J 130) | 22 629 / 800 ✓ | 0.7658 → 0.8958 | **+0.520** |
+| C13…C45, C120…C420 | 16 | 1 µF 25 V X5R 0402 C52923 (basic) | **1 µF 16 V X7R 0402 CCTC TCC0402X7R105K160AT C49210445** (ext) | X7R | 65 773 / 3 200 ✓ | 0.0044 → 0.0053 | +0.014 |
+| C03, C07 | 2 | 10 µF 16 V X5R 0603 C70225 | **10 µF 16 V X7R 0805 CCTC TCC0805X7R106K160FT C380347** (0603 → 0805) | X7R | 535 301 / 400 ✓ | 0.0570 → 0.0246 | −0.065 |
+| C02 | 1 | 4.7 µF 50 V X5R 0805 C98192 | **4.7 µF 50 V X7R 0805 HRE CGA0805X7R475K500MT C6119944** | X7R | 40 546 / 200 ✓ | 0.0360 → 0.0311 | −0.005 |
+| Dizgi | | 15 extended tür | 16 (1 µF X7R extended; 0402 X7R 1 µF basic yok) | | | 1.53 $/sipariş | +0.015 |
+| **Toplam** | | | | | | | **+0.48 $/kart** |
+
+Yedekler (şematikte ALT alanları): C49210445 ↔ **1 µF 25 V X7R C53426846** (0.0228 $ @1600; kullanılırsa kart +0.29 $ daha, toplam +0.77 $); C380347 ↔ Samsung CL21B106KOQNNNE C95841 (0.0663 $); C6119944 ↔ CCTC TCC0805X7R475K500FT C20416422 (0.0708 $). 0603 kılıfta ≥ 16 V 10 µF X7R yok (10 V Murata GRM188Z71A106KA73D C2959727 var, C03'ün 8 V'u için yetersiz pay) — C03 ve C07 tek kod kalsın diye ikisi de 0805.
+
+**Maliyet (100 set):**
+
+| | ESC $/kart | Stack $/set (FMU S1b) | Stack $/set (FMU İP-03 dahil) |
+|---|---|---|---|
+| Rev B (9.2–9.3; C06 eklenerek 16.72) | 16.72 | 31.09 | 31.69 |
+| **Rev B + yüksek sıcaklık** | **17.20** | **31.57** | **32.17** |
+| Fark | **+0.48** | **+0.48** | **+0.48** |
+
+- C06 (U2 VS 100 nF C1525) BOM'a eklendi: +0.003 $ parça, +2 lehim noktası (718); kartı yuvarlamada değiştirmiyor.
+- **≤ 32 $ alternatifi aşılıyor (+0.17 $).** Kurtarma: §9.7 R2 (BLP016 2 500 adet önceden alım, −0.21) → **31.96 $**; R5 1N4148WS SOD-323 C2128 basic (−0.06; LCSC T_J değeri boş, veri sayfasından doğrulanmalı) ve R6 (−0.02) `guc-elektronigi` onayıyla → ≈ 31.9 $.
+- **§9.7'de geçersiz kalanlar:** R1 (C96446 X5R) ve R3 (bulk X5R C13585) X5R yasağıyla çelişir, düşüldü. "Güvenli" tasarruf yalnız R2.
+- MCU'da daha ucuz 125 °C seçenek yok: EFM8BB51F16I-C-QFN20R C3232998 stok **18** (A3 seçeneği yüksek sıcaklıkta fiilen kapandı); QSOP24 I sürümleri stoksuz.
+- 5 sette MCU farkı daha büyük: 4 × (1.2129 − 1.0184) = +0.78 $/kart; extended tür +0.31 $/kart.
+
+**Sıcaklık sınıfı (tüm ESC parçaları):**
+
+| Parça | LCSC | Sınıf | Kaynak | Durum |
+|---|---|---|---|---|
+| BLP016N04LC-Q (ALT NTMFS5C430NL) | C49328363 (C194661) | T_J −55…175 °C | DS | ✓ |
+| JSM6288Q1 | C52196409 | −40…125 °C | LCSC (DS görüntü PDF) | ✓ |
+| EFM8BB21F16**I** | C2053222 | T_A −40…125 °C | DS Tablo 4.1 | ✓ (önce G: 85 °C ✗) |
+| INA240A3DR | C2060584 | T_A −40…125 °C, T_J 150 | SBOS662 | ✓ |
+| JW5026 | C185109 | T_J −40…125 °C | LCSC | ✓ sınırda (T_J); `guc-elektronigi` |
+| AMS1117-3.3 (UMW) | C347256 | −40…125 °C | LCSC | ✓; ısıl pay `guc-elektronigi` (≈ 4.8 V × I_3V3) |
+| SMDJ24CA | C284061 | T_J −55…150 °C | DS | ✓ (P_PP sıcaklıkla azalır) |
+| 1N4148WT | C27748 | T_J −65…150 °C | LCSC | ✓ |
+| SWPA3015S100MT | C45403 | −40…125 °C (öz ısınma dahil) | DS s.1 | ✓ |
+| HoLRS3920 0.1 mΩ | C55113241 | −55…170 °C | DS s.3 | ✓ (güç azaltma eğrisi DS s.4) |
+| J0 XY-SM08B-SRSS-TB (ALT JST) | C54582896 (C160407) | −40…85 °C (JST −25…85) | LCSC | **✗ < 105 °C — değişmedi** |
+| Seramikler (tümü X7R) | C89632, C307331, C1525, C1523 + yeni 3 kod | −55…125 °C | EIA X7R | ✓ |
+| Dirençler UNI-ROYAL 0402WGF | 7 kod | −55…155 °C | LCSC | ✓ |
+
+**J0 (açık):** LCSC/JLC'de SH 1.0 mm 8 pin yatay 15 klon tarandı (XYECONN, Bossie, XUNPU, Megastar, LXW, SANHI, JXT, BX, HMT, CHUANGYUE …): hepsi −25/−40…85 °C. 105 °C sınıflı 1.0 mm seçenek **Molex Pico-Clasp 501568-0807** (C587867, −40…105 °C, 0.45 $ @100, stok 1 251; dikey 501331-0807 C505340, 0.30 $). SH ile geçmeli değil: FMU konnektörü ve kablo da değişir (`sistem-mimari`, FMU↔ESC arayüzü). Öneri: Rev B'de SH kalır; J0'ı kartın serin kenarına (MOSFET'lerden uzak) koymak (`pcb-muhendisi`) ve prototip ısıl ölçümünde J0 sıcaklığını ölçmek; > 85 °C çıkarsa Pico-Clasp'e geçiş kararı.

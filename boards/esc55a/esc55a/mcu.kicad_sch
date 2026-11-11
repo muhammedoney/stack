@@ -155,7 +155,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "IC:IC MCU EFM8BB21F16G-C 20QFN"
+		(symbol "IC:IC MCU EFM8BB21F16I-C 20QFN"
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -171,7 +171,7 @@
 					)
 				)
 			)
-			(property "Value" ""
+			(property "Value" "IC MCU EFM8BB21F16I-C 20QFN"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -181,7 +181,7 @@
 					)
 				)
 			)
-			(property "Footprint" ""
+			(property "Footprint" "IC:QFN20_3X3_SIL"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -203,7 +203,7 @@
 					)
 				)
 			)
-			(property "Description" "IC MCU 8BIT 16KB FLASH 20QFN"
+			(property "Description" "8 bit MCU 16 kB flash, QFN-20 3x3, I sınıfı (G sınıfıyla aynı kılıf ve pinler); yüksek sıcaklık 2026-11-11"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -225,7 +225,7 @@
 					)
 				)
 			)
-			(symbol "IC MCU EFM8BB21F16G-C 20QFN_1_0"
+			(symbol "IC MCU EFM8BB21F16I-C 20QFN_1_0"
 				(rectangle
 					(start 17.78 17.78)
 					(end -17.78 -17.78)
@@ -619,6 +619,524 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "MOS:IC MOSDRV JSM6288Q1 24QFN"
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "IC MOSDRV JSM6288Q1 24QFN"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "MOS:QFN-24(4x4)"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "3 faz kapı sürücü, VCC 5-20 V, UVLO 4.5 V, ölü zaman 200 ns, QFN-24 4x4 (FD6288Q pin uyumlu); G3, SYS-016"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "*QFN-24(4x4)*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "IC MOSDRV JSM6288Q1 24QFN_1_0"
+				(rectangle
+					(start 20.32 20.32)
+					(end -20.32 -17.78)
+					(stroke
+						(width 0)
+						(type solid)
+						(color 133 32 12 1)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin passive line
+					(at -25.4 15.24 0)
+					(length 5.08)
+					(name "LIN1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -25.4 12.7 0)
+					(length 5.08)
+					(name "LIN2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -25.4 10.16 0)
+					(length 5.08)
+					(name "LIN3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -25.4 7.62 0)
+					(length 5.08)
+					(name "VCC"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -25.4 5.08 0)
+					(length 5.08)
+					(name "NC"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -25.4 2.54 0)
+					(length 5.08)
+					(name "COM"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -25.4 0 0)
+					(length 5.08)
+					(name "NC"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "7"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -25.4 -2.54 0)
+					(length 5.08)
+					(name "NC"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "8"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -25.4 -5.08 0)
+					(length 5.08)
+					(name "LO3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "9"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -25.4 -7.62 0)
+					(length 5.08)
+					(name "LO2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "10"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -25.4 -10.16 0)
+					(length 5.08)
+					(name "LO1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "11"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -25.4 -12.7 0)
+					(length 5.08)
+					(name "VS3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "12"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 25.4 -12.7 180)
+					(length 5.08)
+					(name "HO3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "13"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 25.4 -10.16 180)
+					(length 5.08)
+					(name "VB3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "14"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 25.4 -7.62 180)
+					(length 5.08)
+					(name "VS2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "15"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 25.4 -5.08 180)
+					(length 5.08)
+					(name "HO2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "16"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 25.4 -2.54 180)
+					(length 5.08)
+					(name "VB2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "17"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 25.4 0 180)
+					(length 5.08)
+					(name "VS1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "18"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 25.4 2.54 180)
+					(length 5.08)
+					(name "HO1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "19"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 25.4 5.08 180)
+					(length 5.08)
+					(name "VB1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "20"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 25.4 7.62 180)
+					(length 5.08)
+					(name "NC"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "21"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 25.4 10.16 180)
+					(length 5.08)
+					(name "HIN1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "22"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 25.4 12.7 180)
+					(length 5.08)
+					(name "HIN2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "23"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 25.4 15.24 180)
+					(length 5.08)
+					(name "HIN3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "24"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "RLC:CAP0402_0u1_16V_X7R"
 			(pin_numbers
 				(hide yes)
@@ -737,6 +1255,172 @@
 				(rectangle
 					(start 2.032 0.508)
 					(end -2.032 1.016)
+					(stroke
+						(width 0)
+						(type solid)
+						(color 128 0 0 1)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(pin passive line
+					(at 0 5.08 270)
+					(length 2.54)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "P$1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -2.54 90)
+					(length 2.54)
+					(name "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "P$2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "RLC:CAP0402_1u_16V_X7R"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "CAP0402_1u_16V_X7R"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "RLC:0402-CAP"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "1 µF ±%10 16 V X7R 0402 (bootstrap / sürücü VCC, PVDD 8.07 V); X5R 25 V C52923 yerine (yüksek sıcaklık)"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "*0402-CAP*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "CAP0402_1u_16V_X7R_1_0"
+				(polyline
+					(pts
+						(xy 0 2.032) (xy 0 2.54)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+						(color 128 0 0 1)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 0.508) (xy 0 0)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+						(color 128 0 0 1)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start 2.032 2.032)
+					(end -2.032 1.524)
+					(stroke
+						(width 0)
+						(type solid)
+						(color 128 0 0 1)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(rectangle
+					(start 2.032 1.016)
+					(end -2.032 0.508)
 					(stroke
 						(width 0)
 						(type solid)
@@ -956,6 +1640,239 @@
 						)
 					)
 					(number "K"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "RLC:RES0402_10"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "RES0402_10"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "RLC:0402-RES"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "10 Ω ±%5 0402, kapı direnci; G14"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "*0402-RES*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "RES0402_10_1_0"
+				(polyline
+					(pts
+						(xy -2.159 1.016) (xy -2.54 0)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+						(color 128 0 0 1)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.524 -1.016) (xy -2.159 1.016)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+						(color 128 0 0 1)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -0.889 1.016) (xy -1.524 -1.016)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+						(color 128 0 0 1)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -0.254 -1.016) (xy -0.889 1.016)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+						(color 128 0 0 1)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0.381 1.016) (xy -0.254 -1.016)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+						(color 128 0 0 1)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.016 -1.016) (xy 0.381 1.016)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+						(color 128 0 0 1)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.651 1.016) (xy 1.016 -1.016)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+						(color 128 0 0 1)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.286 -1.016) (xy 1.651 1.016)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+						(color 128 0 0 1)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.54 0) (xy 2.286 -1.016)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+						(color 128 0 0 1)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin passive line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "P$1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 0 180)
+					(length 2.54)
+					(name "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "P$2"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1276,6 +2193,239 @@
 				)
 			)
 			(symbol "RES0402_1k_1_0"
+				(polyline
+					(pts
+						(xy -2.159 1.016) (xy -2.54 0)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+						(color 128 0 0 1)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.524 -1.016) (xy -2.159 1.016)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+						(color 128 0 0 1)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -0.889 1.016) (xy -1.524 -1.016)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+						(color 128 0 0 1)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -0.254 -1.016) (xy -0.889 1.016)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+						(color 128 0 0 1)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0.381 1.016) (xy -0.254 -1.016)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+						(color 128 0 0 1)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.016 -1.016) (xy 0.381 1.016)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+						(color 128 0 0 1)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.651 1.016) (xy 1.016 -1.016)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+						(color 128 0 0 1)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.286 -1.016) (xy 1.651 1.016)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+						(color 128 0 0 1)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.54 0) (xy 2.286 -1.016)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+						(color 128 0 0 1)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin passive line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "P$1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 0 180)
+					(length 2.54)
+					(name "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "P$2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "RLC:RES0402_3k"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "RES0402_3k"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "RLC:0402-RES"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "3 kΩ ±%1 0402 - DNP (E6/G20): +VD boşta, PCB'de yok"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "*0402-RES*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "RES0402_3k_1_0"
 				(polyline
 					(pts
 						(xy -2.159 1.016) (xy -2.54 0)
@@ -2167,1156 +3317,6 @@
 						)
 					)
 					(number ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "MOS:IC MOSDRV JSM6288Q1 24QFN"
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(in_pos_files yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "IC MOSDRV JSM6288Q1 24QFN"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" "MOS:QFN-24(4x4)"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Description" "3 faz kapı sürücü, VCC 5-20 V, UVLO 4.5 V, ölü zaman 200 ns, QFN-24 4x4 (FD6288Q pin uyumlu); G3, SYS-016"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_fp_filters" "*QFN-24(4x4)*"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(symbol "IC MOSDRV JSM6288Q1 24QFN_1_0"
-				(rectangle
-					(start 20.32 20.32)
-					(end -20.32 -17.78)
-					(stroke
-						(width 0)
-						(type solid)
-						(color 133 32 12 1)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(pin passive line
-					(at -25.4 15.24 0)
-					(length 5.08)
-					(name "LIN1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -25.4 12.7 0)
-					(length 5.08)
-					(name "LIN2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -25.4 10.16 0)
-					(length 5.08)
-					(name "LIN3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -25.4 7.62 0)
-					(length 5.08)
-					(name "VCC"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -25.4 5.08 0)
-					(length 5.08)
-					(name "NC"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "5"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -25.4 2.54 0)
-					(length 5.08)
-					(name "COM"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "6"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -25.4 0 0)
-					(length 5.08)
-					(name "NC"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "7"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -25.4 -2.54 0)
-					(length 5.08)
-					(name "NC"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "8"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -25.4 -5.08 0)
-					(length 5.08)
-					(name "LO3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "9"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -25.4 -7.62 0)
-					(length 5.08)
-					(name "LO2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "10"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -25.4 -10.16 0)
-					(length 5.08)
-					(name "LO1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "11"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -25.4 -12.7 0)
-					(length 5.08)
-					(name "VS3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "12"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 25.4 -12.7 180)
-					(length 5.08)
-					(name "HO3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "13"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 25.4 -10.16 180)
-					(length 5.08)
-					(name "VB3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "14"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 25.4 -7.62 180)
-					(length 5.08)
-					(name "VS2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "15"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 25.4 -5.08 180)
-					(length 5.08)
-					(name "HO2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "16"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 25.4 -2.54 180)
-					(length 5.08)
-					(name "VB2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "17"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 25.4 0 180)
-					(length 5.08)
-					(name "VS1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "18"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 25.4 2.54 180)
-					(length 5.08)
-					(name "HO1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "19"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 25.4 5.08 180)
-					(length 5.08)
-					(name "VB1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "20"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 25.4 7.62 180)
-					(length 5.08)
-					(name "NC"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "21"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 25.4 10.16 180)
-					(length 5.08)
-					(name "HIN1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "22"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 25.4 12.7 180)
-					(length 5.08)
-					(name "HIN2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "23"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 25.4 15.24 180)
-					(length 5.08)
-					(name "HIN3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "24"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "RLC:RES0402_10"
-			(pin_numbers
-				(hide yes)
-			)
-			(pin_names
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(in_pos_files yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "RES0402_10"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" "RLC:0402-RES"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Description" "10 Ω ±%5 0402, kapı direnci; G14"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_fp_filters" "*0402-RES*"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(symbol "RES0402_10_1_0"
-				(polyline
-					(pts
-						(xy -2.159 1.016) (xy -2.54 0)
-					)
-					(stroke
-						(width 0)
-						(type solid)
-						(color 128 0 0 1)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.524 -1.016) (xy -2.159 1.016)
-					)
-					(stroke
-						(width 0)
-						(type solid)
-						(color 128 0 0 1)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -0.889 1.016) (xy -1.524 -1.016)
-					)
-					(stroke
-						(width 0)
-						(type solid)
-						(color 128 0 0 1)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -0.254 -1.016) (xy -0.889 1.016)
-					)
-					(stroke
-						(width 0)
-						(type solid)
-						(color 128 0 0 1)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.381 1.016) (xy -0.254 -1.016)
-					)
-					(stroke
-						(width 0)
-						(type solid)
-						(color 128 0 0 1)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 1.016 -1.016) (xy 0.381 1.016)
-					)
-					(stroke
-						(width 0)
-						(type solid)
-						(color 128 0 0 1)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 1.651 1.016) (xy 1.016 -1.016)
-					)
-					(stroke
-						(width 0)
-						(type solid)
-						(color 128 0 0 1)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 2.286 -1.016) (xy 1.651 1.016)
-					)
-					(stroke
-						(width 0)
-						(type solid)
-						(color 128 0 0 1)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 2.54 0) (xy 2.286 -1.016)
-					)
-					(stroke
-						(width 0)
-						(type solid)
-						(color 128 0 0 1)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(pin passive line
-					(at -5.08 0 0)
-					(length 2.54)
-					(name "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "P$1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 5.08 0 180)
-					(length 2.54)
-					(name "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "P$2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "RLC:CAP0402_1u_25V_X5R"
-			(pin_numbers
-				(hide yes)
-			)
-			(pin_names
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(in_pos_files yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "CAP0402_1u_25V_X5R"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" "RLC:0402-CAP"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Description" "1 µF ±%10 25 V X5R 0402"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_fp_filters" "*0402-CAP*"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(symbol "CAP0402_1u_25V_X5R_1_0"
-				(polyline
-					(pts
-						(xy 0 2.032) (xy 0 2.54)
-					)
-					(stroke
-						(width 0)
-						(type solid)
-						(color 128 0 0 1)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 0.508) (xy 0 0)
-					)
-					(stroke
-						(width 0)
-						(type solid)
-						(color 128 0 0 1)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start 2.032 2.032)
-					(end -2.032 1.524)
-					(stroke
-						(width 0)
-						(type solid)
-						(color 128 0 0 1)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(rectangle
-					(start 2.032 1.016)
-					(end -2.032 0.508)
-					(stroke
-						(width 0)
-						(type solid)
-						(color 128 0 0 1)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(pin passive line
-					(at 0 5.08 270)
-					(length 2.54)
-					(name "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "P$1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -2.54 90)
-					(length 2.54)
-					(name "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "P$2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "RLC:RES0402_3k"
-			(pin_numbers
-				(hide yes)
-			)
-			(pin_names
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(in_pos_files yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "RES0402_3k"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" "RLC:0402-RES"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Description" "3 kΩ ±%1 0402 - DNP (E6/G20): +VD boşta, PCB'de yok"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_fp_filters" "*0402-RES*"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(symbol "RES0402_3k_1_0"
-				(polyline
-					(pts
-						(xy -2.159 1.016) (xy -2.54 0)
-					)
-					(stroke
-						(width 0)
-						(type solid)
-						(color 128 0 0 1)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.524 -1.016) (xy -2.159 1.016)
-					)
-					(stroke
-						(width 0)
-						(type solid)
-						(color 128 0 0 1)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -0.889 1.016) (xy -1.524 -1.016)
-					)
-					(stroke
-						(width 0)
-						(type solid)
-						(color 128 0 0 1)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -0.254 -1.016) (xy -0.889 1.016)
-					)
-					(stroke
-						(width 0)
-						(type solid)
-						(color 128 0 0 1)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.381 1.016) (xy -0.254 -1.016)
-					)
-					(stroke
-						(width 0)
-						(type solid)
-						(color 128 0 0 1)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 1.016 -1.016) (xy 0.381 1.016)
-					)
-					(stroke
-						(width 0)
-						(type solid)
-						(color 128 0 0 1)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 1.651 1.016) (xy 1.016 -1.016)
-					)
-					(stroke
-						(width 0)
-						(type solid)
-						(color 128 0 0 1)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 2.286 -1.016) (xy 1.651 1.016)
-					)
-					(stroke
-						(width 0)
-						(type solid)
-						(color 128 0 0 1)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 2.54 0) (xy 2.286 -1.016)
-					)
-					(stroke
-						(width 0)
-						(type solid)
-						(color 128 0 0 1)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(pin passive line
-					(at -5.08 0 0)
-					(length 2.54)
-					(name "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "P$1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 5.08 0 180)
-					(length 2.54)
-					(name "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "P$2"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -6735,6 +6735,17 @@
 				)
 			)
 		)
+		(property "Temperature" "-55…+155 °C (UNI-ROYAL 0402WGF, LCSC)"
+			(at 142.24 181.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "P$2"
 			(uuid "a2fa8982-9beb-41de-bf10-43ae467b5dc4")
 		)
@@ -6839,6 +6850,17 @@
 			)
 		)
 		(property "LCSC" "C25744"
+			(at 43.18 151.13 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Temperature" "-55…+155 °C (UNI-ROYAL 0402WGF, LCSC)"
 			(at 43.18 151.13 0)
 			(hide yes)
 			(show_name no)
@@ -7038,6 +7060,17 @@
 				)
 			)
 		)
+		(property "Temperature" "X7R: -55…+125 °C (EIA)"
+			(at 78.74 41.91 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "P$1"
 			(uuid "d28f6d6b-2665-40e7-ba41-ce2b1c66d06a")
 		)
@@ -7175,6 +7208,17 @@
 			)
 		)
 		(property "ALT LCSC" "C328453"
+			(at 50.8 97.79 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Temperature" "-40…+125 °C (LCSC; DS görüntü PDF)"
 			(at 50.8 97.79 0)
 			(hide yes)
 			(show_name no)
@@ -7365,6 +7409,17 @@
 				)
 			)
 		)
+		(property "Temperature" "-55…+155 °C (UNI-ROYAL 0402WGF, LCSC)"
+			(at 180.34 151.13 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "P$2"
 			(uuid "1edcdee2-6de6-4b75-b3bf-6ef3fd0198c0")
 		)
@@ -7543,6 +7598,17 @@
 			)
 		)
 		(property "LCSC" "C25077"
+			(at 22.86 138.43 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Temperature" "-55…+155 °C (UNI-ROYAL 0402WGF, LCSC)"
 			(at 22.86 138.43 0)
 			(hide yes)
 			(show_name no)
@@ -7742,6 +7808,17 @@
 				)
 			)
 		)
+		(property "Temperature" "-55…+155 °C (UNI-ROYAL 0402WGF, LCSC)"
+			(at 175.26 191.77 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "P$2"
 			(uuid "0254a4a3-13b7-48ad-967f-fd981a0849cf")
 		)
@@ -7846,6 +7923,17 @@
 			)
 		)
 		(property "LCSC" "C27748"
+			(at 81.28 143.51 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Temperature" "T_J -65…+150 °C (LCSC)"
 			(at 81.28 143.51 0)
 			(hide yes)
 			(show_name no)
@@ -7970,6 +8058,17 @@
 				)
 			)
 		)
+		(property "Temperature" "-55…+155 °C (UNI-ROYAL 0402WGF, LCSC)"
+			(at 91.44 41.91 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "P$2"
 			(uuid "a559f127-63b4-4511-9c81-2f2e67d85528")
 		)
@@ -8074,6 +8173,17 @@
 			)
 		)
 		(property "LCSC" "C25890"
+			(at 45.72 181.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Temperature" "-55…+155 °C (UNI-ROYAL 0402WGF, LCSC)"
 			(at 45.72 181.61 0)
 			(hide yes)
 			(show_name no)
@@ -8198,6 +8308,17 @@
 				)
 			)
 		)
+		(property "Temperature" "-55…+155 °C (UNI-ROYAL 0402WGF, LCSC)"
+			(at 170.18 138.43 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "P$2"
 			(uuid "d958fd92-2821-4189-aa70-a772874e610b")
 		)
@@ -8214,7 +8335,7 @@
 		)
 	)
 	(symbol
-		(lib_id "RLC:CAP0402_1u_25V_X5R")
+		(lib_id "RLC:CAP0402_1u_16V_X7R")
 		(at 106.68 153.67 0)
 		(unit 1)
 		(body_style 1)
@@ -8235,7 +8356,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Value" "CAP0402_1u_25V_X5R"
+		(property "Value" "CAP0402_1u_16V_X7R"
 			(at 101.6 151.13 0)
 			(hide yes)
 			(show_name no)
@@ -8258,7 +8379,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/02336ea48ea44ca18c72517dd3cb7b47.pdf"
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/71a9f8eccc4da164324d4a716182c5e3.pdf"
 			(at 106.68 153.67 0)
 			(hide yes)
 			(show_name no)
@@ -8269,7 +8390,7 @@
 				)
 			)
 		)
-		(property "Description" "1 µF ±%10 25 V X5R 0402"
+		(property "Description" "1 µF ±%10 16 V X7R 0402 (bootstrap / sürücü VCC, PVDD 8.07 V); X5R 25 V C52923 yerine (yüksek sıcaklık)"
 			(at 106.68 153.67 0)
 			(hide yes)
 			(show_name no)
@@ -8280,7 +8401,7 @@
 				)
 			)
 		)
-		(property "MPN" "CL05A105KA5NQNC"
+		(property "MPN" "TCC0402X7R105K160AT"
 			(at 106.68 153.67 0)
 			(hide yes)
 			(show_name no)
@@ -8291,7 +8412,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "Samsung Electro-Mechanics"
+		(property "Manufacturer" "CCTC"
 			(at 106.68 153.67 0)
 			(hide yes)
 			(show_name no)
@@ -8302,7 +8423,51 @@
 				)
 			)
 		)
-		(property "LCSC" "C52923"
+		(property "LCSC" "C49210445"
+			(at 106.68 153.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ALT MPN" "TCC0402X7R105K250AT"
+			(at 106.68 153.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ALT Manufacturer" "CCTC"
+			(at 106.68 153.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ALT LCSC" "C53426846"
+			(at 106.68 153.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Temperature" "X7R: -55…+125 °C (EIA)"
 			(at 106.68 153.67 0)
 			(hide yes)
 			(show_name no)
@@ -8427,6 +8592,17 @@
 				)
 			)
 		)
+		(property "Temperature" "-55…+155 °C (UNI-ROYAL 0402WGF, LCSC)"
+			(at 33.02 181.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "P$2"
 			(uuid "e3cfce2b-5621-4c1d-a379-97cc82dfbe17")
 		)
@@ -8532,6 +8708,17 @@
 			)
 		)
 		(property "LCSC" "C27748"
+			(at 223.52 143.51 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Temperature" "T_J -65…+150 °C (LCSC)"
 			(at 223.52 143.51 0)
 			(hide yes)
 			(show_name no)
@@ -8794,6 +8981,17 @@
 			)
 		)
 		(property "LCSC" "C25077"
+			(at 43.18 138.43 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Temperature" "-55…+155 °C (UNI-ROYAL 0402WGF, LCSC)"
 			(at 43.18 138.43 0)
 			(hide yes)
 			(show_name no)
@@ -9068,6 +9266,17 @@
 				)
 			)
 		)
+		(property "Temperature" "T_J -65…+150 °C (LCSC)"
+			(at 198.12 143.51 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "A"
 			(uuid "e26981f9-7a33-4e4a-aa03-1d520fc58ebc")
 		)
@@ -9172,6 +9381,17 @@
 			)
 		)
 		(property "LCSC" "C11702"
+			(at 22.86 29.21 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Temperature" "-55…+155 °C (UNI-ROYAL 0402WGF, LCSC)"
 			(at 22.86 29.21 0)
 			(hide yes)
 			(show_name no)
@@ -9296,6 +9516,17 @@
 				)
 			)
 		)
+		(property "Temperature" "-55…+155 °C (UNI-ROYAL 0402WGF, LCSC)"
+			(at 12.7 138.43 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "P$2"
 			(uuid "5f8c2ee5-62a2-4518-823d-e321c8332773")
 		)
@@ -9312,7 +9543,7 @@
 		)
 	)
 	(symbol
-		(lib_id "IC:IC MCU EFM8BB21F16G-C 20QFN")
+		(lib_id "IC:IC MCU EFM8BB21F16I-C 20QFN")
 		(at 167.64 49.53 0)
 		(unit 1)
 		(body_style 1)
@@ -9333,7 +9564,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Value" "IC MCU EFM8BB21F16G-C 20QFN"
+		(property "Value" "IC MCU EFM8BB21F16I-C 20QFN"
 			(at 149.86 69.85 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9366,7 +9597,7 @@
 				)
 			)
 		)
-		(property "Description" "8 bit MCU 16 kB flash, QFN-20 3x3"
+		(property "Description" "8 bit MCU 16 kB flash, QFN-20 3x3, I sınıfı (G sınıfıyla aynı kılıf ve pinler); yüksek sıcaklık 2026-11-11"
 			(at 167.64 49.53 0)
 			(hide yes)
 			(show_name no)
@@ -9377,7 +9608,7 @@
 				)
 			)
 		)
-		(property "MPN" "EFM8BB21F16G-C-QFN20R"
+		(property "MPN" "EFM8BB21F16I-C-QFN20R"
 			(at 167.64 49.53 0)
 			(hide yes)
 			(show_name no)
@@ -9399,7 +9630,18 @@
 				)
 			)
 		)
-		(property "LCSC" "C80713"
+		(property "LCSC" "C2053222"
+			(at 167.64 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Temperature" "I sınıfı T_A -40…+125 °C, T_J ≤ 130 °C (EFM8BB2 DS §2, Tablo 4.1, 4.15); G sınıfı 85 °C"
 			(at 167.64 49.53 0)
 			(hide yes)
 			(show_name no)
@@ -9645,6 +9887,17 @@
 			)
 		)
 		(property "LCSC" "C25077"
+			(at 129.54 138.43 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Temperature" "-55…+155 °C (UNI-ROYAL 0402WGF, LCSC)"
 			(at 129.54 138.43 0)
 			(hide yes)
 			(show_name no)
@@ -10029,6 +10282,17 @@
 				)
 			)
 		)
+		(property "Temperature" "-55…+155 °C (UNI-ROYAL 0402WGF, LCSC)"
+			(at 162.56 181.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "P$2"
 			(uuid "215963fe-b1de-4dba-894c-9e4062ffce07")
 		)
@@ -10133,6 +10397,17 @@
 			)
 		)
 		(property "LCSC" "C25744"
+			(at 208.28 41.91 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Temperature" "-55…+155 °C (UNI-ROYAL 0402WGF, LCSC)"
 			(at 208.28 41.91 0)
 			(hide yes)
 			(show_name no)
@@ -10257,6 +10532,17 @@
 				)
 			)
 		)
+		(property "Temperature" "-55…+155 °C (UNI-ROYAL 0402WGF, LCSC)"
+			(at 149.86 181.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "P$2"
 			(uuid "0a9fd9fb-e3dd-4332-9f52-90f95ce24aa9")
 		)
@@ -10371,6 +10657,17 @@
 				)
 			)
 		)
+		(property "Temperature" "-55…+155 °C (UNI-ROYAL 0402WGF, LCSC)"
+			(at 63.5 138.43 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "P$2"
 			(uuid "b4dc305f-6f01-4efb-8fb0-388fed41581b")
 		)
@@ -10475,6 +10772,17 @@
 			)
 		)
 		(property "LCSC" "C25077"
+			(at 149.86 138.43 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Temperature" "-55…+155 °C (UNI-ROYAL 0402WGF, LCSC)"
 			(at 149.86 138.43 0)
 			(hide yes)
 			(show_name no)
@@ -10600,6 +10908,17 @@
 				)
 			)
 		)
+		(property "Temperature" "T_J -65…+150 °C (LCSC)"
+			(at 106.68 143.51 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "A"
 			(uuid "f6a4db5e-22f3-45f9-94b8-75c30998c088")
 		)
@@ -10704,6 +11023,17 @@
 			)
 		)
 		(property "LCSC" "C25890"
+			(at 182.88 181.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Temperature" "-55…+155 °C (UNI-ROYAL 0402WGF, LCSC)"
 			(at 182.88 181.61 0)
 			(hide yes)
 			(show_name no)
@@ -10893,6 +11223,17 @@
 			)
 		)
 		(property "LCSC" "C11702"
+			(at 38.1 191.77 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Temperature" "-55…+155 °C (UNI-ROYAL 0402WGF, LCSC)"
 			(at 38.1 191.77 0)
 			(hide yes)
 			(show_name no)
@@ -11425,6 +11766,17 @@
 				)
 			)
 		)
+		(property "Temperature" "-55…+155 °C (UNI-ROYAL 0402WGF, LCSC)"
+			(at 33.02 138.43 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "P$2"
 			(uuid "3fb0f9c6-bcfd-4fb8-a282-5bd54b7f1ebe")
 		)
@@ -11539,6 +11891,17 @@
 				)
 			)
 		)
+		(property "Temperature" "-55…+155 °C (UNI-ROYAL 0402WGF, LCSC)"
+			(at 134.62 191.77 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "P$2"
 			(uuid "5541e3c0-07f1-4927-8e16-cacdb5ae7d78")
 		)
@@ -11555,7 +11918,7 @@
 		)
 	)
 	(symbol
-		(lib_id "RLC:CAP0402_1u_25V_X5R")
+		(lib_id "RLC:CAP0402_1u_16V_X7R")
 		(at 93.98 153.67 0)
 		(unit 1)
 		(body_style 1)
@@ -11576,7 +11939,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Value" "CAP0402_1u_25V_X5R"
+		(property "Value" "CAP0402_1u_16V_X7R"
 			(at 88.9 151.13 0)
 			(hide yes)
 			(show_name no)
@@ -11599,7 +11962,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/02336ea48ea44ca18c72517dd3cb7b47.pdf"
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/71a9f8eccc4da164324d4a716182c5e3.pdf"
 			(at 93.98 153.67 0)
 			(hide yes)
 			(show_name no)
@@ -11610,7 +11973,7 @@
 				)
 			)
 		)
-		(property "Description" "1 µF ±%10 25 V X5R 0402"
+		(property "Description" "1 µF ±%10 16 V X7R 0402 (bootstrap / sürücü VCC, PVDD 8.07 V); X5R 25 V C52923 yerine (yüksek sıcaklık)"
 			(at 93.98 153.67 0)
 			(hide yes)
 			(show_name no)
@@ -11621,7 +11984,7 @@
 				)
 			)
 		)
-		(property "MPN" "CL05A105KA5NQNC"
+		(property "MPN" "TCC0402X7R105K160AT"
 			(at 93.98 153.67 0)
 			(hide yes)
 			(show_name no)
@@ -11632,7 +11995,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "Samsung Electro-Mechanics"
+		(property "Manufacturer" "CCTC"
 			(at 93.98 153.67 0)
 			(hide yes)
 			(show_name no)
@@ -11643,7 +12006,51 @@
 				)
 			)
 		)
-		(property "LCSC" "C52923"
+		(property "LCSC" "C49210445"
+			(at 93.98 153.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ALT MPN" "TCC0402X7R105K250AT"
+			(at 93.98 153.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ALT Manufacturer" "CCTC"
+			(at 93.98 153.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ALT LCSC" "C53426846"
+			(at 93.98 153.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Temperature" "X7R: -55…+125 °C (EIA)"
 			(at 93.98 153.67 0)
 			(hide yes)
 			(show_name no)
@@ -11768,6 +12175,17 @@
 				)
 			)
 		)
+		(property "Temperature" "-55…+155 °C (UNI-ROYAL 0402WGF, LCSC)"
+			(at 154.94 191.77 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "P$2"
 			(uuid "df48b6c3-8333-4425-b405-f05311da4454")
 		)
@@ -11872,6 +12290,17 @@
 			)
 		)
 		(property "LCSC" "C25077"
+			(at 160.02 138.43 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Temperature" "-55…+155 °C (UNI-ROYAL 0402WGF, LCSC)"
 			(at 160.02 138.43 0)
 			(hide yes)
 			(show_name no)
@@ -12070,6 +12499,17 @@
 				)
 			)
 		)
+		(property "Temperature" "-55…+155 °C (UNI-ROYAL 0402WGF, LCSC)"
+			(at 25.4 181.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "P$2"
 			(uuid "6a5d8b8b-b74c-4b50-b962-cbcd37261492")
 		)
@@ -12249,6 +12689,17 @@
 			)
 		)
 		(property "LCSC" "C25077"
+			(at 139.7 138.43 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Temperature" "-55…+155 °C (UNI-ROYAL 0402WGF, LCSC)"
 			(at 139.7 138.43 0)
 			(hide yes)
 			(show_name no)
@@ -12521,6 +12972,17 @@
 				)
 			)
 		)
+		(property "Temperature" "-55…+155 °C (UNI-ROYAL 0402WGF, LCSC)"
+			(at 63.5 151.13 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "P$2"
 			(uuid "a71a62ce-8a76-4011-8e3d-ab49dc651c32")
 		)
@@ -12711,6 +13173,17 @@
 				)
 			)
 		)
+		(property "Temperature" "T_J -65…+150 °C (LCSC)"
+			(at 93.98 143.51 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "A"
 			(uuid "5367df1b-645a-4f17-84a9-e627da8c4e3b")
 		)
@@ -12727,7 +13200,7 @@
 		)
 	)
 	(symbol
-		(lib_id "RLC:CAP0402_1u_25V_X5R")
+		(lib_id "RLC:CAP0402_1u_16V_X7R")
 		(at 81.28 153.67 0)
 		(unit 1)
 		(body_style 1)
@@ -12748,7 +13221,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Value" "CAP0402_1u_25V_X5R"
+		(property "Value" "CAP0402_1u_16V_X7R"
 			(at 76.2 151.13 0)
 			(hide yes)
 			(show_name no)
@@ -12771,7 +13244,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/02336ea48ea44ca18c72517dd3cb7b47.pdf"
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/71a9f8eccc4da164324d4a716182c5e3.pdf"
 			(at 81.28 153.67 0)
 			(hide yes)
 			(show_name no)
@@ -12782,7 +13255,7 @@
 				)
 			)
 		)
-		(property "Description" "1 µF ±%10 25 V X5R 0402"
+		(property "Description" "1 µF ±%10 16 V X7R 0402 (bootstrap / sürücü VCC, PVDD 8.07 V); X5R 25 V C52923 yerine (yüksek sıcaklık)"
 			(at 81.28 153.67 0)
 			(hide yes)
 			(show_name no)
@@ -12793,7 +13266,7 @@
 				)
 			)
 		)
-		(property "MPN" "CL05A105KA5NQNC"
+		(property "MPN" "TCC0402X7R105K160AT"
 			(at 81.28 153.67 0)
 			(hide yes)
 			(show_name no)
@@ -12804,7 +13277,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "Samsung Electro-Mechanics"
+		(property "Manufacturer" "CCTC"
 			(at 81.28 153.67 0)
 			(hide yes)
 			(show_name no)
@@ -12815,7 +13288,51 @@
 				)
 			)
 		)
-		(property "LCSC" "C52923"
+		(property "LCSC" "C49210445"
+			(at 81.28 153.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ALT MPN" "TCC0402X7R105K250AT"
+			(at 81.28 153.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ALT Manufacturer" "CCTC"
+			(at 81.28 153.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ALT LCSC" "C53426846"
+			(at 81.28 153.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Temperature" "X7R: -55…+125 °C (EIA)"
 			(at 81.28 153.67 0)
 			(hide yes)
 			(show_name no)
@@ -12941,6 +13458,17 @@
 				)
 			)
 		)
+		(property "Temperature" "X7R: -55…+125 °C (EIA)"
+			(at 195.58 41.91 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "P$1"
 			(uuid "5416cc46-86cc-4be6-9585-3ea43f4959f2")
 		)
@@ -13046,6 +13574,17 @@
 			)
 		)
 		(property "LCSC" "C1525"
+			(at 137.16 95.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Temperature" "X7R: -55…+125 °C (EIA)"
 			(at 137.16 95.25 0)
 			(hide yes)
 			(show_name no)
@@ -13355,6 +13894,17 @@
 				)
 			)
 		)
+		(property "Temperature" "-55…+155 °C (UNI-ROYAL 0402WGF, LCSC)"
+			(at 170.18 181.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "P$2"
 			(uuid "a76987eb-09b1-4de4-a5fc-65193223deaa")
 		)
@@ -13460,6 +14010,17 @@
 			)
 		)
 		(property "LCSC" "C27748"
+			(at 210.82 143.51 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Temperature" "T_J -65…+150 °C (LCSC)"
 			(at 210.82 143.51 0)
 			(hide yes)
 			(show_name no)
@@ -13584,6 +14145,17 @@
 				)
 			)
 		)
+		(property "Temperature" "-55…+155 °C (UNI-ROYAL 0402WGF, LCSC)"
+			(at 53.34 151.13 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "P$2"
 			(uuid "635e5f7d-e7cc-463d-9502-c29567aea61a")
 		)
@@ -13674,7 +14246,7 @@
 		)
 	)
 	(symbol
-		(lib_id "RLC:CAP0402_1u_25V_X5R")
+		(lib_id "RLC:CAP0402_1u_16V_X7R")
 		(at 223.52 153.67 0)
 		(unit 1)
 		(body_style 1)
@@ -13695,7 +14267,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Value" "CAP0402_1u_25V_X5R"
+		(property "Value" "CAP0402_1u_16V_X7R"
 			(at 218.44 151.13 0)
 			(hide yes)
 			(show_name no)
@@ -13718,7 +14290,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/02336ea48ea44ca18c72517dd3cb7b47.pdf"
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/71a9f8eccc4da164324d4a716182c5e3.pdf"
 			(at 223.52 153.67 0)
 			(hide yes)
 			(show_name no)
@@ -13729,7 +14301,7 @@
 				)
 			)
 		)
-		(property "Description" "1 µF ±%10 25 V X5R 0402"
+		(property "Description" "1 µF ±%10 16 V X7R 0402 (bootstrap / sürücü VCC, PVDD 8.07 V); X5R 25 V C52923 yerine (yüksek sıcaklık)"
 			(at 223.52 153.67 0)
 			(hide yes)
 			(show_name no)
@@ -13740,7 +14312,7 @@
 				)
 			)
 		)
-		(property "MPN" "CL05A105KA5NQNC"
+		(property "MPN" "TCC0402X7R105K160AT"
 			(at 223.52 153.67 0)
 			(hide yes)
 			(show_name no)
@@ -13751,7 +14323,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "Samsung Electro-Mechanics"
+		(property "Manufacturer" "CCTC"
 			(at 223.52 153.67 0)
 			(hide yes)
 			(show_name no)
@@ -13762,7 +14334,51 @@
 				)
 			)
 		)
-		(property "LCSC" "C52923"
+		(property "LCSC" "C49210445"
+			(at 223.52 153.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ALT MPN" "TCC0402X7R105K250AT"
+			(at 223.52 153.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ALT Manufacturer" "CCTC"
+			(at 223.52 153.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ALT LCSC" "C53426846"
+			(at 223.52 153.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Temperature" "X7R: -55…+125 °C (EIA)"
 			(at 223.52 153.67 0)
 			(hide yes)
 			(show_name no)
@@ -13877,6 +14493,17 @@
 			)
 		)
 		(property "LCSC" "C11702"
+			(at 139.7 29.21 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Temperature" "-55…+155 °C (UNI-ROYAL 0402WGF, LCSC)"
 			(at 139.7 29.21 0)
 			(hide yes)
 			(show_name no)
@@ -14002,6 +14629,17 @@
 				)
 			)
 		)
+		(property "Temperature" "X7R: -55…+125 °C (EIA)"
+			(at 20.32 95.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "P$1"
 			(uuid "49b781af-bcfd-4e6e-898f-7066b92b9b76")
 		)
@@ -14106,6 +14744,17 @@
 			)
 		)
 		(property "LCSC" "C25890"
+			(at 66.04 181.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Temperature" "-55…+155 °C (UNI-ROYAL 0402WGF, LCSC)"
 			(at 66.04 181.61 0)
 			(hide yes)
 			(show_name no)
@@ -14230,6 +14879,17 @@
 				)
 			)
 		)
+		(property "Temperature" "-55…+155 °C (UNI-ROYAL 0402WGF, LCSC)"
+			(at 12.7 181.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "P$2"
 			(uuid "5a5d35da-2fb0-4a46-bb9c-734f21e09aad")
 		)
@@ -14334,6 +14994,17 @@
 			)
 		)
 		(property "LCSC" "C25744"
+			(at 129.54 181.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Temperature" "-55…+155 °C (UNI-ROYAL 0402WGF, LCSC)"
 			(at 129.54 181.61 0)
 			(hide yes)
 			(show_name no)
@@ -14608,6 +15279,17 @@
 				)
 			)
 		)
+		(property "Temperature" "-55…+155 °C (UNI-ROYAL 0402WGF, LCSC)"
+			(at 180.34 138.43 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "P$2"
 			(uuid "f2fbd048-bd72-4c6c-8362-2b66a865a90b")
 		)
@@ -14787,6 +15469,17 @@
 			)
 		)
 		(property "LCSC" "C25784"
+			(at 139.7 34.29 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Temperature" "-55…+155 °C (UNI-ROYAL 0402WGF, LCSC)"
 			(at 139.7 34.29 0)
 			(hide yes)
 			(show_name no)
@@ -14985,6 +15678,17 @@
 				)
 			)
 		)
+		(property "Temperature" "-55…+155 °C (UNI-ROYAL 0402WGF, LCSC)"
+			(at 53.34 181.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "P$2"
 			(uuid "89295dc3-de88-4fb1-8392-34c7f9265517")
 		)
@@ -15173,6 +15877,17 @@
 				)
 			)
 		)
+		(property "Temperature" "-55…+155 °C (UNI-ROYAL 0402WGF, LCSC)"
+			(at 170.18 151.13 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "P$2"
 			(uuid "c244c833-6d1e-4797-b9fa-e68731456d4a")
 		)
@@ -15287,6 +16002,17 @@
 				)
 			)
 		)
+		(property "Temperature" "-55…+155 °C (UNI-ROYAL 0402WGF, LCSC)"
+			(at 53.34 138.43 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "P$2"
 			(uuid "5cb8eb99-09bb-48ab-b064-c8cd3fd847d3")
 		)
@@ -15391,6 +16117,17 @@
 			)
 		)
 		(property "LCSC" "C11702"
+			(at 17.78 191.77 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Temperature" "-55…+155 °C (UNI-ROYAL 0402WGF, LCSC)"
 			(at 17.78 191.77 0)
 			(hide yes)
 			(show_name no)
@@ -15676,7 +16413,7 @@
 		)
 	)
 	(symbol
-		(lib_id "RLC:CAP0402_1u_25V_X5R")
+		(lib_id "RLC:CAP0402_1u_16V_X7R")
 		(at 210.82 153.67 0)
 		(unit 1)
 		(body_style 1)
@@ -15697,7 +16434,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Value" "CAP0402_1u_25V_X5R"
+		(property "Value" "CAP0402_1u_16V_X7R"
 			(at 205.74 151.13 0)
 			(hide yes)
 			(show_name no)
@@ -15720,7 +16457,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/02336ea48ea44ca18c72517dd3cb7b47.pdf"
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/71a9f8eccc4da164324d4a716182c5e3.pdf"
 			(at 210.82 153.67 0)
 			(hide yes)
 			(show_name no)
@@ -15731,7 +16468,7 @@
 				)
 			)
 		)
-		(property "Description" "1 µF ±%10 25 V X5R 0402"
+		(property "Description" "1 µF ±%10 16 V X7R 0402 (bootstrap / sürücü VCC, PVDD 8.07 V); X5R 25 V C52923 yerine (yüksek sıcaklık)"
 			(at 210.82 153.67 0)
 			(hide yes)
 			(show_name no)
@@ -15742,7 +16479,7 @@
 				)
 			)
 		)
-		(property "MPN" "CL05A105KA5NQNC"
+		(property "MPN" "TCC0402X7R105K160AT"
 			(at 210.82 153.67 0)
 			(hide yes)
 			(show_name no)
@@ -15753,7 +16490,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "Samsung Electro-Mechanics"
+		(property "Manufacturer" "CCTC"
 			(at 210.82 153.67 0)
 			(hide yes)
 			(show_name no)
@@ -15764,7 +16501,51 @@
 				)
 			)
 		)
-		(property "LCSC" "C52923"
+		(property "LCSC" "C49210445"
+			(at 210.82 153.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ALT MPN" "TCC0402X7R105K250AT"
+			(at 210.82 153.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ALT Manufacturer" "CCTC"
+			(at 210.82 153.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ALT LCSC" "C53426846"
+			(at 210.82 153.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Temperature" "X7R: -55…+125 °C (EIA)"
 			(at 210.82 153.67 0)
 			(hide yes)
 			(show_name no)
@@ -15889,6 +16670,17 @@
 				)
 			)
 		)
+		(property "Temperature" "-55…+155 °C (UNI-ROYAL 0402WGF, LCSC)"
+			(at 58.42 191.77 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "P$2"
 			(uuid "99c35540-5d67-421f-9f03-ef5801234087")
 		)
@@ -15905,7 +16697,7 @@
 		)
 	)
 	(symbol
-		(lib_id "IC:IC MCU EFM8BB21F16G-C 20QFN")
+		(lib_id "IC:IC MCU EFM8BB21F16I-C 20QFN")
 		(at 50.8 49.53 0)
 		(unit 1)
 		(body_style 1)
@@ -15926,7 +16718,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Value" "IC MCU EFM8BB21F16G-C 20QFN"
+		(property "Value" "IC MCU EFM8BB21F16I-C 20QFN"
 			(at 33.02 69.85 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15959,7 +16751,7 @@
 				)
 			)
 		)
-		(property "Description" "8 bit MCU 16 kB flash, QFN-20 3x3"
+		(property "Description" "8 bit MCU 16 kB flash, QFN-20 3x3, I sınıfı (G sınıfıyla aynı kılıf ve pinler); yüksek sıcaklık 2026-11-11"
 			(at 50.8 49.53 0)
 			(hide yes)
 			(show_name no)
@@ -15970,7 +16762,7 @@
 				)
 			)
 		)
-		(property "MPN" "EFM8BB21F16G-C-QFN20R"
+		(property "MPN" "EFM8BB21F16I-C-QFN20R"
 			(at 50.8 49.53 0)
 			(hide yes)
 			(show_name no)
@@ -15992,7 +16784,18 @@
 				)
 			)
 		)
-		(property "LCSC" "C80713"
+		(property "LCSC" "C2053222"
+			(at 50.8 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Temperature" "I sınıfı T_A -40…+125 °C, T_J ≤ 130 °C (EFM8BB2 DS §2, Tablo 4.1, 4.15); G sınıfı 85 °C"
 			(at 50.8 49.53 0)
 			(hide yes)
 			(show_name no)
@@ -16174,6 +16977,17 @@
 				)
 			)
 		)
+		(property "Temperature" "-55…+155 °C (UNI-ROYAL 0402WGF, LCSC)"
+			(at 22.86 34.29 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "P$2"
 			(uuid "7a790730-06c5-4895-bff8-82b9966fdc4c")
 		)
@@ -16278,6 +17092,17 @@
 			)
 		)
 		(property "LCSC" "C25744"
+			(at 160.02 151.13 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Temperature" "-55…+155 °C (UNI-ROYAL 0402WGF, LCSC)"
 			(at 160.02 151.13 0)
 			(hide yes)
 			(show_name no)
@@ -16509,6 +17334,17 @@
 				)
 			)
 		)
+		(property "Temperature" "-40…+125 °C (LCSC; DS görüntü PDF)"
+			(at 167.64 97.79 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "ff04957f-d735-4b82-84a8-dd6c9c20eb46")
 		)
@@ -16591,7 +17427,7 @@
 		)
 	)
 	(symbol
-		(lib_id "RLC:CAP0402_1u_25V_X5R")
+		(lib_id "RLC:CAP0402_1u_16V_X7R")
 		(at 198.12 153.67 0)
 		(unit 1)
 		(body_style 1)
@@ -16612,7 +17448,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Value" "CAP0402_1u_25V_X5R"
+		(property "Value" "CAP0402_1u_16V_X7R"
 			(at 193.04 151.13 0)
 			(hide yes)
 			(show_name no)
@@ -16635,7 +17471,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/02336ea48ea44ca18c72517dd3cb7b47.pdf"
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/71a9f8eccc4da164324d4a716182c5e3.pdf"
 			(at 198.12 153.67 0)
 			(hide yes)
 			(show_name no)
@@ -16646,7 +17482,7 @@
 				)
 			)
 		)
-		(property "Description" "1 µF ±%10 25 V X5R 0402"
+		(property "Description" "1 µF ±%10 16 V X7R 0402 (bootstrap / sürücü VCC, PVDD 8.07 V); X5R 25 V C52923 yerine (yüksek sıcaklık)"
 			(at 198.12 153.67 0)
 			(hide yes)
 			(show_name no)
@@ -16657,7 +17493,7 @@
 				)
 			)
 		)
-		(property "MPN" "CL05A105KA5NQNC"
+		(property "MPN" "TCC0402X7R105K160AT"
 			(at 198.12 153.67 0)
 			(hide yes)
 			(show_name no)
@@ -16668,7 +17504,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "Samsung Electro-Mechanics"
+		(property "Manufacturer" "CCTC"
 			(at 198.12 153.67 0)
 			(hide yes)
 			(show_name no)
@@ -16679,7 +17515,51 @@
 				)
 			)
 		)
-		(property "LCSC" "C52923"
+		(property "LCSC" "C49210445"
+			(at 198.12 153.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ALT MPN" "TCC0402X7R105K250AT"
+			(at 198.12 153.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ALT Manufacturer" "CCTC"
+			(at 198.12 153.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ALT LCSC" "C53426846"
+			(at 198.12 153.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Temperature" "X7R: -55…+125 °C (EIA)"
 			(at 198.12 153.67 0)
 			(hide yes)
 			(show_name no)
@@ -16762,7 +17642,7 @@
 		(uuid "d184833c-5056-5cf6-890d-6fa1bba5d1c6")
 	)
 	(symbol
-		(lib_id "RLC:CAP0402_1u_25V_X5R")
+		(lib_id "RLC:CAP0402_1u_16V_X7R")
 		(at 213.36 95.25 0)
 		(unit 1)
 		(body_style 1)
@@ -16783,7 +17663,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Value" "CAP0402_1u_25V_X5R"
+		(property "Value" "CAP0402_1u_16V_X7R"
 			(at 208.28 92.71 0)
 			(hide yes)
 			(show_name no)
@@ -16806,7 +17686,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/02336ea48ea44ca18c72517dd3cb7b47.pdf"
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/71a9f8eccc4da164324d4a716182c5e3.pdf"
 			(at 213.36 95.25 0)
 			(hide yes)
 			(show_name no)
@@ -16817,7 +17697,7 @@
 				)
 			)
 		)
-		(property "Description" "1 µF ±%10 25 V X5R 0402"
+		(property "Description" "1 µF ±%10 16 V X7R 0402 (bootstrap / sürücü VCC, PVDD 8.07 V); X5R 25 V C52923 yerine (yüksek sıcaklık)"
 			(at 213.36 95.25 0)
 			(hide yes)
 			(show_name no)
@@ -16828,7 +17708,7 @@
 				)
 			)
 		)
-		(property "MPN" "CL05A105KA5NQNC"
+		(property "MPN" "TCC0402X7R105K160AT"
 			(at 213.36 95.25 0)
 			(hide yes)
 			(show_name no)
@@ -16839,7 +17719,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "Samsung Electro-Mechanics"
+		(property "Manufacturer" "CCTC"
 			(at 213.36 95.25 0)
 			(hide yes)
 			(show_name no)
@@ -16850,7 +17730,51 @@
 				)
 			)
 		)
-		(property "LCSC" "C52923"
+		(property "LCSC" "C49210445"
+			(at 213.36 95.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ALT MPN" "TCC0402X7R105K250AT"
+			(at 213.36 95.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ALT Manufacturer" "CCTC"
+			(at 213.36 95.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ALT LCSC" "C53426846"
+			(at 213.36 95.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Temperature" "X7R: -55…+125 °C (EIA)"
 			(at 213.36 95.25 0)
 			(hide yes)
 			(show_name no)
@@ -17036,7 +17960,7 @@
 		(uuid "bd509e19-6469-5407-bb2a-b9e8dd0adb88")
 	)
 	(symbol
-		(lib_id "RLC:CAP0402_1u_25V_X5R")
+		(lib_id "RLC:CAP0402_1u_16V_X7R")
 		(at 96.52 95.25 0)
 		(unit 1)
 		(body_style 1)
@@ -17057,7 +17981,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Value" "CAP0402_1u_25V_X5R"
+		(property "Value" "CAP0402_1u_16V_X7R"
 			(at 91.44 92.71 0)
 			(hide yes)
 			(show_name no)
@@ -17080,7 +18004,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/02336ea48ea44ca18c72517dd3cb7b47.pdf"
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/71a9f8eccc4da164324d4a716182c5e3.pdf"
 			(at 96.52 95.25 0)
 			(hide yes)
 			(show_name no)
@@ -17091,7 +18015,7 @@
 				)
 			)
 		)
-		(property "Description" "1 µF ±%10 25 V X5R 0402"
+		(property "Description" "1 µF ±%10 16 V X7R 0402 (bootstrap / sürücü VCC, PVDD 8.07 V); X5R 25 V C52923 yerine (yüksek sıcaklık)"
 			(at 96.52 95.25 0)
 			(hide yes)
 			(show_name no)
@@ -17102,7 +18026,7 @@
 				)
 			)
 		)
-		(property "MPN" "CL05A105KA5NQNC"
+		(property "MPN" "TCC0402X7R105K160AT"
 			(at 96.52 95.25 0)
 			(hide yes)
 			(show_name no)
@@ -17113,7 +18037,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "Samsung Electro-Mechanics"
+		(property "Manufacturer" "CCTC"
 			(at 96.52 95.25 0)
 			(hide yes)
 			(show_name no)
@@ -17124,7 +18048,51 @@
 				)
 			)
 		)
-		(property "LCSC" "C52923"
+		(property "LCSC" "C49210445"
+			(at 96.52 95.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ALT MPN" "TCC0402X7R105K250AT"
+			(at 96.52 95.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ALT Manufacturer" "CCTC"
+			(at 96.52 95.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ALT LCSC" "C53426846"
+			(at 96.52 95.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Temperature" "X7R: -55…+125 °C (EIA)"
 			(at 96.52 95.25 0)
 			(hide yes)
 			(show_name no)

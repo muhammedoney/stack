@@ -1,6 +1,6 @@
 # esc55a — 4’ü 1 arada 55 A ESC
 
-Dört kanallı BLHeli_S tipi ESC. Kanal başına EFM8BB21F16G (QFN20) → FD6288Q (QFN24) → 6 × ME7170 N-MOS (8DFN 5 × 6). JW5026 buck → 8.07 V (PVDD) → AMS1117 → 3V3. Yüksek taraf shunt 2 × 1 mΩ 2512 + INA199C1 → J0.1 CUR. FMU bağlantısı J0 SM08B-SRSS-TB. (Altium / İP-04 durumu; **şematik Rev B’de** sürücü JSM6288Q1, MOSFET BLP016N04LC-Q 40 V, akım ölçümü 0.1 mΩ 3920 + INA240A3 — bkz. [Rev B şematik](#rev-b-şematik-2026-11-10). PCB henüz Rev A.)
+Dört kanallı BLHeli_S tipi ESC. Kanal başına EFM8BB21F16G (QFN20) → FD6288Q (QFN24) → 6 × ME7170 N-MOS (8DFN 5 × 6). JW5026 buck → 8.07 V (PVDD) → AMS1117 → 3V3. Yüksek taraf shunt 2 × 1 mΩ 2512 + INA199C1 → J0.1 CUR. FMU bağlantısı J0 SM08B-SRSS-TB. (Altium / İP-04 durumu; **şematik Rev B’de** sürücü JSM6288Q1, MOSFET BLP016N04LC-Q 40 V, akım ölçümü 0.1 mΩ 3920 + INA240A3; yüksek sıcaklık (2026-11-11): MCU EFM8BB21F16**I** 125 °C, X5R yok — bkz. [Rev B şematik](#rev-b-şematik-2026-11-10). PCB henüz Rev A.)
 
 - Kaynak: Altium [`altium/esc55a.PrjPcb`](altium/esc55a.PrjPcb) — `main.SchDoc` (güç, MOSFET’ler, konnektör), `mcu2.SchDoc` (kanal 1–2), `mcu.SchDoc` (kanal 3–4), `ESC_v0.PcbDoc`. `FPV_Template.PcbDoc` projede yok (eski taslak); `escPan.PcbDoc` boş 100 × 100 mm panel (cezeri 2025-05-29: “maliyet avantajı olmadı”).
 - PCB: 4 katman (dış ≈ 2 oz, iç 0.5 oz), 1.67 mm, 41.25 × 47.75 mm, montaj 30.5 × 30.5 mm M3. 224 ayak izi, 1730 yol parçası, 210 via, 34 bölge; bağlanmamış 0.
@@ -55,7 +55,7 @@ Kaynak: [`docs/rapor/guc-ip03.md`](../../docs/rapor/guc-ip03.md) önerileri; par
 | 11 | G25 · SYS-016 | “max 15V” notu → “PVDD ≤ 12 V (U0 LDO girişi)” | not |
 | 12 | SYS-091 | Tüm parçalarda Value (= sembol adı), Footprint, Datasheet (`lib/datasheet/*_<LCSC>.pdf` varsa, yoksa LCSC/TI bağlantısı), MPN, Manufacturer, LCSC; yedekli parçalarda ALT MPN / ALT Manufacturer / ALT LCSC. Altium alanları (MANUFACTURER PRODUCT NUMBER, LSCS PART NUMBER, DIGIKEY …; eski kodlar yanlıştı) silindi. Pedler ve logo BOM/dizgi dışı | hepsi |
 
-Değişmeyenler: EFM8BB21 (C80713; S1b A3 BB51 uygulanmadı — pin dizilimi farklı, onay yok), JW5026, AMS1117-3.3 (UMW), 1N4148WT, J0 (XYECONN C54582896; ALT JST C160407, ayak izi aynı varsayıldı), pasif değerler (R03/R04 22 Ω, 90.9 k, 10 k, 3.3 k, 1 k, 220 Ω). ESC ters kutup koruması yok (SOR-010, SYS-074): + / − ipek baskı PCB işi.
+Değişmeyenler (Rev B ilk sürüm; yüksek sıcaklıkta değişenler [aşağıda](#yüksek-sıcaklık-güncellemesi-2026-11-11)): EFM8BB21 (C80713; S1b A3 BB51 uygulanmadı — pin dizilimi farklı, onay yok), JW5026, AMS1117-3.3 (UMW), 1N4148WT, J0 (XYECONN C54582896; ALT JST C160407, ayak izi aynı varsayıldı), pasif değerler (R03/R04 22 Ω, 90.9 k, 10 k, 3.3 k, 1 k, 220 Ω). ESC ters kutup koruması yok (SOR-010, SYS-074): + / − ipek baskı PCB işi.
 
 **Yeni semboller** (`lib/`): `MOS:NMOS 40V BLP016N04LC-Q`, `MOS:IC MOSDRV JSM6288Q1 24QFN` (kopyalar, pinler aynı); `IC:IC PWR INA240A3D SOIC-8` (INA199 kutusu, pin numaraları SOIC-8’e göre: 1 IN−, 2 GND, 3 REF2, 4 NC, 5 OUT, 6 VS, 7 REF1, 8 IN+ — TI SBOS662 Tablo 6-1); `RLC:RES3920_0m1_KELVIN` (KiCad `Device:R_Shunt`: 1/4 güç, 2/3 algılama); `RLC:` DTVS_SMDJ24CA, IND3015_10u, CAP1206_10u_50V_X7R, CAP0805_4u7_50V_X5R, CAP0603_10u_16V_X5R, CAP0402_1u_25V_X5R, RES0402_10, RES0402_3k. CAP0402_0u1_16V/50V_X7R kütüphane kopyası şematikle eşitlendi (yalnız çizim).
 **Yeni ayak izleri** (`lib/stack.pretty`, `fp-lib-table`’a `stack`): `R_3920_Kelvin_HoLRS3920` (Milliohm DS s.6 önerilen ped L 11 / A 6.2 / B 5.6 mm → ped 2.7 × 6.2 mm, merkez ±4.15 mm; algılama pedleri 2/3 0.5 × 0.5 mm, ped 1/4 iç kenarının üst köşesinde, `net_tie_pad_groups "1, 2" "3, 4"`), KiCad kopyaları `SOIC-8_3.9x4.9mm_P1.27mm`, `C_0805_2012Metric`, `L_Sunlord_SWPA3015S`. (`tools/altium_libs.py` yeniden çalıştırılırsa `stack.pretty` korunur; diğer `.pretty`’ler PCB’den yeniden yazılır.)
@@ -76,6 +76,44 @@ Değişmeyenler: EFM8BB21 (C80713; S1b A3 BB51 uygulanmadı — pin dizilimi far
 7. SYS-093 test noktaları: mevcut pedler 3v (+3V3), VCC (PWR = VBAT), gnd/GNDd, CURR, CH1–CH4, NC; **PVDD pedi yok**. `test/` listesi gelince eklenecek (şematikte eklenmedi).
 
 SYS-054: C2 pedleri CK1–CK4 (C2CK, 10 k → +3V3) ve CD1–CD4 (C2D) şematikte, ağları doğru; +3V3 / GND için 3v ve gnd pedleri. Ped çapı PAD.04 = 1.016 mm; aralık PCB’de kontrol.
+
+### Yüksek sıcaklık güncellemesi (2026-11-11)
+
+Müşteri 2026-11-11: “Kart yüksek derecelere çıkar.” Kural [öneri, `gereksinim-muhendisi`]: her parça ≥ 125 °C hedef, en az 105 °C; seramik en az X7R (X5R yok); elektrolitik yok. Isıl girdi `guc-ip03` §2.5: kart ≈ 95 °C, MOSFET kılıfı ≤ 110 °C. Aynı betik: `python3 tools/esc55a_revb.py` (Rev A'dan da, Rev B'den de aynı dosyaları üretir; ikinci çalıştırma değiştirmez). Her parçada yeni gizli alan **`Temperature`** (sınıf + kaynak). Maliyet: [`docs/bom-maliyet.md`](../../docs/bom-maliyet.md) §9.10, satırlar `bom-revb.csv` (`sicaklik_C`, `revb2_*`).
+
+| Parça (ref) | LCSC | Sınıf önce | Sonra | Durum |
+|---|---|---|---|---|
+| BLP016N04LC-Q (M1aH…M4cL), ALT NTMFS5C430NL | C49328363 / C194661 | T_J −55…175 °C | aynı | ✓ (kılıf ≤ 110 °C hedefi `guc-ip03`) |
+| JSM6288Q1 (U12…U42) | C52196409 | −40…125 °C (LCSC) | aynı | ✓ |
+| **EFM8BB21 (U11…U41)** | C80713 → **C2053222** | **G: T_A −40…85 °C ✗** | **EFM8BB21F16I-C-QFN20R**: T_A −40…125 °C, T_J ≤ 130 °C (DS Tablo 4.1, 4.15) | ✓ aynı QFN20, aynı pinler ve ayak izi |
+| INA240A3DR (U2) | C2060584 | T_A −40…125 °C, T_J 150 | aynı | ✓ |
+| JW5026 (U1) | C185109 | T_J −40…125 °C (LCSC) | aynı | ✓ sınırda — `guc-elektronigi` |
+| AMS1117-3.3 UMW (U0) | C347256 | −40…125 °C (LCSC) | aynı | ✓; P ≈ (8.07 − 3.3) V × I_3V3, kart 95 °C'de T_J payı — `guc-elektronigi` |
+| SMDJ24CA (D00) | C284061 | T_J −55…150 °C | aynı | ✓ |
+| 1N4148WT (D13…D45) | C27748 | T_J −65…150 °C | aynı | ✓ |
+| SWPA3015S100MT (L00) | C45403 | −40…125 °C (öz ısınma dahil) | aynı | ✓ |
+| HoLRS3920 0.1 mΩ (R00) | C55113241 | −55…170 °C | aynı | ✓ (güç azaltma DS s.4) |
+| **J0** XY-SM08B-SRSS-TB (ALT JST) | C54582896 / C160407 | **−40…85 °C (JST −25…85)** | **aynı — açık konu** | ✗ SH ailesinde ≥ 105 °C yok |
+| Bulk 10 µF 50 V X7R (15), 100 nF X7R (C00/C01, C04/C06/C11…C42), 1 nF X7R (C05) | C89632, C307331, C1525, C1523 | X7R −55…125 °C | aynı | ✓ |
+| **C02** 4.7 µF 50 V 0805 | C98192 → **C6119944** | X5R 85 °C ✗ | **HRE CGA0805X7R475K500MT** X7R, ayak izi aynı (ALT CCTC C20416422) | ✓ |
+| **C03, C07** 10 µF 16 V | C70225 → **C380347** | X5R 85 °C ✗ | **CCTC TCC0805X7R106K160FT** X7R, **0603 → 0805** `stack:C_0805_2012Metric` (ALT Samsung CL21B106KOQNNNE C95841) | ✓ |
+| **C13…C45, C120…C420** (16) 1 µF | C52923 → **C49210445** | X5R 85 °C ✗ | **CCTC TCC0402X7R105K160AT** 1 µF **16 V** X7R 0402, ayak izi aynı (ALT 25 V C53426846) | ✓ |
+| Dirençler UNI-ROYAL 0402WGF (7 kod) | | −55…155 °C | aynı | ✓ |
+| R99–R106 | — | DNP | — | kartta yok |
+
+**Yeni semboller:** `IC:IC MCU EFM8BB21F16I-C 20QFN` (G sembolünün kopyası, pinler aynı), `RLC:CAP0805_4u7_50V_X7R`, `RLC:CAP0805_10u_16V_X7R`, `RLC:CAP0402_1u_16V_X7R`. Kaldırılan (yalnız bu betik kullanıyordu): `RLC:CAP0805_4u7_50V_X5R`, `CAP0603_10u_16V_X5R`, `CAP0402_1u_25V_X5R`. `lib/stack.*` değişmedi. Şematik önbellek sembolleri ada göre sıralı (eeschema düzeni); alan sırası sabit (… ALT LCSC, Temperature). Kök sayfa başlık bloğu yorum 3.
+
+| Kontrol (yüksek sıcaklık) | Sonuç |
+|---|---|
+| ERC | **0 hata, 2 uyarı** (aynı: 2 × `multiple_net_names` PVDD / +8V) |
+| Netlist (önce ↔ sonra, 726 pin) | pin → ağ farkı **0**, bölümleme aynı; yalnız değer / ayak izi / alanlar |
+| İdempotent | ikinci çalıştırmada 4 şematik + `lib/*.kicad_sym` md5 aynı; Rev A (44e8e21) + betik = çalışma ağacı (14 dosya aynı) |
+
+**`guc-elektronigi` incelemeli:** (1) 1 µF 16 V X7R bootstrap/VCC (PVDD 8.07 V, ≤ 12 V): 25 V X5R'den 16 V X7R'ye; DC öngerilimde etkin kapasite (Q_g 61 nC için ≥ 0.3 µF yeterli, `guc-ip03` §3.2–3.3) — gerekirse ALT 25 V C53426846 (+0.29 $/kart). (2) C03 (PVDD) ve C07 (U0 çıkışı, AMS1117 kararlılığı) 0805 X7R. (3) C02 4.7 µF 50 V X7R 0805 JW5026 girişinde 26 V öngerilim; daha iyi seçenek 1206 Samsung CL31B475KBHNNNE C51205 (ayak izi değişir). (4) U0 ve U1 T_J payı kart 95 °C'de. Bobin L00 değişmedi (125 °C ✓).
+
+**PCB senkron notu (ek):** C03 ve C07 ayak izi `stack:C_0805_2012Metric` (C07 zaten yeni; C03 0402 → 0805). Diğer değişenler ayak izi aynı. J0'ı MOSFET'lerden uzak, serin kenara yerleştirme önerisi (açık konu: J0 85 °C).
+
+**J0 açık konu:** 15 SH 1.0 mm 8P klon (−25/−40…85 °C) tarandı; 105 °C seçenek Molex Pico-Clasp 501568-0807 (C587867) SH ile geçmez → FMU konnektörü ve kablo değişir (`sistem-mimari` kararı). Önerilen: prototip ısıl ölçümünde J0 sıcaklığı ölçülsün.
 
 ## J0 (SM08B-SRSS-TB)
 

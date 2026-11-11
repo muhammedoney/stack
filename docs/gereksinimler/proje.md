@@ -7,10 +7,11 @@
 | PRJ-001 | Tasarım KiCad 10’da; tüm belgeler Türkçe ve repoda; dosya düzeni fiber/gofret projeleriyle aynı | Müşteri, 2026-11-06 | Z | Onaylı |
 | PRJ-002 | Hobi ürünü: sertifika (CE/FCC vb.) hedeflenmez | MUS-003 | Z | Onaylı |
 | PRJ-003 | Hedef satış fiyatı ≤ 70 $/stack (pazar: bütçe markalar 70–100 $, AliExpress 45–57 $) | SOR-005, `docs/pazar-analizi.md` §6 | Ö | Onaylı |
-| PRJ-004 | Stack (FMU + 55 A ESC) toplam maliyeti ≤ 28 $ (DT-001; eski hedef 15 $), 100 set kademesinde, tüm özellikler kalır (`docs/bom-maliyet.md` S1b 27.4 $): komponent + PCB + dizgi dahil, gümrük ve kargo hariç (SOR-009). Her parça seçiminde maliyet etkisi yazılır | SOR-005 | Z | Onaylı |
+| PRJ-004 | Stack (FMU + 55 A ESC) toplam maliyeti ≤ 32 $ (DT-004; önceki hedefler: 15 $ → 28 $ DT-001 → 32 $), 100 set kademesinde, tüm özellikler kalır (`docs/bom-maliyet.md` §9.4 Rev B 31.69 $): komponent + PCB + dizgi dahil, gümrük ve kargo hariç (SOR-009). Her parça seçiminde maliyet etkisi yazılır | SOR-005, SOR-016 | Z | Onaylı (DT-004) |
 | PRJ-005 | İlk prototip: en kısa sürede 5 set | SOR-008, 2026-11-06 | Z | Onaylı |
 | PRJ-007 | Prototip doğrulandıktan sonra 100 set üretim | SOR-008 | Z | Onaylı |
 | PRJ-006 | Yazılım: FMU’da hazır Betaflight, ESC’de Bluejay; yalnız hedef/düzen tanımı ve yükleme yolu bizden | SOR-006, KRR-003 | Z | Onaylı |
+| PRJ-008 | Tasarım (şematik, PCB kaynak dosyaları, BOM) şimdilik kapalı; açık yayımlanan belgeler: kullanıcı pin/ped haritası, Betaflight config ve ArduPilot hwdef (GPL-3), kullanıcı kılavuzu (set kondansatörü zorunluluğu ve garanti şartı dahil, SYS-063). 100 set sonrası yeniden değerlendirilir | SOR-014, KRR-009 | Ö | Onaylı |
 
 ## Riskler (RSK)
 
@@ -19,7 +20,7 @@
 | RSK-001 | esc55a akım ölçümü ≈ 32 A’da doyuyor, shunt 100 A’da ≈ 5 W (inceleme E1, E2) | Yüksek | Akım okuması ve shunt ısısı | Akım sınıfı netleşince yeniden boyutlandırma | Açık |
 | RSK-002 | Güç parçalarının (ME7170, JW5026) veri sayfası yok; 55 A sınıfı doğrulanamıyor (E5) | Orta | Yeniden parça seçimi | `bom-tedarik` veri sayfalarını bulur | Açık |
 | RSK-003 | esc65a için yalnız fotoğraf var | Yüksek | Takvim | esc55a tabanlı varyant değerlendirmesi (SOR-003) | Açık |
-| RSK-004 | ≤ 28 $/stack hedefinde pay az: S1b 27.4 $ (sadeleştirmeler henüz incelenmedi), PCB fiyatı tahmin, Economic dizgi ek ücreti +0.48 $/kart belirsiz (`docs/bom-maliyet.md` §7) | Orta | Kâr | S1b seçeneklerinin incelemesi, JLC gerçek teklifi; 15 $ yalnız 1000 set + kesinti ile mümkün (DT-001) | Açık |
+| RSK-004 | ≤ 32 $/stack hedefinde (DT-004) pay çok az: Rev B 31.69 $ (`docs/bom-maliyet.md` §9.4) → pay 0.31 $; DT-003 sıcaklık sınıfı değişiklikleri (STM32F405RGT7, 4 × EFM8BB21 I sınıfı, 125 °C IC muadilleri) fiyatı bilinmeyen artış getirir; bom-maliyet R3 (bulk X5R, −0.49 $) tasarrufu KRR-008 ile kapandı; PCB fiyatı tahmin, Economic dizgi ek ücreti +0.48 $/kart belirsiz (§7) | Yüksek (2026-11-11) | Kâr | `bom-tedarik` DT-003 fark maliyeti; güvenli tasarruflar (≈ 30.8 $, SOR-016 notu); JLC gerçek teklifi; aşılırsa yeni DT ile müşteriye (özellik/sınıf ödünleri ayrı satırlarda) | Açık (2026-11-11 güncellendi) |
 | RSK-005 | 100 set ilk parti tasarım doğrulanmadan üretilirse toplu hata riski | Orta | 100 set hurda | Önce 5 set prototip (PRJ-005); Ü-öncesi DOG’lar ve prototip testleri kapanmadan 100 set yok (PRJ-007) | Azaltıldı |
 | RSK-006 | FMU tüm beslemesini 8 pin SH konnektörün tek VBAT pininden alıyor: BEC tam yükte 3S’te ≈ 3.1 A (tahmin), SH pin sınıfı ≈ 1 A (tahmin) → pin/kablo ısınması, gerilim düşümü (SYS-062) | Yüksek | Kart/kablo hasarı, FMU sıfırlanması | `sistem-mimari`: pin sayısı, ayrı besleme pedi veya BEC akım hedefinin düşürülmesi; konnektör veri sayfası (`bom-tedarik`) | Açık (2026-11-06) |
 | RSK-007 | 4 × 55 A eşzamanlı sürekli + 220 A pil yolu, 41 × 48 mm, iç katman 0.5 oz kartta ısıl olarak tutmayabilir; hava akışı varsayımı (5 m/s) kullanıcı kurulumuna bağlı (SYS-010, SYS-012) | Orta | 55 A iddiası düşer, MOSFET/shunt yanması | DOG-004/008 erken analiz; gerekirse iç katman kalınlığı, MOSFET veya “55 A” tanımının (eşzamanlı kanal sayısı) DT ile güncellenmesi | Açık (2026-11-06) |
@@ -31,16 +32,20 @@
 | RSK-013 | 100 sette 400 EFM8BB21 C2 ile tek tek yüklenecek; ped/fikstür yoksa süre ve hata (SYS-054) | Düşük | Üretim süresi | C2 pedleri + yaylı pim fikstürü (DOG-055/056) | Açık (2026-11-06) |
 | RSK-014 | F405’te 8 kanal çift yönlü DShot + 8 kHz gyro CPU’yu doyurabilir; DMA tablosu yalnız analiz (SYS-037) | Orta | Dual SKU’da RPM filtresi kısıtlı ya da DShot300/PID 4 kHz zorunlu | DOG-094/095 ilk prototipte; sınır ayar kılavuza; gerekirse M5–M8 çift yönlü kapalı (ArduPilot zaten M1–M4) | Açık (2026-11-10) |
 | RSK-015 | SpeedyBee V4 uyumlu pin haritası LQFP64’ün 51 G/Ç’sinin tamamını kullanıyor; sonradan özellik (2. LED, ek UART) eklenemez (KRR-005) | Orta | M1 revizyonunda özellik kısıtı | Yeni özellik M4/M5 (LQFP100) ailesinde; gerekirse PB15 (servo) veya PC5 (CUR2) feda edilir, DT ile | Açık (2026-11-10) |
-| RSK-016 | 8S BOM varyantının (60–65 V buck, P-MOS, sigorta) M1 ayak izlerine sığmaması; M1 SY8303 40 V tam 35 + 5 V sınırında (SYS-044, 046) | Orta | M3’te FMU PCB revizyonu, takvim | DOG-097 M1 PCB öncesi; ortak ayak izli aday aranır (`bom-tedarik`, `guc-elektronigi`); SOR-013 | Açık (2026-11-10) |
+| RSK-016 | (SOR-013 seçenek 1 onaylı, KRR-007) 8S BOM varyantının (60–65 V buck, P-MOS, sigorta) M1 ayak izlerine sığmaması; M1 SY8303 40 V tam 35 + 5 V sınırında (SYS-044, 046) | Orta | M3’te FMU PCB revizyonu, takvim | DOG-097 M1 PCB öncesi; ortak ayak izli aday aranır (`bom-tedarik`, `guc-elektronigi`); SOR-013 | Açık (2026-11-10) |
+| RSK-017 | 125 °C (ESC) / 105 °C (FMU) sınıflı parçalar LCSC’de stoksuz, extended veya pahalı olabilir; EFM8BB21 I sınıfı (−40…125 °C) LCSC’de bulunmayabilir; 8 pin JST SH konnektörün katalog sınıfı +85 °C (doğrulanacak) ESC tasarım sıcaklığının (95 °C) altında (SYS-086, SYS-091) | Orta | Parça değişimi, maliyet (RSK-004), Bluejay hedefi (BB21 → başka MCU olursa SYS-051) | `bom-tedarik` DOG-106/107 erken; I sınıfı yoksa: `sistem-mimari` MCU’yu kartın soğuk bölgesine, ölçülen sıcaklığı sınırın ≥ 15 °C altında tutan yerleşim ya da muadil; konnektör için 105 °C sınıflı SH uyumlu muadil veya kenar yerleşimi + yerel ölçüm | Açık (2026-11-11) |
+| RSK-018 | FMU yığında sıcak ESC’nin (≈ 95 °C) üstünde; IMU, baro, OSD çipi gibi 105 °C muadili olmayan 85 °C parçalar ≤ 70 °C ölçütünü aşabilir; IMU sıcaklık kayması gyro gürültüsünü artırır (SYS-087) | Orta | FMU parça ömrü, uçuş kalitesi | `pcb-muhendisi`: 85 °C parçaları BEC/LDO’dan uzak, ESC sıcak bölgesinin üstüne gelmeyecek konumda; DOG-108 yığın ölçümü; kılavuzda yığın aralığı (tampon yüksekliği) önerisi | Açık (2026-11-11) |
 
 ## Değişiklik talepleri (DT)
 
 | ID | Talep | Etkilenen | Durum |
 |---|---|---|---|
-| DT-001 | Maliyet hedefi 15 $ → ≤ 28 $/stack (100 set), tüm özellikler kalır. Gerekçe: bom-maliyet S1 31.9 $, S1b 27.4 $; özellikler kesilse bile 19.5 $ | PRJ-004, RSK-004, İP-02, İP-05 (S1b sadeleştirmeleri `guc-elektronigi`/`gomulu-yazilim` incelemesiyle) | Onaylı (müşteri, 2026-11-06) |
-| DT-002 | FMU (M1 F405) gereksinimlerinin hedef ürün ailesine (M3 8S FMU, M4a Dual-ESC, M4/M5 F7/H7, ArduPilot) göre güncellenmesi. Müşteri: “F405 için gereksinimleri hedef ürünü göz önüne alarak yap” (2026-11-10) | SYS-002, 003, 022, 035, 037, 042, 044, 050, 055, 062 (Değişti); SYS-004, 023, 046, 056, 057 (yeni); MUS-010…013; KRR-005…007; DOG-002, -003, -021, -022, -030, -031, -034, -041, -045, -049, -057, -062, -063 (değişti), DOG-091…103 (yeni); RSK-014…016; SOR-013…017. Etki analizi aşağıda | **Müşteri onayı bekliyor** |
+| DT-001 | Maliyet hedefi 15 $ → ≤ 28 $/stack (100 set), tüm özellikler kalır. Gerekçe: bom-maliyet S1 31.9 $, S1b 27.4 $; özellikler kesilse bile 19.5 $ | PRJ-004, RSK-004, İP-02, İP-05 (S1b sadeleştirmeleri `guc-elektronigi`/`gomulu-yazilim` incelemesiyle) | Onaylı (müşteri, 2026-11-06); hedef DT-004 ile ≤ 32 $’a güncellendi (2026-11-11) |
+| DT-002 | FMU (M1 F405) gereksinimlerinin hedef ürün ailesine (M3 8S FMU, M4a Dual-ESC, M4/M5 F7/H7, ArduPilot) göre güncellenmesi. Müşteri: “F405 için gereksinimleri hedef ürünü göz önüne alarak yap” (2026-11-10) | SYS-002, 003, 022, 035, 037, 042, 044, 050, 055, 062 (Değişti); SYS-004, 023, 046, 056, 057 (yeni); MUS-010…013; KRR-005…007; DOG-002, -003, -021, -022, -030, -031, -034, -041, -045, -049, -057, -062, -063 (değişti), DOG-091…103 (yeni); RSK-014…016; SOR-013…017; SOR-017 cevabıyla SYS-061, 063 ve DOG-061, -064 değişti, DOG-109 yeni (2026-11-11). Etki analizi aşağıda | Onaylı (müşteri, 2026-11-11; SOR-013, 014, 016, 017 cevaplandı, itiraz yok; SOR-015 açık) |
+| DT-003 | Yüksek sıcaklık: kart yüksek sıcaklığa çıkar, bileşenler buna göre seçilir. Müşteri: “Kart yüksek derecelere çıkar. Ona göre komponentleri güncelle.” (2026-11-11) | MUS-014; SYS-083 (Değişti); SYS-085, 086, 087 (yeni, Taslak); KRR-008; DOG-082 (değişti), DOG-104…108 (yeni); RSK-004, 017, 018; BOM (ESC, FMU). Etki analizi aşağıda | İhtiyaç onaylı (müşteri talebi, 2026-11-11); [öneri] değerler `bom-tedarik`/`sistem-mimari` doğrulaması sonrası müşteriye bildirilir |
+| DT-004 | Maliyet hedefi ≤ 28 $ → ≤ 32 $/stack (100 set), tüm özellikler kalır; DT-001’i günceller. Gerekçe: SYS-014 uyumlu Rev B ESC + FMU düzeltmeleri 31.69 $ (`docs/bom-maliyet.md` §9.4) | PRJ-004, SYS-002, DOG-002, RSK-004 | Onaylı (müşteri, 2026-11-11, SOR-016) |
 
-### DT-002 etki analizi (2026-11-10, `gereksinim-muhendisi`; girdi `sistem-mimari` `docs/mimari-fmu.md`, `docs/pin-haritasi.md`)
+### DT-002 etki analizi (2026-11-10, müşteri onayı 2026-11-11; `gereksinim-muhendisi`; girdi `sistem-mimari` `docs/mimari-fmu.md`, `docs/pin-haritasi.md`)
 
 **Değişen onaylı SYS (10):**
 
@@ -87,7 +92,39 @@
 
 **İP etkisi:** onaylanırsa İP-05/06/07’ye SYS-023, 046, 056, 057 eklenir; İP-01 (pin haritası) KRR-005 ile kapanmaya aday; İP-10 8 pin dizilimi değişmeden açık.
 
-**Karar bekleyen:** DT-002 onayı, SOR-013…017 (`sorular.md`), KRR-005…007.
+**Karar (2026-11-11):** DT-002 müşteri onaylı. SOR-013 → seçenek 1 (KRR-007 Onaylı, SYS-046 Onaylı); SOR-014 → kapalı tasarım + açık belge (KRR-009, PRJ-008; KRR-006 Onaylı); SOR-016 → ≤ 32 $ (DT-004); SOR-017 → set kondansatörü zorunlu (SYS-061, SYS-063 `Onaylı (DT-002)`, DOG-061/064 değişti, DOG-109 yeni); KRR-005 Onaylı. **Açık:** SOR-015 (pazar analizi; SYS-010/011 değişmez, cevapla yeni DT).
+
+### DT-003 etki analizi (2026-11-11, `gereksinim-muhendisi`; girdi `docs/rapor/guc-ip03.md` §2.5, §6.3, §8.3, G6, G18; `docs/mimari-fmu.md`)
+
+**Gerekçe:** guc-ip03: ESC sınır akımda kart ortalaması ≈ 95–99 °C, MOSFET kılıfı ≈ 110 °C; X5R +85 °C aşılır. FMU kart ≈ 60–90 °C (masa, tahmin), yığında ESC ısısı eklenir; STM32F405RGT6 (85 °C) sınırda. Onaylı SYS-083 (“≥ −20…+85 °C”) kart ısınmasını hesaba katmıyordu.
+
+**Değişen / yeni SYS:**
+
+| SYS | Değişiklik | Durum |
+|---|---|---|
+| SYS-083 | “Tüm parçalar ≥ 85 °C” → üst sınıf kart ısınmasına göre (ESC SYS-086, FMU SYS-087); alt sınır ≤ −20 °C | Değişti (DT-003) |
+| SYS-085 | ESC ısıl zarfı: sıcak nokta (MOSFET kılıfı) ≤ 110 °C, kart ortalaması ≤ 95 °C [öneri], anma akımında ve 50 °C azaltılmış akımda | Taslak (yeni) |
+| SYS-086 | ESC parça sınıfı ≥ 125 °C [öneri]; X7R+, kartta elektrolitik/polimer yok, IC ≥ 105 °C (tercih 125), MCU EFM8BB21 I sınıfı | Taslak (yeni) |
+| SYS-087 | FMU parça sınıfı ≥ 105 °C [öneri]; X7R+, MCU STM32F405RGT7; 85 °C istisnaları (IMU, baro, OSD…) ≤ 70 °C ölçülür | Taslak (yeni) |
+
+**Değişmeyen ama ilgili:** SYS-010/011 (MOSFET ≤ 110 °C zaten var; anma tanımı SOR-015 açık), SYS-012, SYS-043 (FMU BEC ısısı masa), SYS-030 (RGT7 de Betaflight destekli F405 — aynı kalıp), SYS-050/056 (pin ataması ve yazılım etkilenmez), SYS-051 (EFM8BB21 I sınıfı aynı kalıp; MCU değişirse etkilenir), SYS-063 (set kondansatörü 105 °C sınıfı bu kurala bağlandı), SYS-091 (LCSC stoğu, extended sayısı).
+
+**Etkilenen DOG:** DOG-082 (değişti), DOG-104…108 (yeni; Ü-öncesi 3, Kart 2). DOG-005, -044, -083 ölçümleri DOG-105/108 ile aynı düzenekte yapılır.
+
+**Tasarım öğeleri:**
+
+| Öğe | Etki | Sahip / İP |
+|---|---|---|
+| ESC BOM / şematik | EFM8BB21F16G → 125 °C sınıfı (I) sipariş kodu; C_boot 1 µF X5R (C52923) → X7R; JSM6288Q1, JW5026, ESC LDO, L00, SH konnektör sınıfı taranır; bulk C89632 X7R kalır (bom-maliyet R3 X5R tasarrufu reddedilir) | bom-tedarik, sematik-muhendisi / İP-02, İP-05 |
+| FMU BOM / şematik | STM32F405RGT6 → RGT7; tüm seramikler X7R; SY8303, AMS1117, kristaller (8 MHz, 27 MHz), USB-C, SH konnektörler, LED’ler, flash taranır; 85 °C istisna listesi | bom-tedarik, sematik-muhendisi / İP-02, İP-05 |
+| FMU PCB | 85 °C istisna parçaları (IMU, baro, OSD) BEC/LDO’dan ve ESC sıcak bölgesinin üstünden uzak (RSK-018) | pcb-muhendisi / İP-06 |
+| ESC PCB | 125 °C bulunamayan parçalar (SH konnektör, gerekirse MCU) kartın soğuk bölgesinde (RSK-017) | pcb-muhendisi / İP-06 |
+| `firmware/` | Etki yok (RGT7 ve BB21 I sınıfı aynı kalıp) — `gomulu-yazilim` teyit eder | gomulu-yazilim / İP-07 |
+| `test/` | DOG-105 ve DOG-108 prosedürü: ısıl kamera + ısıl çift; ısıl kabin yoksa 25 °C ölçüm + 25 K kaydırma (RSK-011) | test-muhendisi / İP-08, İP-11 |
+
+**Maliyet etkisi:** henüz hesaplanmadı (TBD, `bom-tedarik`): STM32F405RGT7 − RGT6 farkı, 4 × EFM8BB21 I − G farkı, 125 °C IC muadilleri, X7R C_boot (≈ 0). Bütçe ≤ 32 $ (DT-004) içinde pay 0.31 $ → RSK-004. Aşılırsa yeni DT ile müşteriye seçenek sunulur.
+
+**İP etkisi:** İP-02’ye DOG-106/107/109 (BOM sıcaklık sınıfı, set kondansatörü); İP-03’e DOG-104; İP-05/06’ya SYS-086/087 parça ve yerleşim kuralları; İP-08/11’e DOG-105/108.
 
 ## İş paketleri (İP)
 

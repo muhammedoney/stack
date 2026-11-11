@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-11-11 — Müşteri kararları, yüksek sıcaklık, 55 A etiketi
+
+- Müşteri: DT-002 onaylı; DT-004 maliyet hedefi ≤ 32 $/stack; kutuda silindirik düşük ESR kondansatör kesin (SYS-061/063); tasarım kapalı, açık belge (KRR-009, PRJ-008); 8S: M1 3–6S, PCB 8S varyantına yer (KRR-007).
+- DT-003 yüksek sıcaklık (SYS-085…087, KRR-008): ESC parçaları ≥ 125 °C, FMU ≥ 105 °C, X5R yasak.
+- esc55a: EFM8BB21F16I (125 °C), X5R → X7R (C02, C03, C07, 16 × 1 µF), C06 BOM’a; ERC 0 hata, netlist aynı (`tools/esc55a_revb.py`). ESC 17.20 $, stack ~32.17 $ (≤ 32 $’ı 0.17 $ aşıyor; MOSFET peşin alımıyla 31.96 $). J0 SH konnektörü 85 °C, açık.
+- Pazar: “55 A” etiketi analizi (`docs/pazar-analizi.md` §8, `docs/pazar/esc-akim-etiketleri.csv`): ad = kanal başına süresi belirtilmemiş sürekli değer; 4 kanal birlikte değeri hiçbir rakip vermiyor. SOR-015 açık.
+
 ## 2026-11-10 — ESC şematik Rev B, F405 referansları, DT-002
 
 - İP-03 güç analizi (`docs/rapor/guc-ip03.md`): 40 V MOSFET, JSM6288Q1 (UVLO), 0.1 mΩ + INA240 akım ölçümü, SMDJ24CA + 15 × 10 µF 50 V, FMU SY8303 × 2 + AMS1117; 4 × 55 A sürekli ısıl olarak tutmuyor. `docs/inceleme.md` düzeltmesi: INA199C1 kazancı 50 (tam ölçek ~124 A), FMU VBAT bölücüsü 29 V.
