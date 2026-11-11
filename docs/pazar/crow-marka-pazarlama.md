@@ -2,7 +2,15 @@
 
 Sahibi `pazar-analisti`. Tarih: 2026-11-11 (rev 3). Girdi: marka **Crow** (K12); dil/logo/slogan/ad/açıklık **K13**. Km taşları M1…M11 + M4a. Fiyatlar USD; bütçe **tahmin**.
 
-**Erteleme (müşteri, 2026-11-11):** domain satın alınmaz; tescil şimdi yapılmaz. Logo taslak: [`crow-fpv-logo.jpg`](crow-fpv-logo.jpg) (30.5 kare + gaga + Crow FPV + Fly to Joy).
+**Erteleme (müşteri, 2026-11-11):** domain satın alınmaz; tescil şimdi yapılmaz.
+
+**Logo taslakları:**
+| Dosya | Kullanım |
+|---|---|
+| [`crow-fpv-logo.jpg`](crow-fpv-logo.jpg) | Web, kutu, belge — 30.5 kare + gaga + Crow FPV + Fly to Joy |
+| [`crow-fpv-logo-pcb.jpg`](crow-fpv-logo-pcb.jpg) | **PCB ipek** — gaga; **CROW yazısı gaga solunda, logo içinde** (knockout); kare yok |
+| [`crow-fpv-logo-pcb.svg`](crow-fpv-logo-pcb.svg) | PCB / CAD — vektör (even-odd) |
+| [`crow-fpv-logo-pcb.dxf`](crow-fpv-logo-pcb.dxf) | PCB — poliline (mm); `tools/crow_logo_pcb.py` |
 
 ## Kararlar (müşteri, 2026-11-11 — K13)
 
