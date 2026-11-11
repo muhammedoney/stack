@@ -17,6 +17,8 @@ Sahibi `pazar-analisti`. Tarih: 2026-11-10 (rev 3, takvim + Dual-ESC + fiber). H
 | K9 | **Ertelenenler:** AIO (25.5 / 20×20 / whoop) **en arkaya**; **dijital VTX durur**; **mekanik en sonda** | §C |
 | K10 | **Dual-ESC FMU:** bir FMU **2 × 4’ü 1 arada ESC** bağlar (8 motor); yüksek itki için **ayrı SKU** | §B M4a; SpeedyBee F405 V4/V5’te 8 motor pedi var, fark = **iki fiziksel ESC konnektörü** |
 | K11 | Fiber modemler **zaten var** (`/home/user/calismalar/fiber`); M11 = sıfırdan ürün değil, **stack formuna uyum** (30.5, SH, CRSF) | §I |
+| K12 | Ürün ailesinin markası **Crow** (2026-11-11); tüm ürünler Crow adıyla pazarlanır | §D; [`crow-marka-pazarlama.md`](crow-marka-pazarlama.md) |
+| K13 | Crow FPV: **EN-first**; logo **gaga**; slogan **Fly to Joy**; ad Crow FPV; belge = **pin + kılavuz poster** (şema kapalı). Domain ve tescil **ertelendi** (müşteri 2026-11-11) | [`crow-marka-pazarlama.md`](crow-marka-pazarlama.md); logo [`crow-fpv-logo.jpg`](crow-fpv-logo.jpg) |
 
 Not: Kararların `KRR-` numarası ve `MUS-` karşılıkları `gereksinim-muhendisi`nin işidir (`docs/gereksinimler/kararlar.md`); bu tablo yalnız pazar girdisidir.
 
@@ -130,6 +132,8 @@ Poster: [`stack-yol-haritasi-poster.jpg`](stack-yol-haritasi-poster.jpg) (üreti
 ---
 
 ## D) Pazarlama / tanıtım km taşları
+
+Marka **Crow** (K12). Ürün adları (Crow F405, Crow ESC 55, Crow Stack 55, Crow LR, Crow Dual, Crow Wing, Crow Link …), SKU, kanal tablosu, bütçe bantları ve marka çakışması riski: [`crow-marka-pazarlama.md`](crow-marka-pazarlama.md). Aşağıdaki tablo özet olarak kalır.
 
 | KT | Pazarlama adımı | Not |
 |---|---|---|

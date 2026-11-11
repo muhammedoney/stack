@@ -92,6 +92,8 @@ Ayrıntı, muadiller ve kaynaklar: [`pazar/urun-portfoyu-yol-haritasi.md`](pazar
 | M10 | Analog VTX seviye 2 (1.6–2.5 W, 7–36 V) | RUSH Max Solo 49.99–51.99 | 45–52 |
 | M11 | Fiber → stack uyumu (`../fiber` mevcut; sıfırdan değil) | Transwan 35×30 mm; bizim fiberair Rev B | fiber deposunda |
 
+**Marka:** ürün ailesi **Crow** (müşteri kararı K12, 2026-11-11); konumlandırma, isim şeması, SKU, kanal ve tescil riski: [`pazar/crow-marka-pazarlama.md`](pazar/crow-marka-pazarlama.md).
+
 Ertelenen: AIO (en arkaya), dijital VTX (durdu), mekanik (en son). Önerilen takvim 2026 Q4→2029 Q3 ve poster: [`pazar/urun-portfoyu-yol-haritasi.md`](pazar/urun-portfoyu-yol-haritasi.md) §B, [`pazar/stack-yol-haritasi-poster.jpg`](pazar/stack-yol-haritasi-poster.jpg).
 
 **Önemli bulgular / güncellemeler (§2, §3, §6’ya göre):**
@@ -104,9 +106,86 @@ Ertelenen: AIO (en arkaya), dijital VTX (durdu), mekanik (en son). Önerilen tak
 ## 7. Belirsizlikler
 
 - Fiyatların çoğu tek tarih anlık görüntüsü; stok dışı ürünler var. AliExpress fiyatları kampanyalı.
-- Akım sınıfları üretici iddiası (sürekli değer genelde anlığın %60–70’i, kaynak: satıcı blogu).
+- Akım sınıfları üretici iddiası (sürekli değer genelde anlığın %60–70’i, kaynak: satıcı blogu). **Düzeltme 2026-11-11 (§8):** 24 üründe sürekli değer anlığın %65–93’ü (ModalAI %40), 55 A sınıfında %79–85; “sürekli”nin süresi ve koşulu çoğunda yazılmamış.
 - 8 pin dizilimleri doğrulanmadı.
 - Satış adedi / pazar payı verisi bulunamadı; “en çok satan” yorumu inceleme siteleri ve satıcı listelerine dayanıyor.
+
+## 8. Akım etiketleri: 55 A ne demek
+
+Tarih 2026-11-11. Müşteri sorusu: *“Diğer ürünlerde nasıl oluyor, ona göre isimlendirelim. 55A yazıldığında sürekli 55A mı kastediliyor?”* (SOR-015). Ham tablo: [`pazar/esc-akim-etiketleri.csv`](pazar/esc-akim-etiketleri.csv): 24 FPV 4’ü 1 arada ESC, karşılaştırma için 2 HobbyWing endüstriyel ESC ve bizim hesap. Kaynak türü her satırda yazılı: **üretici** (12 ürün: üretici sayfası, kılavuz ya da veri sayfası) veya **satıcı** (12 ürün; üretici sayfası açılmadığında satıcının kopyaladığı üretici tablosu). Tüm sayılar **üretici iddiası**.
+
+### 8.1 Üreticiler nasıl yazıyor (24 ürün)
+
+| Bilgi | Kaç üründe var | Not |
+|---|---|---|
+| Ürün adındaki sayı = “continuous” değeri | adında sayı olan 22 ürünün 21’inde | İstisna **HobbyWing XRotor G2 “65A”**: tabloda 60 A × 4 sürekli, 80 A × 4 tepe. Ad ne sürekli ne anlık değeri |
+| “Continuous” değeri | 24 / 24 | JHEMCU BL32 60A yalnız “Current: 60A” yazıyor (sürekli/anlık ayrımı yok) |
+| **Sürekli değer için süre** | **3 / 24** | TBS Lucid 6S: **60 A × 4, 300 s**; TBS Lucid 8S: **60 A × 4, 60 s**; FlyingRC 75A: **75 A, 45 s (4S’te test)**. Diğer 21 üründe “continuous”un süresi yok |
+| Anlık (burst/peak) değeri | 23 / 24 | 55 A sınıfında 65–70 A; tüm ürünlerde anlık/sürekli oranı 1.08 (GEPRC H60) – 1.54 (Foxeer 65/100 A) |
+| Anlık değer için süre | 14 / 24 | 5 s (GEPRC, T-Motor V70A), **10 s (çoğu)**, 60 s (TBS 6S), < 1 s (ModalAI). Aynı ürüne farklı satıcılar 5 s / 10 s yazabiliyor (SpeedyBee 55A) |
+| Kanal başına olduğu açık (“× 4”, “per channel/motor”) | 16 / 24 | Kalan 8’de yazılmamış ama piyasa okuması kanal başına (Oscar Liang, ZeniRace) |
+| **4 kanalın aynı anda sürekli taşıdığı akım** | **0 / 24** | Hiçbir üretici “4 kanal birlikte” ile “tek kanal” arasında ayrım yapmıyor |
+| **Sayısal test koşulu** (hava akışı m/s, ortam °C, soğutucu, PWM frekansı) | **0 / 24** | Yalnız FlyingRC gerilimi yazıyor (“4S’te test”) |
+| Nitel koşul / uyarı | 5 / 24 | Holybro Tekko32 65A: yüksek akımda hava akışı “çok önemli”; TBS: 7" üstünde “iyi hava akışı gerekli”; FlyingRC: sıcak ortam, nem, düşük basınç, hava akışı yokken sürekli akım değerin altına düşer; ModalAI: 40 A/motor “yeterli hava akışıyla, uygulamaya bağlı”. Pilotix yalnız çalışma sıcaklığı (−20…40 °C) |
+| MOSFET sayısı / kanal | 0 / 24 | Yalnız parça adı: T-Motor F55A Pro III TPHR8504, FlyingRC Infineon IRF7480 (0.95 mΩ). SpeedyBee 55A/60A: “3 oz bakır, alüminyum soğutucu” |
+
+**Endüstriyel karşılaştırma (HobbyWing XRotor Pro, tek ESC):** adındaki sayı **tepe akımına** yakın, sürekli değer çok daha düşük ve koşula bağlı: H100A → sürekli **40 A “(Good heat dissipation)”**, tepe 120 A **3 s**; H130A → sürekli 60 A, tepe 150 A 3 s. Aynı üretici FPV ürününde (G2 65A) farklı bir kural kullanıyor. Yani **sektörde tek bir ad kuralı yok**.
+
+### 8.2 Bağımsız ölçüm ve topluluk görüşü
+
+**Ölçüm (yayımlanmış, sayısal):** 5" sınıfı bir 4’ü 1 arada ESC’nin etiket akımını kaç saniye/dakika, hangi sıcaklıkta taşıdığını gösteren **bağımsız bir test bulunamadı** (Oscar Liang incelemeleri, IntoFPV, RCGroups, tezgâh/termal test aramaları). Oscar Liang’in Tekko32 incelemesinde de akım/sıcaklık ölçümü yok. Bulunan sayısal veriler üreticiye ait:
+- ModalAI (üretici personeli, forum 2023-08-02): mini 4’ü 1 arada ESC 16 V’ta kanal başına 15 A (toplam 60 A), **1 dk** sürekli test edilmiş; ESC sıcaklığı için öneri 90–100 °C altı. (Ayrı ürün olan VOXL FPV ESC’nin değeri 40 A/motor “yeterli hava akışıyla”.)
+- FlyingRC 75A: “sürekli” = **45 s, 4S**.
+- TBS: “sürekli” = **60 s (8S) / 300 s (6S)**.
+
+Bu üç örnek, üreticinin “continuous” dediği değerin **ısıl denge (saatlerce) değil, 45–300 s’lik bir yük** olduğunu gösteriyor. Süreyi yazmayan 21 üründe tanım belirsiz.
+
+**Anekdot / görüş (ölçüm değil):**
+- Oscar Liang (ESC rehberi): değer **kanal (motor) başına**. 60 A 4’ü 1 arada = toplam ~240 A. Anlık genelde < 10 s. 55 A’lık ESC birkaç saniye 70–80 A görebilir.
+- ZeniRace (üretici blogu): 55 A = her kanal 55 A’ya kadar. Kart ortak bakır ve ısı sınırı paylaştığı için **toplamı (4 × 55 A) sürekli taşımayabilir**. Değer üreticinin test koşuluna bağlı. Açık tezgâhta test edilen ESC gövde içinde çok daha sıcak çalışır.
+- IntoFPV, “35A AIO” başlığı (2021): katılımcılara göre AIO/4’ü 1 arada akım değerleri “abartılı” ve yüksek değerler hava akışı altında kısa süreleri gösteriyor. Normal uçuşta motor başına ~10 A, tepe anlarını kondansatör karşılıyor. Sorun çıkaran durumlar: punch-out, takılan pervane, turtle modu.
+- esk8.news (elektrikli kaykay ESC’leri, 2019): ESC akımı için **standart test yöntemi yok**, değerler “güvene dayalı”. Trampa’nın aktardığına göre 200 A etiketli bir klon ~120 A’da kalmış. Önerilen yöntem: 20 ± 3 °C ortamda 5 dk sürekli yük, adım adım artırma, MOSFET ve soğutucu sıcaklığı ölçümü (topluluk önerisi, standart değil).
+- Gerçek ihtiyaç (§2): 5" 6S 2207 motor tepe 38–45 A; uçuş ortalaması motor başına 10–25 A (SOR-015); punch’ta ~30 A (anekdot).
+
+### 8.3 Standart / norm
+
+- Hobi RC / FPV ESC’leri için **“continuous current” tanımlayan bir standart bulunamadı** (IEC, hobi birlikleri, üretici birliği yok). Her üretici kendi tanımını kullanıyor, çoğu tanımı yazmıyor.
+- Benzerlik için kullanılabilecek normlar (ESC’ye doğrudan uygulanmaz): IEC 60034-1 motor görev tipleri (**S1 sürekli** / **S2 kısa süreli**, ör. S2 10 dk), IEC 61800-2 ayarlı hız sürücülerinde belirtilen ortam ve soğutmada **anma çıkış akımı** ile süreli aşırı yük, IEC 60512-5-2 / EIA-364-70 akım–sıcaklık artışı (3 ardışık 5 dk ölçümü ≤ 2 °C fark = ısıl denge). MOSFET veri sayfası I_D değeri de T_C = 25 °C idealinde verilir. Hiçbiri hobi ESC etiketine bağlayıcı değil.
+- Üretici “tanımları”: HobbyWing endüstriyel = “Good heat dissipation” notlu sürekli + **3 s** tepe; T-Motor / SpeedyBee / Diatone / Aikon / HGLRC = sürekli + **10 s** anlık; GEPRC = sürekli + **5 s** anlık; TBS = **süreli sürekli (60/300 s)** + süreli anlık. Bunlar üretici kuralı, norm değil.
+
+### 8.4 Cevap: “55A yazıldığında sürekli 55A mı kastediliyor?”
+
+**Kısmen evet.** FPV pazarında ürün adındaki “55A” (21/22 üründe) üreticinin **kanal başına “continuous”** değeri. Yanında genelde 65–70 A anlık değer (çoğunlukla 10 s) yazılıyor. Ama:
+1. “Sürekli”nin **süresi 24 üründen yalnız 3’ünde** yazılı ve orada da 45–300 s. Isıl dengede (dakikalarca, saatlerce) 55 A anlamına gelmiyor.
+2. **Test koşulu hiçbirinde sayısal değil.** Hava akışı, ortam sıcaklığı ve PWM frekansı bilinmiyor.
+3. **Dört kanalın aynı anda 55 A taşıyacağı hiçbir üründe söylenmiyor.** ZeniRace bunun garanti olmadığını açıkça yazıyor.
+4. Isıl hesabımız (`rapor/guc-ip03.md` §2.5) 41 × 48 mm kartın 5 m/s havada ≈ 35 W atabildiğini gösteriyor. En iyi 40 V FET ile 4 × 55 A ≈ 61 W kayıp demek. Aynı kart boyundaki rakiplerin de 4 × 55 A’yı ısıl dengede taşıyamayacağı fizik olarak beklenir (**tahmin**: rakiplerin FET’i, bakırı ve soğutucusu bilinmiyor, ölçülmedi). Rakip etiketi büyük olasılıkla “tek kanal ya da kısa süre, hava akışında” anlamına geliyor.
+
+Sonuç: pazarın “55A”sı **sınıf adı**. Pratikte “kanal başına, kısa-orta süre, hava akışında 55 A” demek, dört kanalda ısıl dengede sürekli 55 A demek değil. Bizim hesaplanan değerlerimiz (**tahmin ± %50**, DOG-005 ile ölçülecek; 25 °C, 5 m/s, 24 kHz, 6S): **tek kanal ~62 A sürekli; 4 × 34–41 A sürekli; 4 × 55 A 10 s**; 50 °C’de 4 × 27.5–34 A. Bu değerler pazardaki 55 A sınıfıyla aynı yerde. Fark, bizim rakamlarımızın tanımlı ve koşullu olması.
+
+### 8.5 İsimlendirme seçenekleri
+
+| # | Ürün adı / veri sayfası | Artı | Eksi | Rakiplere göre algı | Yasal / iade riski |
+|---|---|---|---|---|---|
+| A | **“Crow 55A”** + veri sayfasında koşullu akım tablosu: *55 A kanal başına sürekli (tek kanal yüklü) · 4 × 35 A sürekli (4 kanal birlikte) · 4 × 55 A 10 s · 4 × 70 A 2 s · koşul: 25 °C, ≥ 5 m/s hava, 24 kHz, 6S · 50 °C azaltma eğrisi* | Pazarın ad kuralına (kanal başına sürekli) uyuyor, rafta 55 A sınıfında görünür. Her satır doğru ve test edilebilir. 4 kanal satırı pazarda yok, “açık belge” farkını destekler | Tablo okuyan kullanıcı “4 × 35 A”yı rakibin “55 A × 4” yazısıyla karşılaştırıp bizi zayıf sanabilir | Adda eşit. Tablo dikkatli okuyanda başta zayıf, ama dürüst ve teknik kullanıcıda güven verici. Yanına “pazar eşdeğeri: 55 A sınıfı (kanal başına)” notu ve test yöntemi bağlantısı konursa bu algı azalır | Düşük: her iddianın koşulu yazılı. “Tek kanal 55 A sürekli” DOG-005’te ölçülmeli (hesap 62 A, ± %50 belirsizlik) |
+| B | **“Crow 40A”** ya da “40A sürekli / 55A burst” | En muhafazakâr, iade riski en düşük | 55 A sınıfı rakiplerle aynı donanımda bir sınıf aşağıda görünür. 5" 6S alıcısı 55–60 A arıyor (§2). Satış ve fiyat (≤ 70 $) zayıflar | Açıkça zayıf (HAKRC/HGLRC 60 A, SpeedyBee 55 A) | En düşük |
+| C | **“Crow 55A”**, veri sayfasında yalnız “55 A × 4 continuous / 70 A burst” (pazar gibi) | Rakiplerle birebir aynı görünüm, en kolayı | 4 × 55 A sürekli kendi hesabımızla tutmuyor. Bilerek koşulsuz yazmak SOR-015 seçenek 3’e denk | Eşit | **Yüksek.** Kendi analizimiz 4 × 55 A sürekliyi çürütüyor. Türkiye’de 6502 sayılı TKHK md. 8’e göre etiket, tanıtım ve kılavuzdaki özelliği taşımayan mal ayıplıdır (iade, değişim, bedel indirimi). Ticari Reklam ve Haksız Ticari Uygulamalar Yönetmeliği yanıltıcı teknik iddiayı da kapsar. AB’ye satışta 2019/771 (tanıma uygunluk) ve 2005/29/AT geçerli. Hukuki görüş alınmalı |
+| D | **“Crow 55A”** + TBS tarzı süreli tanım: “55 A × 4, X s” | Pazarda en dürüst örnekle (TBS) aynı dil | τ ≈ 24 s olduğu için 60 s, ısıl dengenin ~%92’si demek. 4 × 55 A 60 s **tutmuyor** (tahmin). Yalnız 10 s yazılabilir, o da rakibin “anlık”ına denk düşer | “55 A × 4, 10 s” rakibin 70 A 10 s’iyle karşılaştırılınca zayıf | Düşük, ama ad ile tablo arasında açıklama gerekir |
+| E | **“Crow 55A”** + yalnız “55 A per channel @ airflow” | Kısa | Hava akışı ve süre sayısal değil, belirsizlik kalıyor. Pazarın sorunu tekrarlanır | Eşit | Orta: “airflow” tanımlanmadığı için iade itirazında savunması zayıf |
+
+### 8.6 Öneri
+
+**Seçenek A** (SOR-015 seçenek 1 ile uyumlu):
+1. **Ad “Crow 55A” kalsın.** Pazarda 22 üründen 21’inde ad, kanal başına sürekli değerdir. Bizim tek kanal sürekli değerimiz (~62 A, tahmin) bu kuralı karşılıyor.
+2. **Veri sayfası ve kutu üstünde akım tablosu** (pazarda yok, fark yaratan nokta): kanal başına sürekli (tek kanal) · 4 kanal birlikte sürekli · 4 × 10 s · 4 × 2 s, yanında test koşulu (ortam °C, hava m/s, PWM kHz, gerilim) ve 50 °C azaltması. Kutu yüzünde tek satır yeter: *“55 A / kanal · 4 × 55 A 10 s · koşullar veri sayfasında”*.
+3. **Rakamlar ölçümden sonra yazılsın:** DOG-005 (ve DOG-004/006/083) testinde 25 °C, 5 m/s hava ve 24 kHz’de tek kanal ve 4 kanal sürekli, 10 s ve 2 s değerleri ölçülür. Satışta tahmin değil, ölçülen değer kullanılır. Hesap ± %50 belirsiz. Ölçülen 4 kanal sürekli değer 30 A’nın altında çıkarsa ad yeniden değerlendirilir (ör. “Crow 50A”).
+4. **Test yöntemi yayımlansın** (kısa PDF veya kılavuz bölümü). Bu, “açık belge” konumlandırmasını destekler. TBS ve FlyingRC örneği gösteriyor ki süre ve koşul yazmak pazarda kabul görüyor.
+5. **Pazarlama dili:** “gerçek, ölçülmüş akım” vurgusu, rakibe isim vermeden. Rakip ürün hakkında doğrulanmamış “sahte 55 A” iması yapılmasın (karşılaştırmalı reklam riski).
+6. C seçeneği (koşulsuz “55 A × 4 continuous”) **önerilmez**: kendi analizimiz bu iddiayı çürütüyor, ayıplı mal / yanıltıcı reklam riski var.
+
+**Belirsizlikler:** 12 ürünün verisi satıcı sayfasından (üretici sayfası 404 ya da açılmadı). Satıcılar arasında 5 s / 10 s ve anlık 65 / 70 A çelişkileri var (CSV `not`). Rakiplerin gerçek 4 kanal sürekli değeri ölçülmedi. Bir rakip ESC’nin (ör. SpeedyBee BLS 55A) DOG-005 düzeneğinde bizimkiyle yan yana ölçülmesi, A seçeneğindeki “pazar eşdeğeri” iddiasını kanıtlamanın en ucuz yolu (öneri, `test-muhendisi`). Yasal değerlendirme hukukçu görüşü değildir.
+
+**Kaynaklar (erişim 2026-11-11):** üretici: [SpeedyBee BLS 55A (F405 V4 stack)](https://www.speedybee.com/speedybee-f405-v4-bls-55a-30x30-fc-esc-stack/), [SpeedyBee BLS 60A](https://www.speedybee.com/speedybee-bls-60a-30x30-4-in-1-esc/), [GEPRC Taker H60](https://geprc.com/product/geprc-taker-h60_bls-60a-4in1-esc/), [GEPRC Taker H65 8S](https://geprc.com/product/geprc-taker-h65_8s_bls-65a-4in1-esc/), [iFlight BLITZ E55](https://shop.iflight.com/BLITZ-E55-4-IN-1-2-6S-ESC-Pro1694), [HobbyWing XRotor G2 65A](https://www.hobbywing.com/en/products/xrotor-fpv-g2-65a-4in1-esc268), [HobbyWing H100A](http://www.hobbywing.com/en/products/xrotor-h100a-14s-foc-v1123), [HobbyWing H130A](https://www.hobbywing.com/en/products/xrotorh130a14sfoc), [Holybro Tekko32 F4 Metal 65A](https://holybro.com/products/tekko32-f4-metal-4in1-65a-esc-65a), [Holybro Tekko32 F4 50A spec PDF](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Holybro_Tekko32_F4_4in1_50A_ESC_spec_7f900ab6-7c29-483f-86a9-260c69b669fd.pdf), [FlyingRC 4v1 75A kılavuzu](https://www.rotorama.com/assets/docs/153b380199c70910607d3b864880c4e9/40357-1/manual-flyingrc-4v1-esc-75a-en.pdf), [Pilotix 75A datasheet](https://public.hobbydrone.cz/Pilotix/6208/Datasheet/Pilotix%204in1%2075A%20AM32%20%28SKU%206208%29%20datasheet%20EN.pdf), [ModalAI VOXL FPV ESC](https://docs.modalai.com/voxl-fpv-esc-datasheet), [ARK 4IN1](https://docs.arkelectron.com/electronic-speed-controller/ark-4in1-esc); satıcı: [GetFPV SpeedyBee F405 V5](https://www.getfpv.com/speedybee-f405-v5-stack-f405-fc-55a-3-6s-ox32-esc-30x30-standard.html), [myfpvstore E55S](https://www.myfpvstore.com/8zvk), [KiwiQuads Mamba F55](https://www.kiwiquads.co.nz/product/diatone-mamba-f55-128k-bl32-4in1-esc-55a-6s/), [KiwiQuads F55A Pro III](https://www.kiwiquads.co.nz/product/t-motor-f55a-pro-iii-55a-3-8s-bl32-4-in-1-esc), [fpv24 Velox V70A](https://www.fpv24.com/en/t-motor/t-motor-velox-f7-se-v70a-8s-fc-flight-controller-esc-stack), [FlyingTech Foxeer Reaper 65A](https://www.flyingtech.co.uk/product/foxeer-reaper-f4-128k-3-8s-bl32-4-in-1-30x30-esc-65a), [RMRC TBS Lucid 6S](https://www.readymaderc.com/products/details/86684-tbs-lucid-4in1-6s-60a-esc), [RMRC TBS Lucid 8S](https://www.readymaderc.com/products/details/86468-tbs-lucid-4in1-8s-60a-esc), [RotorGeeks Aikon AK32](https://rotorgeeks.com/aikon-ak32-4-in-1-55a-v3-6s-esc), [GetFPV HGLRC Specter 60A](https://www.getfpv.com/drone-brands/hglrc/hglrc-specter-60a-blheli-32-3-6s-4-in-1-esc.html), [WREKD HAKRC 3B60A](https://wrekd.com/products/hakrc-3b60a-4-in-1-blheli-esc), [WREKD JHEMCU BL32 60A](https://wrekd.com/products/jhemcu-bl32-32bit-60a-3-6s-30x30-4in1-esc), [Unmanned Tech GEPRC H60](https://www.unmannedtechshop.co.uk/products/geprc-taker-h60_bls-60a-4in1-esc), [openelab Holybro Tekko32 50A FAQ](https://openelab.io/products/holybro-tekko32-f4-50a); görüş: [Oscar Liang — ESC rehberi](https://oscarliang.com/esc), [Oscar Liang — Tekko32 incelemesi](https://oscarliang.com/holybro-tekko32-4in1-esc/), [ZeniRace — ESC akım değerleri](https://zenirace.com/blogs/news/understanding-esc-current-ratings-in-fpv), [IntoFPV — 35A AIO](https://intofpv.com/archive/index.php/thread-19196.html), [esk8.news — Verifying ESC Performance](https://forum.esk8.news/t/verifying-esc-performance-sro/12727), [ModalAI forum — 15 A 1 dk testi](https://forum.modalai.com/post/11585), [ModalAI forum — sıcaklık](https://forum.modalai.com/post/24464).
 
 ## Kaynaklar (erişim 2026-11-06)
 
