@@ -88,3 +88,18 @@ Müşteri `docs/bom-maliyet.md` §10 tasarruf taramasına karar verdi ve muadil 
 | §10 kararları | A1–A7, B1–B6 kabul, gereksinim değişmez (B1 SPA06-003 → `gomulu-yazilim` + `pcb-muhendisi`; B2 INA281B2 → `guc-elektronigi` + `gomulu-yazilim`; B3–B6 → `guc-elektronigi`); A2 (SOT-223 AMS1117) küçük kılıf notuyla geçersiz; C1 kabul (DT-005); **C2–C6 reddedildi** (SYS-021, 031, 032, 033, 056 değişmez) |
 | Açık soru | SOR-015 (“55 A” tanımı, pazar analizi); SOR-018 koşullu (APM32/STM32 tek yazılım imajı ve ArduPilot desteği — `gomulu-yazilim` DOG-023 sonucu olumsuzsa sorulur) |
 | Doğrulama bekleyen (ekip) | `gomulu-yazilim`: BF/AP APM32F405 desteği, baro iki sürücü (SPA06/DPS368), `ibata_scale`; `guc-elektronigi`: B2–B6, küçük kılıf LDO + ALT, JW5026 muadil çifti; `bom-tedarik`: ALT MPN/LCSC sütunları ve istisna listesi (DOG-110); `sematik-muhendisi`: APM32/STM32 pin tablosu farkları |
+
+## Durum (2026-11-13) — DT-006 seri MCU AT32F435 + varyantlar, IMU LSM6DSV16X (Onaylı)
+
+Müşteri SOR-018’i cevapladı (“Betaflight, INAV her ne için olursa olsun 2–3 farklı derleme bile yaparız; farklı varyantlar olarak satarız. Yeter ki üretebilelim.”), IMU LSM6DSV16X’i (“gayet iyi”) ve seri MCU AT32F435RGT7’yi (“Evet”) onayladı. Girdi `docs/rapor/mcu-secimi.md`, `docs/rapor/yazilim-inceleme.md`. Etki analizi `proje.md` → DT-006.
+
+| | Durum |
+|---|---|
+| MUS | 17; yeni **MUS-017** (üretilebilirlik önce; MCU başına ayrı derleme, varyant SKU), Onaylı |
+| SYS | 66: Onaylı 46, Onaylı (DT-002) 10, **Onaylı (DT-006) 7**, Değişti (DT-003) 1, Taslak (DT-003) 2; Z 47, Ö 17, İ 2. **Değişti:** SYS-030 (seri AT32F435RG; STM32F405RG, APM32F405RG aynı PCB’de varyant), SYS-031 (IMU LSM6DSV16X veya BF + INAV (+ AP) destekli eşdeğeri; gyro ODR ≥ 7.68 kHz — LSM6DSV16X veri sayfası azamisi, eski 8 kHz), SYS-037 (gyro/PID hızı IMU’ya göre; AT32 zamanlayıcı tabanlı DShot), SYS-050 (BF asgari sürümü MCU’ya göre: AT32 ≥ 4.5.0, STM32 ≥ 4.5, APM32 ≥ 2025.12; pin ataması değişmez), SYS-056 (ArduPilot yalnız STM32 varyantı), SYS-087 (AT32 288 MHz’de −40…85 °C), SYS-095 (d) (MCU için varyant başına ayrı derleme istisnası). **Yeni:** SYS-058 (INAV ≥ 9.1, STACKF435 + STACKF405) |
+| DOG | DOG-001…117 (Ü-öncesi 66, Kart 51); değişen DOG-023, -024, -025, -034, -041, -049, -050, -095, -099, -100, -101, -107 (eski ≥ 105 °C/RGT7 ölçütü düzeltildi), -112 (her varyantta tanınma/yükleme); yeni DOG-113 (INAV hedef muayenesi), -114 (INAV kartta), -115 (AT32 3.3 V akımı), -116 (AT32 8 kanal zamanlayıcı tabanlı çift yönlü DShot), -117 (varyant BOM/ipek/etiket) |
+| PRJ | 9; PRJ-006 Onaylı (DT-006: BF + INAV, STM32’de AP); yeni **PRJ-009** varyant SKU’ları STACKF435 / STACKF405 / STACKF405A; PRJ-004: STACKF435 ≈ 30.04 $ ≤ 32 $ (tahmin), LSM6DSV16X ile ≈ 31.3 $ (pay ≈ 0.7 $) — 4. adım muadil taramasında yeniden hesaplanır |
+| KRR | KRR-010 **Değişti** (yerini KRR-012 aldı); yeni **KRR-012** (AT32F435RGT7 seri + varyant planı), **KRR-013** (IMU LSM6DSV16X) Onaylı; KRR-011 kural 6 notu |
+| RSK | RSK-020 **Kapandı**; RSK-004, 014, 017, 021 güncellendi; yeni RSK-022 (AT32 tek üretici), RSK-023 (INAV ≥ 9.1 / hedef PR), RSK-024 (AT32 8 kanal DShot denenmedi), RSK-025 (AT32 288 MHz akım ve 85 °C), RSK-026 (yanlış varyant yazılımı) |
+| SOR | SOR-018 cevaplandı; açık: SOR-015 (“55 A” tanımı, pazar analizi) |
+| Sıradaki (ekip) | `sematik-muhendisi`: U201 AT32F435RGT7 + varyant alanları, pin 31/47 notu, U301 LSM6DSV16X; `guc-elektronigi`: 3.3 V bütçesi (AT32 260 mA en kötü, VDD ≥ 3.0 V); `gomulu-yazilim`: STACKF435 BF config, INAV hedefi, AP hwdef (STM32, `LSM6DSV`); `bom-tedarik`: varyant BOM’ları, LSM6DSV16X 100 set fiyatı ve muadili (4. adım), AT32 peşin alım; `pcb-muhendisi`: IMU ayak izi, ipek baskı MCU işareti; `sistem-mimari`: pin haritası AT32 `dmaopt` sütunu |
