@@ -519,3 +519,47 @@ Duyarlılık: B1 Tokmas DPS368 yedeğine düşerse 32.27 $ (aşar); B2 reddedili
 | ESC | D13…D45 | C27748 → **C2128** SOD-323 | B5 onayı |
 | ESC | R0/R02 | C26989 → guc-elektronigi'nin basic değerleri | B6 onayı |
 | FMU | U201 | C15742 → **C5290473** APM32F405RGT6 (ALT C15742) | C1 müşteri kararı |
+
+## 11. Hedef BOM (2026-11-13)
+
+> **Kapsam:** iki kartın onaylı tüm kararlar uygulanmış hâli (4. adım; şematik 5. adımda): §10 A1, A3–A7 (A2 geçersiz), B1, B3–B6 ve `docs/rapor/guc-tasarruf.md` (B2 yerine RSA240CXK + ALT INA240A3DR; U1 SCT2400 + R0/R02/R01 100 k/20 k/2.2 k + C03b; FMU 3.3 V TLV62569 buck + L103 + bölücü; USB yük anahtarı Q102/Q103 + 2 × 100 k; D501 B5819W; 5 V FB 15 k/2 k; R111 22 Ω), KRR-012 (U201 AT32F435RGT7), KRR-013 (U301 LSM6DSV16X). B7 ve §10 C2–C6 dahil değil.
+> **Kaynak:** JLCPCB parça arayüzü (`tools/jlc.py` scratchpad kopyası; proje önbelleği değişmedi), 2026-11-13. Yöntem §4/§10 ile aynı: 100 set birim = 100 × karttaki adet kademesi; ESC Standard çift yüz, FMU Standard tek yüz (A7); PCB §3 tahmini. A1: BLP016 2 500 adet peşin (2 500 × 0.1664 $ / 100 set = 4.16 $/kart).
+> **Satır satır:** [`boards/esc55a/bom-hedef.csv`](../boards/esc55a/bom-hedef.csv), [`boards/fmu/bom-hedef.csv`](../boards/fmu/bom-hedef.csv). Muadiller, istisnalar, peşin alım: [`docs/muadil.md`](muadil.md).
+
+### 11.1 Kart ve stack maliyeti (STACKF435, standart SKU)
+
+| | ESC 100 set | FMU 100 set | Stack 100 set | ESC 5 set | FMU 5 set | Stack 5 set |
+|---|---|---|---|---|---|---|
+| Komponent | 12.85 | 12.43 | 25.28 | 17.73 | 18.16 | 35.89 |
+| PCB (tahmin) | 0.80 | 0.25 | 1.05 | 6.00 | 0.40 | 6.40 |
+| Dizgi | 2.05 | 1.42 | 3.48 | 19.05 | 16.37 | 35.42 |
+| **Toplam $/kart** | **15.71** | **14.10** | **29.81** | **42.78** | **34.93** | **77.71** |
+| Extended tür / lehim noktası | 14 / 724 | 29 / 399 | | | | |
+
+- **PRJ-004 (≤ 32 $, 100 set, STACKF435): 29.81 $ → karşılanıyor, pay 2.19 $.** KRR-013'teki ≈ 31.3 $ tahmininden düşük: LSM6DSV16X 100'lük kademede 2.41 $ (3.35 $ tekil fiyattı), RSA240C (−1.19), A1 (−0.21).
+- Önceki tabana göre (ESC 17.20 + FMU 17.72 = 34.92 $): ESC −1.49 (RSA240C −1.19, A1 −0.21, B5/B6 −0.09, SCT2400 −0.01, C03b +0.03); FMU −3.62 (baro B1 −2.30, MCU STM32 → AT32 −1.31, IMU Tokmas → LSM6DSV16X +0.29, dizgi A7 −0.25, 3.3 V buck −0.06, A3–A6/B3/B4 −0.10, yük anahtarı +0.06, fiyat oynaması ≈ +0.05).
+- SYS-091 "extended tür ≤ 10/kart [öneri]" karşılanmıyor (ESC 14, FMU 29) — Standard dizgide maliyet 1.53 $/tür/sipariş, ≈ 0.015 $/set/tür; değişmedi.
+- Stok (≥ 2 × ihtiyaç): yalnız BLP016 (3 903 < 4 800) → A1 peşin alım; diğer tüm ana parçalar ✓.
+- Belirsizlik: PCB ve dizgi tahmin (§3, §4; tek kart ek ücreti 0.48 $/kart katılmadı → olursa +0.96 $/stack, yine ≤ 32 $); C03b isteğe bağlı (takılmazsa −0.03).
+
+### 11.2 Varyant farkları (yalnız U201, PCB ve diğer BOM aynı)
+
+| SKU | MCU (LCSC) | 100 set $/stack | 5 set $/stack | Not |
+|---|---|---|---|---|
+| **STACKF435** | AT32F435RGT7 C3029577 (3.27 $ @100; 200 adet 2.85 $) | **29.81** | 77.71 | ≤ 32 ✓ |
+| STACKF405 (JLC fiyatı) | STM32F405RGT6 C15742 (4.58 $) | 31.12 (+1.31) | 79.48 | JLC stok 74 < 100 → fiilen dış tedarik |
+| STACKF405 (dış tedarik 6.1–8.3 $) | aynı | 32.64–34.84 (+2.8…+5.0) | — | SKU fiyatına yansır (PRJ-009); hedef yalnız STACKF435 için |
+| STACKF405A | APM32F405RGT6 C5290473 (3.20 $) | 29.74 (−0.07) | 77.61 | Yalnız tedarik krizinde |
+| (yedek, ayrı DT) | AT32F435RMT7 C5178940 (4.15 $) | 30.69 (+0.88) | — | stok 128 |
+
+### 11.3 ALT'larla dizilen parti (SYS-095)
+
+ALT'lar yalnız dizildiği partide maliyete girer. Tüm kritik ALT'lar birlikte (en kötü): **ESC +1.92 $/kart** (INA240A3 +1.19, NTMFS +0.81 (A1 peşin fiyatına göre), HL6288Q −0.37, shunt +0.14, JST SH +0.13), **FMU +5.20 $/kart** (LSM6DSK320X +1.25, Tokmas DPS368 +0.92, RMT7 +0.88, W25Q128JVSIM +0.69, JST SH ×4 +1.32 …). Tek tek kalemler CSV `alt_100set_birim_$` sütununda.
+
+### 11.4 Peşin alım (100 set) — ayrıntı `muadil.md` §4
+
+AT32F435RGT7 × 200 (571 $), BLP016 × 2 500 (416 $), EFM8BB21F16I × 500 (410 $), AT7456E × 110 (190 $) = **1 587 $** zorunlu; isteğe bağlı SY8303AAIC × 220, LSM6DSV16X × 110, HoLRS3920 × 110 (ALT teyitsizse).
+
+### 11.5 Hedefe dahil edilmeyen ek tasarruf (muadil taramasından)
+
+HL6288Q'yu ana sürücü yapmak −0.37, USB-C Shou Han ana −0.08 (ayrıca 85 °C ✓), Y401 KYX −0.04, cjiang bobinler −0.03 → ≈ −0.5 $/stack (`muadil.md` §5; HL6288Q için `guc-elektronigi` onayı).
