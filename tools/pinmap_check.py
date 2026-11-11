@@ -9,7 +9,14 @@
    from the İşlev column by the RULES table below.
 2. FMU<->ESC rules (§3): M1-M4 -> J502, M5-M8 -> J503, CUR1 -> PC1, CUR2 -> PC5,
    TLM J502 -> PD2, J503 TLM NC, J503 VBAT not on VBAT (DNP 0R).
+3. KRR-012: VCAP1 / VCAP2 nets carry only U201 pin 31 / 47 and one capacitor.
 Exit code = number of differences.
+
+AT32F435 (KRR-012, 2026-11-13): U201 is the AT32F435RGTx symbol whose pins
+31 / 47 are named "VCAP_1/PH3" / "VCAP_2/PH2" (STM32F405/APM32F405 VCAP,
+AT32F435 PH3/PH2 on the same pad, docs/rapor/mcu-secimi.md §3.1). The pin map
+keeps the STM32 names (VCAP_1, VCAP_2), so PIN_ALIAS maps the symbol name back
+to the pin map name; every other pin name is compared unchanged.
 """
 import re
 import sys
@@ -62,11 +69,13 @@ for nm in re.finditer(r'\(net\s+\(code "\d+"\)\s+\(name "([^"]*)"\)([\s\S]*?)\n\
     net = nm.group(1).rsplit("/", 1)[-1]
     for nd in re.finditer(r'\(ref "([^"]+)"\)\s+\(pin "([^"]+)"\)\s+(?:\(pinfunction "([^"]*)"\))?', nm.group(2)):
         nodes[(nd.group(1), nd.group(2))] = (net, (nd.group(3) or "").rsplit("_", 1)[0])
+PIN_ALIAS = {"VCAP_1/PH3": "VCAP_1", "VCAP_2/PH2": "VCAP_2"}
 diff = 0
 rows = []
 for n in sorted(expect, key=int):
     ename, enet = expect[n]
     net, func = nodes.get(("U201", n), ("<yok>", "<yok>"))
+    func = PIN_ALIAS.get(func, func)
     ok = (func == ename and net == enet)
     diff += not ok
     rows.append(f"{n:>3} {func:<8} {net:<12} {'OK' if ok else 'FARK: beklenen ' + ename + ' ' + enet}")
@@ -90,6 +99,10 @@ checks.append(("J502 TLM → PD2", nodes[("J502", "2")][0] == nodes[("U201", "54
 checks.append(("J503 TLM NC", nodes.get(("J503", "2"), ("unconnected",))[0].startswith("unconnected")))
 checks.append(("J503 VBAT ≠ VBAT (0R DNP)", nodes[("J503", "7")][0] != "VBAT"))
 checks.append(("J502 VBAT = BAT+ pedi = F101 girişi", nodes[("J502", "7")][0] == nodes[("J101", "1")][0] == nodes[("F101", "1")][0]))
+for net, pin in (("VCAP1", "31"), ("VCAP2", "47")):
+    members = pin_of(net)
+    checks.append((f"{net}: yalnız U201.{pin} + bir kondansatör ({', '.join(members)})",
+                   len(members) == 2 and f"U201.{pin}" in members and any(m.startswith("C2") for m in members)))
 for name, ok in checks:
     print(("OK   " if ok else "FARK ") + name)
     diff += not ok

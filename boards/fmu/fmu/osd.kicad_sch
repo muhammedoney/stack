@@ -6,7 +6,7 @@
 	(paper "A3")
 	(title_block
 		(title "OSD")
-		(date "2026-11-11")
+		(date "2026-11-13")
 		(rev "B")
 		(company "Stack")
 		(comment 1 "AT7456E analog OSD, SPI2, 27 MHz, CVBS 75 Ω, 5 V")
@@ -1543,7 +1543,51 @@
 				)
 			)
 		)
-		(property "Temperature" "-40…+85 °C (LCSC) — 85 °C istisnası: 105 °C OSD yok"
+		(property "ALT Note" "Stoklu drop-in yok: MAX7456EUI C5346361 yazılımca ✓ ve pin uyumlu ama stok 0; AT7456 C82523 stok 0; AT7456ELAH LGA-16 farklı kılıf"
+			(at 101.6 101.6 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Temperature" "-40…+85 °C (LCSC)"
+			(at 101.6 101.6 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Critical" "evet"
+			(at 101.6 101.6 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Exception" "İSTİSNA: stoklu muadil yok; peşin alım + MAX7456 stok izleme (muadil §3 İ3)"
+			(at 101.6 101.6 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Procurement" "110 adet peşin alım (İ3; muadil §4)"
 			(at 101.6 101.6 0)
 			(hide yes)
 			(show_name no)
@@ -1725,7 +1769,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "YXC"
+		(property "Manufacturer" "YXC Crystal Oscillators"
 			(at 45.72 157.48 0)
 			(hide yes)
 			(show_name no)
@@ -1747,7 +1791,62 @@
 				)
 			)
 		)
-		(property "Temperature" "-40…+85 °C (LCSC) — 85 °C istisnası: 105 °C 27 MHz 3225 yok"
+		(property "ALT MPN" "K3A270002010"
+			(at 45.72 157.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ALT Manufacturer" "KYX"
+			(at 45.72 157.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ALT LCSC" "C368745"
+			(at 45.72 157.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ALT Note" "3225-4P, 27 MHz, CL 20 pF, ESR 30 Ω ≤ 50 Ω, −40…85 °C (YXC X322527MSB4SI DS / KYX K3A DS)"
+			(at 45.72 157.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Temperature" "-40…+85 °C (LCSC)"
+			(at 45.72 157.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Critical" "evet"
 			(at 45.72 157.48 0)
 			(hide yes)
 			(show_name no)
@@ -1889,6 +1988,17 @@
 				)
 			)
 		)
+		(property "Critical" "hayır"
+			(at 165.1 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "6d69031d-8ed3-5579-9eaf-7972b99d2298")
 		)
@@ -2004,6 +2114,17 @@
 			)
 		)
 		(property "Temperature" "X7R -55…+125 °C (EIA)"
+			(at 182.88 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Critical" "hayır"
 			(at 182.88 66.04 0)
 			(hide yes)
 			(show_name no)
@@ -2139,6 +2260,17 @@
 				)
 			)
 		)
+		(property "Critical" "hayır"
+			(at 200.66 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "fe6e51b1-2bf4-545d-a82d-0a9c401ee147")
 		)
@@ -2254,6 +2386,17 @@
 			)
 		)
 		(property "Temperature" "X7R -55…+125 °C (EIA)"
+			(at 218.44 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Critical" "hayır"
 			(at 218.44 66.04 0)
 			(hide yes)
 			(show_name no)
@@ -2389,6 +2532,17 @@
 				)
 			)
 		)
+		(property "Critical" "hayır"
+			(at 236.22 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "044833f4-ec16-5a67-88ad-40c006a52cc0")
 		)
@@ -2504,6 +2658,17 @@
 			)
 		)
 		(property "Temperature" "X7R -55…+125 °C (EIA)"
+			(at 172.72 116.84 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Critical" "hayır"
 			(at 172.72 116.84 0)
 			(hide yes)
 			(show_name no)
@@ -2639,6 +2804,17 @@
 				)
 			)
 		)
+		(property "Critical" "hayır"
+			(at 190.5 116.84 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "bffe868e-c04f-5947-990b-d93ec58bb3c3")
 		)
@@ -2754,6 +2930,17 @@
 			)
 		)
 		(property "Temperature" "-55…+155 °C (UNI-ROYAL thick film, LCSC)"
+			(at 208.28 116.84 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Critical" "hayır"
 			(at 208.28 116.84 0)
 			(hide yes)
 			(show_name no)
@@ -2912,7 +3099,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "358a43bc-97c3-5e2f-86b6-d4ee932556c5")
-		(property "Reference" "#PWR141"
+		(property "Reference" "#PWR146"
 			(at 93.98 78.74 0)
 			(hide yes)
 			(show_name no)
@@ -2961,7 +3148,7 @@
 		(instances
 			(project "fmu"
 				(path "/f394d34b-b328-5e81-bc0a-3e0521c1bfc4/b72775d5-d16a-5763-88ef-723aafdb1a59"
-					(reference "#PWR141")
+					(reference "#PWR146")
 					(unit 1)
 				)
 			)
@@ -2978,7 +3165,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "5f87ae61-1ef0-578b-8786-e4e07ed09de6")
-		(property "Reference" "#PWR142"
+		(property "Reference" "#PWR147"
 			(at 93.98 129.54 0)
 			(hide yes)
 			(show_name no)
@@ -3027,7 +3214,7 @@
 		(instances
 			(project "fmu"
 				(path "/f394d34b-b328-5e81-bc0a-3e0521c1bfc4/b72775d5-d16a-5763-88ef-723aafdb1a59"
-					(reference "#PWR142")
+					(reference "#PWR147")
 					(unit 1)
 				)
 			)
@@ -3044,7 +3231,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "731594a3-3cfa-5ccc-adf7-013e68d351e6")
-		(property "Reference" "#PWR143"
+		(property "Reference" "#PWR148"
 			(at 96.52 78.74 0)
 			(hide yes)
 			(show_name no)
@@ -3093,7 +3280,7 @@
 		(instances
 			(project "fmu"
 				(path "/f394d34b-b328-5e81-bc0a-3e0521c1bfc4/b72775d5-d16a-5763-88ef-723aafdb1a59"
-					(reference "#PWR143")
+					(reference "#PWR148")
 					(unit 1)
 				)
 			)
@@ -3110,7 +3297,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "a9a2582b-72a7-560a-bd4a-18fe8b4929b3")
-		(property "Reference" "#PWR144"
+		(property "Reference" "#PWR149"
 			(at 96.52 129.54 0)
 			(hide yes)
 			(show_name no)
@@ -3159,7 +3346,7 @@
 		(instances
 			(project "fmu"
 				(path "/f394d34b-b328-5e81-bc0a-3e0521c1bfc4/b72775d5-d16a-5763-88ef-723aafdb1a59"
-					(reference "#PWR144")
+					(reference "#PWR149")
 					(unit 1)
 				)
 			)
@@ -3176,7 +3363,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "0562df3d-7d55-54a7-b854-eed71d103641")
-		(property "Reference" "#PWR145"
+		(property "Reference" "#PWR150"
 			(at 99.06 78.74 0)
 			(hide yes)
 			(show_name no)
@@ -3225,7 +3412,7 @@
 		(instances
 			(project "fmu"
 				(path "/f394d34b-b328-5e81-bc0a-3e0521c1bfc4/b72775d5-d16a-5763-88ef-723aafdb1a59"
-					(reference "#PWR145")
+					(reference "#PWR150")
 					(unit 1)
 				)
 			)
@@ -3242,7 +3429,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "c380518e-fc97-554c-97de-1961f857c7c1")
-		(property "Reference" "#PWR146"
+		(property "Reference" "#PWR151"
 			(at 99.06 129.54 0)
 			(hide yes)
 			(show_name no)
@@ -3291,7 +3478,7 @@
 		(instances
 			(project "fmu"
 				(path "/f394d34b-b328-5e81-bc0a-3e0521c1bfc4/b72775d5-d16a-5763-88ef-723aafdb1a59"
-					(reference "#PWR146")
+					(reference "#PWR151")
 					(unit 1)
 				)
 			)
@@ -3308,7 +3495,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "b661f25e-fcd6-5a29-ac3e-8eb547474429")
-		(property "Reference" "#PWR147"
+		(property "Reference" "#PWR152"
 			(at 101.6 129.54 0)
 			(hide yes)
 			(show_name no)
@@ -3357,7 +3544,7 @@
 		(instances
 			(project "fmu"
 				(path "/f394d34b-b328-5e81-bc0a-3e0521c1bfc4/b72775d5-d16a-5763-88ef-723aafdb1a59"
-					(reference "#PWR147")
+					(reference "#PWR152")
 					(unit 1)
 				)
 			)
@@ -3426,7 +3613,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "7b0a41b9-fe86-5b33-a7e0-a9f2193f987d")
-		(property "Reference" "#PWR148"
+		(property "Reference" "#PWR153"
 			(at 45.72 167.64 0)
 			(hide yes)
 			(show_name no)
@@ -3475,7 +3662,7 @@
 		(instances
 			(project "fmu"
 				(path "/f394d34b-b328-5e81-bc0a-3e0521c1bfc4/b72775d5-d16a-5763-88ef-723aafdb1a59"
-					(reference "#PWR148")
+					(reference "#PWR153")
 					(unit 1)
 				)
 			)
@@ -3502,7 +3689,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "a7a7e159-dfdd-5403-8b33-4e3863d52b93")
-		(property "Reference" "#PWR149"
+		(property "Reference" "#PWR154"
 			(at 165.1 62.23 0)
 			(hide yes)
 			(show_name no)
@@ -3551,7 +3738,7 @@
 		(instances
 			(project "fmu"
 				(path "/f394d34b-b328-5e81-bc0a-3e0521c1bfc4/b72775d5-d16a-5763-88ef-723aafdb1a59"
-					(reference "#PWR149")
+					(reference "#PWR154")
 					(unit 1)
 				)
 			)
@@ -3568,7 +3755,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "e87a8b0f-af7a-597a-9eb1-2517f46a03c5")
-		(property "Reference" "#PWR150"
+		(property "Reference" "#PWR155"
 			(at 165.1 74.93 0)
 			(hide yes)
 			(show_name no)
@@ -3617,7 +3804,7 @@
 		(instances
 			(project "fmu"
 				(path "/f394d34b-b328-5e81-bc0a-3e0521c1bfc4/b72775d5-d16a-5763-88ef-723aafdb1a59"
-					(reference "#PWR150")
+					(reference "#PWR155")
 					(unit 1)
 				)
 			)
@@ -3634,7 +3821,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "8c8f39d4-bf94-56c3-91c4-4ec0b3461979")
-		(property "Reference" "#PWR151"
+		(property "Reference" "#PWR156"
 			(at 182.88 62.23 0)
 			(hide yes)
 			(show_name no)
@@ -3683,7 +3870,7 @@
 		(instances
 			(project "fmu"
 				(path "/f394d34b-b328-5e81-bc0a-3e0521c1bfc4/b72775d5-d16a-5763-88ef-723aafdb1a59"
-					(reference "#PWR151")
+					(reference "#PWR156")
 					(unit 1)
 				)
 			)
@@ -3700,7 +3887,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "66fdb7a3-52c1-585e-b104-00a694271dc1")
-		(property "Reference" "#PWR152"
+		(property "Reference" "#PWR157"
 			(at 182.88 74.93 0)
 			(hide yes)
 			(show_name no)
@@ -3749,7 +3936,7 @@
 		(instances
 			(project "fmu"
 				(path "/f394d34b-b328-5e81-bc0a-3e0521c1bfc4/b72775d5-d16a-5763-88ef-723aafdb1a59"
-					(reference "#PWR152")
+					(reference "#PWR157")
 					(unit 1)
 				)
 			)
@@ -3766,7 +3953,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "67d432e4-b089-5bf6-8892-d58b1f21c19b")
-		(property "Reference" "#PWR153"
+		(property "Reference" "#PWR158"
 			(at 200.66 62.23 0)
 			(hide yes)
 			(show_name no)
@@ -3815,7 +4002,7 @@
 		(instances
 			(project "fmu"
 				(path "/f394d34b-b328-5e81-bc0a-3e0521c1bfc4/b72775d5-d16a-5763-88ef-723aafdb1a59"
-					(reference "#PWR153")
+					(reference "#PWR158")
 					(unit 1)
 				)
 			)
@@ -3832,7 +4019,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "6c76320a-8201-558b-8e8d-51beb39aea64")
-		(property "Reference" "#PWR154"
+		(property "Reference" "#PWR159"
 			(at 200.66 74.93 0)
 			(hide yes)
 			(show_name no)
@@ -3881,7 +4068,7 @@
 		(instances
 			(project "fmu"
 				(path "/f394d34b-b328-5e81-bc0a-3e0521c1bfc4/b72775d5-d16a-5763-88ef-723aafdb1a59"
-					(reference "#PWR154")
+					(reference "#PWR159")
 					(unit 1)
 				)
 			)
@@ -3898,7 +4085,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "93a73937-3d30-58f2-a1d1-25ecb9b0b13f")
-		(property "Reference" "#PWR155"
+		(property "Reference" "#PWR160"
 			(at 218.44 62.23 0)
 			(hide yes)
 			(show_name no)
@@ -3947,7 +4134,7 @@
 		(instances
 			(project "fmu"
 				(path "/f394d34b-b328-5e81-bc0a-3e0521c1bfc4/b72775d5-d16a-5763-88ef-723aafdb1a59"
-					(reference "#PWR155")
+					(reference "#PWR160")
 					(unit 1)
 				)
 			)
@@ -3964,7 +4151,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "aeb7f80e-a8e4-51b2-8459-c0d09887cc8f")
-		(property "Reference" "#PWR156"
+		(property "Reference" "#PWR161"
 			(at 218.44 74.93 0)
 			(hide yes)
 			(show_name no)
@@ -4013,7 +4200,7 @@
 		(instances
 			(project "fmu"
 				(path "/f394d34b-b328-5e81-bc0a-3e0521c1bfc4/b72775d5-d16a-5763-88ef-723aafdb1a59"
-					(reference "#PWR156")
+					(reference "#PWR161")
 					(unit 1)
 				)
 			)
@@ -4030,7 +4217,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "69afb7b6-6afa-5cca-a9b9-e78617b4d53e")
-		(property "Reference" "#PWR157"
+		(property "Reference" "#PWR162"
 			(at 236.22 62.23 0)
 			(hide yes)
 			(show_name no)
@@ -4079,7 +4266,7 @@
 		(instances
 			(project "fmu"
 				(path "/f394d34b-b328-5e81-bc0a-3e0521c1bfc4/b72775d5-d16a-5763-88ef-723aafdb1a59"
-					(reference "#PWR157")
+					(reference "#PWR162")
 					(unit 1)
 				)
 			)
@@ -4160,7 +4347,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "af04b1a5-5a6c-5ac8-9582-e1f993b1dcea")
-		(property "Reference" "#PWR158"
+		(property "Reference" "#PWR163"
 			(at 190.5 125.73 0)
 			(hide yes)
 			(show_name no)
@@ -4209,7 +4396,7 @@
 		(instances
 			(project "fmu"
 				(path "/f394d34b-b328-5e81-bc0a-3e0521c1bfc4/b72775d5-d16a-5763-88ef-723aafdb1a59"
-					(reference "#PWR158")
+					(reference "#PWR163")
 					(unit 1)
 				)
 			)

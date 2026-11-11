@@ -12,14 +12,26 @@ Sources (KRR-006: nothing is copied from reference designs):
   architecture       docs/mimari-fmu.md §4
   power              docs/rapor/guc-ip03.md §8, G7-G10, G15-G18
   requirements       docs/gereksinimler/sistem.md (SYS-022/023/030...046/050/
-                     055...057/060...065/074/087/093), KRR-005...008
+                     055...057/060...065/074/087/093/095), KRR-005...008,
+                     KRR-011 (ALT rule), KRR-012 (AT32F435 + variants),
+                     KRR-013 (LSM6DSV16X)
+  target BOM         boards/fmu/bom-hedef.csv + docs/muadil.md §2, §6 (5th step,
+                     2026-11-13): TLV62569 3.3 V buck, USB load switch
+                     (docs/rapor/guc-tasarruf.md §3.2, §4, §7), B5819W,
+                     5 V FB 15 k / 2 k, R111 22 Ω; AT32 pin 31/47
+                     (docs/rapor/mcu-secimi.md §3, §4.3)
   symbols            KiCad 10 standard library (/usr/share/kicad/symbols,
-                     licence allows reuse) copied into lib/stack.kicad_sym;
-                     SY8303A, AT7456E, ICM-42688-P, DPS368 drawn from their
-                     data sheets
+                     licence allows reuse) copied into lib/stack.kicad_sym
+                     (AT32F435RGTx = KiCad STM32F405RGTx with pins 31/47
+                     renamed VCAP_1/PH3, VCAP_2/PH2); SY8303A, AT7456E,
+                     LSM6DSV16X (DS13510 Rev 4 Table 2), SPA06-003 (Goertek
+                     DS Ver2.0 Table 11) drawn from their data sheets
   footprints         KiCad 10 standard library copied into lib/stack.pretty
-  part numbers       JLCPCB / LCSC part API, 2026-11-11 (stock, price,
-                     temperature class); see boards/fmu/bom-revb.csv
+  part numbers       boards/fmu/bom-hedef.csv (JLCPCB / LCSC part API,
+                     2026-11-13); fields MPN / Manufacturer / LCSC, ALT MPN /
+                     ALT Manufacturer / ALT LCSC, ALT2 ..., ALT Note,
+                     Temperature, Critical, Exception, Procurement (same
+                     names as tools/esc55a_revb.py); BOM: tools/fmu_bom.py
 
 The FMU<->ESC 8 pin order lives in ESC_PINOUT (one table, İP-10 will confirm
 it against SpeedyBee F405 V4); change it there and rerun.
@@ -41,7 +53,7 @@ LIB = ROOT / "lib"
 KSYM = Path("/usr/share/kicad/symbols")
 KFP = Path("/usr/share/kicad/footprints")
 PROJECT = "fmu"
-DATE = "2026-11-11"
+DATE = "2026-11-13"
 NS = uuid.UUID("6b1f0c52-3c55-4d1e-9a51-6f6d75f40501")
 
 
@@ -134,10 +146,16 @@ LCSC_PDF = {
     "C720477": "0475ac02febf455ca9ddcfb380b0df0d", "C7827": "cbb5b11e6f66448a899553349c0f7b2e",
     "C78416": "583465af594625444c284b862ae2ab69", "C82351": "05e3e037fbf1dab52895a7a9e3a9c97c",
     "C89632": "a1390a51092e4f3c84866ab492516a00", "C9008": "a84bd8d530dd46e4b0f6d0ee59d8a89c",
+    "C8598": "4ac2c059be7c462694ab0715ce987a85", "C2128": "460cf88f750c4519b4ed435068ee729e",
+    "C30589048": "f11af3d36680da63e45f00c5b1db2c97", "C25756": "0a975aaa49b7c97f38a963127be4a823",
+    "C4109": "0a975aaa49b7c97f38a963127be4a823", "C25768": "0a975aaa49b7c97f38a963127be4a823",
+    "C25092": "0a975aaa49b7c97f38a963127be4a823",
 }
 LDS = "${KIPRJMOD}/../../../lib/datasheet/"
 LOCAL_DS = {
-    "C1337199": LDS + "STM32F405RGT6.pdf",   # same die / data sheet, T7 = 105 °C ordering code
+    "C15742": LDS + "STM32F405RGT6.pdf",     # STACKF405 variant of U201
+    "C141836": "https://www.ti.com/lit/ds/symlink/tlv62569.pdf",
+    "C5267406": "https://www.st.com/resource/en/datasheet/lsm6dsv16x.pdf",
     "C82351": LDS + "MAX7456_AT7456E.pdf",
     "C57254": LDS + "Sunlord-SWPA-series_SWPA3015S100MT_C45403.pdf",
     "C84608": LDS + "Sunlord-SWPA-series_SWPA3015S100MT_C45403.pdf",
@@ -163,16 +181,14 @@ FP = {
     "C1210": ("Capacitor_SMD", "C_1210_3225Metric"),
     "L0603": ("Inductor_SMD", "L_0603_1608Metric"),
     "LED0603": ("LED_SMD", "LED_0603_1608Metric"),
-    "SOD123F": ("Diode_SMD", "D_SOD-123F"),
+    "SOD123": ("Diode_SMD", "D_SOD-123"),
     "SOD323": ("Diode_SMD", "D_SOD-323"),
-    "SOD523": ("Diode_SMD", "D_SOD-523"),
     "SMB": ("Diode_SMD", "D_SMB"),
     "F1206": ("Fuse", "Fuse_1206_3216Metric"),
     "SOT23": ("Package_TO_SOT_SMD", "SOT-23"),
     "SOT23-5": ("Package_TO_SOT_SMD", "SOT-23-5"),
     "SOT23-6": ("Package_TO_SOT_SMD", "SOT-23-6"),
     "TSOT23-8": ("Package_TO_SOT_SMD", "TSOT-23-8"),
-    "SOT223": ("Package_TO_SOT_SMD", "SOT-223-3_TabPin2"),
     "LQFP64": ("Package_QFP", "LQFP-64_10x10mm_P0.5mm"),
     "SOIC8W": ("Package_SO", "SOIC-8_5.3x5.3mm_P1.27mm"),
     "HTSSOP28": ("Package_SO", "HTSSOP-28-1EP_4.4x9.7mm_P0.65mm_EP2.85x5.4mm"),
@@ -185,6 +201,7 @@ FP = {
     "SH8": ("Connector_JST", "JST_SH_SM08B-SRSS-TB_1x08-1MP_P1.00mm_Horizontal"),
     "SWPA6045": ("Inductor_SMD", "L_Sunlord_SWPA6045S"),
     "SWPA5040": ("Inductor_SMD", "L_Sunlord_SWPA5040S"),
+    "L2016": ("Inductor_SMD", "L_Murata_DFE201610P"),
     "BTN": ("Button_Switch_SMD", "SW_SPST_TS-1088-xR020"),
     "TP10": ("TestPoint", "TestPoint_Pad_D1.0mm"),
     "PAD15": ("TestPoint", "TestPoint_Pad_1.5x1.5mm"),
@@ -332,16 +349,30 @@ def build_symbols():
         "SW_Push": ("Switch", "SW_Push"), "Conn_01x04": ("Connector_Generic", "Conn_01x04"),
         "Conn_01x06": ("Connector_Generic", "Conn_01x06"), "Conn_01x08": ("Connector_Generic", "Conn_01x08"),
         "AO3401A": ("Transistor_FET", "AO3401A"), "AO3400A": ("Transistor_FET", "AO3400A"),
-        "AMS1117-3.3": ("Regulator_Linear", "AMS1117-3.3"), "USBLC6-2SC6": ("Power_Protection", "USBLC6-2SC6"),
+        "MMBT3904": ("Transistor_BJT", "MMBT3904"),
+        "TLV62569DBV": ("Regulator_Switching", "TLV62569DBV"), "USBLC6-2SC6": ("Power_Protection", "USBLC6-2SC6"),
         "USB_C_Receptacle_USB2.0_16P": ("Connector", "USB_C_Receptacle_USB2.0_16P"),
-        "74LVC1G04": ("74xGxx", "74LVC1G04"), "STM32F405RGTx": ("MCU_ST_STM32F4", "STM32F405RGTx"),
-        "W25Q128JVS": ("Memory_Flash", "W25Q128JVS"),
+        "74LVC1G04": ("74xGxx", "74LVC1G04"), "W25Q128JVS": ("Memory_Flash", "W25Q128JVS"),
     }
-    fpd = {"AO3401A": "SOT23", "AO3400A": "SOT23", "AMS1117-3.3": "SOT223", "USBLC6-2SC6": "SOT23-6",
-           "USB_C_Receptacle_USB2.0_16P": "USBC", "74LVC1G04": "SOT23-5", "STM32F405RGTx": "LQFP64",
+    fpd = {"AO3401A": "SOT23", "AO3400A": "SOT23", "MMBT3904": "SOT23", "TLV62569DBV": "SOT23-5",
+           "USBLC6-2SC6": "SOT23-6", "USB_C_Receptacle_USB2.0_16P": "USBC", "74LVC1G04": "SOT23-5",
            "W25Q128JVS": "SOIC8W"}
     for name, (lib, src) in k.items():
         SYMBOLS[name] = ksymbol(lib, src, name, fpname(fpd[name]) if name in fpd else None)
+    # MCU (KRR-012): KiCad STM32F405RGTx, pins 31/47 carry both names. AT32F435RGT7 has PH3/PH2 there
+    # (AT32F435/437 DS v2.01 pin table, LQFP64 31 PH3, 47 PH2); STM32F405RG / APM32F405RG VCAP_1/VCAP_2.
+    blk = ksymbol("MCU_ST_STM32F4", "STM32F405RGTx", "AT32F435RGTx", fpname("LQFP64"))
+    for old, new in (("VCAP_1", "VCAP_1/PH3"), ("VCAP_2", "VCAP_2/PH2")):
+        assert blk.count(f'(name "{old}"') == 1
+        blk = blk.replace(f'(name "{old}"', f'(name "{new}"')
+    blk = set_prop(blk, "Value", "AT32F435RGTx")
+    blk = set_prop(blk, "Datasheet", "https://www.lcsc.com/product-detail/C3029577.html")
+    blk = set_prop(blk, "Description",
+                   "Artery AT32F435RGT7 Arm Cortex-M4F 288 MHz, 1 MB flash, 384 KB RAM, LQFP64; same footprint "
+                   "and pins as STM32F405RG / APM32F405RG except pin 31 VCAP_1/PH3, pin 47 VCAP_2/PH2 "
+                   "(derived from KiCad STM32F405RGTx, mcu-secimi §3.1)")
+    blk = set_prop(blk, "ki_keywords", "Arm Cortex-M4 AT32F435 STM32F405 APM32F405")
+    SYMBOLS["AT32F435RGTx"] = blk
     for net in RAILS:
         SYMBOLS[net] = power_sym(net)
     existing_symbol("PWR_FLAG")
@@ -363,20 +394,22 @@ def build_symbols():
                (28, "NC", NCT)],
         top=[(3, "DVDD", PW), (21, "AVDD", PW), (24, "PVDD", PW)],
         bottom=[(4, "DGND", PW), (20, "AGND", PW), (23, "PGND", PW), (29, "EP", PS)], width=17.78)
-    SYMBOLS["ICM-42688-P"] = box_symbol(
-        "ICM-42688-P", "U", fpname("LGA14"),
-        "TDK InvenSense ICM-42688-P 6-axis IMU, LGA-14 2.5x3 (DS-000347 rev 1.2 §4.1)",
-        left=[(12, "AP_CS", PI), (13, "AP_SCLK", PI), (14, "AP_SDI", PI), (1, "AP_SDO", PO)],
-        right=[(4, "INT1", PO), (9, "INT2/FSYNC", PI), None, (2, "RESV", PS), (3, "RESV", PS), (10, "RESV", PS),
-               (11, "RESV", PS)],
-        top=[(8, "VDD", PW), (5, "VDDIO", PW)],
-        bottom=[(6, "GND", PW), (7, "RESV", PS)], width=17.78)
-    SYMBOLS["DPS368"] = box_symbol(
-        "DPS368", "U", fpname("LGA8"),
-        "Infineon DPS368 barometer (DPS310 pin/register compatible), VLGA-8 2.0x2.5 (DS v1.1 Table 2)",
-        left=[(2, "CSB", PI), (4, "SCK", PI), (3, "SDI", BI), (5, "SDO", BI)],
+    SYMBOLS["LSM6DSV16X"] = box_symbol(
+        "LSM6DSV16X", "U", fpname("LGA14"),
+        "ST LSM6DSV16X 6-axis IMU, LGA-14L 2.5x3x0.83 (DS13510 Rev 4 §3 Fig. 5, Table 2); same pinout "
+        "LSM6DSK320X (DB5732 Rev 1 Table 1)",
+        left=[(12, "CS", PI), (13, "SCL/SPC", PI), (14, "SDA/SDI", BI), (1, "SDO/SA0", PO)],
+        right=[(4, "INT1", PO), (9, "INT2", PO), None, (2, "SDx", PS), (3, "SCx", PS), (10, "OCS_Aux", PS),
+               (11, "SDO_Aux", PS)],
+        top=[(8, "Vdd", PW), (5, "Vdd_IO", PW)],
+        bottom=[(6, "GND", PW), (7, "GND", PW)], width=17.78)
+    SYMBOLS["SPA06-003"] = box_symbol(
+        "SPA06-003", "U", fpname("LGA8"),
+        "Goertek SPA06-003 barometer, LGA-8 2.0x2.5 P0.65 (DS Ver2.0 §8.1 Table 11); same pinout "
+        "Tokmas DPS368 / Infineon DPS368",
+        left=[(2, "CSB", PI), (4, "SCK", PI), (3, "SDA", BI), (5, "SDO", BI)],
         top=[(8, "VDD", PW), (6, "VDDIO", PW)],
-        bottom=[(1, "GND", PW), (7, "GND", PS)], width=12.7)
+        bottom=[(1, "GND", PW), (7, "GND", PW)], width=12.7)
 
 
 def lib_pins(name):
@@ -446,17 +479,36 @@ T_C0G = "C0G -55…+125 °C (EIA)"
 PARTS = {}
 
 
-def part(ref, sym, value, fpkey, lcsc, mpn, mfr, temp, desc="", dnp=False, bom=True, alt=None, extra=None):
+# Field names and order as tools/esc55a_revb.py (hedef BOM, KRR-011)
+ALT_FIELDS = ("ALT MPN", "ALT Manufacturer", "ALT LCSC", "ALT2 MPN", "ALT2 Manufacturer", "ALT2 LCSC", "ALT Note")
+TAIL_FIELDS = ("Temperature", "Critical", "Exception", "Procurement")
+
+
+def ALT(mpn, mfr, lcsc, note="", alt2=None):
+    """ALT fields (boards/fmu/bom-hedef.csv alt_mpn / alt_uretici / alt_lcsc; ALT2 from drop_in_kaniti)."""
+    d = {"ALT MPN": mpn, "ALT Manufacturer": mfr, "ALT LCSC": lcsc, "ALT Note": note}
+    if alt2:
+        d.update(zip(("ALT2 MPN", "ALT2 Manufacturer", "ALT2 LCSC"), alt2))
+    return {k: v for k, v in d.items() if v}
+
+
+def part(ref, sym, value, fpkey, lcsc, mpn, mfr, temp, desc="", dnp=False, bom=True, alt=None, extra=None,
+         crit=False, exc="", proc=""):
+    assert ref not in PARTS, f"duplicate reference {ref}"
+    assert re.fullmatch(r"(U|C|R|L|D|Q|J|F|Y|FB|SW|SJ|TP)[1-5]\d\d", ref), f"reference {ref} not 1xx…5xx"
     PARTS[ref] = dict(sym=sym, value=value, fp=fpname(fpkey) if fpkey else "", lcsc=lcsc, mpn=mpn, mfr=mfr,
-                      temp=temp, desc=desc, dnp=dnp, bom=bom, alt=alt or {}, extra=extra or {}, ds=datasheet(lcsc))
+                      temp=temp, desc=desc, dnp=dnp, bom=bom, alt=alt or {}, extra=extra or {}, ds=datasheet(lcsc),
+                      crit=crit, exc=exc, proc=proc)
 
 
 RES = {  # value -> (lcsc, mpn, footprint)
-    "10": ("C25077", "0402WGF100JTCE", "R0402"), "75": ("C25133", "0402WGF750JTCE", "R0402"),
+    "75": ("C25133", "0402WGF750JTCE", "R0402"),
     "100": ("C25076", "0402WGF1000TCE", "R0402"), "1k": ("C11702", "0402WGF1001TCE", "R0402"),
     "2.2k": ("C25879", "0402WGF2201TCE", "R0402"), "5.1k": ("C25905", "0402WGF5101TCE", "R0402"),
     "7.15k": ("C270586", "0402WGF7151TCE", "R0402"), "10k": ("C25744", "0402WGF1002TCE", "R0402"),
-    "13.7k": ("C25854", "0402WGF1372TCE", "R0402"), "100k": ("C25741", "0402WGF1003TCE", "R0402"),
+    "15k": ("C25756", "0402WGF1502TCE", "R0402"), "2k": ("C4109", "0402WGF2001TCE", "R0402"),
+    "22k": ("C25768", "0402WGF2202TCE", "R0402"), "22": ("C25092", "0402WGF220JTCE", "R0402"),
+    "100k": ("C25741", "0402WGF1003TCE", "R0402"),
     "200k": ("C25764", "0402WGF2003TCE", "R0402"), "10k 0.5%": ("C407753", "0402WGD1002TCE", "R0402"),
 }
 
@@ -477,11 +529,9 @@ CAPS = {  # value -> (lcsc, mpn, manufacturer, footprint, temp)
     "100nF 16V": ("C1525", "CL05B104KO5NNNC", "Samsung", "C0402", T_X7R),
     "100nF 50V": ("C307331", "CL05B104KB54PNC", "Samsung", "C0402", T_X7R),
     "100nF 50V 0603": ("C14663", "CC0603KRX7R9BB104", "YAGEO", "C0603", T_X7R),
-    "10nF 50V": ("C1524", "0402B103K500NT", "FH", "C0402", T_X7R),
     "18pF C0G": ("C1549", "0402CG180J500NT", "FH", "C0402", T_C0G),
-    "1uF 16V": ("C49210445", "TCC0402X7R105K160AT", "CCTC", "C0402", T_X7R),
+    "22pF C0G": ("C1555", "0402CG220J500NT", "FH", "C0402", T_C0G),
     "2.2uF 16V": ("C5360821", "TCC0603X7R225K160CT", "CCTC", "C0603", T_X7R),
-    "4.7uF 16V": ("C107365", "CL21B475KOFNNNE", "Samsung", "C0805", T_X7R),
     "10uF 16V": ("C380347", "TCC0805X7R106K160FT", "CCTC", "C0805", T_X7R),
     "10uF 50V": ("C89632", "CL31B106KBHNNNE", "Samsung", "C1206", T_X7R),
     "22uF 16V": ("C5252682", "CS3216X7R226K160NRI", "Samwha", "C1206", T_X7R),
@@ -508,41 +558,54 @@ def define_parts():
     TP("J102", "BAT-", "PAD25", "Pil − lehim pedi (GND), 22 AWG")
     part("F101", "Fuse", "5A 32V", "F1206", "C163128", "CFS12V3T5R0", "TA-I Tech", "-20…+105 °C (LCSC)",
          "Hızlı sigorta 5 A, 32 V DC, kesme 50 A (guc-ip03 §8.1). 3S tam yük 3.0 A = %60",
+         alt=ALT("0466005.NRHF", "Littelfuse", "C57525", "1206, 5 A, 32 V, kesme 50 A, −55…90 °C (TA-I CFS12 DS / "
+                 "Littelfuse 0466 DS)"), crit=True,
          extra={"8S": V8S + "≥ 50 V DC sigorta, aynı 1206 ayak izi aranacak (bom-tedarik)"})
-    part("Q101", "AO3401A", "AO3401A", "SOT23", "C15127", "AO3401A", "Alpha & Omega", "T_J -55…+150 °C (DS)",
-         "Ters kutup P-MOS: D pil (F101) tarafında, S VIN'de (G8). V_DS -30 V ≥ 26.1 V (SYS-074). 3S tam yükte 0.45 W "
-         "→ ped yolu (G16) veya JSM7409 (DFN3.3, ayrı ayak izi)",
-         alt={"ALT MPN": "JSM7409 (3S tam yük; DFN3.3x3.3, ayak izi farklı)", "ALT LCSC": "C2874717"},
-         extra={"8S": V8S + "-40…-60 V P-MOS (aday seçilecek)"})
+    ao3401 = dict(lcsc="C15127", mpn="AO3401A", mfr="Alpha & Omega Semicon", temp="T_J -55…+150 °C (DS)",
+                  alt=ALT("AO3401A", "UMW(Youtai Semiconductor Co., Ltd.)", "C347476",
+                          "SOT-23 1 G 2 S 3 D, −30 V, 50 mΩ @10 V (AOS DS / UMW DS)"), crit=True)
+    part("Q101", "AO3401A", "AO3401A", "SOT23",
+         desc="Ters kutup P-MOS: D pil (F101) tarafında, S VIN'de (G8). V_DS -30 V ≥ 26.1 V (SYS-074). 3S tam yükte "
+              "0.45 W → ped yolu (G16); JSM7409 (DFN3.3) ayak izi farklı, ALT değil",
+         extra={"8S": V8S + "-40…-60 V P-MOS (aday seçilecek)"}, **ao3401)
     part("D101", "D_Zener", "10V", "SOD323", "C42370498", "MM3Z10VT1G-TP", "TECH PUBLIC", "T_J -55…+150 °C (LCSC)",
          "Q101 V_GS kıskacı: K = S (VIN), A = G; |V_GS| ≤ 10.6 V < 12 V",
-         alt={"ALT MPN": "MM3Z10VT1G (onsemi)", "ALT LCSC": "C39057"})
+         alt=ALT("MM3Z10VT1G", "onsemi", "C39057"))
     R("R101", "100k", "Q101 kapı → GND (açılış); zener akımı (35-10)/100k = 0.25 mA")
     part("D102", "D_TVS", "SMBJ24CA", "SMB", "C78416", "SMBJ24CA", "Brightking", "T_J -55…+150 °C (DS)",
          "VIN geçici bastırıcı, çift yönlü, V_RWM 24 V, V_BR ≥ 26.7 V, V_C 38.9 V < 40 V (SYS-044)",
-         extra={"8S": V8S + "SMBJ36CA sınıfı (V_C ≈ 58 V, 60 V buck ile)"})
+         alt=ALT("SMBJ24CA", "Littelfuse", "C83268", "SMB, V_C 38.9 V @15.5 A < 40 V (Brightking / Littelfuse DS)"),
+         crit=True, extra={"8S": V8S + "SMBJ36CA sınıfı (V_C ≈ 58 V, 60 V buck ile)"})
     for ref in ("C101", "C102"):
         C(ref, "10uF 50V", "VIN, her SY8303 IN pinine yakın (≥ 4.7 µF, DS)",
           extra={"8S": V8S + "63-100 V 1206/1210 X7R"})
     C("C103", "100nF 50V 0603", "VIN giriş HF", extra={"8S": V8S + "100 V"})
     C("C104", "100nF 50V", "U101 IN HF")
     C("C105", "100nF 50V", "U102 IN HF")
-    sy = dict(lcsc="C2937216", mpn="SY8303AAIC", mfr="Silergy", temp="T_A -40…+105 °C, T_J 150 °C (DS, LCSC)")
-    part("U101", "SY8303A", "SY8303AAIC", "TSOT23-8", desc="5 V / 2 A BEC (G7). VFB 0.600 V ±1.5 %; "
-         "Vout = 0.6 × (1 + 100k/13.7k) = 4.98 V; RFS 200k → 500 kHz",
+    sy = dict(lcsc="C2937216", mpn="SY8303AAIC", mfr="Silergy Corp", temp="T_A -40…+105 °C, T_J 150 °C (DS, LCSC)",
+              alt=ALT("SY8303AIC", "Silergy Corp", "C97054",
+                      "Aynı pin (FB, FS, GND, GND, IN, LX, BS, EN), V_REF 0.591–0.609 V, F_SW = 105/R_FS "
+                      "(SY8303A DS s.1–4 / SY8303AIC DS s.1–3)"),
+              crit=True, exc="İSTİSNA (tek üretici Silergy): FS pinli TSOT-23-8 40 V 3 A başka üretici yok; ALT farklı "
+                             "sipariş kodu (muadil §3 İ4)",
+              proc="İsteğe bağlı 220 adet peşin alım (muadil §4); stok izleme")
+    part("U101", "SY8303A", "SY8303AAIC", "TSOT23-8", desc="5 V / 2 A BEC (G7, B4). VFB 0.600 V ±1.5 %; "
+         "Vout = 0.6 × (1 + 15k/2k) = 5.10 V (+5V_BUCK, Q102 yük anahtarından önce); RFS 200k → 500 kHz",
          extra={"8S": V8S + "60-65 V buck (TPS54360B / LMR16030 / MP9486A), ayak izi farklı → PCB yer payı"}, **sy)
     part("U102", "SY8303A", "SY8303AAIC", "TSOT23-8", desc="9 V / 1.5 A BEC (G7). Vout = 0.6 × (1 + 100k/7.15k) = "
          "8.99 V; EN ← PB11 PINIO1 (yüksek = açık, 100k çekme ile varsayılan açık)",
          extra={"8S": V8S + "60-65 V buck, U101 ile aynı"}, **sy)
     R("R102", "100k", "U101 EN → VIN (her zaman açık; EN mutlak 40 V)")
     R("R103", "200k", "U101 FS: 500 kHz")
-    R("R104", "100k", "U101 FB üst")
-    R("R105", "13.7k", "U101 FB alt → 4.98 V")
+    R("R104", "15k", "U101 FB üst (+5V_BUCK) — B4 (guc-tasarruf §4)")
+    R("R105", "2k", "U101 FB alt → 5.10 V (en kötü 4.94–5.27 V, RSS 4.98–5.22 V; guc-tasarruf §4)")
     C("C106", "100nF 16V", "U101 BS-LX")
     part("L101", "L", "6.8uH", "SWPA6045", "C57254", "SWPA6045S6R8MT", "Sunlord", "-40…+125 °C öz ısınma dahil (DS)",
-         "5 V bobini: I_sat 4.3 A, I_rms 3 A, 31 mΩ; tepe 2.6 A (%60) (G10)")
-    C("C107", "22uF 16V", "+5V çıkış")
-    C("C108", "22uF 16V", "+5V çıkış")
+         "5 V bobini: I_sat 4.3 A, I_rms 3 A, 31 mΩ; tepe 2.6 A (%60) (G10)",
+         alt=ALT("FNR6045S6R8MT", "cjiang (Changjiang Microelectronics Tech)", "C168072",
+                 "6×6, 6.8 µH, I_sat 4.3 A, 40 mΩ (Sunlord SWPA DS / cjiang FNR DS s.1)"), crit=True)
+    C("C107", "22uF 16V", "+5V_BUCK çıkış (buck tarafı, FB burada — döngü değişmez)")
+    C("C108", "22uF 16V", "+5V_BUCK çıkış")
     R("R106", "100k", "EN_9V → +3V3: MCU sıfırda 9 V açık (PINIO1 varsayılanı)")
     R("R107", "1k", "PB11 → EN_9V seri koruma")
     R("R108", "200k", "U102 FS: 500 kHz")
@@ -550,17 +613,43 @@ def define_parts():
     R("R110", "7.15k", "U102 FB alt → 8.99 V")
     C("C109", "100nF 16V", "U102 BS-LX")
     part("L102", "L", "10uH", "SWPA5040", "C84608", "SWPA5040S100MT", "Sunlord", "-40…+125 °C öz ısınma dahil (DS)",
-         "9 V bobini: I_sat 2.9 A, I_rms 2.1 A, 83 mΩ; tepe %72 (G10)")
+         "9 V bobini: I_sat 2.9 A, I_rms 2.1 A, 83 mΩ; tepe %72 (G10)",
+         alt=ALT("FNR5040S100MT", "cjiang (Changjiang Microelectronics Tech)", "C167967",
+                 "KOŞULLU: 5×5, 10 µH, 83 mΩ; FNR5040 I_sat 2.35/2.7 A teyit edilecek (tepe 2.09 A)"), crit=True)
     C("C110", "22uF 25V", "+9V çıkış")
     C("C111", "22uF 25V", "+9V çıkış")
-    part("U103", "AMS1117-3.3", "AMS1117-3.3", "SOT223", "C6186", "AMS1117-3.3", "Advanced Monolithic Systems",
-         "-40…+125 °C (LCSC)", "3.3 V LDO, 240 mA (%24), 0.43 W (G9)",
-         alt={"ALT MPN": "AMS1117-3.3 (UMW)", "ALT LCSC": "C347222"})
-    C("C112", "10uF 16V", "U103 giriş")
-    C("C113", "22uF 16V", "U103 çıkış (DS: ≥ 22 µF)")
-    R("R111", "10", "IMU besleme süzgeci (G9, SYS-042)")
-    C("C114", "2.2uF 16V", "IMU süzgeci: 10 Ω × 2.2 µF → 7.2 kHz (ICM-42688-P DS Şekil 5: VDD 2.2 µF; listede 1 µF)")
-    C("C115", "100nF 16V", "+3V3_IMU HF")
+    # USB load switch (guc-tasarruf §3.2): R_a = R117, R_b = R118 in bom-hedef.csv
+    part("Q102", "AO3401A", "AO3401A", "SOT23",
+         desc="5 V yük anahtarı (guc-tasarruf §3.2): D (3) = +5V_BUCK, S (2) = +5V rayı; gövde diyodu buck → ray "
+              "iletir, ray → buck bloke eder → yalnız USB'de VIN = 0 V. 2 A'da 0.12 V, 0.24 W", **ao3401)
+    part("Q103", "MMBT3904", "MMBT3904", "SOT23", "C20526", "MMBT3904(RANGE:100-300)",
+         "Jiangsu Changjing Electronics Technology Co., Ltd.", "T_J -55…+150 °C (LCSC)",
+         "Q102 kapı sürücü: C = Q102.G, E = GND, B ← R118 ← VIN; VIN ≥ 1.5 V → Q102 açık (V_GS ≈ −5 V)",
+         alt=ALT("MMBT3904LT1G", "onsemi", "C81464", "SOT-23 1 B 2 E 3 C, 40 V (CJ / onsemi DS)"))
+    R("R117", "100k", "R_a (bom-hedef): Q102 G–S (+5V), anahtarı kapalı tutar")
+    R("R118", "100k", "R_b (bom-hedef): VIN → Q103 baz; I_B 83 µA @3S, 0.34 mA @35 V")
+    # 3.3 V buck (guc-tasarruf §7.2): R_FB3V3H = R119, R_FB3V3L = R120 in bom-hedef.csv
+    part("U103", "TLV62569DBV", "TLV62569DBVR", "SOT23-5", "C141836", "TLV62569DBVR", "Texas Instruments",
+         "T_J -40…+125 °C (DS SLVSDG1C)",
+         "3.3 V senk. buck 2 A, 1.5 MHz, V_IN 2.5–5.5 V; 1 EN 2 GND 3 SW 4 VIN 5 FB; V_FB 0.6 V → "
+         "0.6 × (1 + 100k/22k) = 3.327 V (3.21–3.45 V); yük ≈ 240 mA + AT32 payı (guc-tasarruf §7, mcu-secimi §4.3-8)",
+         alt=ALT("SY8089A1AAC", "Silergy Corp", "C479074",
+                 "SOT-23-5 1 EN 2 GND 3 LX 4 IN 5 FB (TLV62569 SLVSDG1C §5 / SY8089A1 DS s.1); V_FB 0.6 V; aynı "
+                 "2.2 µH + 22 µF + 100 k/22 k (guc-tasarruf §7.2)"), crit=True)
+    part("L103", "L", "2.2uH", "L2016", "C97005", "WPN201610H2R2MT", "Sunlord", "-40…+125 °C (LCSC)",
+         "3.3 V buck bobini 2.2 µH, I_sat 2.15 A, I_r 1.45 A, 170 mΩ; tepe 0.48 A (%23). Ayak izi KiCad "
+         "DFE201610P (2016) — Sunlord WPN ped kesişimi pcb-muhendisi",
+         alt=ALT("DFE201612P-2R2M=P2", "Murata Electronics", "C79317",
+                 "2.0×1.6 mm, 2.2 µH, I_sat 2.15/2.1 A (Sunlord WPN DS / Murata DFE201612P DS; ped kesişimi pcb)"),
+         crit=True)
+    C("C112", "10uF 16V", "U103 C_IN (VIN pinine yakın)")
+    C("C113", "22uF 16V", "U103 C_OUT (3.3 V'ta ≈ 15 µF etkin; TI ve SY tablolarının kesişimi)")
+    R("R119", "100k", "R_FB3V3H (bom-hedef): U103 FB üst")
+    R("R120", "22k", "R_FB3V3L (bom-hedef): U103 FB alt → 3.327 V")
+    C("C119", "22pF C0G", "C_FF pedi, DNP (TI 6.8 pF / SY 22 pF isteğe bağlı; guc-tasarruf §7.2)", dnp=True)
+    R("R111", "22", "IMU besleme süzgeci 22 Ω × 2.2 µF → 3.3 kHz (guc-tasarruf §7.3, SYS-042)")
+    C("C114", "2.2uF 16V", "IMU süzgeci +3V3_IMU toplu (R111 ile f_c 3.3 kHz)")
+    C("C115", "100nF 16V", "LSM6DSV16X Vdd_IO (pin 5) C2 100 nF — pin 5'e yakın (DS13510 §7.1)")
     R("R112", "140k 0.5%", "VBAT bölücü üst: 15:1, tam ölçek 49.5 V (SYS-022, ≥ 45 V)")
     R("R113", "10k 0.5%", "VBAT bölücü alt")
     C("C116", "100nF 16V", "ADC_VBAT süzgeci (PC0)")
@@ -578,37 +667,56 @@ def define_parts():
     TP("TP105", "GND", desc="Test noktası GND")
 
     # ------------------------------------------------------------------ mcu
-    part("U201", "STM32F405RGTx", "STM32F405RGT6", "LQFP64", "C15742", "STM32F405RGT6", "STMicroelectronics",
-         "T_A -40…+85 °C (sipariş kodu 6, DS) — müşteri istisnası 2026-11-11 (KRR-008: FMU MCU muaf)",
-         "FMU MCU, LQFP64, HSE 8 MHz (SYS-030, KRR-005, KRR-008)",
-         alt={"ALT MPN": "STM32F405RGT7 (105 °C, stok yetersiz)", "ALT LCSC": "C1337199"})
+    part("U201", "AT32F435RGTx", "AT32F435RGT7", "LQFP64", "C3029577", "AT32F435RGT7", "ARTERY",
+         "−40…85 °C @288 MHz (DS Tablo 16; 105 °C yalnız ≤ 240 MHz); varyantlar STM32F405RGT6 / APM32F405RGT6 "
+         "−40…85 °C (KRR-008 FMU MCU muaf)",
+         "FMU MCU, LQFP64, HSE 8 MHz (SYS-030, KRR-012). Pin 31 VCAP_1/PH3, 47 VCAP_2/PH2: AT32'de G/Ç, "
+         "STM32/APM32'de VCAP; VCAP 2.2 µF her varyantta takılı. Her MCU ayrı yazılım derlemesi (SYS-095 d)",
+         alt=ALT("AT32F435RMT7", "ARTERY", "C5178940",
+                 "Aynı aile, pin birebir (mcu-secimi §1), ayrı derleme AT32F435M, stok 128 < 200. Farklı üretici "
+                 "muadil = Variant alanı (STM32F405RGT6 C15742, APM32F405RGT6 C5290473; 62/64 pin aynı, "
+                 "31/47 VCAP↔PH3/PH2, mcu-secimi §3.1–3.2)"),
+         crit=True,
+         exc="MCU istisnası SYS-095 (d), KRR-012: varyant başına ayrı derleme; RMT7 stok 128 < 200 (muadil §3 İ2)",
+         proc="200 adet peşin alım (İ2: 2 × 100 set, 160 kademesi; muadil §4)",
+         extra={"Variant": "STACKF435 (ana): AT32F435RGT7 C3029577 · STACKF405 (ArduPilot): STM32F405RGT6 C15742 · "
+                           "STACKF405A (tedarik krizi): APM32F405RGT6 C5290473 — PCB/pasifler aynı, MCU türü ipek "
+                           "baskı kutusunda (F435/F405/A405)"})
     for ref in ("C201", "C202", "C203", "C204"):
         C(ref, "100nF 16V", "VDD dekuplaj (pin 19/32/48/64)")
-    C("C205", "4.7uF 16V", "VDD toplu")
+    C("C205", "10uF 16V", "VDD toplu (§10 A5; 4.7 µF yerine)")
     part("FB201", "FerriteBead_Small", "600R@100MHz", "L0603", "C1002", "GZ1608D601TF", "Sunlord",
-         "-55…+125 °C (LCSC)", "VDDA süzgeci (pin 13)")
-    C("C206", "1uF 16V", "VDDA")
+         "-55…+125 °C (LCSC)", "VDDA süzgeci (pin 13). AT32: VDDA = VDD şart (DS Tablo 15) — ferrit DC düşümü ihmal")
+    C("C206", "2.2uF 16V", "VDDA (§10 A4; 1 µF yerine)")
     C("C207", "100nF 16V", "VDDA")
-    C("C208", "2.2uF 16V", "VCAP_1 (pin 31), düşük ESR (DS)")
-    C("C209", "2.2uF 16V", "VCAP_2 (pin 47), düşük ESR (DS)")
+    C("C208", "2.2uF 16V", "Pin 31 VCAP_1 (STM32/APM32), düşük ESR; AT32'de PH3 G/Ç — kondansatör zararsız, her "
+                           "varyantta takılı (mcu-secimi §3.2, KRR-012)")
+    C("C209", "2.2uF 16V", "Pin 47 VCAP_2 (STM32/APM32), düşük ESR; AT32'de PH2 G/Ç — kondansatör zararsız, her "
+                           "varyantta takılı (mcu-secimi §3.2, KRR-012)")
     C("C210", "100nF 16V", "NRST")
     R("R201", "10k", "BOOT0 → GND")
     part("SW201", "SW_Push", "BOOT", "BTN", "C720477", "TS-1088-AR02016", "XUNPU",
-         "-30…+80 °C (LCSC) — 105 °C istisnası (SYS-087): yalnız açılışta basılır", "BOOT0 → 3V3, DFU (SYS-055)")
+         "-30…+80 °C (LCSC) — 85 °C istisnası (SYS-087): yalnız açılışta basılır", "BOOT0 → 3V3, DFU (SYS-055); "
+         "AT32 ROM DFU da BOOT0 = 1, BOOT1 = 0")
     R("R202", "10k", "PB2/BOOT1 → GND")
     part("Y201", "Crystal_GND24", "8MHz", "XTAL3225", "C5179501", "XC32M4-8.000-F12LGDWL", "HCI",
-         "-40…+105 °C (LCSC)", "HSE 8 MHz, CL 12 pF, ESR ≤ 100 Ω (SYS-050)")
+         "-40…+105 °C (LCSC)", "HSE 8 MHz, CL 12 pF, ESR ≤ 100 Ω (SYS-050). Betaflight AT32 saati 8 MHz'e sabit "
+         "(pll_ns 72, pll_ms 1) — DEĞİŞTİRME (mcu-secimi §0-7, KRR-012)",
+         alt=ALT("3X008000BP", "huaxindianzi", "C19723344",
+                 "3225-4P, 8 MHz, CL 12 pF, ESR 60 Ω ≤ 100 Ω, −40…85 °C (HCI XC32M4 DS s.1 / huaxin 3X DS; "
+                 "pin 1-3 kristal, 2-4 GND pcb teyit)"), crit=True)
     C("C211", "18pF C0G", "HSE yük: 2 × (12 - 3) pF")
     C("C212", "18pF C0G", "HSE yük")
-    part("D201", "LED", "RED", "LED0603", "C2286", "KT-0603R", "Hubei KENTO", "-40…+85 °C (LCSC) — 85 °C istisnası",
+    part("D201", "LED", "RED", "LED0603", "C2286", "KT-0603R", "Hubei KENTO Elec", "-40…+85 °C (LCSC)",
          "LED0 durum (PC13 batırır, ≈ 1.3 mA ≤ 3 mA)")
     R("R203", "1k", "LED0 akım")
-    part("Q201", "AO3400A", "AO3400A", "SOT23", "C20917", "AO3400A", "Alpha & Omega", "T_J -55…+150 °C (LCSC)",
+    part("Q201", "AO3400A", "AO3400A", "SOT23", "C20917", "AO3400A", "Alpha & Omega Semicon", "T_J -55…+150 °C (LCSC)",
          "Buzzer sürücü (PC15, BEEPER_INVERTED: yüksek = öter)")
     R("R204", "100", "Q201 kapı seri")
     R("R205", "100k", "Q201 kapı → GND")
-    part("D202", "D", "1N4148WT", "SOD523", "C27748", "1N4148WT", "ST(Semtech)", "T_J -65…+150 °C (LCSC)",
-         "Buzzer serbest geçiş diyodu")
+    part("D202", "D", "1N4148WS", "SOD323", "C2128", "1N4148WS", "Jiangsu Changjing Electronics Technology Co., Ltd.",
+         "T_J 150 °C (CJ DS)", "Buzzer serbest geçiş diyodu (§10 A; 1N4148WT SOD-523 yerine, basic)",
+         alt=ALT("1N4148WS", "Yangzhou Yangjie Elec Tech", "C389058"))
     TP("J201", "BZ+", "PAD15", "Buzzer + pedi (+5V)")
     TP("J202", "BZ-", "PAD15", "Buzzer − pedi")
     TP("TP201", "SWDIO", desc="SWD pedi Ø1.0 (SYS-057)")
@@ -618,69 +726,101 @@ def define_parts():
     TP("TP205", "3V3", desc="SWD pedi Ø1.0 (SYS-057)")
 
     # -------------------------------------------------------------- sensors
-    part("U301", "ICM-42688-P", "ICM-42688-P", "LGA14", "C54308212", "ICM-42688-P(TOKMAS)", "Tokmas",
-         "-40…+85 °C (DS) — 85 °C istisnası: 105 °C IMU yok (KRR-008)", "IMU SPI1, CS PA4, INT1 PC4 (SYS-031)",
-         alt={"ALT MPN": "ICM-42688-P (TDK, stok 31)", "ALT LCSC": "C1850418"})
-    C("C301", "100nF 16V", "IMU VDD (DS C1)")
-    C("C302", "10nF 50V", "IMU VDDIO (DS C3)")
-    part("U302", "DPS368", "DPS368XTSA1", "LGA8", "C3232508", "DPS368XTSA1", "Infineon",
-         "-40…+85 °C (DS) — 85 °C istisnası: BF + AP sürücülü 105 °C baro yok", "Baro I2C1 0x76 (SDO → GND), "
-         "Betaflight barometer_dps310 + ArduPilot AP_Baro_DPS280 (SYS-032)",
-         alt={"ALT MPN": "DPS368XTSA1(TOKMAS)", "ALT LCSC": "C55090144"})
-    C("C303", "100nF 16V", "Baro VDD/VDDIO")
-    R("R301", "100k", "Baro SDO → GND: adres 0x76 (DS Tablo 11 R3)")
+    part("U301", "LSM6DSV16X", "LSM6DSV16XTR", "LGA14", "C5267406", "LSM6DSV16XTR", "STMicroelectronics",
+         "-40…+85 °C (DS13510 §4 T_op) — FMU ≥ 85 °C ✓ (SYS-087)",
+         "IMU SPI1 4 telli (mod 1), CS PA4, INT1 PC4 (SYS-031, KRR-013); WHO_AM_I 0x70. SDx/SCx → GND, "
+         "INT2/OCS_Aux/SDO_Aux boş (lehimli), Vdd/Vdd_IO 100 nF (DS Tablo 2, §7.1)",
+         alt=ALT("LSM6DSK320XTR", "STMicroelectronics", "C53025794",
+                 "KOŞULLU ALT — yalnız STACKF435, Betaflight ≥ 2026.6 (config'te USE_ACCGYRO_LSM6DSK320X) / INAV ≥ 9.1; "
+                 "ArduPilot kararlı sürümde yok → STACKF405'te dizilmez. Pin 1–14 ve LGA-14L 2.5×3×0.83 aynı "
+                 "(LSM6DSV16X DS13510 §3 / LSM6DSK320X DB5732 Tablo 1); WHO_AM_I 0x75 (muadil §2.1)"),
+         crit=True, exc="Koşullu: ALT aynı üretici (ST, farklı üretici yok) ve yazılım sürümü şartlı (muadil §3)",
+         proc="İsteğe bağlı 110 adet peşin alım (muadil §4)")
+    C("C301", "100nF 16V", "LSM6DSV16X Vdd (pin 8) C1 100 nF — pin 8'e yakın (DS13510 §7.1)")
+    part("U302", "SPA06-003", "SPA06-003", "LGA8", "C30589048", "SPA06-003", "Goertek", "-40…+85 °C (DS)",
+         "Baro I2C1 0x76 (SDO → 100k → GND), ID 0x11: Betaflight barometer_dps310 (her sürüm), ArduPilot "
+         "AP_Baro_SPL06 ≥ 4.6 (SYS-032, yazilim-inceleme §2)",
+         alt=ALT("DPS368XTSA1(TOKMAS)", "Tokmas", "C55090144",
+                 "Pin 1 GND 2 CSB 3 SDA 4 SCK 5 SDO 6 VDDIO 7 GND 8 VDD aynı (SPA06-003 DS Ver2.0 / Tokmas DPS368 DS); "
+                 "ID 0x11. ALT2 Infineon DPS368 ID 0x10 (AP hwdef iki BARO satırı)",
+                 alt2=("DPS368XTSA1", "Infineon", "C3232508")), crit=True)
+    C("C303", "100nF 16V", "Baro VDD/VDDIO (pin 8 / 6)")
+    R("R301", "100k", "Baro SDO → GND: adres 0x76 (SPA06 DS §4.3.1, R3 5–100 k)")
     R("R302", "2.2k", "I2C1 SCL çekme (pin-haritasi §1.1)")
     R("R303", "2.2k", "I2C1 SDA çekme")
-    part("U303", "W25Q128JVS", "W25Q128JVSIQ", "SOIC8W", "C97521", "W25Q128JVSIQ", "Winbond",
-         "-40…+85 °C (DS) — FMU 85 °C sınıfı yeterli (müşteri 2026-11-11, KRR-008)",
-         "Blackbox flash 16 MB SPI3, CS PC14 (SYS-033). Betaflight flash_m25p16 + ArduPilot AP_Logger_Flash_JEDEC destekli",
-         alt={"ALT MPN": "GD25Q128ESJGR (GigaDevice, 105 °C; ArduPilot JEDEC tablosunda yok)", "ALT LCSC": "C22404005"})
+    part("U303", "W25Q128JVS", "W25Q128JVSIQ", "SOIC8W", "C97521", "W25Q128JVSIQ", "Winbond Elec",
+         "-40…+85 °C (DS) — FMU 85 °C sınıfı yeterli (KRR-008)",
+         "Blackbox flash 16 MB SPI3, CS PC14 (SYS-033). JEDEC 0xEF4018: Betaflight flash_m25p16 + ArduPilot "
+         "AP_Logger_Flash_JEDEC",
+         alt=ALT("W25Q128JVSIM", "Winbond Elec", "C401671",
+                 "Aynı kalıp/kılıf SOIC-8 208 mil (Winbond DS §3.1), JEDEC 0xEF7018 BF + AP ✓ (yazilim-inceleme §4); "
+                 "ALT aynı üretici (KRR-011 k.3: stoklu farklı üretici yalnız Micron, 10 $)",
+                 alt2=("MT25QL128ABA1ESE", "Micron", "C41359590")), crit=True)
     C("C304", "100nF 16V", "Flash VCC")
     R("R304", "10k", "FLASH_CS → 3V3 (açılışta seçili değil)")
     R("R305", "10k", "~WP ve ~HOLD → 3V3 (tek SPI, QSPI kullanılmaz)")
 
     # ------------------------------------------------------------------ osd
     part("U401", "AT7456E", "AT7456E", "HTSSOP28", "C82351", "AT7456E", "ZHONGKEWEI",
-         "-40…+85 °C (LCSC) — 85 °C istisnası: 105 °C OSD yok", "Analog OSD SPI2, CS PB12, 5 V (SYS-034)")
+         "-40…+85 °C (LCSC)", "Analog OSD SPI2, CS PB12, 5 V (SYS-034)", crit=True,
+         alt=ALT("", "", "", "Stoklu drop-in yok: MAX7456EUI C5346361 yazılımca ✓ ve pin uyumlu ama stok 0; AT7456 "
+                             "C82523 stok 0; AT7456ELAH LGA-16 farklı kılıf"),
+         exc="İSTİSNA: stoklu muadil yok; peşin alım + MAX7456 stok izleme (muadil §3 İ3)",
+         proc="110 adet peşin alım (İ3; muadil §4)")
     C("C401", "100nF 16V", "DVDD")
     C("C402", "100nF 16V", "AVDD")
     C("C403", "100nF 16V", "PVDD")
     C("C404", "10uF 16V", "OSD +5V toplu (PVDD 80 mA darbe)")
-    part("Y401", "Crystal_GND24", "27MHz", "XTAL3225", "C9008", "X322527MSB4SI", "YXC",
-         "-40…+85 °C (LCSC) — 85 °C istisnası: 105 °C 27 MHz 3225 yok", "OSD saat; MAX7456 DS: harici yük kondansatörü yok")
+    part("Y401", "Crystal_GND24", "27MHz", "XTAL3225", "C9008", "X322527MSB4SI", "YXC Crystal Oscillators",
+         "-40…+85 °C (LCSC)", "OSD saat; MAX7456 DS: harici yük kondansatörü yok",
+         alt=ALT("K3A270002010", "KYX", "C368745", "3225-4P, 27 MHz, CL 20 pF, ESR 30 Ω ≤ 50 Ω, −40…85 °C "
+                 "(YXC X322527MSB4SI DS / KYX K3A DS)"), crit=True)
     R("R401", "10k", "~RESET → +5V")
     C("C405", "100nF 50V", "CVBS giriş kuplajı 0.1 µF (DS Şekil 2)")
     R("R402", "75", "CVBS giriş sonlandırma 75 Ω (SYS-034)")
     R("R403", "75", "CVBS çıkış seri 75 Ω, SAG = VOUT (DS Şekil 2)")
 
     # ------------------------------------------------------------------- io
-    part("J501", "USB_C_Receptacle_USB2.0_16P", "USB-C", "USBC", "C165948", "TYPE-C-31-M-12", "Korean Hroparts",
-         "-30…+80 °C (LCSC) — 85 °C istisnası (konnektör)", "USB 2.0 FS, VCP + DFU (SYS-036)")
+    part("J501", "USB_C_Receptacle_USB2.0_16P", "USB-C", "USBC", "C165948", "TYPE-C-31-M-12", "Korean Hroparts Elec",
+         "-30…+80 °C (LCSC)", "USB 2.0 FS, VCP + DFU (SYS-036)",
+         alt=ALT("TYPE-C 16PIN 2MD(073)", "SHOU HAN", "C2765186",
+                 "16 ped 0.5 aralık, 4 kabuk yuvası 0.6, 8.64/5.78 = HRO 8.65/5.78 (HRO 'Recommend PCB layout' / "
+                 "Shou Han DS s.1); pim ø0.65/ø0.60 → ortak ped pcb; −25…85 °C ✓ (ana/ALT yer değiştirme önerisi M2)"),
+         crit=True, exc="Sıcaklık: ana HRO −30…80 °C < 85 °C (SYS-087); ALT Shou Han −25…85 °C ✓ (muadil §3)")
     R("R501", "5.1k", "CC1 → GND (C-C kablo)")
     R("R502", "5.1k", "CC2 → GND")
     part("U501", "USBLC6-2SC6", "USBLC6-2SC6", "SOT23-6", "C2827654", "USBLC6-2SC6", "TECH PUBLIC",
-         "-55…+125 °C (LCSC)", "USB ESD", alt={"ALT MPN": "USBLC6-2SC6 (ST)", "ALT LCSC": "C7519"})
-    part("D501", "D_Schottky", "PMEG3020EH", "SOD123F", "C19268151", "PMEG3020EH", "TECH PUBLIC",
-         "T_J -55…+150 °C (LCSC)", "VBUS → +5V; 5 V'tan VBUS'a geri besleme yok (SYS-036)")
-    sh8 = dict(lcsc="C54582896", mpn="XY-SM08B-SRSS-TB", mfr="XYECONN",
-               temp="-40…+85 °C (LCSC) — 85 °C istisnası: SH 1.0 ailesinde 105 °C yok (bom-maliyet §9.10)",
-               alt={"ALT MPN": "SM08B-SRSS-TB(LF)(SN) (JST)", "ALT LCSC": "C160407"})
+         "-55…+125 °C (LCSC)", "USB ESD",
+         alt=ALT("USBLC6-2SC6", "STMicroelectronics", "C7519",
+                 "ST orijinali, aynı pin (1 I/O1 2 GND 3 I/O2 4 I/O2 5 VBUS 6 I/O1)"), crit=True)
+    part("D501", "D_Schottky", "B5819W", "SOD123", "C8598", "B5819W SL", "Jiangsu Changjing Electronics Technology Co., Ltd.",
+         "T_J 125 °C maks (CJ DS) ≥ 85 ✓", "VBUS → +5V; 5 V'tan VBUS'a geri besleme yok (SYS-036). 40 V 1 A, "
+         "V_F ≈ 0.45 V @0.4 A (B3, guc-tasarruf §3.1)",
+         alt=ALT("B5819W", "MDD(Microdiode Semiconductor)", "C64885",
+                 "SOD-123, 40 V 1 A, V_F 0.6 V @1 A (CJ DS / MDD DS); ALT2 PMEG3020EH SOD-123F ortak ped (pcb)",
+                 alt2=("PMEG3020EH", "TECH PUBLIC", "C19268151")), crit=True)
+    sh_exc = "Sıcaklık istisnası (SYS-087): SH 1.0 ailesinde ≥ 85 °C üstü yok; serin kenar + DOG-105/108 ölçümü"
+    sh8 = dict(lcsc="C54582896", mpn="XY-SM08B-SRSS-TB", mfr="XYECONN", temp="-40…+85 °C (LCSC)",
+               alt=ALT("SM08B-SRSS-TB(LF)(SN)", "JST", "C160407", "JST orijinali; ESC J0 ile aynı kanıt (muadil §1)"),
+               crit=True, exc=sh_exc)
     part("J502", "Conn_01x08", "J_ESC1", "SH8", desc="ESC 1 (M1-M4), dizilim ESC_PINOUT (İP-10 doğrulayacak, SYS-060)",
          **sh8)
     part("J503", "Conn_01x08", "J_ESC2", "SH8", desc="ESC 2 (M5-M8), yalnız Dual SKU'da takılı (SYS-037, M4a)",
          dnp=True, extra={"Variant": "Standart SKU: DNP; Dual SKU: takılı"}, **sh8)
     R("R503", "0", "J_ESC2.VBAT → VBAT, DNP: FMU'da bağlı değil (SYS-062)", dnp=True)
-    sh4 = dict(lcsc="C51940130", mpn="XY-SM04B-SRSS-TB", mfr="XYECONN",
-               temp="-25…+85 °C (LCSC) — 85 °C istisnası (konnektör)",
-               alt={"ALT MPN": "SM04B-SRSS-TB(LF)(SN) (JST)", "ALT LCSC": "C160404"})
-    sh6 = dict(lcsc="C56123098", mpn="XY-SM06B-SRSS-TB", mfr="XYECONN",
-               temp="-25…+85 °C (JST eşdeğeri; LCSC'de boş) — 85 °C istisnası (konnektör)",
-               alt={"ALT MPN": "SM06B-SRSS-TB(LF)(SN) (JST)", "ALT LCSC": "C160405"})
+    sh4 = dict(lcsc="C51940130", mpn="XY-SM04B-SRSS-TB", mfr="XYECONN", temp="-25…+85 °C (LCSC)",
+               alt=ALT("SM04B-SRSS-TB(LF)(SN)", "JST", "C160404", "JST SM04B-SRSS-TB orijinali (JST SH DS)"),
+               crit=True, exc=sh_exc)
+    sh6 = dict(lcsc="C56123098", mpn="XY-SM06B-SRSS-TB", mfr="XYECONN", temp="-25…+85 °C (JST eşdeğeri)",
+               alt=ALT("SM06B-SRSS-TB(LF)(SN)", "JST", "C160405", "JST SM06B-SRSS-TB orijinali (JST SH DS)"),
+               crit=True, exc=sh_exc)
     part("J504", "Conn_01x04", "RX", "SH4", desc="Alıcı (ELRS/CRSF) UART2, SH 4 (SYS-065)", **sh4)
     part("J505", "Conn_01x06", "DJI", "SH6", desc="Dijital VTX UART1 + 9 V + SBUS, SH 6 (SYS-065)", **sh6)
     part("J506", "Conn_01x06", "GPS", "SH6", desc="GPS UART6 + dış I2C1 (pusula) + 5 V, SH 6 (mimari §4.2)", **sh6)
     part("U502", "74LVC1G04", "SN74LVC1G04DBVR", "SOT23-5", "C7827", "SN74LVC1G04DBVR", "Texas Instruments",
-         "-40…+125 °C (LCSC)", "SBUS ters çevirici → 1k → PA3 (SYS-035)")
+         "-40…+125 °C (LCSC)", "SBUS ters çevirici → 1k → PA3 (SYS-035)",
+         alt=ALT("74LVC1G04GV,125", "Nexperia", "C12509",
+                 "SOT-23-5 1 NC 2 A 3 GND 4 Y 5 VCC (TI DBV DS §5 / Nexperia 74LVC1G04 DS §5)"), crit=True)
     C("C501", "100nF 16V", "U502 VCC")
     R("R504", "10k", "SBUS_IN aşağı çekme (boşta)")
     R("R505", "1k", "SBUS_INV → UART2_RX (CRSF alıcı pinini ezmez)")
@@ -767,9 +907,13 @@ class Sheet:
             rpos, vpos, just = (x - 2.54, y - 1.27), (x - 2.54, y + 1.27), "right"
         else:
             rpos, vpos, just = (x, min(ys) - 8.89), (x, max(ys) + 10.16), None
-        fields = [("Reference", ref), ("Value", p["value"]), ("Footprint", p["fp"]), ("Datasheet", p["ds"]),
-                  ("Description", p["desc"]), ("MPN", p["mpn"]), ("Manufacturer", p["mfr"]), ("LCSC", p["lcsc"]),
-                  ("Temperature", p["temp"])] + sorted(p["alt"].items()) + sorted(p["extra"].items())
+        tail = {"Temperature": p["temp"], "Critical": ("evet" if p["crit"] else "hayır") if p["bom"] else "",
+                "Exception": p["exc"], "Procurement": p["proc"]}
+        fields = ([("Reference", ref), ("Value", p["value"]), ("Footprint", p["fp"]), ("Datasheet", p["ds"]),
+                   ("Description", p["desc"]), ("MPN", p["mpn"]), ("Manufacturer", p["mfr"]), ("LCSC", p["lcsc"])]
+                  + [(k, p["alt"][k]) for k in ALT_FIELDS if p["alt"].get(k)]
+                  + [(k, tail[k]) for k in TAIL_FIELDS if tail[k]] + sorted(p["extra"].items()))
+        assert not set(p["alt"]) - set(ALT_FIELDS), (ref, p["alt"])
         props = ""
         for kname, v in fields:
             if kname == "Reference":
@@ -910,7 +1054,7 @@ def grid(s, items, x0, y0, dx=17.78, dy=27.94, cols=8):
 # ------------------------------------------------------------------- pages
 def page_power():
     s = sheet("Power", "power.kicad_sch", 2, "BAT pedleri, sigorta, ters kutup, TVS, SY8303 × 2 (5 V / 9 V), "
-              "AMS1117-3.3, IMU süzgeci, VBAT/CUR ölçümü")
+              "5 V yük anahtarı, TLV62569 3.3 V buck, IMU süzgeci, VBAT/CUR ölçümü")
     s.note("GÜÇ — giriş koruması (SYS-044, SYS-062, SYS-074; guc-ip03 G8, G16, G17)", 20, 22, 2, True)
     s.place("J101", 25.4, 50.8, {"1": "VBAT"}, text="right")
     s.place("J102", 25.4, 71.12, {"1": "GND"}, text="right")
@@ -929,18 +1073,19 @@ def page_power():
            "8S BOM varyantı (KRR-007): F101, Q101, D102, C101…C103, U101/U102 → alan 8S (≥ 45 V) notu.",
            20, 92, 1.27)
 
-    s.note("5 V / 2 A BEC — SY8303AAIC (G7, G10; SYS-040, SYS-045)", 20, 112, 2, True)
+    s.note("5 V / 2 A BEC — SY8303AAIC (G7, G10, B4; SYS-040, SYS-045)", 20, 112, 2, True)
     s.place("U101", 63.5, 140, {"5": "VIN", "8": "EN_5V", "2": "FS_5V", "7": "BS_5V", "6": "SW_5V", "1": "FB_5V",
                                 "3": "GND", "4": "GND"})
     grid(s, [("C104", "VIN", "GND"), ("R102", "VIN", "EN_5V"), ("R103", "FS_5V", "GND")], 101.6, 132.08, dx=17.78)
     s.place("C106", 147.32, 132.08, {"1": "BS_5V", "2": "SW_5V"})
-    s.place("L101", 165.1, 132.08, {"1": "SW_5V", "2": "+5V"})
-    grid(s, [("R104", "+5V", "FB_5V"), ("R105", "FB_5V", "GND"), ("C107", "+5V", "GND"), ("C108", "+5V", "GND")],
-         182.88, 132.08, dx=17.78)
+    s.place("L101", 165.1, 132.08, {"1": "SW_5V", "2": "+5V_BUCK"})
+    grid(s, [("R104", "+5V_BUCK", "FB_5V"), ("R105", "FB_5V", "GND"), ("C107", "+5V_BUCK", "GND"),
+             ("C108", "+5V_BUCK", "GND")], 182.88, 132.08, dx=17.78)
     s.flag("+5V", 254, 127)
-    s.note("Vout = 0.600 V × (1 + 100k / 13.7k) = 4.98 V (DS: VFB 0.591…0.609 V → 4.82…5.14 V, ±%5 içinde).\n"
+    s.note("Vout = 0.600 V × (1 + 15k / 2k) = 5.10 V (DS: VFB 0.591…0.609 V → en kötü 4.94…5.27 V, RSS 4.98…5.22 V);\n"
+           "+5V_BUCK → Q102 yük anahtarı (−0.12 V @2 A) → +5V: 4.82…5.15 V (guc-tasarruf §4, B4).\n"
            "f_sw = 1e5 / R_FS[kΩ] = 500 kHz (R_FS 200 k). EN → 100 k → VIN (EN mutlak 40 V).",
-           20, 160, 1.27)
+           20, 158, 1.27)
 
     s.note("9 V / 1.5 A BEC — SY8303AAIC, EN ← PB11 (PINIO1)", 20, 177, 2, True)
     s.place("U102", 63.5, 205, {"5": "VIN", "8": "EN_9V", "2": "FS_9V", "7": "BS_9V", "6": "SW_9V", "1": "FB_9V",
@@ -956,26 +1101,42 @@ def page_power():
            "Betaflight PINIO1_CONFIG 129 (ters): PINIO kutusu kapalı → pin yüksek → 9 V açık. Yalnız USB'de VIN yok → 9 V yok (SYS-036).",
            20, 225, 1.27)
 
-    s.note("3.3 V — AMS1117-3.3 (G9, SYS-042) ve IMU süzgeç dalı", 290, 22, 2, True)
-    s.place("U103", 325.12, 50.8, {"3": "+5V", "2": "+3V3", "1": "GND"})
-    grid(s, [("C112", "+5V", "GND"), ("C113", "+3V3", "GND")], 350.52, 50.8, dx=17.78)
-    s.place("R111", 302.26, 86.36, {"1": "+3V3", "2": "+3V3_IMU"})
-    grid(s, [("C114", "+3V3_IMU", "GND"), ("C115", "+3V3_IMU", "GND")], 320.04, 86.36, dx=17.78)
-    s.flag("+3V3_IMU", 365.76, 81.28)
-    s.note("+3V3: 240 mA (MCU 102 + flash 25 + sensör + dış 100); AMS1117 1 A → %24.", 290, 102, 1.27)
+    s.note("3.3 V — TLV62569 buck (guc-tasarruf §7.2, SYS-042), IMU süzgeci", 290, 22, 2, True)
+    s.place("U103", 299.72, 50.8, {"4": "+5V", "1": "+5V", "3": "SW_3V3", "5": "FB_3V3", "2": "GND"})
+    s.place("L103", 320.04, 45.72, {"1": "SW_3V3", "2": "+3V3"})
+    grid(s, [("C112", "+5V", "GND"), ("C113", "+3V3", "GND")], 337.82, 45.72, dx=17.78)
+    grid(s, [("R119", "+3V3", "FB_3V3"), ("R120", "FB_3V3", "GND"), ("C119", "+3V3", "FB_3V3")], 337.82, 71.12,
+         dx=17.78)
+    s.flag("+3V3", 381, 40.64)
+    s.place("R111", 302.26, 96.52, {"1": "+3V3", "2": "+3V3_IMU"})
+    grid(s, [("C114", "+3V3_IMU", "GND"), ("C115", "+3V3_IMU", "GND")], 320.04, 96.52, dx=17.78)
+    s.flag("+3V3_IMU", 365.76, 91.44)
+    s.note("Vout = 0.6 × (1 + 100k/22k) = 3.327 V (en kötü 3.21…3.45 V); EN → +5V; C_FF (C119) pedi DNP.\n"
+           "Ortak pasifler TLV62569 ↔ SY8089A1 (KRR-011 k.4): 2.2 µH, C_IN 10 µF, C_OUT 22 µF, 100 k / 22 k.\n"
+           "IMU dalı 22 Ω × 2.2 µF → 3.3 kHz (PSM dalgalanması ≈ 3 mVpp, guc-tasarruf §7.3); C115 = Vdd_IO 100 nF.",
+           290, 111, 1.27)
 
-    s.note("VBAT ve akım ölçümü (SYS-022, SYS-023; G15, G23)", 290, 117, 2, True)
-    grid(s, [("R112", "VIN", "ADC_VBAT"), ("R113", "ADC_VBAT", "GND"), ("C116", "ADC_VBAT", "GND")], 297.18, 137.16,
+    s.note("VBAT ve akım ölçümü (SYS-022, SYS-023; G15, G23)", 290, 124, 2, True)
+    grid(s, [("R112", "VIN", "ADC_VBAT"), ("R113", "ADC_VBAT", "GND"), ("C116", "ADC_VBAT", "GND")], 297.18, 144.78,
          dx=17.78)
     grid(s, [("R114", "ESC1_CUR", "ADC_CURR1"), ("C117", "ADC_CURR1", "GND"),
              ("R115", "ESC2_CUR", "ADC_CURR2"), ("C118", "ADC_CURR2", "GND"), ("R116", "CUR2_SJ", "ADC_CURR1")],
-         297.18, 172.72, dx=17.78)
-    s.place("SJ101", 309.88, 198.12, {"1": "ESC2_CUR", "2": "CUR2_SJ"}, text="above")
+         297.18, 180.34, dx=17.78)
+    s.place("SJ101", 309.88, 205.74, {"1": "ESC2_CUR", "2": "CUR2_SJ"}, text="above")
     s.note("VBAT: VIN × 10k / 150k (15:1) → PC0; tam ölçek 3.3 × 15 = 49.5 V; Betaflight vbat_scale 150.\n"
            "CUR1 (J_ESC1) → 10k → PC1; CUR2 (J_ESC2) → 1k → PC5 (ArduPilot BATT2).\n"
            "SJ101 açık (varsayılan). Kapatılırsa PC1 = (CUR1 + CUR2)/2 (10k/10k) → Betaflight ölçek ×2.",
-           290, 210, 1.27)
+           290, 218, 1.27)
 
+    s.note("USB yük anahtarı — yalnız USB'de VIN sızıntısını keser (guc-tasarruf §3.2, B3)", 20, 240, 2, True)
+    s.place("Q102", 40.64, 264.16, {"3": "+5V_BUCK", "2": "+5V", "1": "LSW_G"})
+    s.place("R117", 66.04, 264.16, {"1": "+5V", "2": "LSW_G"})
+    s.place("Q103", 91.44, 264.16, {"3": "LSW_G", "2": "GND", "1": "LSW_B"})
+    s.place("R118", 116.84, 264.16, {"1": "VIN", "2": "LSW_B"})
+    s.note("Q102 AO3401A: D = +5V_BUCK, S = +5V; gövde diyodu buck → ray. Pil yokken (yalnız USB) Q103 kapalı,\n"
+           "R117 Q102'yi kapalı tutar → +5V'tan U101 LX'e geri besleme yok, VIN = 0 V (Q101 kapalı, ESC beslenmez).\n"
+           "VIN ≥ 1.5 V → Q103 doyar → Q102 V_GS ≈ −5 V, R_DS(on) ≤ 60 mΩ. 8S'te de değişiklik gerekmez.",
+           20, 276, 1.27)
     s.note("Test noktaları (SYS-093)", 160, 238, 2, True)
     for i, (ref, net) in enumerate((("TP101", "VIN"), ("TP102", "+5V"), ("TP103", "+9V"), ("TP104", "+3V3"),
                                     ("TP105", "GND"))):
@@ -984,7 +1145,8 @@ def page_power():
 
 
 def page_mcu():
-    s = sheet("MCU", "mcu.kicad_sch", 3, "STM32F405RGT6 LQFP64, HSE 8 MHz, VCAP, VDDA, BOOT0, NRST, SWD, LED0, buzzer")
+    s = sheet("MCU", "mcu.kicad_sch", 3, "AT32F435RGT7 (STM32F405RGT6 / APM32F405RGT6 varyant) LQFP64, HSE 8 MHz, "
+              "VCAP, VDDA, BOOT0, NRST, SWD, LED0, buzzer")
     mcu = {
         "1": "+3V3", "2": "LED0", "3": "FLASH_CS", "4": "BEEPER", "5": "OSC_IN", "6": "OSC_OUT", "7": "NRST",
         "8": "ADC_VBAT", "9": "ADC_CURR1", "10": "SPI2_MISO", "11": "SPI2_MOSI", "12": "GND", "13": "VDDA",
@@ -998,10 +1160,13 @@ def page_mcu():
         "57": "SPI3_MOSI", "58": "M1", "59": "M2", "60": "BOOT0", "61": "I2C1_SCL", "62": "I2C1_SDA", "63": "GND",
         "64": "+3V3",
     }
-    s.note("MCU — STM32F405RGT6 (SYS-030, SYS-050, KRR-005, KRR-008); pinler docs/pin-haritasi.md §1.1", 20, 22, 2, True)
+    s.note("MCU — AT32F435RGT7 / STM32F405RGT6 / APM32F405RGT6 (SYS-030, SYS-050, KRR-005, KRR-012); "
+           "pinler docs/pin-haritasi.md §1.1", 20, 22, 2, True)
     s.place("U201", 210.82, 139.7, mcu)
     s.note("Boş GPIO yok: LQFP64'ün 51 G/Ç'sinin tamamı kullanılıyor (pin-haritasi §1.1).\n"
-           "DMA: ADC1 DMA2 S4 (ADC1_DMA_OPT 1), SPI1 DMA2 S0/S3; SPI2 (OSD) ve SPI3 (flash) DMA'sız (§1.3).",
+           "DMA: ADC1 DMA2 S4 (ADC1_DMA_OPT 1), SPI1 DMA2 S0/S3; SPI2 (OSD) ve SPI3 (flash) DMA'sız (§1.3).\n"
+           "Varyant (U201 Variant alanı): STACKF435 AT32F435RGT7 · STACKF405 STM32F405RGT6 · STACKF405A APM32F405RGT6;\n"
+           "PCB, pasifler ve pin ataması aynı; her MCU ayrı yazılım derlemesi (KRR-012, SYS-095 d).",
            20, 30, 1.27)
     s.note("Besleme dekuplajı", 20, 45, 2, True)
     grid(s, [("C201", "+3V3", "GND"), ("C202", "+3V3", "GND"), ("C203", "+3V3", "GND"), ("C204", "+3V3", "GND"),
@@ -1010,14 +1175,18 @@ def page_mcu():
     grid(s, [("C206", "VDDA", "GND"), ("C207", "VDDA", "GND")], 50.8, 106.68, dx=17.78)
     s.flag("VDDA", 86.36, 101.6)
     grid(s, [("C208", "VCAP1", "GND"), ("C209", "VCAP2", "GND")], 101.6, 106.68, dx=17.78)
-    s.note("VDD 4 × 100 nF + 4.7 µF; VBAT (pin 1) → 3V3; VDDA ferrit + 1 µF + 100 nF; VCAP 2 × 2.2 µF X7R.", 20, 122,
-           1.27)
-    s.note("Saat, sıfırlama, önyükleme (SYS-055)", 20, 135, 2, True)
+    s.note("VDD 4 × 100 nF + 10 µF; VBAT (pin 1) → 3V3; VDDA ferrit + 2.2 µF + 100 nF (AT32: VDDA = VDD şart, DS Tablo 15).\n"
+           "Pin 31 VCAP_1/PH3, 47 VCAP_2/PH2: 2 × 2.2 µF X7R her varyantta takılı; AT32'de PH3/PH2 G/Ç, kondansatör\n"
+           "zararsız (mcu-secimi §3.2). VCAP1/VCAP2 ağları başka hiçbir yere bağlanmaz; PH2/PH3 hiçbir derlemede çıkış değil.",
+           20, 122, 1.27)
+    s.note("Saat, sıfırlama, önyükleme (SYS-055)", 20, 137, 2, True)
     s.place("Y201", 35.56, 160.02, {"1": "OSC_IN", "3": "OSC_OUT", "2": "GND", "4": "GND"}, text="above")
     grid(s, [("C211", "OSC_IN", "GND"), ("C212", "OSC_OUT", "GND")], 55.88, 160.02, dx=17.78)
     grid(s, [("C210", "NRST", "GND"), ("R201", "BOOT0", "GND"), ("R202", "BOOT1", "GND")], 91.44, 160.02, dx=17.78)
     s.place("SW201", 45.72, 190.5, {"1": "+3V3", "2": "BOOT0"}, text="above")
-    s.note("BOOT düğmesi basılıyken açılış → USB DFU. HSE 8 MHz (Altium 24 MHz yerine; SYS-050/056).", 20, 200, 1.27)
+    s.note("BOOT düğmesi basılıyken açılış → USB DFU (AT32 ROM DFU da BOOT0 = 1, BOOT1 = 0).\n"
+           "HSE 8 MHz SABİT: Betaflight AT32 saati yalnız 8 MHz kristalle 288 MHz verir — değiştirme (KRR-012).",
+           20, 200, 1.27)
     s.note("LED0, buzzer (SYS-038)", 300, 22, 2, True)
     s.place("R203", 307.34, 45.72, {"1": "+3V3", "2": "LED0_A"})
     s.place("D201", 322.58, 55.88, {"2": "LED0_A", "1": "LED0"}, text="above")
@@ -1035,30 +1204,34 @@ def page_mcu():
 
 
 def page_sensors():
-    s = sheet("Sensors", "sensors.kicad_sch", 4, "ICM-42688-P (SPI1), DPS368 baro (I2C1 0x76), W25Q128JV flash (SPI3)")
-    s.note("IMU — ICM-42688-P, SPI1, CS PA4, INT1 PC4 (SYS-031, SYS-042)", 20, 22, 2, True)
+    s = sheet("Sensors", "sensors.kicad_sch", 4, "LSM6DSV16X IMU (SPI1), SPA06-003 baro (I2C1 0x76), W25Q128JV flash (SPI3)")
+    s.note("IMU — LSM6DSV16X, SPI1, CS PA4, INT1 PC4 (SYS-031, SYS-042, KRR-013)", 20, 22, 2, True)
     s.place("U301", 73.66, 71.12, {"12": "IMU_CS", "13": "SPI1_SCK", "14": "SPI1_MOSI", "1": "SPI1_MISO",
-                                   "4": "IMU_INT1", "9": "GND", "2": "NC", "3": "NC", "10": "NC", "11": "NC",
+                                   "4": "IMU_INT1", "9": "NC", "2": "GND", "3": "GND", "10": "NC", "11": "NC",
                                    "8": "+3V3_IMU", "5": "+3V3_IMU", "6": "GND", "7": "GND"})
-    grid(s, [("C301", "+3V3_IMU", "GND"), ("C302", "+3V3_IMU", "GND")], 124.46, 66.04, dx=17.78)
-    s.note("VDD + VDDIO ← +3V3_IMU (10 Ω + 2.2 µF süzgeç, power sayfası). INT2/FSYNC (9) → GND, RESV 7 → GND,\n"
-           "RESV 2/3/10/11 boş (DS §4.1). Yerleşim: IMU kart merkezine yakın, BEC'lerden uzak (pcb-muhendisi).",
-           20, 100, 1.27)
-    s.note("Baro — DPS368, I2C1 PB8/PB9, adres 0x76 (SYS-032)", 20, 120, 2, True)
+    grid(s, [("C301", "+3V3_IMU", "GND")], 124.46, 66.04, dx=17.78)
+    s.note("Mod 1, SPI 4 telli (DS13510 Tablo 2): SDx (2), SCx (3) → GND; INT2 (9), OCS_Aux (10), SDO_Aux (11) boş\n"
+           "(elektriksel bağlantısız, lehimli). Vdd + Vdd_IO ← +3V3_IMU (22 Ω + 2.2 µF süzgeç, power sayfası);\n"
+           "C301 = Vdd C1 100 nF (pin 8), C115 = Vdd_IO C2 100 nF (pin 5, power sayfası) — DS §7.1. ICM'e özgü 10 nF (C302) kaldırıldı.\n"
+           "ALT LSM6DSK320X (aynı pin/kılıf, DB5732 Tablo 1): yalnız STACKF435, BF ≥ 2026.6 (U301 ALT Note).\n"
+           "Yerleşim: IMU kart merkezine yakın, BEC'lerden uzak (pcb-muhendisi).",
+           20, 98, 1.27)
+    s.note("Baro — SPA06-003, I2C1 PB8/PB9, adres 0x76 (SYS-032)", 20, 125, 2, True)
     s.place("U302", 73.66, 160.02, {"2": "+3V3", "4": "I2C1_SCL", "3": "I2C1_SDA", "5": "BARO_SDO",
                                     "8": "+3V3", "6": "+3V3", "1": "GND", "7": "GND"})
     grid(s, [("C303", "+3V3", "GND"), ("R301", "BARO_SDO", "GND"), ("R302", "+3V3", "I2C1_SCL"),
              ("R303", "+3V3", "I2C1_SDA")], 119.38, 152.4, dx=17.78)
     s.note("CSB → VDDIO: I2C. SDO → 100k → GND: 0x76. 2.2 k çekmeler dış I2C (GPS/pusula) ile ortak.\n"
-           "Betaflight: barometer_dps310 (ID 0x10 = DPS310/DPS368); ArduPilot: AP_Baro_DPS280 (DPS310/368).",
+           "Betaflight: barometer_dps310 (ID 0x11 SPA06 / 0x10 DPS368); ArduPilot ≥ 4.6: AP_Baro_SPL06 (0x11) + DPS280 (0x10).\n"
+           "ALT Tokmas DPS368 (0x11), ALT2 Infineon DPS368 (0x10) — aynı LGA-8 dizilimi.",
            20, 185, 1.27)
     s.note("Blackbox flash — 16 MB, SPI3, CS PC14 (SYS-033, SYS-056)", 230, 22, 2, True)
     s.place("U303", 271.78, 71.12, {"1": "FLASH_CS", "6": "SPI3_SCK", "5": "SPI3_MOSI", "2": "SPI3_MISO",
                                     "3": "FLASH_WPH", "7": "FLASH_WPH", "8": "+3V3", "4": "GND"})
     grid(s, [("C304", "+3V3", "GND"), ("R304", "+3V3", "FLASH_CS"), ("R305", "+3V3", "FLASH_WPH")], 309.88, 66.04,
          dx=17.78)
-    s.note("W25Q128JVSIQ (85 °C) ↔ GD25Q128ESJGR (105 °C) aynı ayak izi. Betaflight USE_FLASH_M25P16;\n"
-           "ArduPilot AP_Logger_Flash_JEDEC W25Q128 destekli (GD25Q128 tabloda yok).",
+    s.note("W25Q128JVSIQ (0xEF4018); ALT W25Q128JVSIM (0xEF7018), ALT2 Micron MT25QL128 (0x20BA18) — aynı SOIC-8 208 mil.\n"
+           "Betaflight USE_FLASH_M25P16; ArduPilot AP_Logger_Flash_JEDEC üçünü de tanır (yazilim-inceleme §4).",
            230, 100, 1.27)
     return s
 
@@ -1097,7 +1270,8 @@ def page_io():
                                    "2": "GND"})
     s.place("D501", 139.7, 55.88, {"2": "VBUS", "1": "+5V"}, text="above")
     s.flag("VBUS", 157.48, 66.04)
-    s.note("VBUS → PMEG3020 → +5V: yalnız USB'de MCU, sensörler, OSD ve 5 V çalışır; 5 V'tan VBUS'a geri besleme yok.\n"
+    s.note("VBUS → B5819W → +5V: yalnız USB'de MCU, sensörler, OSD ve 5 V çalışır; 5 V'tan VBUS'a geri besleme yok.\n"
+           "Q102 yük anahtarı (power sayfası) +5V'tan buck'a/VIN'e sızıntıyı keser.\n"
            "USBLC6 pin 1/6 ve 3/4 aynı hat (geçişli). PA9 VBUS algılama kullanılmaz (UART1).",
            20, 120, 1.27)
 
@@ -1167,15 +1341,16 @@ def write_all():
                      f'\t\t(uuid "{U("root-text", n[0])}")\n\t)\n')
 
     rtext("Stack FMU — M1 F405 uçuş kontrol kartı (Rev B, sıfırdan)", 20, 25, 3, True)
-    rtext("STM32F405RGT6 · ICM-42688-P · DPS368 · W25Q128JV · AT7456E · SY8303 × 2 (5 V / 9 V) · AMS1117-3.3 · USB-C · "
-          "2 × SM08B ESC (8 motor)", 20, 33, 1.5)
+    rtext("AT32F435RGT7 (varyant STM32F405RGT6 / APM32F405RGT6) · LSM6DSV16X · SPA06-003 · W25Q128JV · AT7456E · "
+          "SY8303 × 2 (5 V / 9 V) · TLV62569 · USB-C · 2 × SM08B ESC (8 motor)", 20, 33, 1.5)
     rtext("Pin haritası: docs/pin-haritasi.md §1 (tek kaynak) · Mimari: docs/mimari-fmu.md §4 · Güç: docs/rapor/guc-ip03.md §8\n"
           "Kaynak: tools/fmu_schematic.py (tekrar çalıştırılabilir, sabit UUID). Referanslardan dosya kopyalanmadı (KRR-006).\n"
           "Sayfalar arası bağlantı global etiketlerle; raylar (GND, +3V3, +3V3_IMU, +5V, +9V, VIN, VBAT, VBUS) güç sembolüyle.\n"
           "Referans numaraları sayfaya göre: 1xx power, 2xx mcu, 3xx sensors, 4xx osd, 5xx io.", 20, 40, 1.27)
     rtext("Blok akışı:  BAT+/− & J_ESC1.VBAT → F101 → Q101 (ters kutup) → VIN → { D102 TVS, VBAT ölçüm, U101 5 V, U102 9 V }\n"
-          "+5V (+ USB VBUS Schottky) → U103 → +3V3 → { MCU, flash, baro, 10 Ω → +3V3_IMU → IMU };  +5V → OSD, LED şerit, "
-          "alıcı, GPS, buzzer;  +9V → DJI, analog VTX", 20, 62, 1.27)
+          "U101 → +5V_BUCK → Q102 yük anahtarı (VIN'den kapılı) → +5V (+ USB VBUS → B5819W) → U103 buck → +3V3 → { MCU, flash, "
+          "baro, 22 Ω → +3V3_IMU → IMU };\n+5V → OSD, LED şerit, alıcı, GPS, buzzer;  +9V → DJI, analog VTX.  "
+          "Hedef BOM 2026-11-13: boards/fmu/bom-hedef.csv, docs/muadil.md §6.", 20, 62, 1.27)
     blocks = ""
     for k, sh in enumerate(SHEETS):
         x, y = 25 + (k % 5) * 70, 100

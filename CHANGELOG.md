@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-11-13 — Seri MCU AT32F435, muadil kuralı, hedef BOM şematiklerde
+
+- Müşteri: tasarım değişmeden takılabilen muadil (SYS-095, KRR-011); seri MCU AT32F435RGT7, STM32F405/APM32F405 aynı PCB’de varyant (DT-006, KRR-012, PRJ-009 SKU’lar); IMU LSM6DSV16X (KRR-013); MCU başına ayrı derleme kabul.
+- İncelemeler: `docs/rapor/guc-tasarruf.md` (RSA240C, SCT2400, TLV62569 3.3 V buck, USB yük anahtarı), `docs/rapor/yazilim-inceleme.md` (Bluejay düzen C, Tokmas IMU uyumsuz), `docs/rapor/mcu-secimi.md`.
+- `docs/muadil.md`: 32 kritik parça, 25 koşulsuz drop-in ALT, 4 istisna (EFM8BB21F16I, AT32F435, AT7456E, SY8303), peşin alım ≈ 1587 $. Hedef BOM `boards/*/bom-hedef.csv`, `docs/bom-maliyet.md` §11.
+- Şematikler hedef BOM’da: ESC (`tools/esc55a_revb.py`) ERC 0 hata, BOM ↔ CSV farkı 0; FMU (`tools/fmu_schematic.py`) ERC 0, pin haritası 64/64. Stack STACKF435 ≈ 29.8–30.0 $ (100 set).
+- Açık: ESC’de Altium’dan kalan C1/C01, R0/R00 referans çakışması (PCB güncellemesinden önce düzeltilmeli).
+
 ## 2026-11-11 — Tasarruf taraması
 
 - `docs/bom-maliyet.md` §10, `boards/tasarruf-2026-11-11.csv`: A (güvenli) −0.61 $, B (inceleme gerekir; SPA06-003 baro −2.30 $, INA281B2 −0.52 $ …) → A + B = 31.35 $/stack (MCU JLC fiyatıyla). Dış tedarik STM32F405 fiyatıyla ~33.7 $; C1 APM32F405 ile 29.97 $. Yeni risk: ESC JW5026 stoğu 132.

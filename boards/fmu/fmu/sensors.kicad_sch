@@ -6,10 +6,10 @@
 	(paper "A3")
 	(title_block
 		(title "Sensors")
-		(date "2026-11-11")
+		(date "2026-11-13")
 		(rev "B")
 		(company "Stack")
-		(comment 1 "ICM-42688-P (SPI1), DPS368 baro (I2C1 0x76), W25Q128JV flash (SPI3)")
+		(comment 1 "LSM6DSV16X IMU (SPI1), SPA06-003 baro (I2C1 0x76), W25Q128JV flash (SPI3)")
 		(comment 2 "tools/fmu_schematic.py ile üretildi, elle düzenlemeyin")
 	)
 	(lib_symbols
@@ -446,228 +446,6 @@
 		)
 		(embedded_fonts no)
 	)
-		(symbol "stack:DPS368"
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(duplicate_pin_numbers_are_jumpers no)
-		(property "Reference" "U"
-			(at -7.62 8.89 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "Value" "DPS368"
-			(at -7.62 -8.89 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-			)
-		)
-		(property "Footprint" "stack:Bosch_LGA-8_2x2.5mm_P0.65mm_ClockwisePinNumbering"
-			(at 0 0 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 0 0 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Infineon DPS368 barometer (DPS310 pin/register compatible), VLGA-8 2.0x2.5 (DS v1.1 Table 2)"
-			(at 0 0 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(symbol "DPS368_0_1"
-			(rectangle
-				(start -7.62 7.62)
-				(end 7.62 -7.62)
-				(stroke
-					(width 0.254)
-					(type default)
-				)
-				(fill
-					(type background)
-				)
-			)
-		)
-		(symbol "DPS368_1_1"
-			(pin input line
-				(at -10.16 5.08 0)
-				(length 2.54)
-				(name "CSB"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "2"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-			)
-			(pin input line
-				(at -10.16 2.54 0)
-				(length 2.54)
-				(name "SCK"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "4"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-			)
-			(pin bidirectional line
-				(at -10.16 0 0)
-				(length 2.54)
-				(name "SDI"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "3"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-			)
-			(pin bidirectional line
-				(at -10.16 -2.54 0)
-				(length 2.54)
-				(name "SDO"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "5"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-			)
-			(pin power_in line
-				(at -5.08 10.16 270)
-				(length 2.54)
-				(name "VDD"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "8"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-			)
-			(pin power_in line
-				(at -2.54 10.16 270)
-				(length 2.54)
-				(name "VDDIO"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "6"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-			)
-			(pin power_in line
-				(at -5.08 -10.16 90)
-				(length 2.54)
-				(name "GND"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "1"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-			)
-			(pin passive line
-				(at -2.54 -10.16 90)
-				(length 2.54)
-				(name "GND"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "7"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-			)
-		)
-		(embedded_fonts no)
-	)
 		(symbol "stack:GND"
 		(power global)
 		(pin_numbers
@@ -783,7 +561,7 @@
 		)
 		(embedded_fonts no)
 	)
-		(symbol "stack:ICM-42688-P"
+		(symbol "stack:LSM6DSV16X"
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
@@ -800,7 +578,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Value" "ICM-42688-P"
+		(property "Value" "LSM6DSV16X"
 			(at -10.16 -11.43 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -833,7 +611,7 @@
 				)
 			)
 		)
-		(property "Description" "TDK InvenSense ICM-42688-P 6-axis IMU, LGA-14 2.5x3 (DS-000347 rev 1.2 §4.1)"
+		(property "Description" "ST LSM6DSV16X 6-axis IMU, LGA-14L 2.5x3x0.83 (DS13510 Rev 4 §3 Fig. 5, Table 2); same pinout LSM6DSK320X (DB5732 Rev 1 Table 1)"
 			(at 0 0 0)
 			(hide yes)
 			(show_name no)
@@ -844,7 +622,7 @@
 				)
 			)
 		)
-		(symbol "ICM-42688-P_0_1"
+		(symbol "LSM6DSV16X_0_1"
 			(rectangle
 				(start -10.16 10.16)
 				(end 10.16 -10.16)
@@ -857,11 +635,11 @@
 				)
 			)
 		)
-		(symbol "ICM-42688-P_1_1"
+		(symbol "LSM6DSV16X_1_1"
 			(pin input line
 				(at -12.7 7.62 0)
 				(length 2.54)
-				(name "AP_CS"
+				(name "CS"
 					(effects
 						(font
 							(size 1.27 1.27)
@@ -879,7 +657,7 @@
 			(pin input line
 				(at -12.7 5.08 0)
 				(length 2.54)
-				(name "AP_SCLK"
+				(name "SCL/SPC"
 					(effects
 						(font
 							(size 1.27 1.27)
@@ -894,10 +672,10 @@
 					)
 				)
 			)
-			(pin input line
+			(pin bidirectional line
 				(at -12.7 2.54 0)
 				(length 2.54)
-				(name "AP_SDI"
+				(name "SDA/SDI"
 					(effects
 						(font
 							(size 1.27 1.27)
@@ -915,7 +693,7 @@
 			(pin output line
 				(at -12.7 0 0)
 				(length 2.54)
-				(name "AP_SDO"
+				(name "SDO/SA0"
 					(effects
 						(font
 							(size 1.27 1.27)
@@ -948,10 +726,10 @@
 					)
 				)
 			)
-			(pin input line
+			(pin output line
 				(at 12.7 5.08 180)
 				(length 2.54)
-				(name "INT2/FSYNC"
+				(name "INT2"
 					(effects
 						(font
 							(size 1.27 1.27)
@@ -969,7 +747,7 @@
 			(pin passive line
 				(at 12.7 0 180)
 				(length 2.54)
-				(name "RESV"
+				(name "SDx"
 					(effects
 						(font
 							(size 1.27 1.27)
@@ -987,7 +765,7 @@
 			(pin passive line
 				(at 12.7 -2.54 180)
 				(length 2.54)
-				(name "RESV"
+				(name "SCx"
 					(effects
 						(font
 							(size 1.27 1.27)
@@ -1005,7 +783,7 @@
 			(pin passive line
 				(at 12.7 -5.08 180)
 				(length 2.54)
-				(name "RESV"
+				(name "OCS_Aux"
 					(effects
 						(font
 							(size 1.27 1.27)
@@ -1023,7 +801,7 @@
 			(pin passive line
 				(at 12.7 -7.62 180)
 				(length 2.54)
-				(name "RESV"
+				(name "SDO_Aux"
 					(effects
 						(font
 							(size 1.27 1.27)
@@ -1041,7 +819,7 @@
 			(pin power_in line
 				(at -7.62 12.7 270)
 				(length 2.54)
-				(name "VDD"
+				(name "Vdd"
 					(effects
 						(font
 							(size 1.27 1.27)
@@ -1059,7 +837,7 @@
 			(pin power_in line
 				(at -5.08 12.7 270)
 				(length 2.54)
-				(name "VDDIO"
+				(name "Vdd_IO"
 					(effects
 						(font
 							(size 1.27 1.27)
@@ -1092,10 +870,10 @@
 					)
 				)
 			)
-			(pin passive line
+			(pin power_in line
 				(at -5.08 -12.7 90)
 				(length 2.54)
-				(name "RESV"
+				(name "GND"
 					(effects
 						(font
 							(size 1.27 1.27)
@@ -1243,6 +1021,228 @@
 					)
 				)
 				(number "2"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+		)
+		(embedded_fonts no)
+	)
+		(symbol "stack:SPA06-003"
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(duplicate_pin_numbers_are_jumpers no)
+		(property "Reference" "U"
+			(at -7.62 8.89 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Value" "SPA06-003"
+			(at -7.62 -8.89 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(property "Footprint" "stack:Bosch_LGA-8_2x2.5mm_P0.65mm_ClockwisePinNumbering"
+			(at 0 0 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 0 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Goertek SPA06-003 barometer, LGA-8 2.0x2.5 P0.65 (DS Ver2.0 §8.1 Table 11); same pinout Tokmas DPS368 / Infineon DPS368"
+			(at 0 0 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(symbol "SPA06-003_0_1"
+			(rectangle
+				(start -7.62 7.62)
+				(end 7.62 -7.62)
+				(stroke
+					(width 0.254)
+					(type default)
+				)
+				(fill
+					(type background)
+				)
+			)
+		)
+		(symbol "SPA06-003_1_1"
+			(pin input line
+				(at -10.16 5.08 0)
+				(length 2.54)
+				(name "CSB"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "2"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin input line
+				(at -10.16 2.54 0)
+				(length 2.54)
+				(name "SCK"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "4"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin bidirectional line
+				(at -10.16 0 0)
+				(length 2.54)
+				(name "SDA"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "3"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin bidirectional line
+				(at -10.16 -2.54 0)
+				(length 2.54)
+				(name "SDO"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "5"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin power_in line
+				(at -5.08 10.16 270)
+				(length 2.54)
+				(name "VDD"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "8"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin power_in line
+				(at -2.54 10.16 270)
+				(length 2.54)
+				(name "VDDIO"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "6"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin power_in line
+				(at -5.08 -10.16 90)
+				(length 2.54)
+				(name "GND"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin power_in line
+				(at -2.54 -10.16 90)
+				(length 2.54)
+				(name "GND"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "7"
 					(effects
 						(font
 							(size 1.27 1.27)
@@ -1497,7 +1497,7 @@
 	)
 	)
 	(symbol
-		(lib_id "stack:ICM-42688-P")
+		(lib_id "stack:LSM6DSV16X")
 		(at 73.66 71.12 0)
 		(unit 1)
 		(body_style 1)
@@ -1517,7 +1517,7 @@
 				)
 			)
 		)
-		(property "Value" "ICM-42688-P"
+		(property "Value" "LSM6DSV16XTR"
 			(at 73.66 93.98 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1538,7 +1538,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/7a03aa93fd81d2bed1a22512fe4360f9.pdf"
+		(property "Datasheet" "https://www.st.com/resource/en/datasheet/lsm6dsv16x.pdf"
 			(at 73.66 71.12 0)
 			(hide yes)
 			(show_name no)
@@ -1549,7 +1549,7 @@
 				)
 			)
 		)
-		(property "Description" "IMU SPI1, CS PA4, INT1 PC4 (SYS-031)"
+		(property "Description" "IMU SPI1 4 telli (mod 1), CS PA4, INT1 PC4 (SYS-031, KRR-013); WHO_AM_I 0x70. SDx/SCx → GND, INT2/OCS_Aux/SDO_Aux boş (lehimli), Vdd/Vdd_IO 100 nF (DS Tablo 2, §7.1)"
 			(at 73.66 71.12 0)
 			(hide yes)
 			(show_name no)
@@ -1560,7 +1560,7 @@
 				)
 			)
 		)
-		(property "MPN" "ICM-42688-P(TOKMAS)"
+		(property "MPN" "LSM6DSV16XTR"
 			(at 73.66 71.12 0)
 			(hide yes)
 			(show_name no)
@@ -1571,7 +1571,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "Tokmas"
+		(property "Manufacturer" "STMicroelectronics"
 			(at 73.66 71.12 0)
 			(hide yes)
 			(show_name no)
@@ -1582,7 +1582,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C54308212"
+		(property "LCSC" "C5267406"
 			(at 73.66 71.12 0)
 			(hide yes)
 			(show_name no)
@@ -1593,7 +1593,7 @@
 				)
 			)
 		)
-		(property "Temperature" "-40…+85 °C (DS) — 85 °C istisnası: 105 °C IMU yok (KRR-008)"
+		(property "ALT MPN" "LSM6DSK320XTR"
 			(at 73.66 71.12 0)
 			(hide yes)
 			(show_name no)
@@ -1604,7 +1604,7 @@
 				)
 			)
 		)
-		(property "ALT LCSC" "C1850418"
+		(property "ALT Manufacturer" "STMicroelectronics"
 			(at 73.66 71.12 0)
 			(hide yes)
 			(show_name no)
@@ -1615,7 +1615,62 @@
 				)
 			)
 		)
-		(property "ALT MPN" "ICM-42688-P (TDK, stok 31)"
+		(property "ALT LCSC" "C53025794"
+			(at 73.66 71.12 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ALT Note" "KOŞULLU ALT — yalnız STACKF435, Betaflight ≥ 2026.6 (config'te USE_ACCGYRO_LSM6DSK320X) / INAV ≥ 9.1; ArduPilot kararlı sürümde yok → STACKF405'te dizilmez. Pin 1–14 ve LGA-14L 2.5×3×0.83 aynı (LSM6DSV16X DS13510 §3 / LSM6DSK320X DB5732 Tablo 1); WHO_AM_I 0x75 (muadil §2.1)"
+			(at 73.66 71.12 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Temperature" "-40…+85 °C (DS13510 §4 T_op) — FMU ≥ 85 °C ✓ (SYS-087)"
+			(at 73.66 71.12 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Critical" "evet"
+			(at 73.66 71.12 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Exception" "Koşullu: ALT aynı üretici (ST, farklı üretici yok) ve yazılım sürümü şartlı (muadil §3)"
+			(at 73.66 71.12 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Procurement" "İsteğe bağlı 110 adet peşin alım (muadil §4)"
 			(at 73.66 71.12 0)
 			(hide yes)
 			(show_name no)
@@ -1732,7 +1787,7 @@
 				)
 			)
 		)
-		(property "Description" "IMU VDD (DS C1)"
+		(property "Description" "LSM6DSV16X Vdd (pin 8) C1 100 nF — pin 8'e yakın (DS13510 §7.1)"
 			(at 124.46 66.04 0)
 			(hide yes)
 			(show_name no)
@@ -1787,6 +1842,17 @@
 				)
 			)
 		)
+		(property "Critical" "hayır"
+			(at 124.46 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "b29117ae-e77d-508c-80ad-20a6a7b2108b")
 		)
@@ -1803,132 +1869,7 @@
 		)
 	)
 	(symbol
-		(lib_id "stack:C")
-		(at 142.24 66.04 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "5dc46704-c24c-511a-8ce6-eeb4f3bfc588")
-		(property "Reference" "C302"
-			(at 144.78 64.77 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "10nF 50V X7R"
-			(at 144.78 67.31 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "stack:C_0402_1005Metric"
-			(at 142.24 66.04 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/09fe2daf22580a99fa7fea93ccb20fb7.pdf"
-			(at 142.24 66.04 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "IMU VDDIO (DS C3)"
-			(at 142.24 66.04 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "MPN" "0402B103K500NT"
-			(at 142.24 66.04 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer" "FH"
-			(at 142.24 66.04 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC" "C1524"
-			(at 142.24 66.04 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Temperature" "X7R -55…+125 °C (EIA)"
-			(at 142.24 66.04 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "f2c457a0-0ed8-58c6-949f-c32a3ffde4f7")
-		)
-		(pin "2"
-			(uuid "ffd5c45d-0739-5ee6-907f-7a6014998422")
-		)
-		(instances
-			(project "fmu"
-				(path "/f394d34b-b328-5e81-bc0a-3e0521c1bfc4/db446465-a09e-5d25-a2cf-65c5f767a266"
-					(reference "C302")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "stack:DPS368")
+		(lib_id "stack:SPA06-003")
 		(at 73.66 160.02 0)
 		(unit 1)
 		(body_style 1)
@@ -1948,7 +1889,7 @@
 				)
 			)
 		)
-		(property "Value" "DPS368XTSA1"
+		(property "Value" "SPA06-003"
 			(at 73.66 180.34 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1969,7 +1910,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/15dca0e4559452abfe61522499f4c603.pdf"
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/f11af3d36680da63e45f00c5b1db2c97.pdf"
 			(at 73.66 160.02 0)
 			(hide yes)
 			(show_name no)
@@ -1980,7 +1921,7 @@
 				)
 			)
 		)
-		(property "Description" "Baro I2C1 0x76 (SDO → GND), Betaflight barometer_dps310 + ArduPilot AP_Baro_DPS280 (SYS-032)"
+		(property "Description" "Baro I2C1 0x76 (SDO → 100k → GND), ID 0x11: Betaflight barometer_dps310 (her sürüm), ArduPilot AP_Baro_SPL06 ≥ 4.6 (SYS-032, yazilim-inceleme §2)"
 			(at 73.66 160.02 0)
 			(hide yes)
 			(show_name no)
@@ -1991,7 +1932,7 @@
 				)
 			)
 		)
-		(property "MPN" "DPS368XTSA1"
+		(property "MPN" "SPA06-003"
 			(at 73.66 160.02 0)
 			(hide yes)
 			(show_name no)
@@ -2002,7 +1943,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "Infineon"
+		(property "Manufacturer" "Goertek"
 			(at 73.66 160.02 0)
 			(hide yes)
 			(show_name no)
@@ -2013,7 +1954,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C3232508"
+		(property "LCSC" "C30589048"
 			(at 73.66 160.02 0)
 			(hide yes)
 			(show_name no)
@@ -2024,7 +1965,18 @@
 				)
 			)
 		)
-		(property "Temperature" "-40…+85 °C (DS) — 85 °C istisnası: BF + AP sürücülü 105 °C baro yok"
+		(property "ALT MPN" "DPS368XTSA1(TOKMAS)"
+			(at 73.66 160.02 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ALT Manufacturer" "Tokmas"
 			(at 73.66 160.02 0)
 			(hide yes)
 			(show_name no)
@@ -2046,7 +1998,62 @@
 				)
 			)
 		)
-		(property "ALT MPN" "DPS368XTSA1(TOKMAS)"
+		(property "ALT2 MPN" "DPS368XTSA1"
+			(at 73.66 160.02 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ALT2 Manufacturer" "Infineon"
+			(at 73.66 160.02 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ALT2 LCSC" "C3232508"
+			(at 73.66 160.02 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ALT Note" "Pin 1 GND 2 CSB 3 SDA 4 SCK 5 SDO 6 VDDIO 7 GND 8 VDD aynı (SPA06-003 DS Ver2.0 / Tokmas DPS368 DS); ID 0x11. ALT2 Infineon DPS368 ID 0x10 (AP hwdef iki BARO satırı)"
+			(at 73.66 160.02 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Temperature" "-40…+85 °C (DS)"
+			(at 73.66 160.02 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Critical" "evet"
 			(at 73.66 160.02 0)
 			(hide yes)
 			(show_name no)
@@ -2145,7 +2152,7 @@
 				)
 			)
 		)
-		(property "Description" "Baro VDD/VDDIO"
+		(property "Description" "Baro VDD/VDDIO (pin 8 / 6)"
 			(at 119.38 152.4 0)
 			(hide yes)
 			(show_name no)
@@ -2190,6 +2197,17 @@
 			)
 		)
 		(property "Temperature" "X7R -55…+125 °C (EIA)"
+			(at 119.38 152.4 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Critical" "hayır"
 			(at 119.38 152.4 0)
 			(hide yes)
 			(show_name no)
@@ -2270,7 +2288,7 @@
 				)
 			)
 		)
-		(property "Description" "Baro SDO → GND: adres 0x76 (DS Tablo 11 R3)"
+		(property "Description" "Baro SDO → GND: adres 0x76 (SPA06 DS §4.3.1, R3 5–100 k)"
 			(at 137.16 152.4 0)
 			(hide yes)
 			(show_name no)
@@ -2315,6 +2333,17 @@
 			)
 		)
 		(property "Temperature" "-55…+155 °C (UNI-ROYAL thick film, LCSC)"
+			(at 137.16 152.4 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Critical" "hayır"
 			(at 137.16 152.4 0)
 			(hide yes)
 			(show_name no)
@@ -2450,6 +2479,17 @@
 				)
 			)
 		)
+		(property "Critical" "hayır"
+			(at 154.94 152.4 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "5688f88e-3f00-5749-a965-33524bfd8fad")
 		)
@@ -2575,6 +2615,17 @@
 				)
 			)
 		)
+		(property "Critical" "hayır"
+			(at 172.72 152.4 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "c98532a6-b6c2-5e5a-ac61-b328279070a6")
 		)
@@ -2643,7 +2694,7 @@
 				)
 			)
 		)
-		(property "Description" "Blackbox flash 16 MB SPI3, CS PC14 (SYS-033). Betaflight flash_m25p16 + ArduPilot AP_Logger_Flash_JEDEC destekli"
+		(property "Description" "Blackbox flash 16 MB SPI3, CS PC14 (SYS-033). JEDEC 0xEF4018: Betaflight flash_m25p16 + ArduPilot AP_Logger_Flash_JEDEC"
 			(at 271.78 71.12 0)
 			(hide yes)
 			(show_name no)
@@ -2665,7 +2716,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "Winbond"
+		(property "Manufacturer" "Winbond Elec"
 			(at 271.78 71.12 0)
 			(hide yes)
 			(show_name no)
@@ -2687,7 +2738,7 @@
 				)
 			)
 		)
-		(property "Temperature" "-40…+85 °C (DS) — FMU 85 °C sınıfı yeterli (müşteri 2026-11-11, KRR-008)"
+		(property "ALT MPN" "W25Q128JVSIM"
 			(at 271.78 71.12 0)
 			(hide yes)
 			(show_name no)
@@ -2698,7 +2749,7 @@
 				)
 			)
 		)
-		(property "ALT LCSC" "C22404005"
+		(property "ALT Manufacturer" "Winbond Elec"
 			(at 271.78 71.12 0)
 			(hide yes)
 			(show_name no)
@@ -2709,7 +2760,73 @@
 				)
 			)
 		)
-		(property "ALT MPN" "GD25Q128ESJGR (GigaDevice, 105 °C; ArduPilot JEDEC tablosunda yok)"
+		(property "ALT LCSC" "C401671"
+			(at 271.78 71.12 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ALT2 MPN" "MT25QL128ABA1ESE"
+			(at 271.78 71.12 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ALT2 Manufacturer" "Micron"
+			(at 271.78 71.12 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ALT2 LCSC" "C41359590"
+			(at 271.78 71.12 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ALT Note" "Aynı kalıp/kılıf SOIC-8 208 mil (Winbond DS §3.1), JEDEC 0xEF7018 BF + AP ✓ (yazilim-inceleme §4); ALT aynı üretici (KRR-011 k.3: stoklu farklı üretici yalnız Micron, 10 $)"
+			(at 271.78 71.12 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Temperature" "-40…+85 °C (DS) — FMU 85 °C sınıfı yeterli (KRR-008)"
+			(at 271.78 71.12 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Critical" "evet"
 			(at 271.78 71.12 0)
 			(hide yes)
 			(show_name no)
@@ -2863,6 +2980,17 @@
 				)
 			)
 		)
+		(property "Critical" "hayır"
+			(at 309.88 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "7118e5dc-a066-5708-9b92-68bf4ee5c800")
 		)
@@ -2978,6 +3106,17 @@
 			)
 		)
 		(property "Temperature" "-55…+155 °C (UNI-ROYAL thick film, LCSC)"
+			(at 327.66 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Critical" "hayır"
 			(at 327.66 66.04 0)
 			(hide yes)
 			(show_name no)
@@ -3113,6 +3252,17 @@
 				)
 			)
 		)
+		(property "Critical" "hayır"
+			(at 345.44 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "f296246f-a9d2-575f-aebe-89d183bd21f5")
 		)
@@ -3227,7 +3377,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "79cb81b2-b46f-5608-ada7-05415afc02e0")
-		(property "Reference" "#PWR116"
+		(property "Reference" "#PWR122"
 			(at 66.04 58.42 0)
 			(hide yes)
 			(show_name no)
@@ -3276,7 +3426,7 @@
 		(instances
 			(project "fmu"
 				(path "/f394d34b-b328-5e81-bc0a-3e0521c1bfc4/db446465-a09e-5d25-a2cf-65c5f767a266"
-					(reference "#PWR116")
+					(reference "#PWR122")
 					(unit 1)
 				)
 			)
@@ -3293,7 +3443,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "aede6452-1283-5a5e-a0c0-489c5d1226e0")
-		(property "Reference" "#PWR117"
+		(property "Reference" "#PWR123"
 			(at 66.04 88.9 0)
 			(hide yes)
 			(show_name no)
@@ -3342,7 +3492,7 @@
 		(instances
 			(project "fmu"
 				(path "/f394d34b-b328-5e81-bc0a-3e0521c1bfc4/db446465-a09e-5d25-a2cf-65c5f767a266"
-					(reference "#PWR117")
+					(reference "#PWR123")
 					(unit 1)
 				)
 			)
@@ -3359,7 +3509,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "5c234b51-448b-5e54-8d04-57f0529027d7")
-		(property "Reference" "#PWR118"
+		(property "Reference" "#PWR124"
 			(at 68.58 58.42 0)
 			(hide yes)
 			(show_name no)
@@ -3408,7 +3558,7 @@
 		(instances
 			(project "fmu"
 				(path "/f394d34b-b328-5e81-bc0a-3e0521c1bfc4/db446465-a09e-5d25-a2cf-65c5f767a266"
-					(reference "#PWR118")
+					(reference "#PWR124")
 					(unit 1)
 				)
 			)
@@ -3425,7 +3575,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "b8b9294b-f57c-5b86-95e3-5090fc3da852")
-		(property "Reference" "#PWR119"
+		(property "Reference" "#PWR125"
 			(at 68.58 88.9 0)
 			(hide yes)
 			(show_name no)
@@ -3474,7 +3624,7 @@
 		(instances
 			(project "fmu"
 				(path "/f394d34b-b328-5e81-bc0a-3e0521c1bfc4/db446465-a09e-5d25-a2cf-65c5f767a266"
-					(reference "#PWR119")
+					(reference "#PWR125")
 					(unit 1)
 				)
 			)
@@ -3502,9 +3652,13 @@
 			)
 		)
 	)
+	(no_connect
+		(at 86.36 66.04)
+		(uuid "ccf05d1a-697b-55ee-bc82-424be3faeafd")
+	)
 	(symbol
 		(lib_id "stack:GND")
-		(at 88.9 66.04 90)
+		(at 88.9 71.12 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -3512,9 +3666,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "ccf05d1a-697b-55ee-bc82-424be3faeafd")
-		(property "Reference" "#PWR120"
-			(at 88.9 68.58 0)
+		(uuid "0469f760-931f-5e33-813e-15a92931d636")
+		(property "Reference" "#PWR126"
+			(at 88.9 73.66 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3525,7 +3679,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 85.09 66.04 0)
+			(at 85.09 71.12 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3535,7 +3689,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 88.9 66.04 0)
+			(at 88.9 71.12 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3546,7 +3700,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 88.9 66.04 0)
+			(at 88.9 71.12 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3557,24 +3711,82 @@
 			)
 		)
 		(pin "1"
-			(uuid "62490568-be69-54a4-98f4-9a406888c887")
+			(uuid "78cbf17e-bdb3-5218-bf6e-c36bbf98854b")
 		)
 		(instances
 			(project "fmu"
 				(path "/f394d34b-b328-5e81-bc0a-3e0521c1bfc4/db446465-a09e-5d25-a2cf-65c5f767a266"
-					(reference "#PWR120")
+					(reference "#PWR126")
 					(unit 1)
 				)
 			)
 		)
 	)
-	(no_connect
-		(at 86.36 71.12)
-		(uuid "0469f760-931f-5e33-813e-15a92931d636")
-	)
-	(no_connect
-		(at 86.36 73.66)
+	(symbol
+		(lib_id "stack:GND")
+		(at 88.9 73.66 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
 		(uuid "f2dc6a86-ff8c-5d45-b5bc-0dc334d53364")
+		(property "Reference" "#PWR127"
+			(at 88.9 76.2 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 85.09 73.66 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 88.9 73.66 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 88.9 73.66 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "a328397c-9fb9-5375-9266-77c6520518ad")
+		)
+		(instances
+			(project "fmu"
+				(path "/f394d34b-b328-5e81-bc0a-3e0521c1bfc4/db446465-a09e-5d25-a2cf-65c5f767a266"
+					(reference "#PWR127")
+					(unit 1)
+				)
+			)
+		)
 	)
 	(no_connect
 		(at 86.36 76.2)
@@ -3595,7 +3807,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "226afc95-0274-5595-bf78-64ae8693e127")
-		(property "Reference" "#PWR121"
+		(property "Reference" "#PWR128"
 			(at 124.46 62.23 0)
 			(hide yes)
 			(show_name no)
@@ -3644,7 +3856,7 @@
 		(instances
 			(project "fmu"
 				(path "/f394d34b-b328-5e81-bc0a-3e0521c1bfc4/db446465-a09e-5d25-a2cf-65c5f767a266"
-					(reference "#PWR121")
+					(reference "#PWR128")
 					(unit 1)
 				)
 			)
@@ -3661,7 +3873,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "bbbf0ac4-d48d-57e3-9cd4-ce1a998faa40")
-		(property "Reference" "#PWR122"
+		(property "Reference" "#PWR129"
 			(at 124.46 74.93 0)
 			(hide yes)
 			(show_name no)
@@ -3710,139 +3922,7 @@
 		(instances
 			(project "fmu"
 				(path "/f394d34b-b328-5e81-bc0a-3e0521c1bfc4/db446465-a09e-5d25-a2cf-65c5f767a266"
-					(reference "#PWR122")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "stack:+3V3_IMU")
-		(at 142.24 59.69 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "2b1544b9-9359-5207-9df2-af4baab4b5b6")
-		(property "Reference" "#PWR123"
-			(at 142.24 62.23 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "+3V3_IMU"
-			(at 142.24 55.88 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 142.24 59.69 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 142.24 59.69 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "e7b520ea-5b94-5d0c-99ce-00e17f0f5c86")
-		)
-		(instances
-			(project "fmu"
-				(path "/f394d34b-b328-5e81-bc0a-3e0521c1bfc4/db446465-a09e-5d25-a2cf-65c5f767a266"
-					(reference "#PWR123")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "stack:GND")
-		(at 142.24 72.39 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "ce8c753e-ec3a-591f-a76d-8bfe48d81cbf")
-		(property "Reference" "#PWR124"
-			(at 142.24 74.93 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 142.24 76.2 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 142.24 72.39 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 142.24 72.39 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "0fc7df18-ad2e-5063-b5f0-81f6be1e7b24")
-		)
-		(instances
-			(project "fmu"
-				(path "/f394d34b-b328-5e81-bc0a-3e0521c1bfc4/db446465-a09e-5d25-a2cf-65c5f767a266"
-					(reference "#PWR124")
+					(reference "#PWR129")
 					(unit 1)
 				)
 			)
@@ -3858,8 +3938,8 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "417857fd-95a3-518e-9623-6011b2bd637d")
-		(property "Reference" "#PWR125"
+		(uuid "2b1544b9-9359-5207-9df2-af4baab4b5b6")
+		(property "Reference" "#PWR130"
 			(at 60.96 157.48 0)
 			(hide yes)
 			(show_name no)
@@ -3903,12 +3983,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "4f58d8f6-09c4-5965-bb60-266b3b36d21e")
+			(uuid "e7b520ea-5b94-5d0c-99ce-00e17f0f5c86")
 		)
 		(instances
 			(project "fmu"
 				(path "/f394d34b-b328-5e81-bc0a-3e0521c1bfc4/db446465-a09e-5d25-a2cf-65c5f767a266"
-					(reference "#PWR125")
+					(reference "#PWR130")
 					(unit 1)
 				)
 			)
@@ -3923,7 +4003,7 @@
 			)
 			(justify right)
 		)
-		(uuid "2cf0ed16-fad5-5fda-a2d7-e5cedb8ba3f9")
+		(uuid "ce8c753e-ec3a-591f-a76d-8bfe48d81cbf")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 60.96 157.48 0)
 			(hide yes)
@@ -3945,7 +4025,7 @@
 			)
 			(justify right)
 		)
-		(uuid "0e55f476-ad42-5ad8-a2df-a547d057c91f")
+		(uuid "417857fd-95a3-518e-9623-6011b2bd637d")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 60.96 160.02 0)
 			(hide yes)
@@ -3966,7 +4046,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "1893790b-7a09-5f87-8d27-b981f05ef539")
+		(uuid "2cf0ed16-fad5-5fda-a2d7-e5cedb8ba3f9")
 	)
 	(symbol
 		(lib_id "stack:+3V3")
@@ -3978,8 +4058,8 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "1432ae9e-f7a4-5ab0-96d4-0a5f1cc4ca55")
-		(property "Reference" "#PWR126"
+		(uuid "0e55f476-ad42-5ad8-a2df-a547d057c91f")
+		(property "Reference" "#PWR131"
 			(at 68.58 149.86 0)
 			(hide yes)
 			(show_name no)
@@ -4023,12 +4103,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "ff63d139-46db-5461-85b6-2eb8e1228d32")
+			(uuid "bc3634d6-be0e-5bce-8779-507e7233a0cb")
 		)
 		(instances
 			(project "fmu"
 				(path "/f394d34b-b328-5e81-bc0a-3e0521c1bfc4/db446465-a09e-5d25-a2cf-65c5f767a266"
-					(reference "#PWR126")
+					(reference "#PWR131")
 					(unit 1)
 				)
 			)
@@ -4044,8 +4124,8 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "81f2647c-02c7-52e9-a101-a0aee9419d77")
-		(property "Reference" "#PWR127"
+		(uuid "1893790b-7a09-5f87-8d27-b981f05ef539")
+		(property "Reference" "#PWR132"
 			(at 68.58 175.26 0)
 			(hide yes)
 			(show_name no)
@@ -4089,12 +4169,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "6f862a36-ffe5-5f94-8e5b-20fba5e67e97")
+			(uuid "fcead1d4-14c4-53ca-805e-3f581ef09429")
 		)
 		(instances
 			(project "fmu"
 				(path "/f394d34b-b328-5e81-bc0a-3e0521c1bfc4/db446465-a09e-5d25-a2cf-65c5f767a266"
-					(reference "#PWR127")
+					(reference "#PWR132")
 					(unit 1)
 				)
 			)
@@ -4110,8 +4190,8 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "6b839c3f-a547-5d27-85fc-b187729ab899")
-		(property "Reference" "#PWR128"
+		(uuid "1432ae9e-f7a4-5ab0-96d4-0a5f1cc4ca55")
+		(property "Reference" "#PWR133"
 			(at 71.12 149.86 0)
 			(hide yes)
 			(show_name no)
@@ -4155,12 +4235,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "ead7b272-5def-5115-b08f-dce3e301904a")
+			(uuid "ff63d139-46db-5461-85b6-2eb8e1228d32")
 		)
 		(instances
 			(project "fmu"
 				(path "/f394d34b-b328-5e81-bc0a-3e0521c1bfc4/db446465-a09e-5d25-a2cf-65c5f767a266"
-					(reference "#PWR128")
+					(reference "#PWR133")
 					(unit 1)
 				)
 			)
@@ -4176,8 +4256,8 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "5331e7bc-bee9-5696-afa1-2e8a24be5497")
-		(property "Reference" "#PWR129"
+		(uuid "81f2647c-02c7-52e9-a101-a0aee9419d77")
+		(property "Reference" "#PWR134"
 			(at 71.12 175.26 0)
 			(hide yes)
 			(show_name no)
@@ -4221,12 +4301,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "81c3a9d4-d70f-55b3-bee8-49a54a7d6fae")
+			(uuid "6f862a36-ffe5-5f94-8e5b-20fba5e67e97")
 		)
 		(instances
 			(project "fmu"
 				(path "/f394d34b-b328-5e81-bc0a-3e0521c1bfc4/db446465-a09e-5d25-a2cf-65c5f767a266"
-					(reference "#PWR129")
+					(reference "#PWR134")
 					(unit 1)
 				)
 			)
@@ -4242,8 +4322,8 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "7081a930-2516-5978-b7af-bd0216bfabc0")
-		(property "Reference" "#PWR130"
+		(uuid "6b839c3f-a547-5d27-85fc-b187729ab899")
+		(property "Reference" "#PWR135"
 			(at 119.38 148.59 0)
 			(hide yes)
 			(show_name no)
@@ -4287,12 +4367,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "a2afe3d0-87c9-5f3c-8a12-5655238ed56e")
+			(uuid "ead7b272-5def-5115-b08f-dce3e301904a")
 		)
 		(instances
 			(project "fmu"
 				(path "/f394d34b-b328-5e81-bc0a-3e0521c1bfc4/db446465-a09e-5d25-a2cf-65c5f767a266"
-					(reference "#PWR130")
+					(reference "#PWR135")
 					(unit 1)
 				)
 			)
@@ -4308,8 +4388,8 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "384c718e-1b3f-5b3b-a220-f0b52ad255df")
-		(property "Reference" "#PWR131"
+		(uuid "5331e7bc-bee9-5696-afa1-2e8a24be5497")
+		(property "Reference" "#PWR136"
 			(at 119.38 161.29 0)
 			(hide yes)
 			(show_name no)
@@ -4353,12 +4433,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "4480cb8d-0985-5111-adc0-15df731b551a")
+			(uuid "81c3a9d4-d70f-55b3-bee8-49a54a7d6fae")
 		)
 		(instances
 			(project "fmu"
 				(path "/f394d34b-b328-5e81-bc0a-3e0521c1bfc4/db446465-a09e-5d25-a2cf-65c5f767a266"
-					(reference "#PWR131")
+					(reference "#PWR136")
 					(unit 1)
 				)
 			)
@@ -4372,7 +4452,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "a2fdbd1a-d17f-5ff0-9e16-6b75eb9e18ae")
+		(uuid "7081a930-2516-5978-b7af-bd0216bfabc0")
 	)
 	(symbol
 		(lib_id "stack:GND")
@@ -4384,8 +4464,8 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "cb016f61-1212-5cc3-9cfc-ace1eb90617b")
-		(property "Reference" "#PWR132"
+		(uuid "384c718e-1b3f-5b3b-a220-f0b52ad255df")
+		(property "Reference" "#PWR137"
 			(at 137.16 161.29 0)
 			(hide yes)
 			(show_name no)
@@ -4429,12 +4509,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "e1b956aa-2dda-5361-8b9a-c3df7896b9ea")
+			(uuid "4480cb8d-0985-5111-adc0-15df731b551a")
 		)
 		(instances
 			(project "fmu"
 				(path "/f394d34b-b328-5e81-bc0a-3e0521c1bfc4/db446465-a09e-5d25-a2cf-65c5f767a266"
-					(reference "#PWR132")
+					(reference "#PWR137")
 					(unit 1)
 				)
 			)
@@ -4450,8 +4530,8 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "1132ec91-b4a1-590a-9262-d1acf9b29fc9")
-		(property "Reference" "#PWR133"
+		(uuid "a2fdbd1a-d17f-5ff0-9e16-6b75eb9e18ae")
+		(property "Reference" "#PWR138"
 			(at 154.94 148.59 0)
 			(hide yes)
 			(show_name no)
@@ -4495,12 +4575,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "7bb97935-6d41-5343-8397-8b06648b2fb7")
+			(uuid "2515a20d-e771-5eaf-bd0b-7da31fcae65f")
 		)
 		(instances
 			(project "fmu"
 				(path "/f394d34b-b328-5e81-bc0a-3e0521c1bfc4/db446465-a09e-5d25-a2cf-65c5f767a266"
-					(reference "#PWR133")
+					(reference "#PWR138")
 					(unit 1)
 				)
 			)
@@ -4515,7 +4595,7 @@
 			)
 			(justify right)
 		)
-		(uuid "26680967-6482-53e0-90a0-3032b64f6124")
+		(uuid "cb016f61-1212-5cc3-9cfc-ace1eb90617b")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 154.94 158.75 0)
 			(hide yes)
@@ -4538,8 +4618,8 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "79604c1a-71af-52ae-8a71-b1f88b1ecff0")
-		(property "Reference" "#PWR134"
+		(uuid "1132ec91-b4a1-590a-9262-d1acf9b29fc9")
+		(property "Reference" "#PWR139"
 			(at 172.72 148.59 0)
 			(hide yes)
 			(show_name no)
@@ -4583,12 +4663,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "3e6ab683-5653-5737-bea6-47c86b70961b")
+			(uuid "7bb97935-6d41-5343-8397-8b06648b2fb7")
 		)
 		(instances
 			(project "fmu"
 				(path "/f394d34b-b328-5e81-bc0a-3e0521c1bfc4/db446465-a09e-5d25-a2cf-65c5f767a266"
-					(reference "#PWR134")
+					(reference "#PWR139")
 					(unit 1)
 				)
 			)
@@ -4603,7 +4683,7 @@
 			)
 			(justify right)
 		)
-		(uuid "ee910533-c02f-5f3b-9cd9-007d690405ec")
+		(uuid "26680967-6482-53e0-90a0-3032b64f6124")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 172.72 158.75 0)
 			(hide yes)
@@ -4625,7 +4705,7 @@
 			)
 			(justify right)
 		)
-		(uuid "d1e09ad9-8a3e-5e88-95d2-c691e7f3fe44")
+		(uuid "79604c1a-71af-52ae-8a71-b1f88b1ecff0")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 259.08 63.5 0)
 			(hide yes)
@@ -4647,7 +4727,7 @@
 			)
 			(justify right)
 		)
-		(uuid "76229700-35fe-522d-81fd-a1cf31e9e0cd")
+		(uuid "ee910533-c02f-5f3b-9cd9-007d690405ec")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 259.08 66.04 0)
 			(hide yes)
@@ -4669,7 +4749,7 @@
 			)
 			(justify right)
 		)
-		(uuid "370003a7-4435-5fed-9203-0d300000861e")
+		(uuid "d1e09ad9-8a3e-5e88-95d2-c691e7f3fe44")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 259.08 68.58 0)
 			(hide yes)
@@ -4691,7 +4771,7 @@
 			)
 			(justify right)
 		)
-		(uuid "46cdae2e-40ab-5a95-959b-0b2c534e29d0")
+		(uuid "76229700-35fe-522d-81fd-a1cf31e9e0cd")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 259.08 71.12 0)
 			(hide yes)
@@ -4712,7 +4792,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "31ce0abb-a41f-5da0-b950-34710d66bca4")
+		(uuid "370003a7-4435-5fed-9203-0d300000861e")
 	)
 	(label "FLASH_WPH"
 		(at 259.08 76.2 180)
@@ -4722,7 +4802,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "d5cd0256-b703-547b-ac6e-c26496a8f81f")
+		(uuid "46cdae2e-40ab-5a95-959b-0b2c534e29d0")
 	)
 	(symbol
 		(lib_id "stack:+3V3")
@@ -4734,8 +4814,8 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "ea4dc024-67e1-50ad-a44e-6e521392fe3e")
-		(property "Reference" "#PWR135"
+		(uuid "31ce0abb-a41f-5da0-b950-34710d66bca4")
+		(property "Reference" "#PWR140"
 			(at 271.78 58.42 0)
 			(hide yes)
 			(show_name no)
@@ -4779,12 +4859,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "50ac12f6-3cd0-520d-a3ac-9758ea01f32d")
+			(uuid "1d9116ff-77eb-5ce1-b36f-3c3df7bd57a3")
 		)
 		(instances
 			(project "fmu"
 				(path "/f394d34b-b328-5e81-bc0a-3e0521c1bfc4/db446465-a09e-5d25-a2cf-65c5f767a266"
-					(reference "#PWR135")
+					(reference "#PWR140")
 					(unit 1)
 				)
 			)
@@ -4800,8 +4880,8 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "4fb185e3-2724-531d-a878-660b31762f34")
-		(property "Reference" "#PWR136"
+		(uuid "d5cd0256-b703-547b-ac6e-c26496a8f81f")
+		(property "Reference" "#PWR141"
 			(at 271.78 88.9 0)
 			(hide yes)
 			(show_name no)
@@ -4845,12 +4925,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "31b31395-ad44-5daf-a67f-24b890f9946a")
+			(uuid "bde5272b-a25e-5ec8-a0e7-da17241293f0")
 		)
 		(instances
 			(project "fmu"
 				(path "/f394d34b-b328-5e81-bc0a-3e0521c1bfc4/db446465-a09e-5d25-a2cf-65c5f767a266"
-					(reference "#PWR136")
+					(reference "#PWR141")
 					(unit 1)
 				)
 			)
@@ -4866,8 +4946,8 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "22191145-30f8-5b0c-91b0-a3dcc381e25f")
-		(property "Reference" "#PWR137"
+		(uuid "ea4dc024-67e1-50ad-a44e-6e521392fe3e")
+		(property "Reference" "#PWR142"
 			(at 309.88 62.23 0)
 			(hide yes)
 			(show_name no)
@@ -4911,12 +4991,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "2ed96746-500d-5f3f-b902-a7d2a90e0d4d")
+			(uuid "50ac12f6-3cd0-520d-a3ac-9758ea01f32d")
 		)
 		(instances
 			(project "fmu"
 				(path "/f394d34b-b328-5e81-bc0a-3e0521c1bfc4/db446465-a09e-5d25-a2cf-65c5f767a266"
-					(reference "#PWR137")
+					(reference "#PWR142")
 					(unit 1)
 				)
 			)
@@ -4932,8 +5012,8 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "5e7a3df6-ca16-5be7-aa6b-b621665c34e4")
-		(property "Reference" "#PWR138"
+		(uuid "4fb185e3-2724-531d-a878-660b31762f34")
+		(property "Reference" "#PWR143"
 			(at 309.88 74.93 0)
 			(hide yes)
 			(show_name no)
@@ -4977,12 +5057,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "16ba7ef5-e9fd-5cea-9d5f-ff6cd026e2aa")
+			(uuid "31b31395-ad44-5daf-a67f-24b890f9946a")
 		)
 		(instances
 			(project "fmu"
 				(path "/f394d34b-b328-5e81-bc0a-3e0521c1bfc4/db446465-a09e-5d25-a2cf-65c5f767a266"
-					(reference "#PWR138")
+					(reference "#PWR143")
 					(unit 1)
 				)
 			)
@@ -4998,8 +5078,8 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "0d545bc4-150a-517c-8eee-8d8acd79253c")
-		(property "Reference" "#PWR139"
+		(uuid "22191145-30f8-5b0c-91b0-a3dcc381e25f")
+		(property "Reference" "#PWR144"
 			(at 327.66 62.23 0)
 			(hide yes)
 			(show_name no)
@@ -5043,12 +5123,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "70365c25-5a8b-5261-a047-44941cfe4385")
+			(uuid "2ed96746-500d-5f3f-b902-a7d2a90e0d4d")
 		)
 		(instances
 			(project "fmu"
 				(path "/f394d34b-b328-5e81-bc0a-3e0521c1bfc4/db446465-a09e-5d25-a2cf-65c5f767a266"
-					(reference "#PWR139")
+					(reference "#PWR144")
 					(unit 1)
 				)
 			)
@@ -5063,7 +5143,7 @@
 			)
 			(justify right)
 		)
-		(uuid "1621e089-9b45-5092-afc6-1f832a8e8037")
+		(uuid "5e7a3df6-ca16-5be7-aa6b-b621665c34e4")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 327.66 72.39 0)
 			(hide yes)
@@ -5086,8 +5166,8 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "93de08c6-1ab9-5e7b-bff3-5072cd89cb15")
-		(property "Reference" "#PWR140"
+		(uuid "0d545bc4-150a-517c-8eee-8d8acd79253c")
+		(property "Reference" "#PWR145"
 			(at 345.44 62.23 0)
 			(hide yes)
 			(show_name no)
@@ -5131,12 +5211,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "fcdfbc4c-84d4-5bd5-a8c6-4c6b1254fb67")
+			(uuid "70365c25-5a8b-5261-a047-44941cfe4385")
 		)
 		(instances
 			(project "fmu"
 				(path "/f394d34b-b328-5e81-bc0a-3e0521c1bfc4/db446465-a09e-5d25-a2cf-65c5f767a266"
-					(reference "#PWR140")
+					(reference "#PWR145")
 					(unit 1)
 				)
 			)
@@ -5150,9 +5230,9 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "91f839fa-a9b7-53c4-b887-9875fcb28622")
+		(uuid "1621e089-9b45-5092-afc6-1f832a8e8037")
 	)
-	(text "IMU — ICM-42688-P, SPI1, CS PA4, INT1 PC4 (SYS-031, SYS-042)"
+	(text "IMU — LSM6DSV16X, SPI1, CS PA4, INT1 PC4 (SYS-031, SYS-042, KRR-013)"
 		(exclude_from_sim no)
 		(at 20 22 0)
 		(effects
@@ -5162,22 +5242,22 @@
 			)
 			(justify left top)
 		)
-		(uuid "7948ffda-3c10-500a-9c55-2e60bd9bbb03")
+		(uuid "93de08c6-1ab9-5e7b-bff3-5072cd89cb15")
 	)
-	(text "VDD + VDDIO ← +3V3_IMU (10 Ω + 2.2 µF süzgeç, power sayfası). INT2/FSYNC (9) → GND, RESV 7 → GND,\nRESV 2/3/10/11 boş (DS §4.1). Yerleşim: IMU kart merkezine yakın, BEC'lerden uzak (pcb-muhendisi)."
+	(text "Mod 1, SPI 4 telli (DS13510 Tablo 2): SDx (2), SCx (3) → GND; INT2 (9), OCS_Aux (10), SDO_Aux (11) boş\n(elektriksel bağlantısız, lehimli). Vdd + Vdd_IO ← +3V3_IMU (22 Ω + 2.2 µF süzgeç, power sayfası);\nC301 = Vdd C1 100 nF (pin 8), C115 = Vdd_IO C2 100 nF (pin 5, power sayfası) — DS §7.1. ICM'e özgü 10 nF (C302) kaldırıldı.\nALT LSM6DSK320X (aynı pin/kılıf, DB5732 Tablo 1): yalnız STACKF435, BF ≥ 2026.6 (U301 ALT Note).\nYerleşim: IMU kart merkezine yakın, BEC'lerden uzak (pcb-muhendisi)."
 		(exclude_from_sim no)
-		(at 20 100 0)
+		(at 20 98 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left top)
 		)
-		(uuid "7793d9e4-ac77-58dd-a61c-b2f83c91d7ca")
+		(uuid "91f839fa-a9b7-53c4-b887-9875fcb28622")
 	)
-	(text "Baro — DPS368, I2C1 PB8/PB9, adres 0x76 (SYS-032)"
+	(text "Baro — SPA06-003, I2C1 PB8/PB9, adres 0x76 (SYS-032)"
 		(exclude_from_sim no)
-		(at 20 120 0)
+		(at 20 125 0)
 		(effects
 			(font
 				(size 2 2)
@@ -5185,9 +5265,9 @@
 			)
 			(justify left top)
 		)
-		(uuid "42247aa3-c7e4-5e8d-8976-9b826a652903")
+		(uuid "7948ffda-3c10-500a-9c55-2e60bd9bbb03")
 	)
-	(text "CSB → VDDIO: I2C. SDO → 100k → GND: 0x76. 2.2 k çekmeler dış I2C (GPS/pusula) ile ortak.\nBetaflight: barometer_dps310 (ID 0x10 = DPS310/DPS368); ArduPilot: AP_Baro_DPS280 (DPS310/368)."
+	(text "CSB → VDDIO: I2C. SDO → 100k → GND: 0x76. 2.2 k çekmeler dış I2C (GPS/pusula) ile ortak.\nBetaflight: barometer_dps310 (ID 0x11 SPA06 / 0x10 DPS368); ArduPilot ≥ 4.6: AP_Baro_SPL06 (0x11) + DPS280 (0x10).\nALT Tokmas DPS368 (0x11), ALT2 Infineon DPS368 (0x10) — aynı LGA-8 dizilimi."
 		(exclude_from_sim no)
 		(at 20 185 0)
 		(effects
@@ -5196,7 +5276,7 @@
 			)
 			(justify left top)
 		)
-		(uuid "79abe8e2-aa64-50cd-9494-08f5a3ef7bed")
+		(uuid "7793d9e4-ac77-58dd-a61c-b2f83c91d7ca")
 	)
 	(text "Blackbox flash — 16 MB, SPI3, CS PC14 (SYS-033, SYS-056)"
 		(exclude_from_sim no)
@@ -5208,9 +5288,9 @@
 			)
 			(justify left top)
 		)
-		(uuid "d693cce5-7f45-5bc3-9991-ce63b301f889")
+		(uuid "42247aa3-c7e4-5e8d-8976-9b826a652903")
 	)
-	(text "W25Q128JVSIQ (85 °C) ↔ GD25Q128ESJGR (105 °C) aynı ayak izi. Betaflight USE_FLASH_M25P16;\nArduPilot AP_Logger_Flash_JEDEC W25Q128 destekli (GD25Q128 tabloda yok)."
+	(text "W25Q128JVSIQ (0xEF4018); ALT W25Q128JVSIM (0xEF7018), ALT2 Micron MT25QL128 (0x20BA18) — aynı SOIC-8 208 mil.\nBetaflight USE_FLASH_M25P16; ArduPilot AP_Logger_Flash_JEDEC üçünü de tanır (yazilim-inceleme §4)."
 		(exclude_from_sim no)
 		(at 230 100 0)
 		(effects
@@ -5219,7 +5299,7 @@
 			)
 			(justify left top)
 		)
-		(uuid "ace0ece6-ee37-516d-aed3-993ccb52d3c2")
+		(uuid "79abe8e2-aa64-50cd-9494-08f5a3ef7bed")
 	)
 	(wire
 		(pts
@@ -5229,7 +5309,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "07bbae60-7fd4-54f4-8074-79131ca526f5")
+		(uuid "d693cce5-7f45-5bc3-9991-ce63b301f889")
 	)
 	(wire
 		(pts
@@ -5239,7 +5319,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "ce9cada5-b719-50f1-8873-4a8e5b6523d1")
+		(uuid "ace0ece6-ee37-516d-aed3-993ccb52d3c2")
 	)
 	(wire
 		(pts
@@ -5249,7 +5329,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "96dd88e9-efe4-5671-a912-bf50d1206c4f")
+		(uuid "07bbae60-7fd4-54f4-8074-79131ca526f5")
 	)
 	(wire
 		(pts
@@ -5259,7 +5339,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "964dd401-73db-5e94-a94d-dab5bf9caa3f")
+		(uuid "ce9cada5-b719-50f1-8873-4a8e5b6523d1")
 	)
 	(wire
 		(pts
@@ -5269,7 +5349,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "92a05d5e-d5bf-5032-ab4c-16dbc5ea800d")
+		(uuid "96dd88e9-efe4-5671-a912-bf50d1206c4f")
 	)
 	(wire
 		(pts
@@ -5279,7 +5359,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "feb1e54f-c96a-56f7-ab01-3a1ed6059875")
+		(uuid "964dd401-73db-5e94-a94d-dab5bf9caa3f")
 	)
 	(wire
 		(pts
@@ -5289,7 +5369,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "436b6982-2402-525f-922a-75f6b1e1535d")
+		(uuid "92a05d5e-d5bf-5032-ab4c-16dbc5ea800d")
 	)
 	(wire
 		(pts
@@ -5299,7 +5379,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "b8e35ac3-4124-5791-bb39-bafa122d199e")
+		(uuid "feb1e54f-c96a-56f7-ab01-3a1ed6059875")
 	)
 	(wire
 		(pts
@@ -5309,17 +5389,27 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "cf4513f9-ed8f-5a0d-b595-84579b1d2c42")
+		(uuid "436b6982-2402-525f-922a-75f6b1e1535d")
 	)
 	(wire
 		(pts
-			(xy 86.36 66.04) (xy 88.9 66.04)
+			(xy 86.36 71.12) (xy 88.9 71.12)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "29820157-362a-5660-9758-8638081a2271")
+		(uuid "b8e35ac3-4124-5791-bb39-bafa122d199e")
+	)
+	(wire
+		(pts
+			(xy 86.36 73.66) (xy 88.9 73.66)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "cf4513f9-ed8f-5a0d-b595-84579b1d2c42")
 	)
 	(wire
 		(pts
@@ -5329,7 +5419,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "c13681ff-4fcc-56a8-9000-5141e0cec191")
+		(uuid "29820157-362a-5660-9758-8638081a2271")
 	)
 	(wire
 		(pts
@@ -5339,27 +5429,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "dd4f64e9-d174-5f3d-8300-863bec48b011")
-	)
-	(wire
-		(pts
-			(xy 142.24 62.23) (xy 142.24 59.69)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "1147e233-012c-5725-857c-1930924dc31a")
-	)
-	(wire
-		(pts
-			(xy 142.24 69.85) (xy 142.24 72.39)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "0b3dc27c-92b2-52cb-9e16-55643f0a00a6")
+		(uuid "c13681ff-4fcc-56a8-9000-5141e0cec191")
 	)
 	(wire
 		(pts
@@ -5369,7 +5439,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "2854fa91-8fe2-57df-ab0e-e224bf70db1c")
+		(uuid "dd4f64e9-d174-5f3d-8300-863bec48b011")
 	)
 	(wire
 		(pts
@@ -5379,7 +5449,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "9d0c28bc-0ea5-56ba-b5db-776c94f914db")
+		(uuid "1147e233-012c-5725-857c-1930924dc31a")
 	)
 	(wire
 		(pts
@@ -5389,7 +5459,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "441532b5-f712-595f-8adc-d7b2c33ebd6b")
+		(uuid "0b3dc27c-92b2-52cb-9e16-55643f0a00a6")
 	)
 	(wire
 		(pts
@@ -5399,7 +5469,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "298181ec-20aa-5606-8c0a-d538877dd0bb")
+		(uuid "2854fa91-8fe2-57df-ab0e-e224bf70db1c")
 	)
 	(wire
 		(pts
@@ -5409,7 +5479,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "5a4cc205-30f7-590e-8d02-8d2099ab36ab")
+		(uuid "9d0c28bc-0ea5-56ba-b5db-776c94f914db")
 	)
 	(wire
 		(pts
@@ -5419,7 +5489,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "0197e0ec-aebb-53ab-a25a-057b37ded0b7")
+		(uuid "441532b5-f712-595f-8adc-d7b2c33ebd6b")
 	)
 	(wire
 		(pts
@@ -5429,7 +5499,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "b7ef5b10-e47c-5291-bc75-cb9f7e8e7c1f")
+		(uuid "298181ec-20aa-5606-8c0a-d538877dd0bb")
 	)
 	(wire
 		(pts
@@ -5439,7 +5509,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "d1b2f751-20ce-5604-9b78-003b9dfa4bee")
+		(uuid "5a4cc205-30f7-590e-8d02-8d2099ab36ab")
 	)
 	(wire
 		(pts
@@ -5449,7 +5519,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "9efb4d77-1927-5255-a68c-76f6436dde44")
+		(uuid "0197e0ec-aebb-53ab-a25a-057b37ded0b7")
 	)
 	(wire
 		(pts
@@ -5459,7 +5529,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "0c6a46c9-f488-52ab-8976-5aa4853dde3b")
+		(uuid "b7ef5b10-e47c-5291-bc75-cb9f7e8e7c1f")
 	)
 	(wire
 		(pts
@@ -5469,7 +5539,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "42bb91ec-ee92-578c-93b6-7f67ae97c16c")
+		(uuid "d1b2f751-20ce-5604-9b78-003b9dfa4bee")
 	)
 	(wire
 		(pts
@@ -5479,7 +5549,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "421fbf2b-22f4-5341-9631-f1ed7960c2aa")
+		(uuid "9efb4d77-1927-5255-a68c-76f6436dde44")
 	)
 	(wire
 		(pts
@@ -5489,7 +5559,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "135fe85c-1819-5cf6-890b-b7740e377c40")
+		(uuid "0c6a46c9-f488-52ab-8976-5aa4853dde3b")
 	)
 	(wire
 		(pts
@@ -5499,7 +5569,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "b0f797a5-bf64-5972-a67b-ab92c7105814")
+		(uuid "42bb91ec-ee92-578c-93b6-7f67ae97c16c")
 	)
 	(wire
 		(pts
@@ -5509,7 +5579,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "0ec7fda2-5b6f-5573-91e2-72ea52fdc989")
+		(uuid "421fbf2b-22f4-5341-9631-f1ed7960c2aa")
 	)
 	(wire
 		(pts
@@ -5519,7 +5589,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "b3711298-246e-54d1-97c1-8d85f95f3e49")
+		(uuid "135fe85c-1819-5cf6-890b-b7740e377c40")
 	)
 	(wire
 		(pts
@@ -5529,7 +5599,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "a79b5098-aef8-5036-9c11-aee053107ff2")
+		(uuid "b0f797a5-bf64-5972-a67b-ab92c7105814")
 	)
 	(wire
 		(pts
@@ -5539,7 +5609,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "e3bd5c68-a77c-5229-bbcc-6e9e6f570e2f")
+		(uuid "0ec7fda2-5b6f-5573-91e2-72ea52fdc989")
 	)
 	(wire
 		(pts
@@ -5549,7 +5619,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "9e585de9-f97c-582a-b290-acd0bf8d2d4f")
+		(uuid "b3711298-246e-54d1-97c1-8d85f95f3e49")
 	)
 	(wire
 		(pts
@@ -5559,7 +5629,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "7893d390-2a77-5e1f-9664-8440d707bb9c")
+		(uuid "a79b5098-aef8-5036-9c11-aee053107ff2")
 	)
 	(wire
 		(pts
@@ -5569,7 +5639,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "fb91c4a9-3f96-56c0-a6fe-4933061c8636")
+		(uuid "e3bd5c68-a77c-5229-bbcc-6e9e6f570e2f")
 	)
 	(wire
 		(pts
@@ -5579,7 +5649,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "6a765026-6774-5a28-800a-f4fd8bcf9f9b")
+		(uuid "9e585de9-f97c-582a-b290-acd0bf8d2d4f")
 	)
 	(wire
 		(pts
@@ -5589,7 +5659,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "84c38aa9-19e4-5fca-996a-bdd8605fc0dc")
+		(uuid "7893d390-2a77-5e1f-9664-8440d707bb9c")
 	)
 	(wire
 		(pts
@@ -5599,7 +5669,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "a6a8c330-f731-5cb4-917f-937bc1424e54")
+		(uuid "fb91c4a9-3f96-56c0-a6fe-4933061c8636")
 	)
 	(wire
 		(pts
@@ -5609,7 +5679,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "07cd3057-cf53-5b9e-9b8b-7cb7861f8756")
+		(uuid "6a765026-6774-5a28-800a-f4fd8bcf9f9b")
 	)
 	(wire
 		(pts
@@ -5619,7 +5689,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "ac4ea380-4e10-507d-8911-be2b2cd83b7b")
+		(uuid "84c38aa9-19e4-5fca-996a-bdd8605fc0dc")
 	)
 	(wire
 		(pts
@@ -5629,7 +5699,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "79be7eed-084c-5fdb-ae4b-51f10f499520")
+		(uuid "a6a8c330-f731-5cb4-917f-937bc1424e54")
 	)
 	(wire
 		(pts
@@ -5639,7 +5709,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "183105cc-872e-560c-b2ab-932fb2a49c05")
+		(uuid "07cd3057-cf53-5b9e-9b8b-7cb7861f8756")
 	)
 	(wire
 		(pts
@@ -5649,7 +5719,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "fadc3001-edd4-54cb-abd8-f54d727eac93")
+		(uuid "ac4ea380-4e10-507d-8911-be2b2cd83b7b")
 	)
 	(wire
 		(pts
@@ -5659,7 +5729,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "97f6c429-ae41-536e-9464-41f049a96a37")
+		(uuid "79be7eed-084c-5fdb-ae4b-51f10f499520")
 	)
 	(embedded_fonts no)
 )

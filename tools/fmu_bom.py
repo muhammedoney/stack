@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-"""boards/fmu/bom-revb.csv from tools/fmu_schematic.py parts + JLC prices (jlc_cache.json, 2026-11-11)."""
+"""boards/fmu/bom-revb.csv from tools/fmu_schematic.py parts + JLC prices (jlc_cache.json).
+
+Hedef BOM uygulaması 2026-11-13: ALT / ALT2 / Critical / Exception / Procurement alanları da yazılır
+(boards/fmu/bom-hedef.csv ile ref bazında karşılaştırılabilir). Fiyatlar önbellekten; olmayan kod JLC'den çekilir."""
 import csv, json, re, sys
 from pathlib import Path
 REPO = Path(__file__).resolve().parent.parent
@@ -49,6 +52,9 @@ for (lcsc, val, dnp, dual), refs in sorted(groups.items(), key=lambda kv: (kv[1]
                      birim_100set=unit, kart_100set=card if sku != "DNP" else 0.0, sku=sku,
                      lehim_noktasi=pk * n, sicaklik=p["temp"],
                      alt_lcsc=p["alt"].get("ALT LCSC", ""), alt_mpn=p["alt"].get("ALT MPN", ""),
+                     alt_uretici=p["alt"].get("ALT Manufacturer", ""), alt2_lcsc=p["alt"].get("ALT2 LCSC", ""),
+                     alt2_mpn=p["alt"].get("ALT2 MPN", ""), kritik="evet" if p["crit"] else "hayır",
+                     istisna=p["exc"], tedarik=p["proc"], varyant=p["extra"].get("Variant", ""),
                      not8s=p["extra"].get("8S", ""), aciklama=p["desc"]))
 out = REPO / "boards/fmu/bom-revb.csv"
 with out.open("w", newline="", encoding="utf-8") as fh:
@@ -58,11 +64,12 @@ with out.open("w", newline="", encoding="utf-8") as fh:
     w.writerow(dict(ref="TOPLAM (std SKU, 100 set)", adet=sum(r["adet"] for r in rows if r["sku"] == "std"),
                     kart_100set=round(tot["std"], 2), lehim_noktasi=joints,
                     aciklama=f"extended tür {len(ext_types)}; Dual SKU farkı J503 +{tot['dual']:.3f} $; "
-                             "fiyat/stok JLCPCB parça API 2026-11-11, sıcaklık LCSC parametresi / veri sayfası"))
+                             "fiyat/stok JLCPCB parça API (tools/jlc_cache.json), sıcaklık LCSC parametresi / veri sayfası"))
 pcb = 0.25
 asm = (8.18 + 1.53 + len(ext_types) * 3.07 + joints * 100 * 0.0016) / 100
 print(f"parts std {tot['std']:.2f} $/kart, dual +{tot['dual']:.3f}; ext types {len(ext_types)}; joints {joints}")
-print(f"PCB {pcb:.2f}  dizgi {asm:.2f}  -> FMU kart {tot['std'] + pcb + asm:.2f} $ ; stack (+ESC 17.20) {tot['std'] + pcb + asm + 17.20:.2f} $")
+ESC = 15.71  # esc55a hedef BOM kartı, docs/muadil.md §0 (2026-11-13)
+print(f"PCB {pcb:.2f}  dizgi {asm:.2f}  -> FMU kart {tot['std'] + pcb + asm:.2f} $ ; stack (+ESC {ESC}) {tot['std'] + pcb + asm + ESC:.2f} $")
 print("stok yetmeyen:", [(r['ref'], r['lcsc'], r['stok']) for r in rows if r['stok_yeter'] != 'evet'])
 for r in sorted(rows, key=lambda r: -r["kart_100set"])[:12]:
     print(f"  {r['kart_100set']:7.3f}  {r['ref']:<20} {r['mpn']} ({r['lcsc']}) stok {r['stok']}")

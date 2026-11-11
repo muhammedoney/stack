@@ -93,3 +93,51 @@ Müşteri: “İşlemciyi bu sıcaklık durumundan muaf tut. FMU kartı hiçbir 
 | Stack (+ ESC 17.20 $) | 44.26 $ | **34.92 $** (hedef ≤ 32 $) |
 
 ERC 0, pin haritası farkı 0, betik idempotent. BOM: `python3 tools/fmu_bom.py` (fiyatlar `tools/jlc.py`, önbellek git dışı).
+
+## Hedef BOM uygulaması (2026-11-13)
+
+5. adım (`sematik-muhendisi`): şematik `boards/fmu/bom-hedef.csv` + `docs/muadil.md` §2/§6 + `docs/rapor/guc-tasarruf.md` §3–4, §7 + `docs/rapor/mcu-secimi.md` §3, §4.3 + KRR-011/012/013'e getirildi. Hepsi `tools/fmu_schematic.py` içinde (elle düzenleme yok); yukarıdaki parça özeti tablosu ve maliyet bölümü **bu bölümle geçersizdir**.
+
+| Blok | Önce | Sonra |
+|---|---|---|
+| U201 MCU | STM32F405RGT6 C15742, sembol `STM32F405RGTx` | **AT32F435RGT7 C3029577**, sembol `AT32F435RGTx` (KiCad STM32F405RGTx kopyası, pin 31 **VCAP_1/PH3**, 47 **VCAP_2/PH2**); `Variant` = STACKF435 AT32F435RGT7 / STACKF405 STM32F405RGT6 C15742 / STACKF405A APM32F405RGT6 C5290473; ALT aynı aile AT32F435RMT7 C5178940; `Exception` MCU istisnası, `Procurement` 200 peşin |
+| VCAP / saat / VDDA | — | C208/C209 2.2 µF her varyantta takılı (AT32'de PH3/PH2 G/Ç, zararsız); VCAP1/VCAP2 ağlarında yalnız U201 + kondansatör (betikle denetleniyor); Y201 8 MHz "sabit, değiştirme" notu; FB201 "VDDA = VDD şart" |
+| §10 A | C205 4.7 µF, C206 1 µF, D202 1N4148WT SOD-523 | **C205 10 µF 0805 C380347, C206 2.2 µF 0603 C5360821, D202 1N4148WS SOD-323 C2128** |
+| U301 IMU | ICM-42688-P (Tokmas) | **LSM6DSV16XTR C5267406**, sembol `LSM6DSV16X` (DS13510 Rev 4 Tablo 2'den çizildi), ayak izi `LGA-14_3x2.5mm_P0.5mm_LayoutBorder3x4y` (KiCad standardı, ST LGA-14L 2.5 × 3). SPI1 mod 1: 12 CS ← PA4 (IMU_CS), 13 SCL ← SPI1_SCK, 14 SDA ← SPI1_MOSI, 1 SDO → SPI1_MISO, 4 INT1 → PC4 (IMU_INT1; pin adı aynı, pin haritası değişmedi); 2 SDx, 3 SCx → GND; 9 INT2, 10 OCS_Aux, 11 SDO_Aux NC (DS: "elektriksel bağlantısız, lehimli"); Vdd C301, Vdd_IO C115 100 nF (DS §7.1 C1/C2). **C302 (10 nF) kaldırıldı** (LSM6DSV16X DS'de yok). ALT **LSM6DSK320XTR C53025794** koşullu (`ALT Note`: yalnız STACKF435, BF ≥ 2026.6); pin 1–14 iki veri sayfasında birebir (DS13510 §3 Şekil 5 / DB5732 Rev 1 Tablo 1) |
+| U302 baro | DPS368 Infineon | **SPA06-003 C30589048**, sembol `SPA06-003` (Goertek DS Ver2.0 Tablo 11); ALT Tokmas DPS368 C55090144, ALT2 Infineon C3232508 |
+| U303 flash | ALT GD25Q128 | ALT **W25Q128JVSIM C401671**, ALT2 Micron MT25QL128ABA1ESE C41359590 |
+| 3.3 V | U103 AMS1117-3.3 SOT-223 | **U103 TLV62569DBVR C141836** (ALT SY8089A1AAC C479074), **L103 2.2 µH WPN201610H2R2MT C97005** (ALT Murata C79317, ayak izi KiCad `L_Murata_DFE201610P`), C112 C_IN 10 µF, C113 C_OUT 22 µF, **R119 100 k / R120 22 k** → 3.327 V, **C119 C_FF 22 pF DNP**, EN → +5V |
+| 5 V | R104/R105 100 k / 13.7 k, L101 → +5V | **R104 15 k C25756 / R105 2 k C4109** → 5.10 V; U101 çıkışı yeni yerel ağ **+5V_BUCK** (L101, C107, C108, FB) |
+| USB yük anahtarı | yok | **Q102 AO3401A** (D = +5V_BUCK, S = +5V, G = LSW_G), **R117 100 k** (G–S, CSV'de R_a), **Q103 MMBT3904 C20526** (C = LSW_G, E = GND, B = LSW_B), **R118 100 k** VIN → baz (CSV'de R_b) — guc-tasarruf §3.2 |
+| D501 / R111 | PMEG3020EH SOD-123F, 10 Ω | **B5819W SL C8598 SOD-123** (ALT MDD C64885, ALT2 PMEG3020EH C19268151 ortak ped), **R111 22 Ω C25092** (IMU süzgeci 3.3 kHz) |
+| Alanlar | MPN/LCSC/ALT MPN/ALT LCSC | Her BOM parçasında ESC ile aynı adlar ve sıra: `MPN`, `Manufacturer`, `LCSC`, `ALT MPN`, `ALT Manufacturer`, `ALT LCSC`, `ALT2 MPN/Manufacturer/LCSC`, `ALT Note`, `Temperature`, `Critical` (evet/hayır), `Exception`, `Procurement` (+ `8S`, `Variant`); değerler `bom-hedef.csv`'den |
+
+Referans eşlemesi (CSV yer tutucuları → şematik): R_a → **R117**, R_b → **R118**, R_FB3V3H → **R119**, R_FB3V3L → **R120**; C_FF → **C119** (DNP). Referanslar 1xx…5xx kuralında, betik her referansı `(U|C|R|L|D|Q|J|F|Y|FB|SW|SJ|TP)[1-5]dd` ve tekillik için denetler (ESC'deki C1/C01 tarzı çakışma yok).
+
+Kütüphane: `lib/stack.kicad_sym`'ye yalnız ekleme (`AT32F435RGTx`, `LSM6DSV16X`, `SPA06-003`, `TLV62569DBV`, `MMBT3904`; mevcut semboller değişmedi, eski ICM-42688-P/DPS368/AMS1117/STM32F405RGTx kullanılmıyor ama silinmedi). `lib/stack.pretty/`'ye KiCad standart kopyası `D_SOD-123`, `L_Murata_DFE201610P`. Referans tasarımlardan dosya alınmadı (KRR-006).
+
+### Kontroller (2026-11-13)
+
+| Kontrol | Sonuç |
+|---|---|
+| `LC_ALL=C.UTF-8 kicad-cli sch erc --severity-all boards/fmu/fmu/fmu.kicad_sch` | **0 hata, 0 uyarı** (proje ERC ayarları değişmedi) |
+| `python3 tools/pinmap_check.py . <netlist>` | **64/64 pin, fark 0**; §3 ESC kuralları OK; yeni: VCAP1/VCAP2 yalnız U201 + kondansatör OK. Betik uyarlaması: `PIN_ALIAS` "VCAP_1/PH3" → "VCAP_1", "VCAP_2/PH2" → "VCAP_2" (pin haritası STM32 adlarını tutuyor; AT32 adı aynı ped) |
+| İdempotent | ikinci çalıştırmada ve `.kicad_sch` silinip yeniden üretildiğinde md5 aynı |
+| `python3 tools/fmu_bom.py` ↔ `bom-hedef.csv` (ref bazında LCSC, MPN, ALT LCSC, kritik, DNP) | 111 / 111 ref; **fark 2, ikisi de bilinçli**: C302 (hedef CSV'de 10 nF, görev gereği kaldırıldı) ve C119 (C_FF DNP pedi, CSV'de yok). Hedef CSV düzeltilmedi |
+
+### Maliyet (100 set, `tools/fmu_bom.py`)
+
+| | $/kart |
+|---|---|
+| Komponent (std SKU) | **12.43** (hedef CSV 12.43) |
+| PCB | 0.25 |
+| Dizgi (betik formülü, 28 extended tür, 397 lehim noktası) | 1.59 (hedef CSV §4 "Standard tek yüz" yöntemiyle 1.42) |
+| **FMU toplam** | **14.27** (hedef CSV 14.10); stack + ESC 15.71 = 29.98 $ ≤ 32 $ |
+
+### Açık konular (bu adım)
+
+1. `pcb-muhendisi`: LGA-14L ayak izi ST önerisiyle (KiCad'in LSM6DS3TR-C tabanlı deseni), L103 Sunlord WPN201610H ↔ Murata DFE201612P ped kesişimi, D501 SOD-123 ↔ PMEG3020EH SOD-123F ortak ped, SPA06-003 LGA-8 saat yönü numaralama, Q102 2 A yolu bakırı, U103 SW düğümü kısa / FB SW'den uzak.
+2. SPA06-003 DS iki ayrı 100 nF (VDD, VDDIO) öneriyor; hedef BOM'da tek C303 var — `guc-elektronigi`/`bom-tedarik` kararı (eklenirse +1 basic 0402).
+3. C_FF (C119) değeri DNP: TI 6.8 pF, SY 22 pF; prototipte gerekirse dizilir (DOG-042).
+4. `sistem-mimari`: `docs/pin-haritasi.md` §1 başlığı ve güç satırına AT32 pin 31/47 (PH3/PH2) notu + §1.3 AT32 `dmaopt` sütunu (bu adımda dosyaya dokunulmadı).
+5. `guc-elektronigi`: AT32 288 MHz akımıyla 3.3 V bütçesi (TLV62569 2 A, pay geniş), DOG-042 IMU pini dalgalanması.
