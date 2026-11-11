@@ -72,3 +72,19 @@ Müşteri SOR-013, 014, 016, 017’yi cevapladı, DT-002’ye itiraz yok → DT-
 | DT | DT-001 (DT-004 ile güncellendi), DT-002 Onaylı, DT-003 (ihtiyaç onaylı, değerler doğrulanıyor), DT-004 Onaylı |
 | Açık soru | SOR-015 “55 A” tanımı — `pazar-analisti` rakip etiketlerini analiz ediyor; SYS-010/011 değişmez, cevapla yeni DT |
 | Doğrulama bekleyen (ekip) | EFM8BB21 125 °C (I) sınıfı ve LCSC stoğu; STM32F405RGT7 fiyat/stok; ESC sürücü/buck/LDO/SH konnektör sınıfları; FMU 85 °C istisna listesi; DT-003 fark maliyeti (≤ 32 $ içinde mi) |
+
+## Durum (2026-11-12) — DT-005 seri üretim tedarik ve maliyet kararları (Onaylı)
+
+Müşteri `docs/bom-maliyet.md` §10 tasarruf taramasına karar verdi ve muadil talebi getirdi. Etki analizi `proje.md` → DT-005.
+
+| | Durum |
+|---|---|
+| MUS | 16; yeni **MUS-016** (kritik parçalarda tasarım değişmeden takılabilen muadil), Onaylı |
+| SYS | 65: Onaylı 49, Onaylı (DT-002) 12, Onaylı (DT-005) 1, Değişti (DT-003) 1, Taslak (DT-003) 2; Z 46, Ö 17, İ 2. **Değişti → Onaylı (DT-005):** SYS-030 (APM32F405RGT6 seri, STM32F405RGT6 drop-in muadil). **Yeni:** SYS-095 (drop-in muadil kuralı, Z). **Not:** SYS-042 (3.3 V regülatörü küçük kılıf, SOT-223 değil [öneri]) |
+| DOG | DOG-001…112 (Ü-öncesi 64, Kart 48); değişen DOG-023, -041, -100, -101; yeni DOG-110 (muadil BOM muayenesi), DOG-111 (muadil takılı prototip), DOG-112 (APM32 kartında BF + AP + DFU) |
+| PRJ | PRJ-004 ≤ 32 $: A + B (B1–B6) + APM32 ≈ 29.97 $/stack → karşılanıyor (tahmin) |
+| KRR | yeni KRR-010 (APM32F405 seri MCU; maliyet ve tedarik), KRR-011 (muadil uygulama kuralı) Onaylı |
+| RSK | RSK-004 Azaltıldı; RSK-017 güncellendi; yeni RSK-019 (JW5026 stok 132 < 2 × 400), RSK-020 (APM32: ArduPilot desteği / ayrı yazılım derlemesi), RSK-021 (muadili olmayan kritik parçalar) |
+| §10 kararları | A1–A7, B1–B6 kabul, gereksinim değişmez (B1 SPA06-003 → `gomulu-yazilim` + `pcb-muhendisi`; B2 INA281B2 → `guc-elektronigi` + `gomulu-yazilim`; B3–B6 → `guc-elektronigi`); A2 (SOT-223 AMS1117) küçük kılıf notuyla geçersiz; C1 kabul (DT-005); **C2–C6 reddedildi** (SYS-021, 031, 032, 033, 056 değişmez) |
+| Açık soru | SOR-015 (“55 A” tanımı, pazar analizi); SOR-018 koşullu (APM32/STM32 tek yazılım imajı ve ArduPilot desteği — `gomulu-yazilim` DOG-023 sonucu olumsuzsa sorulur) |
+| Doğrulama bekleyen (ekip) | `gomulu-yazilim`: BF/AP APM32F405 desteği, baro iki sürücü (SPA06/DPS368), `ibata_scale`; `guc-elektronigi`: B2–B6, küçük kılıf LDO + ALT, JW5026 muadil çifti; `bom-tedarik`: ALT MPN/LCSC sütunları ve istisna listesi (DOG-110); `sematik-muhendisi`: APM32/STM32 pin tablosu farkları |

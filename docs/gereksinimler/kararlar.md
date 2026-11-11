@@ -81,3 +81,31 @@ Her karar: bağlam, seçenekler, seçilen ve gerekçe, etkilediği SYS/dosyalar.
 **Karar:** 1. Yayımlanacak: `docs/pin-haritasi.md` türevi kullanıcı pin/ped haritası, Betaflight config ve ArduPilot hwdef (zaten GPL-3), kullanıcı kılavuzu (set kondansatörü zorunluluğu dahil). Şematik/PCB kaynak dosyaları ve BOM yayımlanmaz; şema PDF’i isteğe bağlı, ayrı karar. 100 set sonrası yeniden değerlendirilir.
 **Gerekçe:** Kopyalanma riski düşer, karar geri alınabilir (kapalıdan açığa geçmek kolay, tersi değil); KRR-006 kuralıyla lisans yükümlülüğü yok.
 **Etki:** PRJ-008; KRR-006 geçerli; SYS etkisi yok.
+
+## KRR-010 — Seri üretim FMU MCU’su APM32F405RGT6, STM32F405RGT6 drop-in muadil (2026-11-12)
+**Durum:** Onaylı (müşteri, 2026-11-12: “C’deki APM de uygun, gereksinimi gevşet. APM32F405 kullan.”; DT-005).
+**Bağlam:** `docs/bom-maliyet.md` §10: stack 34.92 $ > 32 $ (PRJ-004). STM32F405RGT6 (C15742) JLC stoğu 24; dış tedarik ≈ 6.1–8.3 $/adet (+1.5…+3.8 $/stack). APM32F405RGT6 (Geehy, C5290473) 3.20 $ @100, stok 1 728, LQFP64 pin uyumlu, Betaflight’ta APM32F405 desteği var (§10.3 C1). SYS-030 “resmî STM32F405” diyordu.
+**Seçenekler:** 1) APM32F405RGT6 seri, STM32F405RGT6 ALT (aynı ayak izi) 2) STM32F405RGT6 kalır, dış tedarikten alınır (≈ 32.9–35.1 $, hedef aşılır) 3) STM32 + C3/C4 tasarrufları (özellik kaybı; müşteri C2–C6’yı reddetti).
+**Karar:** 1. **Gerekçe:** maliyet (−1.38 $/stack JLC fiyatına göre, dış STM32 fiyatına göre −2.9…−5.1 $) ve tedarik (stok sorunu kapanır; STM32 ikinci kaynak olarak kalır, SYS-095). Hiçbir özellik kaybolmaz; A + B + APM32 ≈ 29.97 $/stack.
+**Koşullar / açık noktalar:** `gomulu-yazilim` Betaflight’ta APM32F405 config/derleme yolunu ve ArduPilot desteğini doğrular (DOG-023, DOG-112); ArduPilot desteklemiyorsa SYS-056 için RSK-020 seçenekleri (AP SKU’sunda STM32 dizimi veya DT). `sematik-muhendisi` iki veri sayfasının pin tablosunu karşılaştırır (VCAP, BOOT0, HSE, USB). Sıcaklık: APM32F405RGT6 sınıfı veri sayfasından SYS-087 (≥ 85 °C) için teyit edilir.
+**Etki:** SYS-030 (Değişti), SYS-050/055/056/087 (doğrulama); DOG-023, -100, -101, -112; RSK-004, -017, -020; FMU BOM U201; `firmware/`.
+
+## KRR-011 — Kritik parça muadil (ALT) kuralı (2026-11-12)
+**Durum:** Onaylı (müşteri talebi MUS-016, 2026-11-12; SYS-095). Kritik parça listesinin tamamı ve istisnalar `bom-tedarik` BOM’unda; istisnalar müşteriye bildirilir.
+**Bağlam:** Müşteri: “Tasarımda değişiklik yapmadan yerine muadil komponent takabilmek isterim.” Bugünkü bulgular: STM32 stok 24, JW5026 stok 132 (RSK-019); bazı ALT önerileri farklı kılıflı (INA281B2 ↔ INA240A3).
+**Seçenekler:** 1) Her kritik parçaya pin + ayak izi uyumlu ALT, ortak ayak izi, aynı yazılım imajı; olmazsa gerekçeli istisna 2) Çift ayak izi (iki ayrı ped grubu, biri boş) — alan ister, 30.5 mm FMU’da uygulanamaz 3) Yalnız stok takibi, muadil gerekince PCB revizyonu (müşteri talebine aykırı).
+**Karar:** 1. Uygulama kuralı:
+
+| # | Kural |
+|---|---|
+| 1 | Kritik parça: MCU, MOSFET, kapı sürücü, akım yükselteci, buck/LDO, IMU, baro, OSD, flash, konnektörler (SH, USB-C), TVS, bobin, kristal, sigorta, ters kutup MOSFET’i, SBUS çevirici ve işlevi tek parçaya bağlı her IC. Direnç/seramik kondansatör kritik değildir (genel değer + kılıf yeterli; BOM’da “genel” işaretli) |
+| 2 | BOM’da her kritik satır: MPN, LCSC, **ALT MPN, ALT LCSC**, ALT üretici, ALT stok, ALT fiyat, “drop-in kanıtı” (iki veri sayfası sayfa no) |
+| 3 | ALT tercihen farklı üretici; aynı üreticinin farklı sipariş kodu yalnız farklı üretici yoksa (gerekçe yazılır) |
+| 4 | Pin dizilimi ve kılıf ölçüsü aynı; ayak izi iki veri sayfasının ped önerisini kapsar (`pcb-muhendisi`). Şematikte iki parçanın farklı gerektirdiği pasif varsa (ör. VCAP, FB direnci) değer iki parçayı da karşılar; karşılamıyorsa drop-in sayılmaz |
+| 5 | ALT, ana parçanın bağlı olduğu tüm SYS’leri karşılar: gerilim/akım sınıfı (SYS-014, 044), sıcaklık sınıfı (ESC ≥ 125 °C SYS-086, FMU ≥ 85 °C SYS-087), doğruluk (SYS-021, 022), işlev (SYS-031 8 kHz vb.) |
+| 6 | Yazılım: ALT aynı Betaflight / ArduPilot / Bluejay imajında otomatik tanınır (WHO_AM_I/PROD_ID/JEDEC ID ile) veya yazılım ayarı değişmez. Ölçek değişiyorsa (ör. akım yükselteci kazancı) ALT aynı kazançta olmalı. MCU için özel durum: RSK-020, SOR-018 |
+| 7 | Muadili bulunmayan kritik parça → istisna listesi: parça, neden (tek üretici, yazılım, sıcaklık sınıfı), önlem (peşin alım, stok izleme, PCB revizyon planı), risk; müşteriye bildirilir |
+| 8 | Prototipte en az bir FMU ve bir ESC ALT’larla dizilir (DOG-111); 100 set öncesi ALT’ı denenmemiş parçalar listelenir |
+
+**Gerekçe:** Müşteri isteği; seri üretimde stok kesintisi (STM32, JW5026) PCB revizyonu olmadan aşılır; ortak ayak izi alan maliyeti olmadan sağlanır (seçenek 2 alan ister).
+**Etki:** SYS-095 (yeni), SYS-091 (ilişkili); DOG-110, DOG-111; RSK-019, RSK-021; tüm BOM’lar (İP-02), şematik alanları (İP-05), ayak izleri (`lib/`, İP-06), firmware config (baro/IMU/flash çoklu sürücü, İP-07). §10.7’deki “ALT” kodlarından farklı kılıflı olanlar (INA281B2 ↔ INA240A3) bu kurala göre drop-in değildir.

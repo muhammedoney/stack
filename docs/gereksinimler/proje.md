@@ -7,7 +7,7 @@
 | PRJ-001 | Tasarım KiCad 10’da; tüm belgeler Türkçe ve repoda; dosya düzeni fiber/gofret projeleriyle aynı | Müşteri, 2026-11-06 | Z | Onaylı |
 | PRJ-002 | Hobi ürünü: sertifika (CE/FCC vb.) hedeflenmez | MUS-003 | Z | Onaylı |
 | PRJ-003 | Hedef satış fiyatı ≤ 70 $/stack (pazar: bütçe markalar 70–100 $, AliExpress 45–57 $) | SOR-005, `docs/pazar-analizi.md` §6 | Ö | Onaylı |
-| PRJ-004 | Stack (FMU + 55 A ESC) toplam maliyeti ≤ 32 $ (DT-004; önceki hedefler: 15 $ → 28 $ DT-001 → 32 $), 100 set kademesinde, tüm özellikler kalır (`docs/bom-maliyet.md` §9.4 Rev B 31.69 $; 2026-11-11 güncel: ESC 17.20 $ + FMU 17.72 $ = **34.92 $ → hedefi 2.9 $ aşıyor**, RSK-004): komponent + PCB + dizgi dahil, gümrük ve kargo hariç (SOR-009). Her parça seçiminde maliyet etkisi yazılır | SOR-005, SOR-016 | Z | Onaylı (DT-004) |
+| PRJ-004 | Stack (FMU + 55 A ESC) toplam maliyeti ≤ 32 $ (DT-004; önceki hedefler: 15 $ → 28 $ DT-001 → 32 $), 100 set kademesinde, tüm özellikler kalır (`docs/bom-maliyet.md` §9.4 Rev B 31.69 $; 2026-11-11 güncel: ESC 17.20 $ + FMU 17.72 $ = 34.92 $ → hedefi 2.9 $ aşıyordu; **2026-11-12, DT-005: §10 A + B (B1–B6) + APM32F405 ≈ 29.97 $ → karşılanıyor**, pay ≈ 2.0 $, RSK-004): komponent + PCB + dizgi dahil, gümrük ve kargo hariç (SOR-009). Her parça seçiminde maliyet etkisi yazılır | SOR-005, SOR-016 | Z | Onaylı (DT-004) |
 | PRJ-005 | İlk prototip: en kısa sürede 5 set | SOR-008, 2026-11-06 | Z | Onaylı |
 | PRJ-007 | Prototip doğrulandıktan sonra 100 set üretim | SOR-008 | Z | Onaylı |
 | PRJ-006 | Yazılım: FMU’da hazır Betaflight, ESC’de Bluejay; yalnız hedef/düzen tanımı ve yükleme yolu bizden | SOR-006, KRR-003 | Z | Onaylı |
@@ -20,7 +20,7 @@
 | RSK-001 | esc55a akım ölçümü ≈ 32 A’da doyuyor, shunt 100 A’da ≈ 5 W (inceleme E1, E2) | Yüksek | Akım okuması ve shunt ısısı | Akım sınıfı netleşince yeniden boyutlandırma | Açık |
 | RSK-002 | Güç parçalarının (ME7170, JW5026) veri sayfası yok; 55 A sınıfı doğrulanamıyor (E5) | Orta | Yeniden parça seçimi | `bom-tedarik` veri sayfalarını bulur | Açık |
 | RSK-003 | esc65a için yalnız fotoğraf var | Yüksek | Takvim | esc55a tabanlı varyant değerlendirmesi (SOR-003) | Açık |
-| RSK-004 | ≤ 32 $/stack hedefinde (DT-004) pay çok az: Rev B 31.69 $ (`docs/bom-maliyet.md` §9.4) → pay 0.31 $; DT-003 sıcaklık sınıfı değişiklikleri (STM32F405RGT7, 4 × EFM8BB21 I sınıfı, 125 °C IC muadilleri) fiyatı bilinmeyen artış getirir; bom-maliyet R3 (bulk X5R, −0.49 $) tasarrufu KRR-008 ile kapandı; PCB fiyatı tahmin, Economic dizgi ek ücreti +0.48 $/kart belirsiz (§7)  **2026-11-11:** yeni FMU şematiğiyle stack 34.92 $ (ESC 17.20 + FMU 17.72) > 32 $; FMU’daki eklemeler (40 V BEC’ler, LDO, J_ESC2, X7R) ve ESC 40 V/125 °C yükseltmeleri.| Yüksek (2026-11-11) | Kâr | `bom-tedarik` DT-003 fark maliyeti; güvenli tasarruflar (≈ 30.8 $, SOR-016 notu); JLC gerçek teklifi; aşılırsa yeni DT ile müşteriye (özellik/sınıf ödünleri ayrı satırlarda) | Açık (2026-11-11 güncellendi) |
+| RSK-004 | ≤ 32 $/stack hedefinde (DT-004) pay çok az: Rev B 31.69 $ (`docs/bom-maliyet.md` §9.4) → pay 0.31 $; DT-003 sıcaklık sınıfı değişiklikleri (STM32F405RGT7, 4 × EFM8BB21 I sınıfı, 125 °C IC muadilleri) fiyatı bilinmeyen artış getirir; bom-maliyet R3 (bulk X5R, −0.49 $) tasarrufu KRR-008 ile kapandı; PCB fiyatı tahmin, Economic dizgi ek ücreti +0.48 $/kart belirsiz (§7)  **2026-11-11:** yeni FMU şematiğiyle stack 34.92 $ (ESC 17.20 + FMU 17.72) > 32 $; FMU’daki eklemeler (40 V BEC’ler, LDO, J_ESC2, X7R) ve ESC 40 V/125 °C yükseltmeleri. **2026-11-12 (DT-005):** müşteri §10 A + B (B1–B6) ve C1 APM32F405RGT6’yı onayladı → ≈ 29.97 $/stack (`docs/bom-maliyet.md` §10.6), pay ≈ 2.0 $. Kalan belirsizlik: A2 geçersiz (küçük kılıf LDO, SYS-042, fark ±0.1 $), B1/B2 incelemeden geçmezse sırayla +2.30 / +0.52 $ (B1 yedeği Tokmas DPS368 ile ≈ 31.3 $), JW5026 muadili (RSK-019), SYS-095 ALT parçaları pahalıysa ALT’la dizilen partide fark, PCB/dizgi gerçek teklif. | Orta (2026-11-12) | Kâr | `bom-tedarik` DT-003 fark maliyeti; güvenli tasarruflar (≈ 30.8 $, SOR-016 notu); JLC gerçek teklifi; aşılırsa yeni DT ile müşteriye (özellik/sınıf ödünleri ayrı satırlarda) | Azaltıldı (2026-11-12) |
 | RSK-005 | 100 set ilk parti tasarım doğrulanmadan üretilirse toplu hata riski | Orta | 100 set hurda | Önce 5 set prototip (PRJ-005); Ü-öncesi DOG’lar ve prototip testleri kapanmadan 100 set yok (PRJ-007) | Azaltıldı |
 | RSK-006 | FMU tüm beslemesini 8 pin SH konnektörün tek VBAT pininden alıyor: BEC tam yükte 3S’te ≈ 3.1 A (tahmin), SH pin sınıfı ≈ 1 A (tahmin) → pin/kablo ısınması, gerilim düşümü (SYS-062) | Yüksek | Kart/kablo hasarı, FMU sıfırlanması | `sistem-mimari`: pin sayısı, ayrı besleme pedi veya BEC akım hedefinin düşürülmesi; konnektör veri sayfası (`bom-tedarik`) | Açık (2026-11-06) |
 | RSK-007 | 4 × 55 A eşzamanlı sürekli + 220 A pil yolu, 41 × 48 mm, iç katman 0.5 oz kartta ısıl olarak tutmayabilir; hava akışı varsayımı (5 m/s) kullanıcı kurulumuna bağlı (SYS-010, SYS-012) | Orta | 55 A iddiası düşer, MOSFET/shunt yanması | DOG-004/008 erken analiz; gerekirse iç katman kalınlığı, MOSFET veya “55 A” tanımının (eşzamanlı kanal sayısı) DT ile güncellenmesi | Açık (2026-11-06) |
@@ -33,8 +33,11 @@
 | RSK-014 | F405’te 8 kanal çift yönlü DShot + 8 kHz gyro CPU’yu doyurabilir; DMA tablosu yalnız analiz (SYS-037) | Orta | Dual SKU’da RPM filtresi kısıtlı ya da DShot300/PID 4 kHz zorunlu | DOG-094/095 ilk prototipte; sınır ayar kılavuza; gerekirse M5–M8 çift yönlü kapalı (ArduPilot zaten M1–M4) | Açık (2026-11-10) |
 | RSK-015 | SpeedyBee V4 uyumlu pin haritası LQFP64’ün 51 G/Ç’sinin tamamını kullanıyor; sonradan özellik (2. LED, ek UART) eklenemez (KRR-005) | Orta | M1 revizyonunda özellik kısıtı | Yeni özellik M4/M5 (LQFP100) ailesinde; gerekirse PB15 (servo) veya PC5 (CUR2) feda edilir, DT ile | Açık (2026-11-10) |
 | RSK-016 | (SOR-013 seçenek 1 onaylı, KRR-007) 8S BOM varyantının (60–65 V buck, P-MOS, sigorta) M1 ayak izlerine sığmaması; M1 SY8303 40 V tam 35 + 5 V sınırında (SYS-044, 046) | Orta | M3’te FMU PCB revizyonu, takvim | DOG-097 M1 PCB öncesi; ortak ayak izli aday aranır (`bom-tedarik`, `guc-elektronigi`); SOR-013 | Açık (2026-11-10) |
-| RSK-017 | 125 °C (ESC) / 105 °C (FMU) sınıflı parçalar LCSC’de stoksuz, extended veya pahalı olabilir; EFM8BB21 I sınıfı (−40…125 °C) LCSC’de bulunmayabilir; 8 pin JST SH konnektörün katalog sınıfı +85 °C (doğrulanacak) ESC tasarım sıcaklığının (95 °C) altında (SYS-086, SYS-091)  **2026-11-11:** STM32F405RGT6 JLC stoğu da 24 (100 set için dış tedarik gerekir).| Orta | Parça değişimi, maliyet (RSK-004), Bluejay hedefi (BB21 → başka MCU olursa SYS-051) | `bom-tedarik` DOG-106/107 erken; I sınıfı yoksa: `sistem-mimari` MCU’yu kartın soğuk bölgesine, ölçülen sıcaklığı sınırın ≥ 15 °C altında tutan yerleşim ya da muadil; konnektör için 105 °C sınıflı SH uyumlu muadil veya kenar yerleşimi + yerel ölçüm | Açık (2026-11-11) |
+| RSK-017 | 125 °C (ESC) / 105 °C (FMU) sınıflı parçalar LCSC’de stoksuz, extended veya pahalı olabilir; EFM8BB21 I sınıfı (−40…125 °C) LCSC’de bulunmayabilir; 8 pin JST SH konnektörün katalog sınıfı +85 °C (doğrulanacak) ESC tasarım sıcaklığının (95 °C) altında (SYS-086, SYS-091)  **2026-11-11:** STM32F405RGT6 JLC stoğu da 24 (100 set için dış tedarik gerekir). **2026-11-12:** seri MCU APM32F405RGT6 (stok 1 728 ✓, KRR-010); STM32 ALT olarak kalır.| Orta | Parça değişimi, maliyet (RSK-004), Bluejay hedefi (BB21 → başka MCU olursa SYS-051) | `bom-tedarik` DOG-106/107 erken; I sınıfı yoksa: `sistem-mimari` MCU’yu kartın soğuk bölgesine, ölçülen sıcaklığı sınırın ≥ 15 °C altında tutan yerleşim ya da muadil; konnektör için 105 °C sınıflı SH uyumlu muadil veya kenar yerleşimi + yerel ölçüm | Açık (2026-11-11) |
 | RSK-018 | FMU yığında sıcak ESC’nin (≈ 95 °C) üstünde; IMU, baro, OSD çipi gibi 105 °C muadili olmayan 85 °C parçalar ≤ 70 °C ölçütünü aşabilir; IMU sıcaklık kayması gyro gürültüsünü artırır (SYS-087) | Orta | FMU parça ömrü, uçuş kalitesi | `pcb-muhendisi`: 85 °C parçaları BEC/LDO’dan uzak, ESC sıcak bölgesinin üstüne gelmeyecek konumda; DOG-108 yığın ölçümü; kılavuzda yığın aralığı (tampon yüksekliği) önerisi | Açık (2026-11-11) |
+| RSK-019 | ESC buck JW5026 (C185109) JLC stoğu 132 (2026-11-11; 11-10’da 4 308): 100 set için 400 adet gerekir, SYS-091 “stok ≥ 2 × ihtiyaç” (800) tutmuyor; ikinci kaynak yok (SYS-095) | Yüksek | ESC 100 set takvimi, yeniden parça seçimi ve maliyet (RSK-004) | `guc-elektronigi`: SYS-013/014/016/086’yı karşılayan (≥ 40 V, ≥ 125 °C) aynı ayak izli muadil çifti seçer (ana + ALT); `bom-tedarik` stok ve fiyat; seçilemezse peşin alım + istisna listesi (SYS-095 e) | Açık (2026-11-12) |
+| RSK-020 | APM32F405 seri MCU (KRR-010): (a) ArduPilot’un APM32F405’i resmî desteklediği doğrulanmadı → SYS-056 (ArduPilot hazırlığı) APM32’li kartta karşılanmayabilir; (b) Betaflight’ta APM32F405 ayrı MCU derlemesi olabilir → STM32 ALT ile “aynı yazılım imajı” ölçütü (SYS-095 d) tutmayabilir, kullanıcı yükleme sırasında doğru derlemeyi seçmeli; (c) VCAP/BOOT/USB/HSE farkları | Orta | SYS-056 “Kısmen”, kullanıcı yanlış yazılım yükler, destek yükü | DOG-023 (kaynak kodu araştırması, Ü-öncesi), DOG-112 (kart); `gomulu-yazilim`: BF config’in iki MCU’yu nasıl kapsadığı, AP hwdef/ChibiOS durumu; AP desteği yoksa seçenekler: ArduPilot SKU’sunda STM32F405RGT6 dizilir (aynı PCB, BOM varyantı) veya SYS-056 için DT; sonuç müşteriye (SOR-018) | Açık (2026-11-12) |
+| RSK-021 | Muadil kuralı (SYS-095): bazı kritik parçaların pin/ayak izi uyumlu ve aynı yazılımla tanınan muadili yok (EFM8BB21F16I 125 °C — Bluejay yalnız EFM8BB21/BB51; AT7456E — MAX7456/AT7456 stok 0; W25Q128JV — ucuz muadiller ArduPilot’ta yok; INA281B2 SOT-23-5 — INA240 ALT’ı farklı kılıf); muadil eklemek ayak izini büyütebilir veya pahalı ALT getirir | Orta | İstisna listesi uzar, seri üretimde tek kaynak riski kalır; ayak izi büyürse FMU alanı | `bom-tedarik` + `sematik-muhendisi` erken tarama (DOG-110, şematik Rev B öncesi); istisnalar müşteriye gerekçeyle bildirilir; peşin alım önlemi | Açık (2026-11-12) |
 
 ## Değişiklik talepleri (DT)
 
@@ -44,6 +47,7 @@
 | DT-002 | FMU (M1 F405) gereksinimlerinin hedef ürün ailesine (M3 8S FMU, M4a Dual-ESC, M4/M5 F7/H7, ArduPilot) göre güncellenmesi. Müşteri: “F405 için gereksinimleri hedef ürünü göz önüne alarak yap” (2026-11-10) | SYS-002, 003, 022, 035, 037, 042, 044, 050, 055, 062 (Değişti); SYS-004, 023, 046, 056, 057 (yeni); MUS-010…013; KRR-005…007; DOG-002, -003, -021, -022, -030, -031, -034, -041, -045, -049, -057, -062, -063 (değişti), DOG-091…103 (yeni); RSK-014…016; SOR-013…017; SOR-017 cevabıyla SYS-061, 063 ve DOG-061, -064 değişti, DOG-109 yeni (2026-11-11). Etki analizi aşağıda | Onaylı (müşteri, 2026-11-11; SOR-013, 014, 016, 017 cevaplandı, itiraz yok; SOR-015 açık) |
 | DT-003 | Yüksek sıcaklık: kart yüksek sıcaklığa çıkar, bileşenler buna göre seçilir. Müşteri: “Kart yüksek derecelere çıkar. Ona göre komponentleri güncelle.” (2026-11-11) | MUS-014; SYS-083 (Değişti); SYS-085, 086, 087 (yeni, Taslak); KRR-008; DOG-082 (değişti), DOG-104…108 (yeni); RSK-004, 017, 018; BOM (ESC, FMU). Etki analizi aşağıda | İhtiyaç onaylı (müşteri talebi, 2026-11-11); [öneri] değerler `bom-tedarik`/`sistem-mimari` doğrulaması sonrası müşteriye bildirilir |
 | DT-004 | Maliyet hedefi ≤ 28 $ → ≤ 32 $/stack (100 set), tüm özellikler kalır; DT-001’i günceller. Gerekçe: SYS-014 uyumlu Rev B ESC + FMU düzeltmeleri 31.69 $ (`docs/bom-maliyet.md` §9.4) | PRJ-004, SYS-002, DOG-002, RSK-004 | Onaylı (müşteri, 2026-11-11, SOR-016) |
+| DT-005 | Seri üretim tedarik ve maliyet kararları (müşteri, 2026-11-12): (1) SYS-030 → “STM32F405RG veya pin ve yazılım uyumlu APM32F405RG; seri varsayılan APM32F405RGT6, STM32F405RGT6 drop-in muadil” (KRR-010); (2) yeni MUS-016 / SYS-095 kritik parçalarda drop-in muadil (KRR-011); (3) SYS-042 küçük kılıf notu; (4) `docs/bom-maliyet.md` §10 A1–A7, B1–B6 gereksinim değişmeden kabul, C2–C6 reddedildi | SYS-030 (Değişti), SYS-095 (yeni), SYS-042 (not), SYS-091 (ilişki); MUS-016; KRR-010, KRR-011; DOG-023, -041, -100, -101 (değişti), DOG-110…112 (yeni); RSK-004, 017 (güncellendi), RSK-019…021 (yeni); SOR-018; PRJ-004 durumu. Etki analizi aşağıda | Onaylı (müşteri, 2026-11-12) |
 
 ### DT-002 etki analizi (2026-11-10, müşteri onayı 2026-11-11; `gereksinim-muhendisi`; girdi `sistem-mimari` `docs/mimari-fmu.md`, `docs/pin-haritasi.md`)
 
@@ -125,6 +129,47 @@
 **Maliyet etkisi:** henüz hesaplanmadı (TBD, `bom-tedarik`): STM32F405RGT7 − RGT6 farkı, 4 × EFM8BB21 I − G farkı, 125 °C IC muadilleri, X7R C_boot (≈ 0). Bütçe ≤ 32 $ (DT-004) içinde pay 0.31 $ → RSK-004. Aşılırsa yeni DT ile müşteriye seçenek sunulur.
 
 **İP etkisi:** İP-02’ye DOG-106/107/109 (BOM sıcaklık sınıfı, set kondansatörü); İP-03’e DOG-104; İP-05/06’ya SYS-086/087 parça ve yerleşim kuralları; İP-08/11’e DOG-105/108.
+
+### DT-005 etki analizi (2026-11-12, `gereksinim-muhendisi`; girdi `docs/bom-maliyet.md` §10)
+
+**Müşteri kararları (özet):** muadil kuralı (“Tasarımda değişiklik yapmadan yerine muadil komponent takabilmek isterim.”); “A ve B uygun.”; AMS1117 SOT-223 karta sığmayabilir; “C’deki APM de uygun, gereksinimi gevşet. APM32F405 kullan.”; “C’deki riskli durumları boşver, güvenli yerde kalalım.”
+
+**Değişen / yeni SYS:**
+
+| SYS | Değişiklik | Durum |
+|---|---|---|
+| SYS-030 | “Resmî STM32F405” → STM32F405RG veya pin/yazılım uyumlu APM32F405RG; seri APM32F405RGT6, ALT STM32F405RGT6 | Onaylı (DT-005) |
+| SYS-095 | Yeni: kritik parçalarda drop-in muadil, ALT MPN/LCSC, ortak ayak izi, aynı yazılım imajı, gerekçeli istisna listesi | Onaylı (yeni) |
+| SYS-042 | Not: 3.3 V regülatörü küçük kılıf (SOT-223 değil) [öneri]; ölçütler aynı | Onaylı (DT-002; not DT-005) |
+
+**Gereksinim değişmeden kabul edilen §10 maddeleri (uygulama şartlı):**
+
+| Madde | Şart (inceleme) | İlgili SYS / DOG |
+|---|---|---|
+| A1, A3–A7 | Yok; `sematik-muhendisi` kodları girer. A7 (Standard dizgi) JLC teklifiyle doğrulanır | SYS-002, 091; DOG-002 |
+| A2 (AMS1117 UMW SOT-223) | **Geçersiz:** SYS-042 küçük kılıf notu; `guc-elektronigi` küçük kılıflı LDO + pin uyumlu ALT seçer | SYS-042, 095; DOG-041 |
+| B1 SPA06-003 baro | `gomulu-yazilim`: BF `dps310` sürücüsü PROD_ID 0x11, AP `SPL06` (Copter ≥ 4.6.3); ALT Tokmas/Infineon DPS368 aynı imajda tanınmalı (AP hwdef’te iki BARO satırı); `pcb-muhendisi`: LGA-8 ped ölçüsü | SYS-032, 056, 087, 095; DOG-025, -026, -100 |
+| B2 INA281B2 | `guc-elektronigi`: SYS-021 tolerans bütçesi (DOG-019), PWM ortak kip; `gomulu-yazilim`: `ibata_scale` 200; SYS-095 için SOT-23-5 pin uyumlu ALT bulunmalı (INA240A3 SOIC-8 drop-in değil) | SYS-020, 021, 086, 095; DOG-017, -019, -106 |
+| B3–B6 | `guc-elektronigi`: B3 USB’de 5 V rayı ≈ 4.5 V (AT7456E alt sınır), B4 5 V FB (SYS-040), B5 T_J, B6 PVDD; `pcb-muhendisi` B5 SOD-323 | SYS-034, 036, 040, 016, 086 |
+
+**Reddedilen (C2–C6):** INA186A3 (SYS-021), BMI270 (SYS-031, 8 kHz yok), PUYA flash (SYS-056, AP’de yok), baro çıkar (SYS-032), flash çıkar (SYS-033, 056). İlgili SYS değişmez. Ayrıca C3/C4 parçaları SYS-095 muadili olarak da kullanılmaz (aynı gerekçe).
+
+**Değişmeyen ama ilgili:** SYS-050 (pin ataması aynı; BF config APM32 için ayrı MCU tanımı gerekebilir, RSK-020), SYS-055 (USB DFU, APM32’de DOG-112), SYS-056 (AP; RSK-020), SYS-087 (APM32F405RGT6 −40…85 °C, FMU kuralı ≥ 85 °C ✓ — veri sayfasıyla doğrulanır), SYS-091 (ALT stoğu bilgi amaçlı), SYS-086 (ESC ALT’ları da ≥ 125 °C).
+
+**Tasarım öğeleri:**
+
+| Öğe | Etki | Sahip / İP |
+|---|---|---|
+| FMU şematik | U201 APM32F405RGT6 ana, STM32F405RGT6 ALT; VCAP/BOOT/HSE farkı varsa iki parçayı karşılayan devre; U103 küçük kılıflı LDO; tüm kritik parçalarda ALT MPN/ALT LCSC alanları; §10.7 A/B değişiklikleri | sematik-muhendisi / İP-05 |
+| ESC şematik | U2 INA281B2 + SOT-23-5 ALT; JW5026 yerine/yanına muadil çifti (RSK-019); sürücü, MOSFET, LDO, TVS ALT alanları | sematik-muhendisi, guc-elektronigi / İP-05 |
+| PCB | Ortak ayak izleri (iki veri sayfası ped önerisini kapsayan) | pcb-muhendisi / İP-06 |
+| BOM | ALT MPN/ALT LCSC sütunları, istisna listesi, ALT stok/fiyat | bom-tedarik / İP-02 |
+| `firmware/` | BF config APM32F405 + STM32F405; AP hwdef APM32 durumu; baro iki sürücü; `ibata_scale` | gomulu-yazilim / İP-07 |
+| `test/` | DOG-111 (ALT takılı kart), DOG-112 (APM32 BF/AP/DFU) prosedürü; 5 set dizgisinde ALT’lı kart sayısı | test-muhendisi / İP-08, İP-11 |
+
+**Maliyet etkisi:** A + B (B1–B6) + APM32 ≈ 29.97 $/stack (§10.6) ≤ 32 $ (PRJ-004) ✓; A2’nin yerini alan küçük kılıflı LDO farkı ±0.1 $ (TBD, `bom-tedarik`); ALT parçalar yalnız dizilen partide maliyete girer. RSK-004 “Azaltıldı”.
+
+**İP etkisi:** İP-02’ye DOG-110 ve istisna listesi; İP-05’e ALT alanları ve MCU/LDO; İP-07’ye DOG-023 yazılım kısmı, DOG-100; İP-11’e DOG-111, DOG-112.
 
 ## İş paketleri (İP)
 
